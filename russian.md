@@ -12,9 +12,9 @@
 
 [Комментируйте код, предпочитайте читаемые имена методов комментариям](#Комментируйте-код-предпочитайте-читаемые-имена-методов-комментариям)
 
-[Выносите JS и CSS из шаблонов Blade и HTML из PHP кода](#Выносите-js-и-css-из-шаблонов-Blade-и-html-из-php-кода)
+[Выносите JS и CSS из шаблонов Blade и HTML из PHP кода](#Выносите-js-и-css-из-шаблонов-blade-и-html-из-php-кода)
 
-[Предпочитайте Eloquent конструктору запросов (query builder) и сырым запросам в БД. Предпочитайте работу с коллекциями работе с массивами](#Предпочитайте-Eloquent-конструктору-запросов-query-builder-и-сырым-запросам-в-бд-Предпочитайте-работу-с-коллекциями-работе-с-массивами)
+[Предпочитайте Eloquent конструктору запросов (query builder) и сырым запросам в БД. Предпочитайте работу с коллекциями работе с массивами](#Предпочитайте-eloquent-конструктору-запросов-query-builder-и-сырым-запросам-в-БД-Предпочитайте-работу-с-коллекциями-работе-с-массивами)
 
 [Конфиги, языковые файлы и константы вместо текста в коде](#Конфиги-языковые-файлы-и-константы-вместо-текста-в-коде)
 
@@ -154,7 +154,7 @@ class PostRequest extends Request
 public function store(Request $request)
 {
     if ($request->hasFile('image')) {
-        $request->file('image')->move(base_path() . '/public/images/' . $name);
+        $request->file('image')->move(public_path('images') . 'temp');
     }
     
     ....
@@ -176,7 +176,7 @@ class ArticleService
     public function handleUploadedImage(Request $request)
     {
         if ($request->hasFile('image')) {
-            $request->file('image')->move(public_path('images') . DIRECTORY_SEPARATOR . $request->file('image')->getClientOriginalName(););
+            $request->file('image')->move(public_path('images') . 'temp');
         }
     }
 }
