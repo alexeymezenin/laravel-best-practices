@@ -8,15 +8,17 @@
 
 [Бизнес логика в сервис-классах](#Бизнес-логика-в-сервис-классах)
 
-[Короткий и читаемый синтаксис там, где это возможно](#Короткий-и-читаемый-синтаксис-там-где-это-возможно)
+[Предпочитайте Eloquent конструктору запросов (query builder) и сырым запросам в БД. Предпочитайте работу с коллекциями работе с массивами](#Предпочитайте-eloquent-конструктору-запросов-query-builder-и-сырым-запросам-в-БД-Предпочитайте-работу-с-коллекциями-работе-с-массивами)
+
+[Используйте массовое заполнение (mass assignment)](#Используйте-массовое-заполнение-mass-assignment)
 
 [Комментируйте код, предпочитайте читаемые имена методов комментариям](#Комментируйте-код-предпочитайте-читаемые-имена-методов-комментариям)
 
 [Выносите JS и CSS из шаблонов Blade и HTML из PHP кода](#Выносите-js-и-css-из-шаблонов-blade-и-html-из-php-кода)
 
-[Предпочитайте Eloquent конструктору запросов (query builder) и сырым запросам в БД. Предпочитайте работу с коллекциями работе с массивами](#Предпочитайте-eloquent-конструктору-запросов-query-builder-и-сырым-запросам-в-БД-Предпочитайте-работу-с-коллекциями-работе-с-массивами)
-
 [Конфиги, языковые файлы и константы вместо текста в коде](#Конфиги-языковые-файлы-и-константы-вместо-текста-в-коде)
+
+[Короткий и читаемый синтаксис там, где это возможно](#Короткий-и-читаемый-синтаксис-там-где-это-возможно)
 
 ### **Принцип единственной ответственности (Single responsibility principle)**
 
@@ -184,33 +186,57 @@ class ArticleService
 
 [⬆ Наверх](#Содержание)
 
-### **Короткий и читаемый синтаксис там, где это возможно**
+### **Никакой логики в маршрутах**
+
+
+### **Предпочитайте Eloquent конструктору запросов (query builder) и сырым запросам в БД. Предпочитайте работу с коллекциями работе с массивами**
+
+Eloquent позволяет писать максимально читаемый код, а изменять функционал приложения несоизмеримо легче. У Eloquent также есть ряд удобных и мощных инструментов.
 
 Плохо:
 
 ```
-Session::get('cart');
-$request->input('name');
+SELECT *
+FROM `articles`
+WHERE EXISTS (SELECT *
+              FROM `users`
+              WHERE `articles`.`user_id` = `users`.`id`
+              AND EXISTS (SELECT *
+                          FROM `profiles`
+                          WHERE `profiles`.`user_id` = `users`.`id`) 
+              AND `users`.`deleted_at` IS NULL)
+AND `verified` = '1'
+AND `active` = '1'
+ORDER BY `created_at` DESC
 ```
 
 Хорошо:
 
 ```
-session('cart');
-$request->name;
+Article::has('user.profile')->verified()->latest()->get();
 ```
 
-Еще примеры:
+[⬆ Наверх](#Содержание)
 
-Часто используемый синтаксис | Более короткий и читаемый синтаксис
------------- | -------------
-Session::get('cart') | session('cart')
-$request->session()-get('cart') | session('cart')
-Session::put('cart', $data) | session(['cart' => $data])
-$request->input('name') | $request->name
-Request::get('name') | request('name')
-return Redirect::back() | return back()
-return view('index')->with('title', $title)->with('client', $client) | return view('index', compact('title', 'client'))
+### **Используйте массовое заполнение (mass assignment)**
+
+Плохо:
+
+```
+$article = new Article;
+$article->title = $request->title;
+$article->content = $request->content;
+$article->verified = $request->verified;
+// Привязать статью к категории.
+$article->category_id = $category->id;
+$article->save();
+```
+
+Хорошо:
+
+```
+$category->article()->create($request()->all());
+```
 
 [⬆ Наверх](#Содержание)
 
@@ -259,35 +285,6 @@ let article = $('#article').val();
 
 [⬆ Наверх](#Содержание)
 
-### **Предпочитайте Eloquent конструктору запросов (query builder) и сырым запросам в БД. Предпочитайте работу с коллекциями работе с массивами**
-
-Eloquent позволяет писать максимально читаемый код, а изменять функционал приложения несоизмеримо легче. У Eloquent также есть ряд удобных и мощных инструментов.
-
-Плохо:
-
-```
-SELECT *
-FROM `articles`
-WHERE EXISTS (SELECT *
-              FROM `users`
-              WHERE `publications`.`user_id` = `users`.`id`
-              AND EXISTS (SELECT *
-                          FROM `profiles`
-                          WHERE `profiles`.`user_id` = `users`.`id`) 
-              AND `users`.`deleted_at` IS NULL)
-AND `verified` = '1'
-AND `active` = '1'
-ORDER BY `created_at` DESC
-```
-
-Хорошо:
-
-```
-Article::has('user.profile')->verified()->latest()->get();
-```
-
-[⬆ Наверх](#Содержание)
-
 ### **Конфиги, языковые файлы и константы вместо текста в коде**
 
 Непосредственно в коде не должно быть никакого текста.
@@ -313,3 +310,33 @@ public function isNormal ()
 
 return back()->with('message', __('app.article_added'));
 ```
+
+### **Короткий и читаемый синтаксис там, где это возможно**
+
+Плохо:
+
+```
+Session::get('cart');
+$request->input('name');
+```
+
+Хорошо:
+
+```
+session('cart');
+$request->name;
+```
+
+Еще примеры:
+
+Часто используемый синтаксис | Более короткий и читаемый синтаксис
+------------ | -------------
+Session::get('cart') | session('cart')
+$request->session()-get('cart') | session('cart')
+Session::put('cart', $data) | session(['cart' => $data])
+$request->input('name') | $request->name
+Request::get('name') | request('name')
+return Redirect::back() | return back()
+return view('index')->with('title', $title)->with('client', $client) | return view('index', compact('title', 'client'))
+
+[⬆ Наверх](#Содержание)
