@@ -1,3 +1,5 @@
+Хорошие практики при работе с фреймворком Laravel.
+
 ## Содержание
 
 [Принцип единственной ответственности (Single responsibility principle)](#Принцип-единственной-ответственности-single-responsibility-principle)
@@ -8,6 +10,8 @@
 
 [Бизнес логика в сервис-классах](#Бизнес-логика-в-сервис-классах)
 
+[Не повторяйся (DRY)](#Не-повторяйся-dry)
+
 [Предпочитайте Eloquent конструктору запросов (query builder) и сырым запросам в БД. Предпочитайте работу с коллекциями работе с массивами](#Предпочитайте-eloquent-конструктору-запросов-query-builder-и-сырым-запросам-в-БД-Предпочитайте-работу-с-коллекциями-работе-с-массивами)
 
 [Используйте массовое заполнение (mass assignment)](#Используйте-массовое-заполнение-mass-assignment)
@@ -16,9 +20,17 @@
 
 [Выносите JS и CSS из шаблонов Blade и HTML из PHP кода](#Выносите-js-и-css-из-шаблонов-blade-и-html-из-php-кода)
 
+[Используйте инструменты и практики принятые сообществом](#Используйте-инструменты-и-практики-принятые-сообществом)
+
+[Соблюдайте соглашения сообщества](#Соблюдайте-соглашения-сообщества)
+
 [Конфиги, языковые файлы и константы вместо текста в коде](#Конфиги-языковые-файлы-и-константы-вместо-текста-в-коде)
 
 [Короткий и читаемый синтаксис там, где это возможно](#Короткий-и-читаемый-синтаксис-там-где-это-возможно)
+
+[Используйте IoC или фасады вместо new Class](#Используйте-ioc-или-фасады-вместо-new-class)
+
+[Другие советы и практики](#Другие-советы-и-практики)
 
 ### **Принцип единственной ответственности (Single responsibility principle)**
 
@@ -65,16 +77,16 @@ public function getFullNameShort()
 
 ### **Тонкие контроллеры, толстые модели**
 
-Это лишь один из частных случаев принципа единой ответственности. Выносите работу с данными в классы-модели при работе с Eloquent или в классы-репозитории при работе с Query Builder и "сырыми" SQL запросами.
+По своей сути, это лишь один из частных случаев принципа единой ответственности. Выносите работу с данными в модели при работе с Eloquent или в репозитории при работе с Query Builder или "сырыми" SQL запросами.
 
 Плохо:
 
 ```
-public gunction index()
+public function index()
 {
     $clients = Client::verified()
         ->with(['orders' => function ($q) {
-            $q->where('created_at', '<', Carbon::today()->subWeek());
+            $q->where('created_at', '>', Carbon::today()->subWeek());
         }])
         ->get();
 
@@ -83,8 +95,9 @@ public gunction index()
 ```
 
 Хорошо:
+
 ```
-public gunction index()
+public function index()
 {
     return view('index', ['clients' => $this->client->getWithNewOrders()]);
 }
@@ -95,7 +108,7 @@ Class Client extends Model
     {
         return $this->verified()
             ->with(['orders' => function ($q) {
-                $q->where('created_at', '<', Carbon::today()->subWeek());
+                $q->where('created_at', '>', Carbon::today()->subWeek());
             }])
             ->get();
     }
@@ -106,7 +119,7 @@ Class Client extends Model
 
 ### **Валидация**
 
-Следуя принципу тонкого контроллера, выносите валидацию из контроллера в Request классы.
+Следуя принципам тонкого контроллера и SRP, выносите валидацию из контроллера в Request классы.
 
 Плохо:
 
@@ -148,7 +161,7 @@ class PostRequest extends Request
 
 ### **Бизнес логика в сервис-классах**
 
-Контроллер - это связующее звено приложения и он не должен делать ничего кроме этой единственной задачи. Выносите всю бизнес логику в отдельные классы и сервис-классы.
+Контроллер должен выполнять только свои прямые обязанности, поэтому выносите всю бизнес логику в отдельные классы и сервис классы.
 
 Плохо:
 
@@ -186,8 +199,48 @@ class ArticleService
 
 [⬆ Наверх](#Содержание)
 
-### **Никакой логики в маршрутах**
+### **Не повторяйся (DRY)**
 
+Этот принцип призывает вас переиспользовать код везде, где это возможно. Если вы следуете принципу SRP, вы уже избегаете повторений, но Laravel позволяет вам также переиспользовать представления, части Eloquent запросов и т.д.
+
+Плохо:
+
+```
+public function getActive()
+{
+    return $this->where('verified', 1)->whereNotNull('deleted_at')->get();
+}
+
+public function getArticles()
+{
+    return $this->whereHas('user', function ($q) {
+            $q->where('verified', 1)->whereNotNull('deleted_at');
+        })->get();
+}
+```
+
+Хорошо:
+
+```
+public function scopeActive($q)
+{
+    return $q->where('verified', 1)->whereNotNull('deleted_at');
+}
+
+public function getActive()
+{
+    return $this->active()->get();
+}
+
+public function getArticles()
+{
+    return $this->whereHas('user', function ($q) {
+            $q->active();
+        })->get();
+}
+```
+
+[⬆ Наверх](#Содержание)
 
 ### **Предпочитайте Eloquent конструктору запросов (query builder) и сырым запросам в БД. Предпочитайте работу с коллекциями работе с массивами**
 
@@ -297,7 +350,7 @@ public function isNormal ()
     return $article->type === 'normal';
 }
 
-return back()->with('message', 'Статья была успешно добавлена');
+return back()->with('message', 'Ваша статья была успешно добавлена');
 ```
 
 Хорошо:
@@ -311,12 +364,43 @@ public function isNormal ()
 return back()->with('message', __('app.article_added'));
 ```
 
+[⬆ Наверх](#Содержание)
+
+### **Используйте инструменты и практики принятые сообществом**
+
+Laravel имеет встроенные инструменты для решения часто встречаемых задач. Изучите документацию и используйте Request классы для валидации, политики для авторизации, Mix для работы с JS и CSS, Dusk и phpunit для тестов, Eloquent для работы с БД, Passport для аутентификации при работе с API, коллекции вместо массивов, миграции для создания таблиц, Seeder классы для создания тестовых данных и т.д. Предпочитайте использовать встроенный функционал использованию сторонних пакетов и инструментов.
+
+Дело в том, что Laravel разработчику, пришедшему в проект после вас, придется изучать и работать с новым для него инструментом, со всеми вытекающими. Получить помощь от сообщества будет также гораздо труднее. Не заставляйте клиента или работодателя платить за ваши велосипеды.
+
+[⬆ Наверх](#Содержание)
+
+### **Соблюдайте соглашения сообщества**
+
+ Следуйте [стандартам PSR](http://www.php-fig.org/psr/psr-2/) при написании кода. Соблюдайте cоглашения об именовании.
+
+Что | Хорошо | Плохо
+------------ | ------------- | -------------
+Контроллер | ArticleController | ArticlesController
+Модель | User | Users
+Таблица | articles | article
+Столбец в таблице | meta_title | MetaTitle; article_meta_title
+Cвойство модели | metaTitle | meta_title
+Миграция | 2017_01_01_000000_create_articles_table | 2017_01_01_000000_articles
+Метод | getAll | get_all
+Метод в контроллере ресурсов | store | saveArticle
+Метод в тесте | testGuestCannotSeeArticle | test_guest_cannot_see_article
+Переменные | $articlesWithAuthor | $articles_with_author
+Переменные в конфиге, языковых файлах | articles_enabled | ArticlesEnabled; articles-enabled
+Представления (view) | show_filtered.blade.php | showFiltered.blade.php; show-filtered.blade.php
+
+[⬆ Наверх](#Содержание)
+
 ### **Короткий и читаемый синтаксис там, где это возможно**
 
 Плохо:
 
 ```
-Session::get('cart');
+$request->session()->get('cart');
 $request->input('name');
 ```
 
@@ -332,11 +416,45 @@ $request->name;
 Часто используемый синтаксис | Более короткий и читаемый синтаксис
 ------------ | -------------
 Session::get('cart') | session('cart')
-$request->session()-get('cart') | session('cart')
+$request->session()->get('cart') | session('cart')
 Session::put('cart', $data) | session(['cart' => $data])
 $request->input('name') | $request->name
 Request::get('name') | request('name')
 return Redirect::back() | return back()
 return view('index')->with('title', $title)->with('client', $client) | return view('index', compact('title', 'client'))
+
+[⬆ Наверх](#Содержание)
+
+### **Используйте IoC или фасады вместо new Class**
+
+Внедрение классов через синтаксис new Class создает сильное сопряжение между частями приложения и усложняет тестирование. Используйте контейнер или фасады.
+
+Плохо:
+
+```
+$user = new User;
+$user->create($request()->all());
+```
+
+Хорошо:
+
+```
+public function __construct(User $user)
+{
+    $this->user = $user;
+}
+
+....
+
+$this->user->create($request()->all());
+```
+
+[⬆ Наверх](#Содержание)
+
+### **Другие советы и практики**
+
+Не размещайте логику в маршрутах.
+
+Не используйте сырой PHP в шаблонах Blade.
 
 [⬆ Наверх](#Содержание)
