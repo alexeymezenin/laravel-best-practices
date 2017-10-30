@@ -1,5 +1,7 @@
 ![Хорошие практики Laravel](/images/logo-russian.png?raw=true)
 
+Это не пересказ лучших практик вроде SOLID, паттернов и пр. с адаптацией под Laravel. Здесь собраны именно практики, которые игнорируются в реальных Laravel проектах.
+
 ## Содержание
 
 [Принцип единственной ответственности (Single responsibility principle)](#Принцип-единственной-ответственности-single-responsibility-principle)
@@ -327,8 +329,11 @@ let article = `{{ json_encode($article) }}`;
 Лучше:
 
 ```
-<input id="article" tyoe="hidden" value="{{ json_encode($article) }}">
+<input id="article" type="hidden" value="{{ json_encode($article) }}">
 
+Или:
+
+<button class="js-fav-article" data-article="{{ json_encode($article) }}">{{ $article->name }}<button>
 ....
 
 let article = $('#article').val();
@@ -376,7 +381,9 @@ Laravel имеет встроенные инструменты для решен
 
 ### **Соблюдайте соглашения сообщества**
 
- Следуйте [стандартам PSR](http://www.php-fig.org/psr/psr-2/) при написании кода. Соблюдайте cоглашения об именовании.
+ Следуйте [стандартам PSR](http://www.php-fig.org/psr/psr-2/) при написании кода.
+ 
+ Также, соблюдайте cоглашения об именовании.
 
 Что | Хорошо | Плохо
 ------------ | ------------- | -------------
