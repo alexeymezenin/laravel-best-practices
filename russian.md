@@ -331,11 +331,14 @@ let article = `{{ json_encode($article) }}`;
 ```
 <input id="article" type="hidden" value="{{ json_encode($article) }}">
 
-Или:
+Или
 
 <button class="js-fav-article" data-article="{{ json_encode($article) }}">{{ $article->name }}<button>
-....
+```
 
+В Javascript файле:
+
+```
 let article = $('#article').val();
 ```
 
