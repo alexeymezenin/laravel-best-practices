@@ -353,7 +353,7 @@ let article = $('#article').val();
 Плохо:
 
 ```
-public function isNormal ()
+public function isNormal()
 {
     return $article->type === 'normal';
 }
@@ -364,7 +364,7 @@ return back()->with('message', 'Ваша статья была успешно д
 Хорошо:
 
 ```
-public function isNormal ()
+public function isNormal()
 {
     return $article->type === Article::TYPE_NORMAL;
 }
