@@ -36,7 +36,7 @@
 
 ### **Принцип единственной ответственности (Single responsibility principle)**
 
-Каждый класс и метод должны выполнять лишь одно действие.
+Каждый класс и метод должны выполнять лишь одну функцию.
 
 Плохо:
 
@@ -183,17 +183,17 @@ public function store(Request $request)
 ```
 public function store(Request $request)
 {
-    $this->articleService->handleUploadedImage($request);
+    $this->articleService->handleUploadedImage($request->file('image'));
 
     ....
 }
 
 class ArticleService
 {
-    public function handleUploadedImage(Request $request)
+    public function handleUploadedImage($image)
     {
-        if ($request->hasFile('image')) {
-            $request->file('image')->move(public_path('images') . 'temp');
+        if (!is_null($image)) {
+            $image->move(public_path('images') . 'temp');
         }
     }
 }
