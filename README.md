@@ -83,7 +83,7 @@ public function getFullNameShort()
 }
 ```
 
-[🔝 Back to contents](#Contents)
+[🔝 Back to contents](#contents)
 
 ### **Fat models, skinny controllers**
 
@@ -125,7 +125,7 @@ Class Client extends Model
 }
 ```
 
-[🔝 Back to contents](#Contents)
+[🔝 Back to contents](#contents)
 
 ### **Validation**
 
@@ -167,7 +167,7 @@ class PostRequest extends Request
 }
 ```
 
-[🔝 Back to contents](#Contents)
+[🔝 Back to contents](#contents)
 
 ### **Business logic should be in service class**
 
@@ -207,7 +207,7 @@ class ArticleService
 }
 ```
 
-[🔝 Back to contents](#Contents)
+[🔝 Back to contents](#contents)
 
 ### **Don't repeat yourself (DRY)**
 
@@ -250,7 +250,7 @@ public function getArticles()
 }
 ```
 
-[🔝 Back to contents](#Contents)
+[🔝 Back to contents](#contents)
 
 ### **Prefer to use Eloquent over using Query Builder and raw SQL queries. Prefer collections over arrays**
 
@@ -279,7 +279,7 @@ Good:
 Article::has('user.profile')->verified()->latest()->get();
 ```
 
-[🔝 Back to contents](#Contents)
+[🔝 Back to contents](#contents)
 
 ### **Mass assignment**
 
@@ -301,7 +301,7 @@ Good:
 $category->article()->create($request()->all());
 ```
 
-[🔝 Back to contents](#Contents)
+[🔝 Back to contents](#contents)
 
 ### **Do not execute queries in Blade templates and use eager loading (N + 1 problem)**
 
@@ -325,7 +325,7 @@ $users = User::with('profile')->get();
 @endforeach
 ```
 
-[🔝 Back to contents](#Contents)
+[🔝 Back to contents](#contents)
 
 ### **Comment your code, but prefer descriptive method and variable names over comments**
 
@@ -348,7 +348,7 @@ Good:
 if ($this->hasJoins())
 ```
 
-[🔝 Back to contents](#Contents)
+[🔝 Back to contents](#contents)
 
 ### **Do not put JS and CSS in Blade templates and do not put any HTML in PHP classes**
 
@@ -376,7 +376,7 @@ let article = $('#article').val();
 
 The best way is to use specialized PHP to JS package to transfer the data.
 
-[🔝 Back to contents](#Contents)
+[🔝 Back to contents](#contents)
 
 ### **Use config and language files, constants instead of text in the code**
 
@@ -402,7 +402,7 @@ public function isNormal()
 return back()->with('message', __('app.article_added'));
 ```
 
-[🔝 Back to contents](#Contents)
+[🔝 Back to contents](#contents)
 
 ### **Use standard Laravel tools accepted by community**
 
@@ -430,9 +430,9 @@ Generating testing data | Seeder classes, Model Factories, Faker | Creating test
 Task scheduling | Laravel Task Scheduler | Scripts and 3rd party packages
 DB | MySQL, PostgreSQL, SQLite, SQL Server | MongoDB
 
-[🔝 Back to contents](#Contents)
+[🔝 Back to contents](#contents)
 
-### **Use shorter and more readable syntax where possible**
+### **Follow Laravel naming conventions**
 
  Follow [PSR standards](http://www.php-fig.org/psr/psr-2/).
  
@@ -463,7 +463,7 @@ View | show_filtered.blade.php | ~~showFiltered.blade.php; show-filtered.blade.p
 Contract (interface): adjective or noun | Authenticatable | ~~AuthenticationInterface, IAuthentication~~
 Trait: adjective | Notifiable | ~~NotificationTrait~~
 
-[🔝 Back to contents](#Contents)
+[🔝 Back to contents](#contents)
 
 ### **Use shorter and more readable syntax where possible**
 
@@ -493,7 +493,7 @@ Common syntax | Shorter and more readable syntax
 `return Redirect::back()` | `return back()`
 `return view('index')->with('title', $title)->with('client', $client)` | `return view('index', compact('title', 'client'))`
 
-[🔝 Back to contents](#Contents)
+[🔝 Back to contents](#contents)
 
 ### **Use IoC container or facades instead of new Class**
 
@@ -519,7 +519,7 @@ public function __construct(User $user)
 $this->user->create($request()->all());
 ```
 
-[🔝 Back to contents](#Contents)
+[🔝 Back to contents](#contents)
 
 ### **Other good practices**
 
@@ -527,4 +527,4 @@ Never put any logic in routes files.
 
 Try not to use vanilla PHP in Blade templates.
 
-[🔝 Back to contents](#Contents)
+[🔝 Back to contents](#contents)
