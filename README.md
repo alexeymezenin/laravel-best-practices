@@ -459,8 +459,8 @@ Variable | $articlesWithAuthor | ~~$articles_with_author~~
 Collection: descriptive, plural | $activeUsers = User::active()->get() | ~~$active, $data~~
 Object: descriptive, singular | $activeUser = User::active()->first() | ~~$users, $obj~~
 Config and language files index | articles_enabled | ~~ArticlesEnabled; articles-enabled~~
-View | show_filtered.blade.php | ~~showFiltered.blade.php; show-filtered.blade.php~~
-Config | google_calendar.php | ~~googleCalendar.php; google-calendar.php~~
+View | show_filtered.blade.php | ~~showFiltered.blade.php, show-filtered.blade.php~~
+Config | google_calendar.php | ~~googleCalendar.php, google-calendar.php~~
 Contract (interface): adjective or noun | Authenticatable | ~~AuthenticationInterface, IAuthentication~~
 Trait: adjective | Notifiable | ~~NotificationTrait~~
 

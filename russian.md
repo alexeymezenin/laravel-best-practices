@@ -455,8 +455,8 @@ Pivot таблица: имена моделей в алфавитном поря
 Коллекция: описательное, мн. ч. | $activeUsers = User::active()->get() | ~~$active, $data~~
 Объект: описательное, ед. ч. | $activeUser = User::active()->first() | ~~$users, $obj~~
 Индексы в конфиге и языковых файлах | articles_enabled | ~~ArticlesEnabled; articles-enabled~~
-Представление | show_filtered.blade.php | ~~showFiltered.blade.php; show-filtered.blade.php~~
-Конфигурационный файл | google_calendar.php | ~~googleCalendar.php; google-calendar.php~~
+Представление | show_filtered.blade.php | ~~showFiltered.blade.php, show-filtered.blade.php~~
+Конфигурационный файл | google_calendar.php | ~~googleCalendar.php, google-calendar.php~~
 Контракт (интерфейс): прилагательное или существительное | Authenticatable | ~~AuthenticationInterface, IAuthentication~~
 Трейт: прилагательное | Notifiable | ~~NotificationTrait~~
 
