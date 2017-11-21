@@ -442,7 +442,7 @@ How | Good | Bad
 ------------ | ------------- | -------------
 Controller: singular | ArticleController | ~~ArticlesController~~
 Route: plural | articles/1 | ~~article/1~~
-Named route | users.show_active | ~~ users.show-active, show-active-users~~
+Named route | users.show_active | ~~users.show-active, show-active-users~~
 Model: singular | User | ~~Users~~
 hasOne or belongsTo relationship: singular | articleComment | ~~articleComments, article_comment~~
 All other relationships: plural | articleComments | ~~articleComment, article_comments~~
@@ -460,6 +460,7 @@ Collection: descriptive, plural | $activeUsers = User::active()->get() | ~~$acti
 Object: descriptive, singular | $activeUser = User::active()->first() | ~~$users, $obj~~
 Config and language files index | articles_enabled | ~~ArticlesEnabled; articles-enabled~~
 View | show_filtered.blade.php | ~~showFiltered.blade.php; show-filtered.blade.php~~
+Config | google_calendar.php | ~~googleCalendar.php; google-calendar.php~~
 Contract (interface): adjective or noun | Authenticatable | ~~AuthenticationInterface, IAuthentication~~
 Trait: adjective | Notifiable | ~~NotificationTrait~~
 

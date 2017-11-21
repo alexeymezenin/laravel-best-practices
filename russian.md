@@ -438,7 +438,7 @@ e2e тестирование | Laravel Dusk | Codeception
 ------------ | ------------- | -------------
 Контроллер: ед. ч. | ArticleController | ~~ArticlesController~~
 Маршруты: мн. ч. | articles/1 | ~~article/1~~
-Имена маршрутов | users.show_active | ~~ users.show-active, show-active-users~~
+Имена маршрутов | users.show_active | ~~users.show-active, show-active-users~~
 Модель: ед. ч. | User | ~~Users~~
 Отношения hasOne и belongsTo: ед. ч. | articleComment | ~~articleComments, article_comment~~
 Все остальные отношения: мн. ч. | articleComments | ~~articleComment, article_comments~~
@@ -455,7 +455,8 @@ Pivot таблица: имена моделей в алфавитном поря
 Коллекция: описательное, мн. ч. | $activeUsers = User::active()->get() | ~~$active, $data~~
 Объект: описательное, ед. ч. | $activeUser = User::active()->first() | ~~$users, $obj~~
 Индексы в конфиге и языковых файлах | articles_enabled | ~~ArticlesEnabled; articles-enabled~~
-Представления | show_filtered.blade.php | ~~showFiltered.blade.php; show-filtered.blade.php~~
+Представление | show_filtered.blade.php | ~~showFiltered.blade.php; show-filtered.blade.php~~
+Конфигурационный файл | google_calendar.php | ~~googleCalendar.php; google-calendar.php~~
 Контракт (интерфейс): прилагательное или существительное | Authenticatable | ~~AuthenticationInterface, IAuthentication~~
 Трейт: прилагательное | Notifiable | ~~NotificationTrait~~
 
