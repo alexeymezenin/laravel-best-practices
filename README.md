@@ -442,17 +442,17 @@ What | How | Good | Bad
 ------------ | ------------- | ------------- | -------------
 Controller | singular | ArticleController | ~~ArticlesController~~
 Route | plural | articles/1 | ~~article/1~~
-Named route | - | users.show_active | ~~users.show-active, show-active-users~~
+Named route | snake_case with dot notation | users.show_active | ~~users.show-active, show-active-users~~
 Model | singular | User | ~~Users~~
 hasOne or belongsTo relationship | singular | articleComment | ~~articleComments, article_comment~~
 All other relationships | plural | articleComments | ~~articleComment, article_comments~~
 Table | plural | article_comments | ~~article_comment, articleComments~~
 Pivot table | singular model names in alphabet order | article_user | ~~user_article, articles_users~~
-Table column | - | meta_title | ~~MetaTitle; article_meta_title~~
+Table column | snake_case without model name | meta_title | ~~MetaTitle; article_meta_title~~
 Foreign key | singular model name with _id suffix | article_id | ~~ArticleId, id_article, articles_id~~
 Primary key | - | id | ~~custom_id~~
 Migration | - | 2017_01_01_000000_create_articles_table | ~~2017_01_01_000000_articles~~
-Method | - | getAll | ~~get_all~~
+Method | camelCase | getAll | ~~get_all~~
 Method in resource controller | [table](https://laravel.com/docs/master/controllers#resource-controllers) | store | ~~saveArticle~~
 Method in test class | camelCase | testGuestCannotSeeArticle | ~~test_guest_cannot_see_article~~
 Variable | camelCase | $articlesWithAuthor | ~~$articles_with_author~~
