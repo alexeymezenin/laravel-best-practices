@@ -434,31 +434,31 @@ e2e тестирование | Laravel Dusk | Codeception
  
  Также, соблюдайте другие cоглашения об именовании:
 
-Что | Хорошо | Плохо
+Что | Правило | Принято | Не принято
 ------------ | ------------- | -------------
-Контроллер: ед. ч. | ArticleController | ~~ArticlesController~~
-Маршруты: мн. ч. | articles/1 | ~~article/1~~
-Имена маршрутов | users.show_active | ~~users.show-active, show-active-users~~
-Модель: ед. ч. | User | ~~Users~~
-Отношения hasOne и belongsTo: ед. ч. | articleComment | ~~articleComments, article_comment~~
-Все остальные отношения: мн. ч. | articleComments | ~~articleComment, article_comments~~
-Таблица: мн. ч. | article_comments | ~~article_comment, articleComments~~
-Pivot таблица: имена моделей в алфавитном порядке в ед. ч. | article_user | ~~user_article, articles_users~~
-Столбец в таблице | meta_title | ~~MetaTitle; article_meta_title~~
-Внешний ключ: имя модели ед. ч. и _id | article_id | ~~ArticleId, id_article, articles_id~~
-Первичный ключ | id | ~~custom_id~~
-Миграция | 2017_01_01_000000_create_articles_table | ~~2017_01_01_000000_articles~~
-Метод | getAll | ~~get_all~~
-Метод в контроллере ресурсов ([таблица](https://laravel.com/docs/master/controllers#resource-controllers)) | store | ~~saveArticle~~
-Метод в тесте | testGuestCannotSeeArticle | ~~test_guest_cannot_see_article~~
-Переменные | $articlesWithAuthor | ~~$articles_with_author~~
-Коллекция: описательное, мн. ч. | $activeUsers = User::active()->get() | ~~$active, $data~~
-Объект: описательное, ед. ч. | $activeUser = User::active()->first() | ~~$users, $obj~~
-Индексы в конфиге и языковых файлах | articles_enabled | ~~ArticlesEnabled; articles-enabled~~
-Представление | show_filtered.blade.php | ~~showFiltered.blade.php, show-filtered.blade.php~~
-Конфигурационный файл | google_calendar.php | ~~googleCalendar.php, google-calendar.php~~
-Контракт (интерфейс): прилагательное или существительное | Authenticatable | ~~AuthenticationInterface, IAuthentication~~
-Трейт: прилагательное | Notifiable | ~~NotificationTrait~~
+Контроллер | ед. ч. | ArticleController | ~~ArticlesController~~
+Маршруты | мн. ч. | articles/1 | ~~article/1~~
+Имена маршрутов | | users.show_active | ~~users.show-active, show-active-users~~
+Модель | ед. ч. | User | ~~Users~~
+Отношения hasOne и belongsTo | ед. ч. | articleComment | ~~articleComments, article_comment~~
+Все остальные отношения | мн. ч. | articleComments | ~~articleComment, article_comments~~
+Таблица | мн. ч. | article_comments | ~~article_comment, articleComments~~
+Pivot таблица | имена моделей в алфавитном порядке в ед. ч. | article_user | ~~user_article, articles_users~~
+Столбец в таблице | | meta_title | ~~MetaTitle; article_meta_title~~
+Внешний ключ | имя модели ед. ч. и _id | article_id | ~~ArticleId, id_article, articles_id~~
+Первичный ключ | | id | ~~custom_id~~
+Миграция | | 2017_01_01_000000_create_articles_table | ~~2017_01_01_000000_articles~~
+Метод | | getAll | ~~get_all~~
+Метод в контроллере ресурсов | [таблица](https://laravel.com/docs/master/controllers#resource-controllers)) | store | ~~saveArticle~~
+Метод в тесте | | testGuestCannotSeeArticle | ~~test_guest_cannot_see_article~~
+Переменные | | $articlesWithAuthor | ~~$articles_with_author~~
+Коллекция | описательное, мн. ч. | $activeUsers = User::active()->get() | ~~$active, $data~~
+Объект | описательное, ед. ч. | $activeUser = User::active()->first() | ~~$users, $obj~~
+Индексы в конфиге и языковых файлах | | articles_enabled | ~~ArticlesEnabled; articles-enabled~~
+Представление | | show_filtered.blade.php | ~~showFiltered.blade.php, show-filtered.blade.php~~
+Конфигурационный файл | | google_calendar.php | ~~googleCalendar.php, google-calendar.php~~
+Контракт (интерфейс) | прилагательное или существительное | Authenticatable | ~~AuthenticationInterface, IAuthentication~~
+Трейт | прилагательное | Notifiable | ~~NotificationTrait~~
 
 [🔝 Наверх](#Содержание)
 
