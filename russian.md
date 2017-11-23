@@ -450,13 +450,13 @@ Pivot таблица | имена моделей в алфавитном пор�
 Миграция | - | 2017_01_01_000000_create_articles_table | ~~2017_01_01_000000_articles~~
 Метод | - | getAll | ~~get_all~~
 Метод в контроллере ресурсов | [таблица](https://laravel.com/docs/master/controllers#resource-controllers) | store | ~~saveArticle~~
-Метод в тесте | - | testGuestCannotSeeArticle | ~~test_guest_cannot_see_article~~
-Переменные | - | $articlesWithAuthor | ~~$articles_with_author~~
+Метод в тесте | camelCase | testGuestCannotSeeArticle | ~~test_guest_cannot_see_article~~
+Переменные | camelCase | $articlesWithAuthor | ~~$articles_with_author~~
 Коллекция | описательное, мн. ч. | $activeUsers = User::active()->get() | ~~$active, $data~~
 Объект | описательное, ед. ч. | $activeUser = User::active()->first() | ~~$users, $obj~~
 Индексы в конфиге и языковых файлах | - | articles_enabled | ~~ArticlesEnabled; articles-enabled~~
-Представление | - | show_filtered.blade.php | ~~showFiltered.blade.php, show-filtered.blade.php~~
-Конфигурационный файл | - | google_calendar.php | ~~googleCalendar.php, google-calendar.php~~
+Представление | snake_case | show_filtered.blade.php | ~~showFiltered.blade.php, show-filtered.blade.php~~
+Конфигурационный файл | snake_case | google_calendar.php | ~~googleCalendar.php, google-calendar.php~~
 Контракт (интерфейс) | прилагательное или существительное | Authenticatable | ~~AuthenticationInterface, IAuthentication~~
 Трейт | прилагательное | Notifiable | ~~NotificationTrait~~
 
