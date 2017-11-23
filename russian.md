@@ -435,7 +435,7 @@ e2e тестирование | Laravel Dusk | Codeception
  Также, соблюдайте другие cоглашения об именовании:
 
 Что | Правило | Принято | Не принято
------------- | ------------- | -------------
+------------ | ------------- | ------------- | -------------
 Контроллер | ед. ч. | ArticleController | ~~ArticlesController~~
 Маршруты | мн. ч. | articles/1 | ~~article/1~~
 Имена маршрутов | | users.show_active | ~~users.show-active, show-active-users~~
