@@ -292,7 +292,7 @@ $article->save();
 Хорошо:
 
 ```
-$category->article()->create($request()->all());
+$category->article()->create($request->all());
 ```
 
 [🔝 Наверх](#Содержание)
@@ -500,7 +500,7 @@ $request->name;
 
 ```
 $user = new User;
-$user->create($request()->all());
+$user->create($request->all());
 ```
 
 Хорошо:
@@ -513,7 +513,7 @@ public function __construct(User $user)
 
 ....
 
-$this->user->create($request()->all());
+$this->user->create($request->all());
 ```
 
 [🔝 Наверх](#Содержание)

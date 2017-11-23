@@ -298,7 +298,7 @@ $article->save();
 Good:
 
 ```
-$category->article()->create($request()->all());
+$category->article()->create($request->all());
 ```
 
 [🔝 Back to contents](#contents)
@@ -504,7 +504,7 @@ Bad:
 
 ```
 $user = new User;
-$user->create($request()->all());
+$user->create($request->all());
 ```
 
 Good:
@@ -517,7 +517,7 @@ public function __construct(User $user)
 
 ....
 
-$this->user->create($request()->all());
+$this->user->create($request->all());
 ```
 
 [🔝 Back to contents](#contents)
