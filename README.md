@@ -447,7 +447,7 @@ Model | singular | User | ~~Users~~
 hasOne or belongsTo relationship | singular | articleComment | ~~articleComments, article_comment~~
 All other relationships | plural | articleComments | ~~articleComment, article_comments~~
 Table | plural | article_comments | ~~article_comment, articleComments~~
-Pivot table | singular model names in alphabet order | article_user | ~~user_article, articles_users~~
+Pivot table | singular model names in alphabetical order | article_user | ~~user_article, articles_users~~
 Table column | snake_case without model name | meta_title | ~~MetaTitle; article_meta_title~~
 Foreign key | singular model name with _id suffix | article_id | ~~ArticleId, id_article, articles_id~~
 Primary key | - | id | ~~custom_id~~
