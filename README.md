@@ -290,7 +290,7 @@ $article = new Article;
 $article->title = $request->title;
 $article->content = $request->content;
 $article->verified = $request->verified;
-// Привязать статью к категории.
+// Add category to article
 $article->category_id = $category->id;
 $article->save();
 ```
@@ -368,7 +368,7 @@ Or
 <button class="js-fav-article" data-article="{{ json_encode($article) }}">{{ $article->name }}<button>
 ```
 
-В Javascript файле:
+In a Javascript file:
 
 ```
 let article = $('#article').val();
