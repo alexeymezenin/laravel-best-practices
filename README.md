@@ -191,7 +191,7 @@ Good:
 ```
 public function store(Request $request)
 {
-    $this->articleService->handleUploadedImage($request->file('image'));
+    $this->ArticleService->handleUploadedImage($request->file('image'));
 
     ....
 }
