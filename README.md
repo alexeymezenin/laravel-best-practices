@@ -537,7 +537,7 @@ $this->user->create($request->all());
 
 ### **Do not get data from the `.env` file directly**
 
-Do not get data from the `.env` file directly. Pass the data to config files instead and use `config()` helper function to get the data.
+Pass the data to config files instead and then use the `config()` helper function to use the data in an application.
 
 Bad:
 
