@@ -40,6 +40,10 @@ It's not a Laravel adaptation of SOLID principles, patterns etc. Here you'll fin
 
 [Use IoC container or facades instead of new Class](#use-ioc-container-or-facades-instead-of-new-class)
 
+[Do not get data from the `.env` file directly](#do-not-get-data-from-the-env-file-directly)
+
+[Store dates in the standard format. Use accessors and mutators to modify date format](#store-dates-in-the-standard-format-use-accessors-and-mutators-to-modify-date-format)
+
 [Other good practices](#other-good-practices)
 
 ### **Single responsibility principle**
@@ -489,10 +493,19 @@ Common syntax | Shorter and more readable syntax
 `Session::get('cart')` | `session('cart')`
 `$request->session()->get('cart')` | `session('cart')`
 `Session::put('cart', $data)` | `session(['cart' => $data])`
-`$request->input('name')` | `$request->name`
-`Request::get('name')` | `request('name')`
+`$request->input('name'), Request::get('name')` | `$request->name, request('name')`
 `return Redirect::back()` | `return back()`
+`is_null($object->relation) ? $object->relation->id : null }` | `optional($object->relation)->id`
 `return view('index')->with('title', $title)->with('client', $client)` | `return view('index', compact('title', 'client'))`
+`$request->has('value') ? $request->value : 'default';` | `$request->get('value', 'default')`
+`Carbon::now(), Carbon::today()` | `now(), today()`
+`App::make('Class')` | `app('Class')`
+`->where('column', '=', 1)` | `->where('column', 1)`
+`->orderBy('created_at', 'desc')` | `->latest()`
+`->orderBy('age', 'desc')` | `->latest('age')`
+`->orderBy('created_at', 'asc')` | `->oldest()`
+`->select('id', 'name')->get()` | `->get(['id', 'name'])`
+`->first()->name` | `->value('name')`
 
 [🔝 Back to contents](#contents)
 
@@ -522,10 +535,58 @@ $this->user->create($request->all());
 
 [🔝 Back to contents](#contents)
 
+### **Do not get data from the `.env` file directly**
+
+Do not get data from the `.env` file directly. Pass the data to config files instead and use `config()` helper function to get the data.
+
+Bad:
+
+```
+$apiKey = env('API_KEY');
+```
+
+Good:
+
+```
+// config/api.php
+'key' => env('API_KEY'),
+
+// Use the data
+$apiKey = config('api.key');
+```
+
+[🔝 Back to contents](#contents)
+
+### **Store dates in the standard format. Use accessors and mutators to modify date format**
+
+Bad:
+
+```
+{{ Carbon::createFromFormat('Y-d-m H-i', $object->ordered_at)->toDateString() }}
+{{ Carbon::createFromFormat('Y-d-m H-i', $object->ordered_at)->format('m-d') }}
+```
+
+Good:
+
+```
+// Model
+protected $dates = ['ordered_at', 'created_at', 'updated_at']
+public function getMonthDayAttribute($date)
+{
+    return $date->format('m-d');
+}
+
+// View
+{{ $object->ordered_at->toDateString() }}
+{{ $object->ordered_at->monthDay }}
+```
+
+[🔝 Back to contents](#contents)
+
 ### **Other good practices**
 
 Never put any logic in routes files.
 
-Try not to use vanilla PHP in Blade templates.
+Minimize usage of vanilla PHP in Blade templates.
 
 [🔝 Back to contents](#contents)
