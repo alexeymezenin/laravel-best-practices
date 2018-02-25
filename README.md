@@ -52,7 +52,7 @@ A class and a method should have only one responsibility.
 
 Bad:
 
-```
+```php
 public function getFullNameAttribute()
 {
     if (auth()->user() && auth()->user()->hasRole('client') && auth()->user()->isVerified()) {
@@ -65,7 +65,7 @@ public function getFullNameAttribute()
 
 Good:
 
-```
+```php
 public function getFullNameAttribute()
 {
     return $this->isVerifiedClient() ? $this->getFullNameLong() : $this->getFullNameShort();
@@ -95,7 +95,7 @@ Put all DB related logic into Eloquent models or into Repository classes if you'
 
 Bad:
 
-```
+```php
 public function index()
 {
     $clients = Client::verified()
@@ -110,7 +110,7 @@ public function index()
 
 Good:
 
-```
+```php
 public function index()
 {
     return view('index', ['clients' => $this->client->getWithNewOrders()]);
@@ -137,7 +137,7 @@ Move validation from controllers to Request classes.
 
 Bad:
 
-```
+```php
 public function store(Request $request)
 {
     $request->validate([
@@ -152,7 +152,7 @@ public function store(Request $request)
 
 Good:
 
-```
+```php
 public function store(PostRequest $request)
 {    
     ....
@@ -179,7 +179,7 @@ A controller must have only one responsibility, so move business logic from cont
 
 Bad:
 
-```
+```php
 public function store(Request $request)
 {
     if ($request->hasFile('image')) {
@@ -192,7 +192,7 @@ public function store(Request $request)
 
 Good:
 
-```
+```php
 public function store(Request $request)
 {
     $this->articleService->handleUploadedImage($request->file('image'));
@@ -219,7 +219,7 @@ Reuse code when you can. SRP is helping you to avoid duplication. Also, reuse Bl
 
 Bad:
 
-```
+```php
 public function getActive()
 {
     return $this->where('verified', 1)->whereNotNull('deleted_at')->get();
@@ -235,7 +235,7 @@ public function getArticles()
 
 Good:
 
-```
+```php
 public function scopeActive($q)
 {
     return $q->where('verified', 1)->whereNotNull('deleted_at');
@@ -262,7 +262,7 @@ Eloquent allows you to write readable and maintainable code. Also, Eloquent has 
 
 Bad:
 
-```
+```sql
 SELECT *
 FROM `articles`
 WHERE EXISTS (SELECT *
@@ -279,7 +279,7 @@ ORDER BY `created_at` DESC
 
 Good:
 
-```
+```php
 Article::has('user.profile')->verified()->latest()->get();
 ```
 
@@ -289,7 +289,7 @@ Article::has('user.profile')->verified()->latest()->get();
 
 Bad:
 
-```
+```php
 $article = new Article;
 $article->title = $request->title;
 $article->content = $request->content;
@@ -301,7 +301,7 @@ $article->save();
 
 Good:
 
-```
+```php
 $category->article()->create($request->all());
 ```
 
@@ -311,7 +311,7 @@ $category->article()->create($request->all());
 
 Bad (for 100 users, 101 DB queries will be executed):
 
-```
+```php
 @foreach (User::all() as $user)
     {{ $user->profile->name }}
 @endforeach
@@ -319,7 +319,7 @@ Bad (for 100 users, 101 DB queries will be executed):
 
 Good (for 100 users, 2 DB queries will be executed):
 
-```
+```php
 $users = User::with('profile')->get();
 
 ...
@@ -335,20 +335,20 @@ $users = User::with('profile')->get();
 
 Bad:
 
-```
+```php
 if (count((array) $builder->getQuery()->joins) > 0)
 ```
 
 Better:
 
-```
+```php
 // Determine if there are any joins.
 if (count((array) $builder->getQuery()->joins) > 0)
 ```
 
 Good:
 
-```
+```php
 if ($this->hasJoins())
 ```
 
@@ -358,13 +358,13 @@ if ($this->hasJoins())
 
 Bad:
 
-```
+```php
 let article = `{{ json_encode($article) }}`;
 ```
 
 Better:
 
-```
+```php
 <input id="article" type="hidden" value="{{ json_encode($article) }}">
 
 Or
@@ -374,7 +374,7 @@ Or
 
 In a Javascript file:
 
-```
+```php
 let article = $('#article').val();
 ```
 
@@ -386,7 +386,7 @@ The best way is to use specialized PHP to JS package to transfer the data.
 
 Bad:
 
-```
+```php
 public function isNormal()
 {
     return $article->type === 'normal';
@@ -397,7 +397,7 @@ return back()->with('message', 'Your article has been added!');
 
 Good:
 
-```
+```php
 public function isNormal()
 {
     return $article->type === Article::TYPE_NORMAL;
@@ -474,14 +474,14 @@ Trait | adjective | Notifiable | ~~NotificationTrait~~
 
 Bad:
 
-```
+```php
 $request->session()->get('cart');
 $request->input('name');
 ```
 
 Good:
 
-```
+```php
 session('cart');
 $request->name;
 ```
@@ -515,14 +515,14 @@ new Class syntax creates tight coupling between classes and complicates testing.
 
 Bad:
 
-```
+```php
 $user = new User;
 $user->create($request->all());
 ```
 
 Good:
 
-```
+```php
 public function __construct(User $user)
 {
     $this->user = $user;
@@ -541,13 +541,13 @@ Pass the data to config files instead and then use the `config()` helper functio
 
 Bad:
 
-```
+```php
 $apiKey = env('API_KEY');
 ```
 
 Good:
 
-```
+```php
 // config/api.php
 'key' => env('API_KEY'),
 
@@ -561,14 +561,14 @@ $apiKey = config('api.key');
 
 Bad:
 
-```
+```php
 {{ Carbon::createFromFormat('Y-d-m H-i', $object->ordered_at)->toDateString() }}
 {{ Carbon::createFromFormat('Y-d-m H-i', $object->ordered_at)->format('m-d') }}
 ```
 
 Good:
 
-```
+```php
 // Model
 protected $dates = ['ordered_at', 'created_at', 'updated_at']
 public function getMonthDayAttribute($date)
