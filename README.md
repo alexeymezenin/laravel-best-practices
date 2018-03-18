@@ -111,21 +111,37 @@ public function index()
 Good:
 
 ```php
+protected $client
+
+public function __construct(ClientRepository $repo)
+{
+    $this->client = $repol;
+}
 public function index()
 {
     return view('index', ['clients' => $this->client->getWithNewOrders()]);
 }
 
-Class Client extends Model
+Class ClientRepository
 {
+    public function getQuery()
+    {
+        return Client::query();
+    }
+    
     public function getWithNewOrders()
     {
-        return $this->verified()
+        return $this->getQuery()->verified()
             ->with(['orders' => function ($q) {
                 $q->where('created_at', '>', Carbon::today()->subWeek());
             }])
             ->get();
     }
+}
+
+Class Client extends Model
+{
+    // use only for unrelated to query processing
 }
 ```
 
