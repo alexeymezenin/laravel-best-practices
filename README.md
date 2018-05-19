@@ -56,7 +56,7 @@ Bad:
 public function getFullNameAttribute()
 {
     if (auth()->user() && auth()->user()->hasRole('client') && auth()->user()->isVerified()) {
-        return 'Mr. ' . $this->first_name . ' ' . $this->middle_name . ' ' $this->last_name;
+        return 'Mr. ' . $this->first_name . ' ' . $this->middle_name . ' ' . $this->last_name;
     } else {
         return $this->first_name[0] . '. ' . $this->last_name;
     }
@@ -71,7 +71,7 @@ public function getFullNameAttribute()
     return $this->isVerifiedClient() ? $this->getFullNameLong() : $this->getFullNameShort();
 }
 
-public function isVerfiedClient()
+public function isVerifiedClient()
 {
     return auth()->user() && auth()->user()->hasRole('client') && auth()->user()->isVerified();
 }
@@ -116,7 +116,7 @@ public function index()
     return view('index', ['clients' => $this->client->getWithNewOrders()]);
 }
 
-Class Client extends Model
+class Client extends Model
 {
     public function getWithNewOrders()
     {
