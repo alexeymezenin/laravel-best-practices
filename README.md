@@ -453,6 +453,7 @@ All other relationships | plural | articleComments | ~~articleComment, article_c
 Table | plural | article_comments | ~~article_comment, articleComments~~
 Pivot table | singular model names in alphabetical order | article_user | ~~user_article, articles_users~~
 Table column | snake_case without model name | meta_title | ~~MetaTitle; article_meta_title~~
+Model property | snake_case | $model->created_at | ~~$model->createdAt~~
 Foreign key | singular model name with _id suffix | article_id | ~~ArticleId, id_article, articles_id~~
 Primary key | - | id | ~~custom_id~~
 Migration | - | 2017_01_01_000000_create_articles_table | ~~2017_01_01_000000_articles~~
@@ -571,14 +572,14 @@ Good:
 ```php
 // Model
 protected $dates = ['ordered_at', 'created_at', 'updated_at']
-public function getMonthDayAttribute($date)
+public function getSomeDateAttribute($date)
 {
     return $date->format('m-d');
 }
 
 // View
 {{ $object->ordered_at->toDateString() }}
-{{ $object->ordered_at->monthDay }}
+{{ $object->ordered_at->some_date }}
 ```
 
 [🔝 Back to contents](#contents)

@@ -50,7 +50,7 @@
 public function getFullNameAttribute()
 {
     if (auth()->user() && auth()->user()->hasRole('client') && auth()->user()->isVerified()) {
-        return 'Mr. ' . $this->first_name . ' ' . $this->middle_name . ' ' $this->last_name;
+        return 'Mr. ' . $this->first_name . ' ' . $this->middle_name . ' ' . $this->last_name;
     } else {
         return $this->first_name[0] . '. ' . $this->last_name;
     }
@@ -65,7 +65,7 @@ public function getFullNameAttribute()
     return $this->isVerifiedClient() ? $this->getFullNameLong() : $this->getFullNameShort();
 }
 
-public function isVerfiedClient()
+public function isVerifiedClient()
 {
     return auth()->user() && auth()->user()->hasRole('client') && auth()->user()->isVerified();
 }
@@ -110,7 +110,7 @@ public function index()
     return view('index', ['clients' => $this->client->getWithNewOrders()]);
 }
 
-Class Client extends Model
+class Client extends Model
 {
     public function getWithNewOrders()
     {
@@ -449,6 +449,7 @@ e2e тестирование | Laravel Dusk | Codeception
 Таблица | мн. ч. | article_comments | ~~article_comment, articleComments~~
 Pivot таблица | имена моделей в алфавитном порядке в ед. ч. | article_user | ~~user_article, articles_users~~
 Столбец в таблице | snake_case без имени модели | meta_title | ~~MetaTitle; article_meta_title~~
+Свойство модели | snake_case | $model->created_at | ~~$model->createdAt~~
 Внешний ключ | имя модели ед. ч. и _id | article_id | ~~ArticleId, id_article, articles_id~~
 Первичный ключ | - | id | ~~custom_id~~
 Миграция | - | 2017_01_01_000000_create_articles_table | ~~2017_01_01_000000_articles~~
@@ -568,14 +569,14 @@ $apiKey = config('api.key');
 // Модель
 protected $dates = ['ordered_at', 'created_at', 'updated_at']
 // Читатель (accessor)
-public function getMonthDayAttribute($date)
+public function getSomeDateAttribute($date)
 {
     return $date->format('m-d');
 }
 
 // Шаблон
 {{ $object->ordered_at->toDateString() }}
-{{ $object->ordered_at->monthDay }}
+{{ $object->ordered_at->some_date }}
 ```
 
 [🔝 Наверх](#Содержание)
