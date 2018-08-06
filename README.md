@@ -2,6 +2,7 @@
 
 Translations:
 
+[한국어](https://github.com/xotrs/laravel-best-practices)
 [Русский](russian.md)
 
 
