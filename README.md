@@ -367,16 +367,16 @@ let article = `{{ json_encode($article) }}`;
 Better:
 
 ```php
-<input id="article" type="hidden" value="{{ json_encode($article) }}">
+<input id="article" type="hidden" value="@json($article)">
 
 Or
 
-<button class="js-fav-article" data-article="{{ json_encode($article) }}">{{ $article->name }}<button>
+<button class="js-fav-article" data-article="@json($article)">{{ $article->name }}<button>
 ```
 
 In a Javascript file:
 
-```php
+```javascript
 let article = $('#article').val();
 ```
 
