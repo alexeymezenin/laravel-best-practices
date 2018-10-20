@@ -1,5 +1,3 @@
-![Laravel best practices](/images/logo-english.png?raw=true)
-
 ![Boas Práticas Laravel](/images/logo-english.png?raw=true)
 
 O que é descrito aqui não é uma adaptação ao principio SOLID, padrões e etc. Aqui você irá encontrar as melhores práticas que geralmente são ignoradas em um projeto Laravel na vida real.
