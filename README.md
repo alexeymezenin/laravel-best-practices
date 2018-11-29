@@ -4,41 +4,41 @@ O que é descrito aqui não é uma adaptação ao principio SOLID, padrões e et
 
 ## Conteúdo
 
-[Princípio da responsabilidade única](#principio-da-responsabilidade-unica)
+[Princípio da responsabilidade única](#princípio-da-responsabilidade-única)
 
 [Models gordos, controllers finos](#models-gordos-controllers-finos)
 
-[Validação](#validacao)
+[Validação](#validação)
 
-[Lógica de negócio deve ser posta em classes](#logica-de-negocio-deve-ser-posta-em-classes)
+[Lógica de negócio deve ser posta em classes](#lógica-de-negócio-deve-ser-posta-em-classes)
 
-[Não se repita (Don't repeat yourself: DRY)](#nao-se-repita-don-t-repeat-yourself-dry)
+[Não se repita (Don't repeat yourself: DRY)](#não-se-repita-dont-repeat-yourself-dry)
 
-[Usar o Eloquent em vez de Query Builder e consultas SQL puras (raw SQL). Usar collections no lugar de  arrays](#usar-o-eloquent-em-vez-de-Something-is-wrong-builder-e-consultas-sql-puras-raw-sql-usar-collections-no-lugar-de-arrays)
+[Usar o Eloquent em vez de Query Builder e consultas SQL puras (raw SQL). Usar collections no lugar de  arrays](#usar-o-eloquent-em-vez-de-query-builder-e-consultas-sql-puras-raw-sql-usar-collections-no-lugar-de--arrays)
 
 [Mass assignment](#mass-assignment)
 
-[Não executar consultas no Blade templates e usar eager loading (N + 1)](#nao-executar-consultas-no-Blade-templates-e-usar-eager-loading-N-1)
+[Não executar consultas no Blade templates e usar eager loading (N + 1)](#não-executar-consultas-no-blade-templates-e-usar-eager-loading-n--1)
 
-[Comente seu código, mas prefira um método descritivo e nomes de variáveis em vez de comentários](#comente-seu-codigo-mas-prefira-um-metodo-descritivo-e-nomes-de-variaveis-em-vez-de-comentarios)
+[Comente seu código, mas prefira um método descritivo e nomes de variáveis em vez de comentários](#comente-seu-código-mas-prefira-um-método-descritivo-e-nomes-de-variáveis-em-vez-de--comentários)
 
-[Não coloque JS e CSS em templates Blade. Não coloque HTML em classes PHP](#nao-coloque-js-e-css-em-templates-blade-nao-coloque-html-em-classes-php)
+[Não coloque JS e CSS em templates Blade. Não coloque HTML em classes PHP](#não-coloque-js-e-css-em-templates-blade-não-coloque-html-em-classes-php)
 
-[Use arquivos de linguagem e configuração. Constantes em vez de texto no código](#use-arquivos-de-linguagem-e-something-is-wronguracao-constantes-em-vez-de-texto-no-codigo)
+[Use arquivos de linguagem e configuração. Constantes em vez de texto no código](#use-arquivos-de-linguagem-e-configuração-constantes-em-vez-de-texto-no-código)
 
-[Use ferramentas padrões do Laravel aceitas pela comunidade](#use-ferramentas-padroes-do-laravel-aceitas-pela-comunidade)
+[Use ferramentas padrões do Laravel aceitas pela comunidade](#use-ferramentas-padrões-do-laravel-aceitas-pela-comunidade)
 
-[Siga a conversão de nomes usada no Laravel](#siga-a-conversao-de-nomes-usada-no-laravel)
+[Siga a conversão de nomes usada no Laravel](#siga-a-conversão-de-nomes-usada-no-laravel)
 
-[Tente sempre usar sintaxes pequenas e legíveis](#tente-sempre-usar-sintaxes-pequenas-e-legiveis)
+[Tente sempre usar sintaxes pequenas e legíveis](#tente-sempre-usar-sintaxes-pequenas-e-legíveis)
 
-[Use contaneirs IoC (inversão de controle) ou facades no lugar de classes](#use-contaneirs-ioc-inversao-de-controle-ou-facades-no-lugar-de-classes)
+[Use contaneirs IoC (inversão de controle) ou facades no lugar de classes](#use-contaneirs-ioc-inversão-de-controle-ou-facades-no-lugar-de-classes)
 
-[Não recupere informaçẽos diretamente do `.env`](#nao-recupere-informac-os-diretamente-do-env)
+[Não recupere informaçẽos diretamente do `.env`](#não-recupere-informaçẽos-diretamente-do-env)
 
-[Armaze datas em formatoes padrões. Use "accessors" and "mutators" para modificar o formato das datas](#armaze-datas-em-formatoes-padroes-use-accessors-and-mutators-para-modificar-o-formato-das-datas)
+[Armaze datas em formatoes padrões. Use "accessors" and "mutators" para modificar o formato das datas](#armaze-datas-em-formatoes-padrões-use-accessors-and-mutators-para-modificar-o-formato-das-datas)
 
-[Outras boas práticas](#outras-boas-praticas)
+[Outras boas práticas](#outras-boas-práticas)
 
 ### **Princípio da responsabilidade única**
 
@@ -81,7 +81,7 @@ public function getFullNameShort()
 }
 ```
 
-[🔝 Voltar para o início](#conteudo)
+[🔝 Voltar para o início](#conteúdo)
 
 ### **Models gordos, controllers finos**
 
@@ -123,7 +123,7 @@ class Client extends Model
 }
 ```
 
-[🔝 Voltar para o início](#conteudo)
+[🔝 Voltar para o início](#conteúdo)
 
 ### **Validação**
 
@@ -165,7 +165,7 @@ class PostRequest extends Request
 }
 ```
 
-[🔝 Voltar para o início](#conteudo)
+[🔝 Voltar para o início](#conteúdo)
 
 ### **Lógica de negócio deve ser posta em classes**
 
@@ -205,7 +205,7 @@ class ArticleService
 }
 ```
 
-[🔝 Voltar para o início](#conteudo)
+[🔝 Voltar para o início](#conteúdo)
 
 ### **Não se repita (Don't repeat yourself: DRY)**
 
@@ -248,7 +248,7 @@ public function getArticles()
 }
 ```
 
-[🔝 Voltar para o início](#conteudo)
+[🔝 Voltar para o início](#conteúdo)
 
 ### **Usar o Eloquent em vez de Query Builder e consultas SQL puras (raw SQL). Usar collections no lugar de  arrays**
 
@@ -277,7 +277,7 @@ Bom:
 Article::has('user.profile')->verified()->latest()->get();
 ```
 
-[🔝 Voltar para o início](#conteudo)
+[🔝 Voltar para o início](#conteúdo)
 
 ### **Mass assignment**
 
@@ -288,7 +288,7 @@ $article = new Article;
 $article->title = $request->title;
 $article->content = $request->content;
 $article->verified = $request->verified;
-// Add category to article
+// Adicionar categoria em artigos
 $article->category_id = $category->id;
 $article->save();
 ```
@@ -299,7 +299,7 @@ Bom:
 $category->article()->create($request->all());
 ```
 
-[🔝 Voltar para o início](#conteudo)
+[🔝 Voltar para o início](#conteúdo)
 
 ### **Não executar consultas no Blade templates e usar eager loading (N + 1)**
 
@@ -323,7 +323,7 @@ $users = User::with('profile')->get();
 @endforeach
 ```
 
-[🔝 Voltar para o início](#conteudo)
+[🔝 Voltar para o início](#conteúdo)
 
 ### **Comente seu código, mas prefira um método descritivo e nomes de variáveis em vez de  comentários**
 
@@ -346,7 +346,7 @@ Bom:
 if ($this->hasJoins())
 ```
 
-[🔝 Voltar para o início](#conteudo)
+[🔝 Voltar para o início](#conteúdo)
 
 ### **Não coloque JS e CSS em templates Blade. Não coloque HTML em classes PHP**
 
@@ -361,7 +361,7 @@ Melhor:
 ```php
 <input id="article" type="hidden" value="{{ json_encode($article) }}">
 
-Or
+Ou
 
 <button class="js-fav-article" data-article="{{ json_encode($article) }}">{{ $article->name }}<button>
 ```
@@ -373,7 +373,7 @@ let article = $('#article').val();
 ```
 
 
-[🔝 Voltar para o início](#conteudo)
+[🔝 Voltar para o início](#conteúdo)
 
 ### **Use arquivos de linguagem e configuração. Constantes em vez de texto no código**
 
@@ -399,7 +399,7 @@ public function isNormal()
 return back()->with('message', __('app.article_added'));
 ```
 
-[🔝 Voltar para o início](#conteudo)
+[🔝 Voltar para o início](#conteúdo)
 
 ### **Use ferramentas padrões do Laravel aceitas pela comunidade**
 
@@ -427,7 +427,7 @@ Gerar dados de teste | Seeder classes, Model Factories, Faker | Criar testes man
 Agendar tarefas | Laravel Task Scheduler | Scripts e pacotes de terceiros
 DB | MySQL, PostgreSQL, SQLite, SQL Server | MongoDB
 
-[🔝 Voltar para o início](#conteudo)
+[🔝 Voltar para o início](#conteúdo)
 
 ### **Siga a conversão de nomes usada no Laravel**
 
@@ -462,7 +462,7 @@ Config | snake_case | google_calendar.php | ~~googleCalendar.php, google-calenda
 Contract (interface) | adjective or noun | Authenticatable | ~~AuthenticationInterface, IAuthentication~~
 Trait | adjective | Notifiable | ~~NotificationTrait~~
 
-[🔝 Voltar para o início](#conteudo)
+[🔝 Voltar para o início](#conteúdo)
 
 ### **Tente sempre usar sintaxes pequenas e legíveis**
 
@@ -501,7 +501,7 @@ Sintaxe comum | Pequena e mais legíveis
 `->select('id', 'name')->get()` | `->get(['id', 'name'])`
 `->first()->name` | `->value('name')`
 
-[🔝 Voltar para o início](#conteudo)
+[🔝 Voltar para o início](#conteúdo)
 
 ### **Use contaneirs IoC (inversão de controle) ou facades no lugar de classes**
 
@@ -527,7 +527,7 @@ public function __construct(User $user)
 $this->user->create($request->all());
 ```
 
-[🔝 Voltar para o início](#conteudo)
+[🔝 Voltar para o início](#conteúdo)
 
 ### **Não recupere informaçẽos diretamente do `.env`**
 
@@ -549,7 +549,7 @@ Bom:
 $apiKey = config('api.key');
 ```
 
-[🔝 Voltar para o início](#conteudo)
+[🔝 Voltar para o início](#conteúdo)
 
 ### **Armaze datas em formatoes padrões. Use "accessors" and "mutators" para modificar o formato das datas**
 
@@ -575,7 +575,7 @@ public function getSomeDateAttribute($date)
 {{ $object->ordered_at->some_date }}
 ```
 
-[🔝 Voltar para o início](#conteudo)
+[🔝 Voltar para o início](#conteúdo)
 
 ### **Outras boas práticas**
 
@@ -583,4 +583,4 @@ Nunca coloque lógica em arquivos de rota.
 
 Minimize o uso de vanilla PHP em templates Blade.
 
-[🔝 Voltar para o início](#conteudo)
+[🔝 Voltar para o início](#conteúdo)
