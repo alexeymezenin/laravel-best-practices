@@ -24,11 +24,11 @@
 
 - [اعتبارسنجی](#validation)
 
-- [منطق برنامه باید در service class باشد](#business-logic-should-be-in-service-class)
+- [منطق برنامه باید در service class باشد.](#business-logic-should-be-in-service-class)
 
 - [اصل DRY یا خودت را تکرار نکن!](#dont-repeat-yourself-dry)
 
-- [از Eloquent به جای Query Builder و raw SQL استفاده کند. همچنین از collections به جای arrays](#prefer-to-use-eloquent-over-using-query-builder-and-raw-sql-queries-prefer-collections-over-arrays)
+- [ابه جای استفاده از Query Builder و raw SQL queries از Eloquent ORM استفاده کنید. همچنین به جای استفاده از Arrays از Collections استفاده کنید.](#prefer-to-use-eloquent-over-using-query-builder-and-raw-sql-queries-prefer-collections-over-arrays)
 
 - [ایجاد یک مدل](#mass-assignment)
 
@@ -40,13 +40,13 @@
 
 - [به جای استفاده مستقیم از متن ها در کد، از فایل های config و langugeus استفاده کنید!](#use-config-and-language-files-constants-instead-of-text-in-the-code)
 
-- [از ابزارهای استاندارد لاراول که مورد تایید جامعه کاربری آن است استفاده کنید.](#use-standard-laravel-tools-accepted-by-community)
+- [از ابزارهای استاندارد لاراول که مورد تایید جامعه کاربری آن میباشد، استفاده کنید.](#use-standard-laravel-tools-accepted-by-community)
 
 - [از قرارداد های لاراول برای نامگذاری ها استفاده کنید](#follow-laravel-naming-conventions)
 
 - [تا حد ممکن در کدتان، از Syntax های معنادار و کوتاه استفاده کنید](#use-shorter-and-more-readable-syntax-where-possible)
 
-- [به جای ایجاد یک object، از IoC container و facades استفاده کنید.](#use-ioc-container-or-facades-instead-of-new-class)
+- [به جای ایجاد یک object با new، از IoC container و facades استفاده کنید.](#use-ioc-container-or-facades-instead-of-new-class)
 
 - [از فایل .env هیچ وقت مستقیم داده ای دریافت نکنید.](#do-not-get-data-from-the-env-file-directly)
 
@@ -57,7 +57,7 @@
 
 ### **اصل تک وظیفه ای بودن**
 
-هر کلاس و هر methode باید یک وظیفه داشته باشد.
+هر class و هر methode باید یک وظیفه داشته باشد.
 
 ❌ ناصحیح:
 
@@ -96,11 +96,11 @@ public function getFullNameShort()
 }
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 بازگشت به فهرست](#contents)
 
-### **Fat models, skinny controllers**
+### **مدل های بزرگ،‌ کنترلرهای کوچک!**
 
-Put all DB related logic into Eloquent models or into Repository classes if you're using Query Builder or raw SQL queries.
+اگر از Query Builder یا raw SQL queries استفاده میکنید، تمام منطق پایگاه داده را در model ها یا Repository classes قرار بدهید.
 
 ❌ ناصحیح:
 
@@ -138,11 +138,11 @@ class Client extends Model
 }
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 بازگشت به فهرست](#contents)
 
-### **Validation**
+### **اعتبارسنجی**
 
-Move validation from controllers to Request classes.
+اعتبارسنجی ها را در Request classes انجام دهید نه در controllers.
 
 ❌ ناصحیح:
 
@@ -180,12 +180,11 @@ class PostRequest extends Request
 }
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 بازگشت به فهرست](#contents)
 
-### **Business logic should be in service class**
+### **منطق برنامه باید در service class باشد**
 
-A controller must have only one responsibility, so move business logic from controllers to service classes.
-
+هر کنترلر باید یک وظیفه داشته باشد، بنابراین منطق برنامه را در service classes بنویسید.
 ❌ ناصحیح:
 
 ```php
@@ -220,11 +219,11 @@ class ArticleService
 }
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 بازگشت به فهرست](#contents)
 
-### **Don't repeat yourself (DRY)**
+### **اصل DRY یا خودت را تکرار نکن!**
 
-Reuse code when you can. SRP is helping you to avoid duplication. Also, reuse Blade templates, use Eloquent scopes etc.
+تا حد ممکن از کد ها بازاستفاده کنید. تک وظیفه ای شدن به شما کمک میکند تا دوباره کاری نداشته باشید. همچنین در Blade template حتما این اصل را رعایت کنید و در model ها از Eloquent scopes استفاده کنید و ... .
 
 ❌ ناصحیح:
 
@@ -263,11 +262,11 @@ public function getArticles()
 }
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 بازگشت به فهرست](#contents)
 
-### **Prefer to use Eloquent over using Query Builder and raw SQL queries. Prefer collections over arrays**
+### **به جای استفاده از Query Builder و raw SQL queries از Eloquent ORM استفاده کنید. همچنین به جای استفاده از Arrays از Collections استفاده کنید.**
 
-Eloquent allows you to write readable and maintainable code. Also, Eloquent has great built-in tools like soft deletes, events, scopes etc.
+Eloquent  Eloquent به شما این قابلیت را میدهد که کدهای خوانا و قابل توسعه بنویسید. همچنین دارای ویژگی های داخلی جالبی مثل soft deletes یا events  یا scopes و .. میباشد.
 
 ❌ ناصحیح:
 
@@ -292,9 +291,9 @@ ORDER BY `created_at` DESC
 Article::has('user.profile')->verified()->latest()->get();
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 بازگشت به فهرست](#contents)
 
-### **Mass assignment**
+### **ایجاد یک مدل**
 
 ❌ ناصحیح:
 
@@ -314,11 +313,11 @@ $article->save();
 $category->article()->create($request->all());
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 بازگشت به فهرست](#contents)
 
-### **Do not execute queries in Blade templates and use eager loading (N + 1 problem)**
+### **به جای نوشتن query ها در blade از eager loading استفاده کنید. (مسئله N+1)**
 
-❌ ناصحیح (for 100 users, 101 DB queries will be executed):
+❌ ناصحیح (برای ۱۰۰ کاربر، ما ۱۰۱ کوئری را اجرا میکنیم!):
 
 ```php
 @foreach (User::all() as $user)
@@ -326,7 +325,7 @@ $category->article()->create($request->all());
 @endforeach
 ```
 
-✔️ صحیح (for 100 users, 2 DB queries will be executed):
+✔️ صحیح (برای ۱۰۰ کاربر، ما فقط ۲ کوئری اجرا کردیم!):
 
 ```php
 $users = User::with('profile')->get();
@@ -338,9 +337,9 @@ $users = User::with('profile')->get();
 @endforeach
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 بازگشت به فهرست](#contents)
 
-### **Comment your code, but prefer descriptive method and variable names over comments**
+### **کامنت گذاری بکنید، ولی اسامی متدها یا متغیرها را توصیفی و معنادار در نظر بگیرید. **
 
 ❌ ناصحیح:
 
@@ -361,9 +360,9 @@ if (count((array) $builder->getQuery()->joins) > 0)
 if ($this->hasJoins())
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 بازگشت به فهرست](#contents)
 
-### **Do not put JS and CSS in Blade templates and do not put any HTML in PHP classes**
+### **در تمپلیت های Blade از js و css استفاده نکنید و هیچگونه کد HTML ای را در class های PHP استفاده نکنید.**
 
 ❌ ناصحیح:
 
@@ -381,17 +380,17 @@ Or
 <button class="js-fav-article" data-article="@json($article)">{{ $article->name }}<button>
 ```
 
-In a Javascript file:
+در فایل JavaScript:
 
 ```javascript
 let article = $('#article').val();
 ```
 
-The best way is to use specialized PHP to JS package to transfer the data.
+بهترین راه استفاده از پکیج مخصوص انتقال داده از php به js میباشد.
 
-[🔝 Back to contents](#contents)
+[🔝 بازگشت به فهرست](#contents)
 
-### **Use config and language files, constants instead of text in the code**
+### **به جای استفاده مستقیم از متن ها در کد، از فایل های config و langugeus استفاده کنید!**
 
 ❌ ناصحیح:
 
@@ -401,7 +400,7 @@ public function isNormal()
     return $article->type === 'normal';
 }
 
-return back()->with('message', 'Your article has been added!');
+return back()->with('message', 'مقاله شما ایجاد گردید!');
 ```
 
 ✔️ صحیح:
@@ -415,13 +414,13 @@ public function isNormal()
 return back()->with('message', __('app.article_added'));
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 بازگشت به فهرست](#contents)
 
-### **Use standard Laravel tools accepted by community**
+### **از ابزارهای استاندارد لاراول که مورد تایید جامعه کاربری آن میباشد، استفاده کنید.**
 
-Prefer to use built-in Laravel functionality and community packages instead of using 3rd party packages and tools. Any developer who will work with your app in the future will need to learn new tools. Also, chances to get help from the Laravel community are significantly lower when you're using a 3rd party package or tool. Do not make your client pay for that.
+به جای استفاده از ابزارها و پکیج های غیررسمی لاراول از ابزارها و قابلیت های داخلی و رسمی لاراول استفاده کنید. هر توسعه دهنده [لاراولی] ای که در آینده بخواهد با کدهای شما کار کند، باید ابزارهای جدید یاد بگیرد. همچنین اگر شما از ابزارهای غیررسمی استفاده کنید، شانس دریافت کمک از جامعه کاربری لاراول به طرز قابل توجهی  کمتر میشود. این هزینه را به گردن مشتریان خود نیندازید! [منظور نویسنده این هست که تو کارهای بزرگ و مهمتون از ابزارهای جدید و پراکنده استفاده نکنید. همیشه سعی کنید از ابزارهای داخلی و یا پکیج های رسمی لاراول استفاده کنید مگر این که چاره دیگری نباشد! شما با پراکنده کردن ابزارها هزینه فنی/مالی توسعه محصول را برای آینده زیادتر میکنید!]
 
-Task | Standard tools | 3rd party tools
+نیاز | ابزارهای رسمی لاراول | ابزارهای غیررسمی لاراول
 ------------ | ------------- | -------------
 Authorization | Policies | Entrust, Sentinel and other packages
 Compiling assets | Laravel Mix | Grunt, Gulp, 3rd party packages
@@ -443,44 +442,44 @@ Generating testing data | Seeder classes, Model Factories, Faker | Creating test
 Task scheduling | Laravel Task Scheduler | Scripts and 3rd party packages
 DB | MySQL, PostgreSQL, SQLite, SQL Server | MongoDB
 
-[🔝 Back to contents](#contents)
+[🔝 بازگشت به فهرست](#contents)
 
-### **Follow Laravel naming conventions**
+### **از قرارداد های لاراول برای نامگذاری ها استفاده کنید**
 
- Follow [PSR standards](http://www.php-fig.org/psr/psr-2/).
+از استاندارد های معروف php که به [PSR](http://www.php-fig.org/psr/psr-2/) است استفاده کنید.
  
- Also, follow naming conventions accepted by Laravel community:
+همچنین روش های نامگذاری مورد قبول جامعه کاربری لاراول:
 
-What | How | ✔️ صحیح | ❌ ناصحیح
+بخش مربوطه | قاعده اسم گذاری | ✔️ صحیح | ❌ ناصحیح
 ------------ | ------------- | ------------- | -------------
-Controller | singular | ArticleController | ~~ArticlesController~~
-Route | plural | articles/1 | ~~article/1~~
+Controller | اسامی مفرد | ArticleController | ~~ArticlesController~~
+Route | اسامی جمع | articles/1 | ~~article/1~~
 Named route | snake_case with dot notation | users.show_active | ~~users.show-active, show-active-users~~
-Model | singular | User | ~~Users~~
-hasOne or belongsTo relationship | singular | articleComment | ~~articleComments, article_comment~~
-All other relationships | plural | articleComments | ~~articleComment, article_comments~~
-Table | plural | article_comments | ~~article_comment, articleComments~~
-Pivot table | singular model names in alphabetical order | article_user | ~~user_article, articles_users~~
+Model | اسامی مفرد | User | ~~Users~~
+hasOne or belongsTo relationship | اسامی مفرد | articleComment | ~~articleComments, article_comment~~
+All other relationships | اسامی جمع | articleComments | ~~articleComment, article_comments~~
+Table | اسامی جمع | article_comments | ~~article_comment, articleComments~~
+Pivot table | model ها با اسامی مفرد و ترتیب الفبایی | article_user | ~~user_article, articles_users~~
 Table column | snake_case without model name | meta_title | ~~MetaTitle; article_meta_title~~
 Model property | snake_case | $model->created_at | ~~$model->createdAt~~
-Foreign key | singular model name with _id suffix | article_id | ~~ArticleId, id_article, articles_id~~
+Foreign key | اسامی مفرد model name with _id suffix | article_id | ~~ArticleId, id_article, articles_id~~
 Primary key | - | id | ~~custom_id~~
 Migration | - | 2017_01_01_000000_create_articles_table | ~~2017_01_01_000000_articles~~
-Method | camelCase | getAll | ~~get_all~~
+Method | روش camelCase | getAll | ~~get_all~~
 Method in resource controller | [table](https://laravel.com/docs/master/controllers#resource-controllers) | store | ~~saveArticle~~
-Method in test class | camelCase | testGuestCannotSeeArticle | ~~test_guest_cannot_see_article~~
-Variable | camelCase | $articlesWithAuthor | ~~$articles_with_author~~
-Collection | descriptive, plural | $activeUsers = User::active()->get() | ~~$active, $data~~
-Object | descriptive, singular | $activeUser = User::active()->first() | ~~$users, $obj~~
+Method in test class | روش camelCase | testGuestCannotSeeArticle | ~~test_guest_cannot_see_article~~
+Variable | روش camelCase | $articlesWithAuthor | ~~$articles_with_author~~
+Collection | توصیفی واسامی جمع | $activeUsers = User::active()->get() | ~~$active, $data~~
+Object | توصیفی واسامی مفرد | $activeUser = User::active()->first() | ~~$users, $obj~~
 Config and language files index | snake_case | articles_enabled | ~~ArticlesEnabled; articles-enabled~~
 View | snake_case | show_filtered.blade.php | ~~showFiltered.blade.php, show-filtered.blade.php~~
 Config | snake_case | google_calendar.php | ~~googleCalendar.php, google-calendar.php~~
-Contract (interface) | adjective or noun | Authenticatable | ~~AuthenticationInterface, IAuthentication~~
-Trait | adjective | Notifiable | ~~NotificationTrait~~
+Contract (interface) | صفت یا اسم | Authenticatable | ~~AuthenticationInterface, IAuthentication~~
+Trait | صفت | Notifiable | ~~NotificationTrait~~
 
-[🔝 Back to contents](#contents)
+[🔝 بازگشت به فهرست](#contents)
 
-### **Use shorter and more readable syntax where possible**
+### **تا حد ممکن در کدتان، از Syntax های معنادار و کوتاه استفاده کنید**
 
 ❌ ناصحیح:
 
@@ -496,9 +495,9 @@ session('cart');
 $request->name;
 ```
 
-More examples:
+مثال های بیشتر:
 
-Common syntax | Shorter and more readable syntax
+سینتکس متداول | سینتکس کوتاه‌تر و خواناتر
 ------------ | -------------
 `Session::get('cart')` | `session('cart')`
 `$request->session()->get('cart')` | `session('cart')`
@@ -517,11 +516,11 @@ Common syntax | Shorter and more readable syntax
 `->select('id', 'name')->get()` | `->get(['id', 'name'])`
 `->first()->name` | `->value('name')`
 
-[🔝 Back to contents](#contents)
+[🔝 بازگشت به فهرست](#contents)
 
-### **Use IoC container or facades instead of new Class**
+### **به جای ایجاد یک object با new، از IoC container و facades استفاده کنید.**
 
-new Class syntax creates tight coupling between classes and complicates testing. Use IoC container or facades instead.
+ایجاد یک object جدید با کلمه new یک اتصال کامل بین class ها و تست های پیچیده ایجاد میکند! بهتر است از IoC container یا facades استفاده کنید. [این بخش از مطلب تا جایی که من متوجه شدم مربوط به مباحث توسعه تست محور میباشد که من آشنایی زیادی ندارم ولی بعد از مطالعه و تکمیل اطلاعاتم این بخش را با توضیح تکمیل، کامل خواهم کرد.]
 
 ❌ ناصحیح:
 
@@ -543,11 +542,11 @@ public function __construct(User $user)
 $this->user->create($request->all());
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 بازگشت به فهرست](#contents)
 
-### **Do not get data from the `.env` file directly**
+### **از فایل .env هیچ وقت مستقیم داده ای دریافت نکنید.**
 
-Pass the data to config files instead and then use the `config()` helper function to use the data in an application.
+اطلاعات موجود در .env را در صورت نیاز به استفاده، در فایل های config لود کنید و سپس با استفاده از helper function فایل های کانفیگ یعنی config() با آن در نرم افزار خود کار کنید.
 
 ❌ ناصحیح:
 
@@ -565,9 +564,9 @@ $apiKey = env('API_KEY');
 $apiKey = config('api.key');
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 بازگشت به فهرست](#contents)
 
-### **Store dates in the standard format. Use accessors and mutators to modify date format**
+### **تاریخ و زمان را در قالب استاندارد ذخیره کنید. از Accessors & Mutators ها برای دستکاری در نمایش تاریخ و زمان استفاده کنید.**
 
 ❌ ناصحیح:
 
@@ -591,12 +590,12 @@ public function getSomeDateAttribute($date)
 {{ $object->ordered_at->some_date }}
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 بازگشت به فهرست](#contents)
 
-### **Other ✔️ صحیح practices**
+### **دیگر قواعد توسعه صحیح (بدون فهرست)**
 
-Never put any logic in routes files.
+- در فایل های route خود هیچوقت منطق برنامه را قرار ندهید.
 
-Minimize usage of vanilla PHP in Blade templates.
+- تا حد ممکن از vanilla PHP در فایل های blade استفاده نکنید.
 
-[🔝 Back to contents](#contents)
+[🔝 بازگشت به فهرست](#contents)
