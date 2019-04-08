@@ -12,8 +12,7 @@ Translations:
 
 [Tiếng Việt](https://chungnguyen.xyz/posts/code-laravel-lam-sao-cho-chuan) (by [Chung Nguyễn](https://github.com/nguyentranchung))
 
-
-
+<span dir="rtl">
 این یک سازگاری لاراول با اصول SOLId یا Design Pattern ها و ... نیست.اینجا شما روش های اصولی توسعه پروژه های مبتنی بر لاراول رو پیدا کنید که معمولا تو پروژه ها در نظر گرفته نمیشوند.
 
 ## فهرست مطالب
@@ -53,6 +52,7 @@ Translations:
 [تاریخ و زمان را در قالب استاندارد ذخیره کنید. از Accessors & Mutators ها برای دستکاری در نمایش تاریخ و زمان استفاده کنید.](#store-dates-in-the-standard-format-use-accessors-and-mutators-to-modify-date-format)
 
 [دیگر روش ها](#other-✔️ صحیح-practices)
+</span>
 
 ### **اصل تک وظیفه ای بودن**
 
