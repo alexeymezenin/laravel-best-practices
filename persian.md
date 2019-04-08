@@ -18,41 +18,41 @@
 
 ## فهرست مطالب
 
-- [اصل تک وظیفه ای بودن](#single-responsibility-principle)
+- [اصل تک وظیفه ای بودن](#اصل-تک-وظیفه-ای-بودن)
 
-- [مدل های بزرگ،‌ کنترلرهای کوچک!](#fat-models-skinny-controllers)
+- [مدل های بزرگ،‌ کنترلرهای کوچک!](#مدل-های-بزرگ-کنترلرهای-کوچک)
 
-- [اعتبارسنجی](#validation)
+- [اعتبارسنجی](#اعتبارسنجی)
 
-- [منطق برنامه باید در service class باشد.](#business-logic-should-be-in-service-class)
+- [منطق برنامه باید در service class باشد.](#منطق-برنامه-باید-در-service-class-باشد)
 
-- [اصل DRY یا خودت را تکرار نکن!](#dont-repeat-yourself-dry)
+- [اصل DRY یا خودت را تکرار نکن!](#اصل-dry-یا-خودت-را-تکرار-نکن)
 
-- [به جای استفاده از Query Builder و raw SQL queries از Eloquent ORM استفاده کنید. همچنین به جای استفاده از Arrays از Collections استفاده کنید.](#prefer-to-use-eloquent-over-using-query-builder-and-raw-sql-queries-prefer-collections-over-arrays)
+- [به جای استفاده از Query Builder و raw SQL queries از Eloquent ORM استفاده کنید. همچنین به جای استفاده از Arrays از Collections استفاده کنید.](#به-جای-استفاده-از-query-builder-و-raw-sql-queries-از-eloquent-orm-استفاده-کنید-همچنین-به-جای-استفاده-از-arrays-از-collections-استفاده-کنید)
 
-- [ایجاد یک مدل](#mass-assignment)
+- [ایجاد یک مدل](#ایجاد-یک-مدل)
 
-- [به جای نوشتن query ها در blade از eager loading استفاده کنید. (مسئله N+1)](#do-not-execute-queries-in-blade-templates-and-use-eager-loading-n--1-problem)
+- [به جای نوشتن query ها در blade از eager loading استفاده کنید. (مسئله N+1)](#به-جای-نوشتن-query-ها-در-blade-از-eager-loading-استفاده-کنید-مسئله-n1)
 
-- [کامنت گذاری بکنید، ولی اسامی متدها یا متغیرها را توصیفی و معنادار در نظر بگیرید. ](#comment-your-code-but-prefer-descriptive-method-and-variable-names-over-comments)
+- [کامنت گذاری بکنید، ولی اسامی متدها یا متغیرها را توصیفی و معنادار در نظر بگیرید. ](#کامنت-گذاری-بکنید-ولی-اسامی-متدها-یا-متغیرها-را-توصیفی-و-معنادار-در-نظر-بگیرید)
 
-- [در تمپلیت های Blade از js و css استفاده نکنید و هیچگونه کد HTML ای را در class های PHP استفاده نکنید.](#do-not-put-js-and-css-in-blade-templates-and-do-not-put-any-html-in-php-classes)
+- [در تمپلیت های Blade از js و css استفاده نکنید و هیچگونه کد HTML ای را در class های PHP استفاده نکنید.](#در-تمپلیت-های-blade-از-js-و-css-استفاده-نکنید-و-هیچگونه-کد-html-ای-را-در-class-های-php-استفاده-نکنید)
 
-- [به جای استفاده مستقیم از متن ها در کد، از فایل های config و languages استفاده کنید!](#use-config-and-language-files-constants-instead-of-text-in-the-code)
+- [به جای استفاده مستقیم از متن ها در کد، از فایل های config و languages استفاده کنید!](#به-جای-استفاده-مستقیم-از-متن-ها-در-کد-از-فایل-های-config-و-langugeus-استفاده-کنید)
 
-- [از ابزارهای استاندارد لاراول که مورد تایید جامعه کاربری آن میباشد، استفاده کنید.](#use-standard-laravel-tools-accepted-by-community)
+- [از ابزارهای استاندارد لاراول که مورد تایید جامعه کاربری آن میباشد، استفاده کنید.](#از-ابزارهای-استاندارد-لاراول-که-مورد-تایید-جامعه-کاربری-آن-میباشد-استفاده-کنید)
 
-- [از قرارداد های لاراول برای نامگذاری ها استفاده کنید.](#follow-laravel-naming-conventions)
+- [از قرارداد های لاراول برای نامگذاری ها استفاده کنید.](#از-قرارداد-های-لاراول-برای-نامگذاری-ها-استفاده-کنید)
 
-- [تا حد ممکن در کدتان، از Syntax های معنادار و کوتاه استفاده کنید.](#use-shorter-and-more-readable-syntax-where-possible)
+- [تا حد ممکن در کدتان، از Syntax های معنادار و کوتاه استفاده کنید.](#تا-حد-ممکن-در-کدتان-از-syntax-های-معنادار-و-کوتاه-استفاده-کنید)
 
-- [به جای ایجاد یک object با new، از IoC container و facades استفاده کنید.](#use-ioc-container-or-facades-instead-of-new-class)
+- [به جای ایجاد یک object با new، از IoC container و facades استفاده کنید.](#به-جای-ایجاد-یک-object-با-new-از-ioc-container-و-facades-استفاده-کنید)
 
-- [از فایل .env هیچ وقت مستقیم داده ای دریافت نکنید.](#do-not-get-data-from-the-env-file-directly)
+- [از فایل .env هیچ وقت مستقیم داده ای دریافت نکنید.](#از-فایل-env-هیچ-وقت-مستقیم-داده-ای-دریافت-نکنید)
 
-- [تاریخ و زمان را در قالب استاندارد ذخیره کنید. از Accessors & Mutators ها برای دستکاری در نمایش تاریخ و زمان استفاده کنید.](#store-dates-in-the-standard-format-use-accessors-and-mutators-to-modify-date-format)
+- [تاریخ و زمان را در قالب استاندارد ذخیره کنید. از Accessors & Mutators ها برای دستکاری در نمایش تاریخ و زمان استفاده کنید.](#تاریخ-و-زمان-را-در-قالب-استاندارد-ذخیره-کنید-از-accessors--mutators-ها-برای-دستکاری-در-نمایش-تاریخ-و-زمان-استفاده-کنید)
 
-- [دیگر روش ها](#other-good-practices)
+- [دیگر روش ها](#دیگر-قواعد-توسعه-روش-قابل-قبول-بدون-فهرست)
 </div>
 
 <div dir="rtl">
