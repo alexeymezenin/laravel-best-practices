@@ -51,7 +51,7 @@ Translations:
 
 [تاریخ و زمان را در قالب استاندارد ذخیره کنید. از Accessors & Mutators ها برای دستکاری در نمایش تاریخ و زمان استفاده کنید.](#store-dates-in-the-standard-format-use-accessors-and-mutators-to-modify-date-format)
 
-[دیگر روش ها](#other-✔️ صحیح-practices)
+[دیگر روش ها](#other-good-practices)
 </span>
 
 ### **اصل تک وظیفه ای بودن**
