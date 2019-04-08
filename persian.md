@@ -6,11 +6,11 @@
 
 [한국어](https://github.com/xotrs/laravel-best-practices) (by [cherrypick](https://github.com/xotrs))
 
-[Русский](russian.md)
+[روسی](russian.md)
 
 [فارسی](persian.md)
 
-[Português](https://github.com/jonaselan/laravel-best-practices) (by [jonaselan](https://github.com/jonaselan))
+[پرتقالی](https://github.com/jonaselan/laravel-best-practices) (by [jonaselan](https://github.com/jonaselan))
 
 [Tiếng Việt](https://chungnguyen.xyz/posts/code-laravel-lam-sao-cho-chuan) (by [Chung Nguyễn](https://github.com/nguyentranchung))
 
@@ -18,41 +18,41 @@
 
 ## فهرست مطالب
 
-[اصل تک وظیفه ای بودن](#single-responsibility-principle)
+- [اصل تک وظیفه ای بودن](#single-responsibility-principle)
 
-[مدل های بزرگ،‌ کنترلرهای کوچک!](#fat-models-skinny-controllers)
+- [مدل های بزرگ،‌ کنترلرهای کوچک!](#fat-models-skinny-controllers)
 
-[اعتبارسنجی](#validation)
+- [اعتبارسنجی](#validation)
 
-[منطق برنامه باید در service class باشد](#business-logic-should-be-in-service-class)
+- [منطق برنامه باید در service class باشد](#business-logic-should-be-in-service-class)
 
 [اصل DRY یا خودت را تکرار نکن!](#dont-repeat-yourself-dry)
 
-[از Eloquent به جای Query Builder و raw SQL استفاده کند. همچنین از collections به جای arrays](#prefer-to-use-eloquent-over-using-query-builder-and-raw-sql-queries-prefer-collections-over-arrays)
+- [از Eloquent به جای Query Builder و raw SQL استفاده کند. همچنین از collections به جای arrays](#prefer-to-use-eloquent-over-using-query-builder-and-raw-sql-queries-prefer-collections-over-arrays)
 
-[ایجاد یک مدل](#mass-assignment)
+- [ایجاد یک مدل](#mass-assignment)
 
-[به جای نوشتن query ها در blade از eager loading استفاده کنید. (مسئله N+1)](#do-not-execute-queries-in-blade-templates-and-use-eager-loading-n--1-problem)
+- [به جای نوشتن query ها در blade از eager loading استفاده کنید. (مسئله N+1)](#do-not-execute-queries-in-blade-templates-and-use-eager-loading-n--1-problem)
 
-[کامنت گذاری بکنید، ولی اسامی متدها یا متغیرها را توصیفی و معنادار در نظر بگیرید. ](#comment-your-code-but-prefer-descriptive-method-and-variable-names-over-comments)
+- [کامنت گذاری بکنید، ولی اسامی متدها یا متغیرها را توصیفی و معنادار در نظر بگیرید. ](#comment-your-code-but-prefer-descriptive-method-and-variable-names-over-comments)
 
-[در تمپلیت های Blade از js و css استفاده نکنید و هیچگونه کد HTML ای را در class های PHP استفاده نکنید.](#do-not-put-js-and-css-in-blade-templates-and-do-not-put-any-html-in-php-classes)
+- [در تمپلیت های Blade از js و css استفاده نکنید و هیچگونه کد HTML ای را در class های PHP استفاده نکنید.](#do-not-put-js-and-css-in-blade-templates-and-do-not-put-any-html-in-php-classes)
 
-[به جای استفاده مستقیم از متن ها در کد، از فایل های config و langugeus استفاده کنید!](#use-config-and-language-files-constants-instead-of-text-in-the-code)
+- [به جای استفاده مستقیم از متن ها در کد، از فایل های config و langugeus استفاده کنید!](#use-config-and-language-files-constants-instead-of-text-in-the-code)
 
-[از ابزارهای استاندارد لاراول که مورد تایید جامعه کاربری آن است استفاده کنید.](#use-standard-laravel-tools-accepted-by-community)
+- [از ابزارهای استاندارد لاراول که مورد تایید جامعه کاربری آن است استفاده کنید.](#use-standard-laravel-tools-accepted-by-community)
 
-[از قرارداد های لاراول برای نامگذاری ها استفاده کنید](#follow-laravel-naming-conventions)
+- [از قرارداد های لاراول برای نامگذاری ها استفاده کنید](#follow-laravel-naming-conventions)
 
-[تا حد ممکن در کدتان، از Syntax های معنادار و کوتاه استفاده کنید](#use-shorter-and-more-readable-syntax-where-possible)
+- [تا حد ممکن در کدتان، از Syntax های معنادار و کوتاه استفاده کنید](#use-shorter-and-more-readable-syntax-where-possible)
 
-[به جای ایجاد یک object، از IoC container و facades استفاده کنید.](#use-ioc-container-or-facades-instead-of-new-class)
+- [به جای ایجاد یک object، از IoC container و facades استفاده کنید.](#use-ioc-container-or-facades-instead-of-new-class)
 
-[از فایل .env هیچ وقت مستقیم داده ای دریافت نکنید.](#do-not-get-data-from-the-env-file-directly)
+- [از فایل .env هیچ وقت مستقیم داده ای دریافت نکنید.](#do-not-get-data-from-the-env-file-directly)
 
-[تاریخ و زمان را در قالب استاندارد ذخیره کنید. از Accessors & Mutators ها برای دستکاری در نمایش تاریخ و زمان استفاده کنید.](#store-dates-in-the-standard-format-use-accessors-and-mutators-to-modify-date-format)
+- [تاریخ و زمان را در قالب استاندارد ذخیره کنید. از Accessors & Mutators ها برای دستکاری در نمایش تاریخ و زمان استفاده کنید.](#store-dates-in-the-standard-format-use-accessors-and-mutators-to-modify-date-format)
 
-[دیگر روش ها](#other-good-practices)
+- [دیگر روش ها](#other-good-practices)
 </div>
 
 ### **اصل تک وظیفه ای بودن**
