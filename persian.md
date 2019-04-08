@@ -1,6 +1,6 @@
-<span dir="rtl">
 ![روش های صحیح توسعه پروژه های مبتنی بر فریم ورک لاراول](/images/logo-english.png?raw=true)
 
+<span dir="rtl">
 Translations:
 
 [한국어](https://github.com/xotrs/laravel-best-practices) (by [cherrypick](https://github.com/xotrs))
@@ -13,7 +13,7 @@ Translations:
 
 [Tiếng Việt](https://chungnguyen.xyz/posts/code-laravel-lam-sao-cho-chuan) (by [Chung Nguyễn](https://github.com/nguyentranchung))
 
-این یک سازگاری لاراول با اصول SOLId یا Design Pattern ها و ... نیست.اینجا شما روش های اصولی توسعه پروژه های مبتنی بر لاراول رو پیدا کنید که معمولا تو پروژه ها در نظر گرفته نمیشوند.
+این یک سازگاری لاراول با اصول SOLID یا Design Pattern ها و ... نیست.اینجا شما روش های اصولی توسعه پروژه های مبتنی بر لاراول رو پیدا کنید که معمولا تو پروژه ها در نظر گرفته نمیشوند.
 
 ## فهرست مطالب
 
