@@ -26,7 +26,7 @@
 
 - [منطق برنامه باید در service class باشد](#business-logic-should-be-in-service-class)
 
-[اصل DRY یا خودت را تکرار نکن!](#dont-repeat-yourself-dry)
+- [اصل DRY یا خودت را تکرار نکن!](#dont-repeat-yourself-dry)
 
 - [از Eloquent به جای Query Builder و raw SQL استفاده کند. همچنین از collections به جای arrays](#prefer-to-use-eloquent-over-using-query-builder-and-raw-sql-queries-prefer-collections-over-arrays)
 
