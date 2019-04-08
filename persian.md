@@ -1,7 +1,8 @@
 ![روش های صحیح توسعه پروژه های مبتنی بر فریم ورک لاراول](/images/logo-english.png?raw=true)
 
-<span dir="rtl">
-Translations:
+<div dir="rtl">
+
+ترجمه ها:
 
 [한국어](https://github.com/xotrs/laravel-best-practices) (by [cherrypick](https://github.com/xotrs))
 
@@ -52,7 +53,7 @@ Translations:
 [تاریخ و زمان را در قالب استاندارد ذخیره کنید. از Accessors & Mutators ها برای دستکاری در نمایش تاریخ و زمان استفاده کنید.](#store-dates-in-the-standard-format-use-accessors-and-mutators-to-modify-date-format)
 
 [دیگر روش ها](#other-good-practices)
-</span>
+</div>
 
 ### **اصل تک وظیفه ای بودن**
 
