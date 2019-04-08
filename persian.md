@@ -14,7 +14,7 @@
 
 [Tiếng Việt](https://chungnguyen.xyz/posts/code-laravel-lam-sao-cho-chuan) (by [Chung Nguyễn](https://github.com/nguyentranchung))
 
-این یک سازگاری لاراول با اصول SOLID یا Design Pattern ها و ... نیست.اینجا شما روش های اصولی توسعه پروژه های مبتنی بر لاراول رو پیدا کنید که معمولا تو پروژه ها در نظر گرفته نمیشوند.
+این مستندات یک سازگاری لاراول با اصول SOLID یا Design Pattern ها و ... نیست. اینجا شما روش های اصولی توسعه پروژه های مبتنی بر لاراول رو پیدا کنید که معمولا داخل پروژه ها در نظر گرفته نمیشوند.
 
 ## فهرست مطالب
 
@@ -28,7 +28,7 @@
 
 - [اصل DRY یا خودت را تکرار نکن!](#dont-repeat-yourself-dry)
 
-- [ابه جای استفاده از Query Builder و raw SQL queries از Eloquent ORM استفاده کنید. همچنین به جای استفاده از Arrays از Collections استفاده کنید.](#prefer-to-use-eloquent-over-using-query-builder-and-raw-sql-queries-prefer-collections-over-arrays)
+- [به جای استفاده از Query Builder و raw SQL queries از Eloquent ORM استفاده کنید. همچنین به جای استفاده از Arrays از Collections استفاده کنید.](#prefer-to-use-eloquent-over-using-query-builder-and-raw-sql-queries-prefer-collections-over-arrays)
 
 - [ایجاد یک مدل](#mass-assignment)
 
@@ -38,13 +38,13 @@
 
 - [در تمپلیت های Blade از js و css استفاده نکنید و هیچگونه کد HTML ای را در class های PHP استفاده نکنید.](#do-not-put-js-and-css-in-blade-templates-and-do-not-put-any-html-in-php-classes)
 
-- [به جای استفاده مستقیم از متن ها در کد، از فایل های config و langugeus استفاده کنید!](#use-config-and-language-files-constants-instead-of-text-in-the-code)
+- [به جای استفاده مستقیم از متن ها در کد، از فایل های config و languages استفاده کنید!](#use-config-and-language-files-constants-instead-of-text-in-the-code)
 
 - [از ابزارهای استاندارد لاراول که مورد تایید جامعه کاربری آن میباشد، استفاده کنید.](#use-standard-laravel-tools-accepted-by-community)
 
-- [از قرارداد های لاراول برای نامگذاری ها استفاده کنید](#follow-laravel-naming-conventions)
+- [از قرارداد های لاراول برای نامگذاری ها استفاده کنید.](#follow-laravel-naming-conventions)
 
-- [تا حد ممکن در کدتان، از Syntax های معنادار و کوتاه استفاده کنید](#use-shorter-and-more-readable-syntax-where-possible)
+- [تا حد ممکن در کدتان، از Syntax های معنادار و کوتاه استفاده کنید.](#use-shorter-and-more-readable-syntax-where-possible)
 
 - [به جای ایجاد یک object با new، از IoC container و facades استفاده کنید.](#use-ioc-container-or-facades-instead-of-new-class)
 
@@ -55,11 +55,15 @@
 - [دیگر روش ها](#other-good-practices)
 </div>
 
+<div dir="rtl">
+
 ### **اصل تک وظیفه ای بودن**
 
 هر class و هر methode باید یک وظیفه داشته باشد.
 
 ❌ ناصحیح:
+
+</div>
 
 ```php
 public function getFullNameAttribute()
@@ -71,8 +75,11 @@ public function getFullNameAttribute()
     }
 }
 ```
+<div dir="rtl">
 
 ✔️ صحیح:
+
+</div>
 
 ```php
 public function getFullNameAttribute()
@@ -95,6 +102,7 @@ public function getFullNameShort()
     return $this->first_name[0] . '. ' . $this->last_name;
 }
 ```
+<div dir="rtl">
 
 [🔝 بازگشت به فهرست](#contents)
 
@@ -103,6 +111,8 @@ public function getFullNameShort()
 اگر از Query Builder یا raw SQL queries استفاده میکنید، تمام منطق پایگاه داده را در model ها یا Repository classes قرار بدهید.
 
 ❌ ناصحیح:
+
+</div>
 
 ```php
 public function index()
@@ -116,8 +126,11 @@ public function index()
     return view('index', ['clients' => $clients]);
 }
 ```
+<div dir="rtl">
 
 ✔️ صحیح:
+
+</div>
 
 ```php
 public function index()
@@ -137,6 +150,7 @@ class Client extends Model
     }
 }
 ```
+<div dir="rtl">
 
 [🔝 بازگشت به فهرست](#contents)
 
@@ -145,6 +159,8 @@ class Client extends Model
 اعتبارسنجی ها را در Request classes انجام دهید نه در controllers.
 
 ❌ ناصحیح:
+
+</div>
 
 ```php
 public function store(Request $request)
@@ -158,8 +174,11 @@ public function store(Request $request)
     ....
 }
 ```
+<div dir="rtl">
 
 ✔️ صحیح:
+
+</div>
 
 ```php
 public function store(PostRequest $request)
@@ -179,6 +198,7 @@ class PostRequest extends Request
     }
 }
 ```
+<div dir="rtl">
 
 [🔝 بازگشت به فهرست](#contents)
 
@@ -186,6 +206,8 @@ class PostRequest extends Request
 
 هر کنترلر باید یک وظیفه داشته باشد، بنابراین منطق برنامه را در service classes بنویسید.
 ❌ ناصحیح:
+
+</div>
 
 ```php
 public function store(Request $request)
@@ -197,8 +219,11 @@ public function store(Request $request)
     ....
 }
 ```
+<div dir="rtl">
 
 ✔️ صحیح:
+
+</div>
 
 ```php
 public function store(Request $request)
@@ -218,6 +243,7 @@ class ArticleService
     }
 }
 ```
+<div dir="rtl">
 
 [🔝 بازگشت به فهرست](#contents)
 
@@ -226,6 +252,8 @@ class ArticleService
 تا حد ممکن از کد ها بازاستفاده کنید. تک وظیفه ای شدن به شما کمک میکند تا دوباره کاری نداشته باشید. همچنین در Blade template حتما این اصل را رعایت کنید و در model ها از Eloquent scopes استفاده کنید و ... .
 
 ❌ ناصحیح:
+
+</div>
 
 ```php
 public function getActive()
@@ -240,8 +268,11 @@ public function getArticles()
         })->get();
 }
 ```
+<div dir="rtl">
 
 ✔️ صحیح:
+
+</div>
 
 ```php
 public function scopeActive($q)
@@ -261,6 +292,7 @@ public function getArticles()
         })->get();
 }
 ```
+<div dir="rtl">
 
 [🔝 بازگشت به فهرست](#contents)
 
@@ -269,6 +301,8 @@ public function getArticles()
 Eloquent  Eloquent به شما این قابلیت را میدهد که کدهای خوانا و قابل توسعه بنویسید. همچنین دارای ویژگی های داخلی جالبی مثل soft deletes یا events  یا scopes و .. میباشد.
 
 ❌ ناصحیح:
+
+</div>
 
 ```sql
 SELECT *
@@ -284,18 +318,24 @@ AND `verified` = '1'
 AND `active` = '1'
 ORDER BY `created_at` DESC
 ```
+<div dir="rtl">
 
 ✔️ صحیح:
+
+</div>
 
 ```php
 Article::has('user.profile')->verified()->latest()->get();
 ```
+<div dir="rtl">
 
 [🔝 بازگشت به فهرست](#contents)
 
 ### **ایجاد یک مدل**
 
 ❌ ناصحیح:
+
+</div>
 
 ```php
 $article = new Article;
@@ -306,12 +346,16 @@ $article->verified = $request->verified;
 $article->category_id = $category->id;
 $article->save();
 ```
+<div dir="rtl">
 
 ✔️ صحیح:
+
+</div>
 
 ```php
 $category->article()->create($request->all());
 ```
+<div dir="rtl">
 
 [🔝 بازگشت به فهرست](#contents)
 
@@ -319,13 +363,18 @@ $category->article()->create($request->all());
 
 ❌ ناصحیح (برای ۱۰۰ کاربر، ما ۱۰۱ کوئری را اجرا میکنیم!):
 
+</div>
+
 ```php
 @foreach (User::all() as $user)
     {{ $user->profile->name }}
 @endforeach
 ```
+<div dir="rtl">
 
 ✔️ صحیح (برای ۱۰۰ کاربر، ما فقط ۲ کوئری اجرا کردیم!):
+
+</div>
 
 ```php
 $users = User::with('profile')->get();
@@ -336,6 +385,7 @@ $users = User::with('profile')->get();
     {{ $user->profile->name }}
 @endforeach
 ```
+<div dir="rtl">
 
 [🔝 بازگشت به فهرست](#contents)
 
@@ -343,22 +393,32 @@ $users = User::with('profile')->get();
 
 ❌ ناصحیح:
 
+</div>
+
 ```php
 if (count((array) $builder->getQuery()->joins) > 0)
 ```
+<div dir="rtl">
 
 ❗️ قابل قبول:
+
+</div>
 
 ```php
 // Determine if there are any joins.
 if (count((array) $builder->getQuery()->joins) > 0)
 ```
+<div dir="rtl">
 
 ✔️ صحیح:
+
+</div>
 
 ```php
 if ($this->hasJoins())
 ```
+
+<div dir="rtl">
 
 [🔝 بازگشت به فهرست](#contents)
 
@@ -366,11 +426,16 @@ if ($this->hasJoins())
 
 ❌ ناصحیح:
 
+</div>
+
 ```php
 let article = `{{ json_encode($article) }}`;
 ```
+<div dir="rtl">
 
 ❗️ قابل قبول:
+
+</div>
 
 ```php
 <input id="article" type="hidden" value="@json($article)">
@@ -379,12 +444,16 @@ Or
 
 <button class="js-fav-article" data-article="@json($article)">{{ $article->name }}<button>
 ```
+<div dir="rtl">
 
 در فایل JavaScript:
+
+</div>
 
 ```javascript
 let article = $('#article').val();
 ```
+<div dir="rtl">
 
 بهترین راه استفاده از پکیج مخصوص انتقال داده از php به js میباشد.
 
@@ -394,6 +463,8 @@ let article = $('#article').val();
 
 ❌ ناصحیح:
 
+</div>
+
 ```php
 public function isNormal()
 {
@@ -402,8 +473,11 @@ public function isNormal()
 
 return back()->with('message', 'مقاله شما ایجاد گردید!');
 ```
+<div dir="rtl">
 
 ✔️ صحیح:
+
+</div>
 
 ```php
 public function isNormal()
@@ -413,12 +487,15 @@ public function isNormal()
 
 return back()->with('message', __('app.article_added'));
 ```
+<div dir="rtl">
 
 [🔝 بازگشت به فهرست](#contents)
 
 ### **از ابزارهای استاندارد لاراول که مورد تایید جامعه کاربری آن میباشد، استفاده کنید.**
 
 به جای استفاده از ابزارها و پکیج های غیررسمی لاراول از ابزارها و قابلیت های داخلی و رسمی لاراول استفاده کنید. هر توسعه دهنده [لاراولی] ای که در آینده بخواهد با کدهای شما کار کند، باید ابزارهای جدید یاد بگیرد. همچنین اگر شما از ابزارهای غیررسمی استفاده کنید، شانس دریافت کمک از جامعه کاربری لاراول به طرز قابل توجهی  کمتر میشود. این هزینه را به گردن مشتریان خود نیندازید! [منظور نویسنده این هست که تو کارهای بزرگ و مهمتون از ابزارهای جدید و پراکنده استفاده نکنید. همیشه سعی کنید از ابزارهای داخلی و یا پکیج های رسمی لاراول استفاده کنید مگر این که چاره دیگری نباشد! شما با پراکنده کردن ابزارها هزینه فنی/مالی توسعه محصول را برای آینده زیادتر میکنید!]
+
+</div>
 
 نیاز | ابزارهای رسمی لاراول | ابزارهای غیررسمی لاراول
 ------------ | ------------- | -------------
@@ -442,6 +519,8 @@ Generating testing data | Seeder classes, Model Factories, Faker | Creating test
 Task scheduling | Laravel Task Scheduler | Scripts and 3rd party packages
 DB | MySQL, PostgreSQL, SQLite, SQL Server | MongoDB
 
+<div dir="rtl">
+
 [🔝 بازگشت به فهرست](#contents)
 
 ### **از قرارداد های لاراول برای نامگذاری ها استفاده کنید**
@@ -449,6 +528,8 @@ DB | MySQL, PostgreSQL, SQLite, SQL Server | MongoDB
 از استاندارد های معروف php که به [PSR](http://www.php-fig.org/psr/psr-2/) است استفاده کنید.
  
 همچنین روش های نامگذاری مورد قبول جامعه کاربری لاراول:
+
+</div>
 
 بخش مربوطه | قاعده اسم گذاری | ✔️ صحیح | ❌ ناصحیح
 ------------ | ------------- | ------------- | -------------
@@ -477,25 +558,35 @@ Config | snake_case | google_calendar.php | ~~googleCalendar.php, google-calenda
 Contract (interface) | صفت یا اسم | Authenticatable | ~~AuthenticationInterface, IAuthentication~~
 Trait | صفت | Notifiable | ~~NotificationTrait~~
 
+<div dir="rtl">
+
 [🔝 بازگشت به فهرست](#contents)
 
 ### **تا حد ممکن در کدتان، از Syntax های معنادار و کوتاه استفاده کنید**
 
 ❌ ناصحیح:
 
+</div>
+
 ```php
 $request->session()->get('cart');
 $request->input('name');
 ```
+<div dir="rtl">
 
 ✔️ صحیح:
+
+</div>
 
 ```php
 session('cart');
 $request->name;
 ```
+<div dir="rtl">
 
 مثال های بیشتر:
+
+</div>
 
 سینتکس متداول | سینتکس کوتاه‌تر و خواناتر
 ------------ | -------------
@@ -516,6 +607,8 @@ $request->name;
 `->select('id', 'name')->get()` | `->get(['id', 'name'])`
 `->first()->name` | `->value('name')`
 
+<div dir="rtl">
+
 [🔝 بازگشت به فهرست](#contents)
 
 ### **به جای ایجاد یک object با new، از IoC container و facades استفاده کنید.**
@@ -524,12 +617,17 @@ $request->name;
 
 ❌ ناصحیح:
 
+</div
+
 ```php
 $user = new User;
 $user->create($request->all());
 ```
+<div dir="rtl">
 
 ✔️ صحیح:
+
+</div>
 
 ```php
 public function __construct(User $user)
@@ -542,6 +640,8 @@ public function __construct(User $user)
 $this->user->create($request->all());
 ```
 
+<div dir="rtl">
+
 [🔝 بازگشت به فهرست](#contents)
 
 ### **از فایل .env هیچ وقت مستقیم داده ای دریافت نکنید.**
@@ -549,12 +649,16 @@ $this->user->create($request->all());
 اطلاعات موجود در .env را در صورت نیاز به استفاده، در فایل های config لود کنید و سپس با استفاده از helper function فایل های کانفیگ یعنی config() با آن در نرم افزار خود کار کنید.
 
 ❌ ناصحیح:
+</div>
 
 ```php
 $apiKey = env('API_KEY');
 ```
+<div dir="rtl">
 
 ✔️ صحیح:
+
+</div>
 
 ```php
 // config/api.php
@@ -563,6 +667,7 @@ $apiKey = env('API_KEY');
 // Use the data
 $apiKey = config('api.key');
 ```
+<div dir="rtl">
 
 [🔝 بازگشت به فهرست](#contents)
 
@@ -570,12 +675,17 @@ $apiKey = config('api.key');
 
 ❌ ناصحیح:
 
+</div>
+
 ```php
 {{ Carbon::createFromFormat('Y-d-m H-i', $object->ordered_at)->toDateString() }}
 {{ Carbon::createFromFormat('Y-d-m H-i', $object->ordered_at)->format('m-d') }}
 ```
+<div dir="rtl">
 
 ✔️ صحیح:
+
+</div>
 
 ```php
 // Model
@@ -590,6 +700,9 @@ public function getSomeDateAttribute($date)
 {{ $object->ordered_at->some_date }}
 ```
 
+<div dir="rtl">
+
+
 [🔝 بازگشت به فهرست](#contents)
 
 ### **دیگر قواعد توسعه صحیح (بدون فهرست)**
@@ -599,3 +712,5 @@ public function getSomeDateAttribute($date)
 - تا حد ممکن از vanilla PHP در فایل های blade استفاده نکنید.
 
 [🔝 بازگشت به فهرست](#contents)
+
+</div>
