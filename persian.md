@@ -1,3 +1,4 @@
+<span dir="rtl">
 ![روش های صحیح توسعه پروژه های مبتنی بر فریم ورک لاراول](/images/logo-english.png?raw=true)
 
 Translations:
@@ -12,7 +13,6 @@ Translations:
 
 [Tiếng Việt](https://chungnguyen.xyz/posts/code-laravel-lam-sao-cho-chuan) (by [Chung Nguyễn](https://github.com/nguyentranchung))
 
-<span dir="rtl">
 این یک سازگاری لاراول با اصول SOLId یا Design Pattern ها و ... نیست.اینجا شما روش های اصولی توسعه پروژه های مبتنی بر لاراول رو پیدا کنید که معمولا تو پروژه ها در نظر گرفته نمیشوند.
 
 ## فهرست مطالب
