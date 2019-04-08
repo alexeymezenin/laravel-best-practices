@@ -6,7 +6,11 @@ Translations:
 
 [Русский](russian.md)
 
+<div dir="rtl">
+
 [فارسی](persian.md)
+
+</div>
 
 [Português](https://github.com/jonaselan/laravel-best-practices) (by [jonaselan](https://github.com/jonaselan))
 
