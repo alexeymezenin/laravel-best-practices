@@ -64,9 +64,9 @@ Bad:
 public function getFullNameAttribute()
 {
     if (auth()->user() && auth()->user()->hasRole('client') && auth()->user()->isVerified()) {
-        return 'Mr. ' . $this->first_name . ' ' . $this->middle_name . ' ' . $this->last_name;
+        return 'Mr. '.$this->first_name.' '.$this->middle_name.' '.$this->last_name;
     } else {
-        return $this->first_name[0] . '. ' . $this->last_name;
+        return $this->first_name[0].'. '. $this->last_name;
     }
 }
 ```
@@ -86,12 +86,12 @@ public function isVerifiedClient()
 
 public function getFullNameLong()
 {
-    return 'Mr. ' . $this->first_name . ' ' . $this->middle_name . ' ' . $this->last_name;
+    return 'Mr. '.$this->first_name.' '.$this->middle_name.' '.$this->last_name;
 }
 
 public function getFullNameShort()
 {
-    return $this->first_name[0] . '. ' . $this->last_name;
+    return $this->first_name[0].'. '.$this->last_name;
 }
 ```
 
@@ -191,7 +191,7 @@ Bad:
 public function store(Request $request)
 {
     if ($request->hasFile('image')) {
-        $request->file('image')->move(public_path('images') . 'temp');
+        $request->file('image')->move(public_path('images').'temp');
     }
     
     ....
