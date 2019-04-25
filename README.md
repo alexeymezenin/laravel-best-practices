@@ -310,7 +310,7 @@ $article->save();
 Good:
 
 ```php
-$category->article()->create($request->all());
+$category->article()->create($request->validated());
 ```
 
 [🔝 Back to contents](#contents)
@@ -526,7 +526,7 @@ Bad:
 
 ```php
 $user = new User;
-$user->create($request->all());
+$user->create($request->validated());
 ```
 
 Good:
@@ -539,7 +539,7 @@ public function __construct(User $user)
 
 ....
 
-$this->user->create($request->all());
+$this->user->create($request->validated());
 ```
 
 [🔝 Back to contents](#contents)
