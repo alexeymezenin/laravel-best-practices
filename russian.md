@@ -567,7 +567,7 @@ $apiKey = config('api.key');
 
 ```
 // Модель
-protected $dates = ['ordered_at', 'created_at', 'updated_at']
+protected $dates = ['ordered_at', 'created_at', 'updated_at'];
 // Читатель (accessor)
 public function getSomeDateAttribute($date)
 {
