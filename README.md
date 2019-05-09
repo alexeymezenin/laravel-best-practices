@@ -28,7 +28,7 @@ O que é descrito aqui não é uma adaptação ao principio SOLID, padrões e et
 
 [Use ferramentas padrões do Laravel aceitas pela comunidade](#use-ferramentas-padrões-do-laravel-aceitas-pela-comunidade)
 
-[Siga a conversão de nomes usada no Laravel](#siga-a-conversão-de-nomes-usada-no-laravel)
+[Siga a convenção de nomes usada no Laravel](#siga-a-convenção-de-nomes-usada-no-laravel)
 
 [Tente sempre usar sintaxes pequenas e legíveis](#tente-sempre-usar-sintaxes-pequenas-e-legíveis)
 
@@ -429,11 +429,11 @@ DB | MySQL, PostgreSQL, SQLite, SQL Server | MongoDB
 
 [🔝 Voltar para o início](#conteúdo)
 
-### **Siga a conversão de nomes usada no Laravel**
+### **Siga a convenção de nomes usada no Laravel**
 
  Siga [PSR standards](http://www.php-fig.org/psr/psr-2/).
 
- Siga também a conversão de nomes aceita pelo a comunidade Laravel:
+ Siga também a convenção de nomes aceita pelo a comunidade Laravel:
 
 O que | Como | Bom | Ruim
 ------------ | ------------- | ------------- | -------------
