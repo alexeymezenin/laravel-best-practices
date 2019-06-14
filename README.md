@@ -2,6 +2,8 @@
 
 Translations:
 
+[Nederlands](https://github.com/Protoqol/Beste-Laravel-Praktijken) (by [Protoqol](https://github.com/Protoqol))
+
 [한국어](https://github.com/xotrs/laravel-best-practices) (by [cherrypick](https://github.com/xotrs))
 
 [Русский](russian.md)
