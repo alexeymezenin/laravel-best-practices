@@ -46,7 +46,7 @@
 
 Плохо:
 
-```
+```php
 public function getFullNameAttribute()
 {
     if (auth()->user() && auth()->user()->hasRole('client') && auth()->user()->isVerified()) {
