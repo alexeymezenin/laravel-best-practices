@@ -22,41 +22,41 @@ Ce n'est pas une adaptation Laravel des principes SOLID, des modèles, etc. Vous
 
 ## Contenu
 
-[Principe de responsabilité unique](#single-responsibility-principle)
+[Principe de responsabilité unique](#principe-de-responsabilité-unique)
 
-[Modèles Fat, contrôleurs maigres](#fat-models-skinny-controllers)
+[Modèles Fat, contrôleurs maigres](#modèles-Fat-contrôleurs-maigres)
 
 [Validation](#validation)
 
-[La logique métier doit être en classe de service](#business-logic-should-be-in-service-class)
+[La logique métier doit être en classe de service](#la-logique-métier-doit-être-en-classe-de-service)
 
-[Ne te répète pas (DRY)](#dont-repeat-yourself-dry)
+[Ne te répète pas (DRY)](#ne-te-répète-pas-dry)
 
-[Préférez utiliser Eloquent à l’utilisation de Query Builder et de requêtes SQL brutes. Préférez les collections aux tableaux](#prefer-to-use-eloquent-over-using-query-builder-and-raw-sql-queries-prefer-collections-over-arrays)
+[Préférez utiliser Eloquent à l’utilisation de Query Builder et de requêtes SQL brutes. Préférez les collections aux tableaux](#préférez-utiliser-eloquent-à-l-utilisation-de-Query-Builder-et-de-requêtes-SQL-brutes-Préférez-les-collections-aux-tableaux)
 
-[Mission de masse](#mass-assignment)
+[Mission de masse](#mission-de-masse)
 
-[N'exécutez pas de requêtes dans les modèles de blade et utilisez un chargement rapide (N + 1 problème)](#do-not-execute-queries-in-blade-templates-and-use-eager-loading-n--1-problem)
+[N'exécutez pas de requêtes dans les modèles de blade et utilisez un chargement rapide (N + 1 problème)](#n-exécutez-pas-de-requêtes-dans-les-modèles-de-blade-et-utilisez-un-chargement-rapide-n--1-problem)
 
-[Commentez votre code, mais préférez la méthode descriptive et les noms de variables aux commentaires](#comment-your-code-but-prefer-descriptive-method-and-variable-names-over-comments)
+[Commentez votre code, mais préférez la méthode descriptive et les noms de variables aux commentaires](#commentez-votre-code-mais-préférez-la-méthode-descriptive-et-les-noms-de-variables-aux-commentaires)
 
-[Ne mettez pas JS et CSS dans les templates Blade et ne mettez pas de HTML dans les classes PHP](#do-not-put-js-and-css-in-blade-templates-and-do-not-put-any-html-in-php-classes)
+[Ne mettez pas JS et CSS dans les templates Blade et ne mettez pas de HTML dans les classes PHP](#ne-mettez-pas-JS-et-CSS-dans-les-templates-Blade-et-ne-mettez-pas-de-HTML-dans-les-classes-PHP)
 
-[Utilisez des fichiers de configuration et de langue, des constantes au lieu du texte dans le code](#use-config-and-language-files-constants-instead-of-text-in-the-code)
+[Utilisez des fichiers de configuration et de langue, des constantes au lieu du texte dans le code](#utilisez-des-fichiers-de-configuration-et-de-langue-des-constantes-au-lieu-du-texte-dans-le-code)
 
-[Utiliser les outils standard de Laravel acceptés par la communauté](#use-standard-laravel-tools-accepted-by-community)
+[Utiliser les outils standard de Laravel acceptés par la communauté](#utiliser-les-outils-standard-de-Laravel-acceptés-par-la-communauté)
 
-[Suivre les conventions de nommage de Laravel](#follow-laravel-naming-conventions)
+[Suivre les conventions de nommage de Laravel](#suivre-les-conventions-de-nommage-de-Laravel)
 
-[Utilisez une syntaxe plus courte et plus lisible dans la mesure du possible](#use-shorter-and-more-readable-syntax-where-possible)
+[Utilisez une syntaxe plus courte et plus lisible dans la mesure du possible](#utilisez-une-syntaxe-plus-courte-et-plus-lisible-dans-la-mesure-du-possible)
 
-[Utilisez un conteneur IoC ou des façades au lieu de la nouvelle classe](#use-ioc-container-or-facades-instead-of-new-class)
+[Utilisez un conteneur IoC ou des façades au lieu de la nouvelle classe](#utilisez-un-conteneur-IoC-ou-des-façades-au-lieu-de-la-nouvelle-classe)
 
-[Ne pas obtenir les données du fichier `.env` directement](#do-not-get-data-from-the-env-file-directly)
+[Ne pas obtenir les données du fichier `.env` directement](#ne-pas-obtenir-les-données-du-fichier-env-directement)
 
-[Stocker les dates au format standard. Utiliser des accesseurs et des mutateurs pour modifier le format de date](#store-dates-in-the-standard-format-use-accessors-and-mutators-to-modify-date-format)
+[Stocker les dates au format standard. Utiliser des accesseurs et des mutateurs pour modifier le format de date](#stocker-les-dates-au-format-standard-Utiliser-des-accesseurs-et-des-mutateurs-pour-modifier-le-format-de-date)
 
-[Autres bonnes pratiques](#other-good-practices)
+[Autres bonnes pratiques](#autres-bonnes-pratiques)
 
 ### **Principe de responsabilité unique**
 
