@@ -16,7 +16,7 @@ Translations:
 
 [Español](spanish.md) (by [César Escudero](https://github.com/cedaesca))
 
-
+[Français](french.md) (by [Mikayil S.](https://github.com/mikayilsrt))
 
 It's not a Laravel adaptation of SOLID principles, patterns etc. Here you'll find the best practices which are usually ignored in real life Laravel projects.
 
