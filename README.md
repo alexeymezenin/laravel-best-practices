@@ -8,6 +8,8 @@ Translations:
 
 [Русский](russian.md)
 
+[日本語](japanese.md) (by [2bo](https://github.com/2bo))
+
 [فارسی](persian.md) (by [amirhossein baghaie](https://github.com/amirbagh75))
 
 [Português](https://github.com/jonaselan/laravel-best-practices) (by [jonaselan](https://github.com/jonaselan))
