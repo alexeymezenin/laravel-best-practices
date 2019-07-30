@@ -228,7 +228,7 @@ class ArticleService
 
 [🔝 返回目录](#contents)
 
-### ** DRY原则 不要重复自己**
+### **DRY原则 不要重复自己**
 
 尽可能重用代码，SRP可以帮助您避免重复造轮子。 此外尽量重复使用Blade模板，使用Eloquent的 scopes 方法来实现代码。
 
@@ -425,7 +425,6 @@ return back()->with('message', __('app.article_added'));
 
 ### **使用社区认可的标准Laravel工具**
 
-Prefer to use built-in Laravel functionality and community packages instead of using 3rd party packages and tools. Any developer who will work with your app in the future will need to learn new tools. Also, chances to get help from the Laravel community are significantly lower when you're using a 3rd party package or tool. Do not make your client pay for that.
 
 强力推荐使用内置的Laravel功能和扩展包，而不是使用第三方的扩展包和工具。
 如果你的项目被其他开发人员接手了，他们将不得不重新学习这些第三方工具的使用教程。
@@ -457,7 +456,7 @@ API身份验证 | Laravel Passport | 第三方的JWT或者 OAuth 扩展包
 
 ### **遵循laravel命名约定**
 
- Follow [PSR standards](http://www.php-fig.org/psr/psr-2/).
+来源 [PSR standards](http://www.php-fig.org/psr/psr-2/).
  
 另外，遵循Laravel社区认可的命名约定：
 
@@ -477,7 +476,7 @@ hasOne或belongsTo关系 | 单数 | articleComment | ~~articleComments, article_
 主键 | - | id | ~~custom_id~~
 迁移 | - | 2017_01_01_000000_create_articles_table | ~~2017_01_01_000000_articles~~
 方法 | 驼峰命名 | getAll | ~~get_all~~
-在资源控制器中的方法 | [table](https://laravel.com/docs/master/controllers#resource-controllers) | store | ~~saveArticle~~
+资源控制器 | [table](https://laravel.com/docs/master/controllers#resource-controllers) | store | ~~saveArticle~~
 测试类| 驼峰命名 | testGuestCannotSeeArticle | ~~test_guest_cannot_see_article~~
 变量 | 驼峰命名 | $articlesWithAuthor | ~~$articles_with_author~~
 集合 | 描述性的, 复数的 | $activeUsers = User::active()->get() | ~~$active, $data~~
@@ -529,7 +528,7 @@ $request->name;
 
 [🔝 返回目录](#contents)
 
-### ** 使用IOC容器来创建实例 而不是直接new一个实例**
+### **使用IOC容器来创建实例 而不是直接new一个实例**
 
 创建新的类会让类之间的更加耦合，使得测试越发复杂。请改用IoC容器或注入来实现。
 
