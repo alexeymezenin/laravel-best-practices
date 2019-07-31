@@ -27,47 +27,47 @@
 [Türkçe](turkish.md) (by [Burak](https://github.com/ikidnapmyself))
 
 Bu metin Laravel için SOLID prensipleri, patternler vb. şeylerin uygulaması değildir. Burada, Laravel projelerinde 
-geliştiriciler tarafından dikkate alınmayan iyi ve kötü pratikleri karşılaştırmalarını bulacaksınız.
+geliştiriciler tarafından dikkate alınmayan iyi ve kötü pratiklerin karşılaştırmalarını bulacaksınız.
 
 **Çevirmenin Notu #1: Wikipedia'da Türkçe başlığı olmaması nedeniyle SOLID prensipleri hakkında açıklayıcı bir [Ekşi Sözlük entrysi](https://eksisozluk.com/entry/50438875)*  
 
 ## İçerik
 
-[Single responsibility principle (Tek sorumluluk prensibi)](#single-responsibility-principle)
+[Single responsibility principle (Tek sorumluluk prensibi)](#single-responsibility-principle-tek-sorumluluk-prensibi)
 
-[Büyük modeller, çirkin controllerlar](#fat-models-skinny-controllers)
+[Büyük modeller, çirkin controllerlar](#büyük-modeller-çirkin-controllerlar)
 
-[Validation (Veri Doğrulama)](#validation)
+[Validation (Veri Doğrulama)](#veri-doğrulama-validasyon)
 
-[Business logic servis class'ında bulunmalıdır](#business-logic-should-be-in-service-class)
+[Business logic servis class'ında bulunmalıdır](#business-logic-servis-classında-bulunmalıdır)
 
-[Kendini tekrar etme (DRY: Don't repeat yourself)](#dont-repeat-yourself-dry)
+[Kendini tekrar etme (DRY: Don't repeat yourself)](#kendini-tekrar-etme-dry-dont-repeat-yourself)
 
-[Query Builder ve düz queryler kullanmak yerine Eloquent, array kullanmak yerine Collection kullanın](#prefer-to-use-eloquent-over-using-query-builder-and-raw-sql-queries-prefer-collections-over-arrays)
+[Query Builder ve düz queryler kullanmak yerine Eloquent, array kullanmak yerine Collection kullanın](#query-builder-ve-düz-queryler-kullanmak-yerine-eloquent-array-kullanmak-yerine-collection-kullanın)
 
-[Mass assignment (Toplu atama)](#mass-assignment)
+[Mass assignment (Toplu atama)](#mass-assignment-toplu-atama)
 
-[Blade templatelerinde asla query çalıştırmayın, eager loading kullanın (N + 1 problemi)](#do-not-execute-queries-in-blade-templates-and-use-eager-loading-n--1-problem)
+[Blade templatelerinde asla query çalıştırmayın, eager loading kullanın (N + 1 problemi)](#blade-templatelerinde-asla-query-çalıştırmayın-eager-loading-kullanın-n--1-problemi)
 
-[Koda yorum yazın ancak öncelikli olarak anlamlı method ve değişken isimleri seçin](#comment-your-code-but-prefer-descriptive-method-and-variable-names-over-comments)
+[Koda yorum yazın ancak öncelikli olarak anlamlı method ve değişken isimleri seçin](#koda-yorum-yazın-ancak-öncelikli-olarak-anlamlı-method-ve-değişken-isimleri-seçin)
 
-[Blade içinde JS ve CSS kullanmayın ve PHP classlarına HTML yazmayın](#do-not-put-js-and-css-in-blade-templates-and-do-not-put-any-html-in-php-classes)
+[Blade içinde JS ve CSS kullanmayın ve PHP classlarına HTML yazmayın](#blade-içinde-js-ve-css-kullanmayın-ve-php-classlarına-html-yazmayın)
 
-[Config ve language dosyalarını kullanın, kod içinde ise metin kullanmak yerine constant kullanın](#use-config-and-language-files-constants-instead-of-text-in-the-code)
+[Config ve language dosyalarını kullanın, kod içinde ise metin kullanmak yerine constant kullanın](#config-ve-language-dosyalarını-kullanın-kod-içinde-ise-metin-kullanmak-yerine-constant-kullanın)
 
-[Laravel topluluğu tarafından kabul edilen standart araçları kullanın](#use-standard-laravel-tools-accepted-by-community)
+[Laravel topluluğu tarafından kabul edilen standart araçları kullanın](#config-ve-language-dosyalarını-kullanın-kod-içinde-ise-metin-kullanmak-yerine-constant-kullanın)
 
-[Laravel'de isimlendirme](#follow-laravel-naming-conventions)
+[Laravel'de isimlendirme](#laravelde-isimlendirme)
 
-[Mümkün olduğunca daha kısa ve okunabilir syntax kullanın](#use-shorter-and-more-readable-syntax-where-possible)
+[Mümkün olduğunca daha kısa ve okunabilir syntax kullanın](#mümkün-olduğunca-daha-kısa-ve-okunabilir-syntax-kullanın)
 
-[new Class kullanımı yerine IoC container ya da facade kullanın](#use-ioc-container-or-facades-instead-of-new-class)
+[new Class kullanımı yerine IoC container ya da facade kullanın](#new-class-kullanımı-yerine-ioc-container-ya-da-facade-kullanın)
 
-[`.env` dosyasından doğrudan veri çekmeyin](#do-not-get-data-from-the-env-file-directly)
+[`.env` dosyasından doğrudan veri çekmeyin](#env-dosyasından-doğrudan-veri-çekmeyin)
 
-[Tarihleri standart formatta kaydedin. Tarihleri formatlamak için accessor ve mutator kullanın](#store-dates-in-the-standard-format-use-accessors-and-mutators-to-modify-date-format)
+[Tarihleri standart formatta kaydedin. Tarihleri formatlamak için accessor ve mutator kullanın](#tarihleri-standart-formatta-kaydedin-tarihleri-formatlamak-için-accessor-ve-mutator-kullanın)
 
-[Diğer iyi pratikler](#other-good-practices)
+[Diğer iyi pratikler](#diğer-iyi-pratikler)
 
 ### **Single responsibility principle (Tek sorumluluk prensibi)**
 
@@ -110,7 +110,7 @@ public function getFullNameShort()
 }
 ```
 
-[🔝 Başa dön](#contents)
+[🔝 Başa dön](#içerik)
 
 ### **Büyük modeller, çirkin controllerlar**
 
@@ -153,7 +153,7 @@ class Client extends Model
 }
 ```
 
-[🔝 Başa dön](#contents)
+[🔝 Başa dön](#içerik)
 
 ### **Veri Doğrulama, Validasyon**
 
@@ -195,7 +195,7 @@ class PostRequest extends Request
 }
 ```
 
-[🔝 Başa dön](#contents)
+[🔝 Başa dön](#içerik)
 
 ### **Business logic servis class'ında bulunmalıdır**
 
@@ -235,7 +235,7 @@ class ArticleService
 }
 ```
 
-[🔝 Başa dön](#contents)
+[🔝 Başa dön](#içerik)
 
 ### **Kendini tekrar etme (DRY: Don't repeat yourself)**
 
@@ -279,7 +279,7 @@ public function getArticles()
 }
 ```
 
-[🔝 Başa dön](#contents)
+[🔝 Başa dön](#içerik)
 
 ### **Query Builder ve düz queryler kullanmak yerine Eloquent, array kullanmak yerine Collection kullanın**
 
@@ -309,7 +309,7 @@ ORDER BY `created_at` DESC
 Article::has('user.profile')->verified()->latest()->get();
 ```
 
-[🔝 Başa dön](#contents)
+[🔝 Başa dön](#içerik)
 
 ### **Mass assignment (Toplu atama)**
 
@@ -331,7 +331,7 @@ $article->save();
 $category->article()->create($request->validated());
 ```
 
-[🔝 Başa dön](#contents)
+[🔝 Başa dön](#içerik)
 
 ### **Blade templatelerinde asla query çalıştırmayın, eager loading kullanın (N + 1 problemi)**
 
@@ -355,7 +355,7 @@ $users = User::with('profile')->get();
 @endforeach
 ```
 
-[🔝 Başa dön](#contents)
+[🔝 Başa dön](#içerik)
 
 ### **Koda yorum yazın ancak öncelikli olarak anlamlı method ve değişken isimleri seçin**
 
@@ -378,7 +378,7 @@ if (count((array) $builder->getQuery()->joins) > 0)
 if ($this->hasJoins())
 ```
 
-[🔝 Başa dön](#contents)
+[🔝 Başa dön](#içerik)
 
 ### **Blade içinde JS ve CSS kullanmayın ve PHP classlarına HTML yazmayın**
 
@@ -406,7 +406,7 @@ let article = $('#article').val();
 
 Data transferi için en iyi yol amaca özel programlanmış PHP'den JS'ye veri aktaran paketleri kullanmaktır.
 
-[🔝 Başa dön](#contents)
+[🔝 Başa dön](#içerik)
 
 ### **Config ve language dosyalarını kullanın, kod içinde ise metin kullanmak yerine constant kullanın**
 
@@ -432,7 +432,7 @@ public function isNormal()
 return back()->with('message', __('app.article_added'));
 ```
 
-[🔝 Başa dön](#contents)
+[🔝 Başa dön](#içerik)
 
 ### **Laravel topluluğu tarafından kabul edilen standart araçları kullanın**
 
@@ -464,7 +464,7 @@ Test verisi oluşturmak | Seeder classları, Model Factoryleri, Faker | Oluştur
 Görev Zamanlama | Laravel Task Scheduler | Scriptler ve 3rd party paketler
 DB | MySQL, PostgreSQL, SQLite, SQL Server | MongoDB
 
-[🔝 Başa dön](#contents)
+[🔝 Başa dön](#içerik)
 
 ### **Laravel'de isimlendirme**
 
@@ -499,7 +499,7 @@ Config | snake_case | google_calendar.php | ~~googleCalendar.php, google-calenda
 Contract (interface) | sıfat ya da isim | Authenticatable | ~~AuthenticationInterface, IAuthentication~~
 Trait | sıfat | Notifiable | ~~NotificationTrait~~
 
-[🔝 Başa dön](#contents)
+[🔝 Başa dön](#içerik)
 
 ### **Mümkün olduğunca daha kısa ve okunabilir syntax kullanın**
 
@@ -538,7 +538,7 @@ Ortak syntax | Kısa ve daha okunabilir syntax
 `->select('id', 'name')->get()` | `->get(['id', 'name'])`
 `->first()->name` | `->value('name')`
 
-[🔝 Başa dön](#contents)
+[🔝 Başa dön](#içerik)
 
 ### **new Class kullanımı yerine IoC container ya da facade kullanın**
 
@@ -564,7 +564,7 @@ public function __construct(User $user)
 $this->user->create($request->validated());
 ```
 
-[🔝 Başa dön](#contents)
+[🔝 Başa dön](#içerik)
 
 ### **`.env` dosyasından doğrudan veri çekmeyin**
 
@@ -586,7 +586,7 @@ $apiKey = env('API_KEY');
 $apiKey = config('api.key');
 ```
 
-[🔝 Başa dön](#contents)
+[🔝 Başa dön](#içerik)
 
 ### **Tarihleri standart formatta kaydedin. Tarihleri formatlamak için accessor ve mutator kullanın**
 
@@ -612,7 +612,7 @@ public function getSomeDateAttribute($date)
 {{ $object->ordered_at->some_date }}
 ```
 
-[🔝 Başa dön](#contents)
+[🔝 Başa dön](#içerik)
 
 ### **Diğer iyi pratikler**
 
@@ -620,4 +620,4 @@ Route dosyalarına asla logic yazmayın.
 
 Blade template dosyalarında vanilya PHP (düz PHP) kullanmayın.
 
-[🔝 Başa dön](#contents)
+[🔝 Başa dön](#içerik)
