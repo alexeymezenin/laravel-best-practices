@@ -1,6 +1,6 @@
 ![Laravel best practices](/images/logo-english.png?raw=true)
 
-Diğer diller:
+Çeviriler:
 
 [Nederlands](https://github.com/Protoqol/Beste-Laravel-Praktijken) (by [Protoqol](https://github.com/Protoqol))
 
@@ -26,7 +26,11 @@ Diğer diller:
 
 [Türkçe](turkish.md) (by [Burak](https://github.com/ikidnapmyself))
 
-It's not a Laravel adaptation of SOLID principles, patterns etc. Here you'll find the best practices which are usually ignored in real life Laravel projects.
+Bu metin Laravel için SOLID prensipleri, patternler vb. şeylerin uygulaması değildir.
+Burada, Laravel projelerinde geliştiriciler tarafından dikkate alınmayan iyi 
+ve kötü pratikleri karşılaştırmalarını bulacaksınız.
+
+**Çevirmenin Notu: SOLID prensipleri hakkında açıklayıcı bir [Ekşi Sözlük entrysi](https://eksisozluk.com/entry/50438875)*  
 
 ## Contents
 
