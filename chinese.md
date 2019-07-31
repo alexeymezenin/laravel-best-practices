@@ -20,6 +20,8 @@
 
 [Polski](https://github.com/maciejjeziorski/laravel-best-practices-pl) (by [Maciej Jeziorski](https://github.com/maciejjeziorski))
 
+[Türkçe](turkish.md) (by [Burak](https://github.com/ikidnapmyself))
+
 
 这并非laravel官方强制要求的规范，而是我们在日常开发过程中遇到的一些容易忽视的优秀实现方式。
 

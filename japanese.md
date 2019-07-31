@@ -20,6 +20,8 @@
 
 [Polski](https://github.com/maciejjeziorski/laravel-best-practices-pl) (by [Maciej Jeziorski](https://github.com/maciejjeziorski))
 
+[Türkçe](turkish.md) (by [Burak](https://github.com/ikidnapmyself))
+
 これはSOLID原則やパターンなどをLavavelに適用させたものではありません。
 ここでは、実際のLaravelプロジェクトでは通常無視されるベストプラクティスを見つけることができます。
 

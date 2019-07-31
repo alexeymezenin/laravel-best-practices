@@ -24,6 +24,8 @@ Translations:
 
 [Polski](https://github.com/maciejjeziorski/laravel-best-practices-pl) (by [Maciej Jeziorski](https://github.com/maciejjeziorski))
 
+[Türkçe](turkish.md) (by [Burak](https://github.com/ikidnapmyself))
+
 It's not a Laravel adaptation of SOLID principles, patterns etc. Here you'll find the best practices which are usually ignored in real life Laravel projects.
 
 ## Contents
