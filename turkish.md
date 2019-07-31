@@ -440,7 +440,7 @@ Geniş topluluk desteği olmayan paketler yerine Laravel'e dahili gelen ya da to
 Bu şekilde koda dahil olan herkesin rahatlıkla projeye katkı sunmasını sağlayabilirsiniz. Ayrıca topluluk desteği düşük olan
 paketleri ya da araçları kullandığınızda yardım alabilme ihtimaliniz önemli derecede azalmaktadır. Bunu müşterinize ödetmeyin.
 
-**Çevirmen Notu: Tercihen en çok forklanmış, en çok yıldızlanmış, en çok takip edilen repositorylerden faydalanabilirsiniz. Koda yapılan son commit tarihi ve issue kısmında yanıtlanan soru ve cevap dökümleri paketin güncelliği ve ne kadar güncel kalacağı ile ilgili size bilgi sunar.**
+*Çevirmen Notu #2: Tercihen en çok forklanmış, en çok yıldızlanmış, en çok takip edilen repositorylerden faydalanabilirsiniz. Koda yapılan son commit tarihi ve issue kısmında yanıtlanan soru ve cevap dökümleri paketin güncelliği ve ne kadar güncel kalacağı ile ilgili size bilgi sunar.*
 
 Yapılacak | Standart araç | 3rd party araçlar
 ------------ | ------------- | -------------
