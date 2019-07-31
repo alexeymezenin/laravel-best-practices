@@ -438,7 +438,8 @@ return back()->with('message', __('app.article_added'));
 
 Geniş topluluk desteği olmayan paketler yerine Laravel'e dahili gelen ya da topluluk tarafından kabul edilmiş araç ve paketleri kullanın.
 Bu şekilde koda dahil olan herkesin rahatlıkla projeye katkı sunmasını sağlayabilirsiniz. Ayrıca topluluk desteği düşük olan
-paketleri ya da araçları kullandığınızda yardım alabilme ihtimaliniz önemli derecede azalmaktadır. Bunu müşterinize ödetmeyin.
+paketleri ya da araçları kullandığınızda yardım alabilme ihtimaliniz önemli derecede azalmaktadır. Bu paketleri tekrar
+hazırlamak yerine, tercih edilen paketleri kullanın ve bu maliyetlerden kaçının.
 
 *Çevirmen Notu #2: Tercihen en çok forklanmış, en çok yıldızlanmış, en çok takip edilen repositorylerden faydalanabilirsiniz. Koda yapılan son commit tarihi ve issue kısmında yanıtlanan soru ve cevap dökümleri paketin güncelliği ve ne kadar güncel kalacağı ile ilgili size bilgi sunar.*
 
