@@ -16,6 +16,8 @@ Traductions:
 
 [Español](spanish.md) (par [César Escudero](https://github.com/cedaesca))
 
+[Türkçe](turkish.md) (by [Burak](https://github.com/ikidnapmyself))
+
 
 
 Ce n'est pas une adaptation Laravel des principes SOLID, des modèles, etc. Vous trouverez ici les meilleures pratiques qui sont généralement ignorées dans les projets réels de Laravel.
