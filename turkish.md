@@ -55,7 +55,7 @@ geliştiriciler tarafından dikkate alınmayan iyi ve kötü pratiklerin karşı
 
 [Config ve language dosyalarını kullanın, kod içinde ise metin kullanmak yerine constant kullanın](#config-ve-language-dosyalarını-kullanın-kod-içinde-ise-metin-kullanmak-yerine-constant-kullanın)
 
-[Laravel topluluğu tarafından kabul edilen standart araçları kullanın](#config-ve-language-dosyalarını-kullanın-kod-içinde-ise-metin-kullanmak-yerine-constant-kullanın)
+[Laravel topluluğu tarafından kabul edilen standart araçları kullanın](#laravel-topluluğu-tarafından-kabul-edilen-standart-araçları-kullanın)
 
 [Laravel'de isimlendirme](#laravelde-isimlendirme)
 
