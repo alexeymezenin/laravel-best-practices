@@ -32,7 +32,7 @@
 
 เอกสารนี้ไม่ใช่การดัดแปลงหลักการ SOLID หรือรูปแบบและอื่น ๆ ของ Laravel โดยบทความนี้คุณจะพบแนวทางปฏิบัติในการ Coding ที่ดีที่สุด ซึ่งหลายคนมักจะละเลยในงานโปรเจค Laravel จริงของคุณ
 
-## เนื้อหา
+## เนื้อหา<a name="contents"></a>
 
 [1. แนวทางรูปแบบการตอบกลับเพียงที่เดียว [Single responsibility principle]](#single-responsibility-principle)
 
@@ -69,6 +69,8 @@
 [17. เก็บวันที่ในรูปแบบมาตรฐาน อีกทั้งใช้ Accessors และ Mutators เพื่อแก้ไขรูปแบบวันที่ [Store dates in the standard format. Use accessors and mutators to modify date format]](#store-dates-in-the-standard-format-use-accessors-and-mutators-to-modify-date-format)
 
 [- แนวทางการปฏิบัติที่ดีอื่น ๆ [Other good practices]](#other-good-practices)
+
+##
 
 ### <a name="single-responsibility-principle">1. แนวทางรูปแบบการตอบกลับเพียงที่เดียว [Single responsibility principle]</a>
 
