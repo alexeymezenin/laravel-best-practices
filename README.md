@@ -10,7 +10,7 @@ Translations:
 
 [漢語](chinese.md) (by [xiaoyi](https://github.com/Shiloh520))
 
-[ภาษาไทย] (thai.md) (by [kongvut sangkla](https://github.com/kongvut))
+[ภาษาไทย](thai.md) (by [kongvut sangkla](https://github.com/kongvut))
 
 [فارسی](persian.md) (by [amirhossein baghaie](https://github.com/amirbagh75))
 
