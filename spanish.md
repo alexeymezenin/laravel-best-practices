@@ -1,6 +1,6 @@
 ![Laravel best practices](/images/logo-english.png?raw=true)
 
-No se trata de una adaptación de principios SÓLIDOS para Laravel ni patrones. Aquí encontrarás las mejores prácticas que, por lo general, son ignoradas en proyectos de la vida real.
+No se trata de una adaptación a Laravel de los principios SOLID ni de patrones, etcétera. Aquí encontrarás las mejores prácticas que, por lo general, son ignoradas en proyectos Laravel de la vida real.
 
 ## Índice de contenido
 
