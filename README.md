@@ -58,6 +58,8 @@ It's not a Laravel adaptation of SOLID principles, patterns etc. Here you'll fin
 
 [Follow Laravel naming conventions](#follow-laravel-naming-conventions)
 
+[Format the request data in the request instead of the controller](#format-the-request-data-in-the-request-instead-of-the-controller)
+
 [Use shorter and more readable syntax where possible](#use-shorter-and-more-readable-syntax-where-possible)
 
 [Use IoC container or facades instead of new Class](#use-ioc-container-or-facades-instead-of-new-class)
@@ -555,6 +557,70 @@ public function __construct(User $user)
 
 $this->user->create($request->validated());
 ```
+
+[🔝 Back to contents](#contents)
+
+### **Format the request data in the request instead of the controller**
+
+Bad:
+
+
+```php
+
+class StoreArticle extends FormRequest
+{
+    public function rules()
+    {
+        return [
+            'categories' => 'required|string',
+        ];
+    }
+}
+
+class ArticleController extends Controller
+{
+    public function store(StoreArticle $request)
+    {
+        $categories = explode(',', $request->categories);
+        ...
+    }
+}
+
+```
+
+Good:
+
+
+```php
+
+class StoreArticle extends FormRequest
+{
+    public function rules()
+    {
+        return [
+            'categories' => 'required|array',
+        ];
+    }
+
+    protected function prepareForValidation()
+    {
+        $this->merge([
+            'categories' => explode(',', $this->categories),
+        ]);
+    }
+}
+
+class ArticleController extends Controller
+{
+    public function store(StoreArticle $request)
+    {
+        $categories = $request->categories;
+        ...
+    }
+}
+
+```
+
 
 [🔝 Back to contents](#contents)
 
