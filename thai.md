@@ -392,11 +392,11 @@ let article = `{{ json_encode($article) }}`;
 ที่ควร:
 
 ```php
-<input id="article" type="hidden" value="@json($article)">
+<input id="article" type="hidden" value='@json($article)'>
 
 หรือ
 
-<button class="js-fav-article" data-article="@json($article)">{{ $article->name }}<button>
+<button class="js-fav-article" data-article='@json($article)'>{{ $article->name }}<button>
 ```
 
 ที่ไฟล์ Javascript:
