@@ -443,11 +443,11 @@ let article = `{{ json_encode($article) }}`;
 </div>
 
 ```php
-<input id="article" type="hidden" value="@json($article)">
+<input id="article" type="hidden" value='@json($article)'>
 
 Or
 
-<button class="js-fav-article" data-article="@json($article)">{{ $article->name }}<button>
+<button class="js-fav-article" data-article='@json($article)'>{{ $article->name }}<button>
 ```
 <div dir="rtl">
 
