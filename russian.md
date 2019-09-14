@@ -359,11 +359,11 @@ let article = `{{ json_encode($article) }}`;
 Лучше:
 
 ```php
-<input id="article" type="hidden" value="{{ json_encode($article) }}">
+<input id="article" type="hidden" value='@json($article)'>
 
 Или
 
-<button class="js-fav-article" data-article="{{ json_encode($article) }}">{{ $article->name }}<button>
+<button class="js-fav-article" data-article='@json($article)'>{{ $article->name }}<button>
 ```
 
 В Javascript файле:
