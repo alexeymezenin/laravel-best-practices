@@ -492,7 +492,7 @@ Variable | camelCase | $articlesWithAuthor | ~~$articles_with_author~~
 Collection | descriptive, plural | $activeUsers = User::active()->get() | ~~$active, $data~~
 Object | descriptive, singular | $activeUser = User::active()->first() | ~~$users, $obj~~
 Config and language files index | snake_case | articles_enabled | ~~ArticlesEnabled; articles-enabled~~
-View | snake_case | show_filtered.blade.php | ~~showFiltered.blade.php, show-filtered.blade.php~~
+View | kebab-case | show-filtered.blade.php | ~~showFiltered.blade.php, show_filtered.blade.php~~
 Config | snake_case | google_calendar.php | ~~googleCalendar.php, google-calendar.php~~
 Contract (interface) | adjective or noun | Authenticatable | ~~AuthenticationInterface, IAuthentication~~
 Trait | adjective | Notifiable | ~~NotificationTrait~~

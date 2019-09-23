@@ -478,7 +478,7 @@ Variable | camelCase | $articlesWithAuthor | ~~$articles_with_author~~
 Collection | descriptive, plurielle | $activeUsers = User::active()->get() | ~~$active, $data~~
 Object | descriptive, singulière | $activeUser = User::active()->first() | ~~$users, $obj~~
 Config and language files index | snake_case | articles_enabled | ~~ArticlesEnabled; articles-enabled~~
-Vue | snake_case | show_filtered.blade.php | ~~showFiltered.blade.php, show-filtered.blade.php~~
+Vue | kebab-case | show-filtered.blade.php | ~~showFiltered.blade.php, show_filtered.blade.php~~
 Config | snake_case | google_calendar.php | ~~googleCalendar.php, google-calendar.php~~
 Contract (interface) | adjectif ou nom | Authenticatable | ~~AuthenticationInterface, IAuthentication~~
 Traite | adjective | Notifiable | ~~NotificationTrait~~

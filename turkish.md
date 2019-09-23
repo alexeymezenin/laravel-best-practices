@@ -495,7 +495,7 @@ Variable | camelCase | $articlesWithAuthor | ~~$articles_with_author~~
 Collection | tanımlayıcı, çoğul | $activeUsers = User::active()->get() | ~~$active, $data~~
 Object | tanımlayıcı, tekil | $activeUser = User::active()->first() | ~~$users, $obj~~
 Config and language files index | snake_case | articles_enabled | ~~ArticlesEnabled; articles-enabled~~
-View | snake_case | show_filtered.blade.php | ~~showFiltered.blade.php, show-filtered.blade.php~~
+View | kebab-case | show-filtered.blade.php | ~~showFiltered.blade.php, show_filtered.blade.php~~
 Config | snake_case | google_calendar.php | ~~googleCalendar.php, google-calendar.php~~
 Contract (interface) | sıfat ya da isim | Authenticatable | ~~AuthenticationInterface, IAuthentication~~
 Trait | sıfat | Notifiable | ~~NotificationTrait~~

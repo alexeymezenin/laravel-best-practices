@@ -460,7 +460,7 @@ Pivot таблица | имена моделей в алфавитном пор�
 Коллекция | описательное, мн. ч. | $activeUsers = User::active()->get() | ~~$active, $data~~
 Объект | описательное, ед. ч. | $activeUser = User::active()->first() | ~~$users, $obj~~
 Индексы в конфиге и языковых файлах | snake_case | articles_enabled | ~~ArticlesEnabled; articles-enabled~~
-Представление | snake_case | show_filtered.blade.php | ~~showFiltered.blade.php, show-filtered.blade.php~~
+Представление | kebab-case | show-filtered.blade.php | ~~showFiltered.blade.php, show_filtered.blade.php~~
 Конфигурационный файл | snake_case | google_calendar.php | ~~googleCalendar.php, google-calendar.php~~
 Контракт (интерфейс) | прилагательное или существительное | Authenticatable | ~~AuthenticationInterface, IAuthentication~~
 Трейт | прилагательное | Notifiable | ~~NotificationTrait~~
