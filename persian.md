@@ -558,7 +558,7 @@ Variable | روش camelCase | $articlesWithAuthor | ~~$articles_with_author~~
 Collection | توصیفی و اسامی جمع | $activeUsers = User::active()->get() | ~~$active, $data~~
 Object | توصیفی و اسامی مفرد | $activeUser = User::active()->first() | ~~$users, $obj~~
 Config and language files index | snake_case | articles_enabled | ~~ArticlesEnabled; articles-enabled~~
-View | snake_case | show_filtered.blade.php | ~~showFiltered.blade.php, show-filtered.blade.php~~
+View | kebab-case | show-filtered.blade.php | ~~showFiltered.blade.php, show_filtered.blade.php~~
 Config | snake_case | google_calendar.php | ~~googleCalendar.php, google-calendar.php~~
 Contract (interface) | صفت یا اسم | Authenticatable | ~~AuthenticationInterface, IAuthentication~~
 Trait | صفت | Notifiable | ~~NotificationTrait~~

@@ -458,7 +458,7 @@ Variable | camelCase | $articulosConAutor | ~~$articulos_con_autor~~
 Colección | descriptiva, plural | $usuariosActivos = Usuario::active()->get() | ~~$activo, $data~~
 Objeto | descriptivo, singular | $usuarioActivo = Usuario::active()->first() | ~~$usuarios, $obj~~
 Índice de archivos de configuración y lenguaje | snake_case | articulos_habilitados | ~~articulosHabilitados; articulos-habilitados~~
-Vistas | snake_case | mostrar_filtrados.blade.php | ~~mostrarFiltrados.blade.php, mostrar-filtrados.blade.php~~
+Vistas | kebab-case | show-filtered.blade.php | ~~showFiltered.blade.php, show_filtered.blade.php~~
 Configuración | snake_case | google_calendar.php | ~~googleCalendar.php, google-calendar.php~~
 Contrato (interface) | adjetivo o sustantivo | Autenticable | ~~interfaceAutenticacion, IAutenticacion~~
 Trait | adjetivo | Notifiable | ~~NotificationTrait~~

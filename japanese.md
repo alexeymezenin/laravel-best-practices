@@ -482,7 +482,7 @@ Pivotテーブル | 単数形 モデル名のアルファベット順 | article_
 コレクション | 説明的、 複数形 | $activeUsers = User::active()->get() | ~~$active, $data~~
 オブジェクト | 説明的, 単数形 | $activeUser = User::active()->first() | ~~$users, $obj~~
 設定ファイルと言語ファイルのインデックス | スネークケース | articles_enabled | ~~ArticlesEnabled; articles-enabled~~
-ビュー | スネークケース | show_filtered.blade.php | ~~showFiltered.blade.php, show-filtered.blade.php~~
+ビュー | ケバブケース | show-filtered.blade.php | ~~showFiltered.blade.php, show_filtered.blade.php~~
 コンフィグ | スネークケース | google_calendar.php | ~~googleCalendar.php, google-calendar.php~~
 契約 (インターフェイス) | 形容詞または名詞 | Authenticatable | ~~AuthenticationInterface, IAuthentication~~
 Trait | 形容詞 | Notifiable | ~~NotificationTrait~~
