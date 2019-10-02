@@ -1,4 +1,4 @@
-![Laravel ベストプラクティス](/images/logo-english.png?raw=true)
+![Laravel ベストプラクティス](/images/logo-japanese.png?raw=true)
 
 翻訳:
 
