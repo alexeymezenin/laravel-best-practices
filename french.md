@@ -1,4 +1,4 @@
-![Laravel best practices](/images/logo-frensh.png?raw=true)
+![Laravel best practices](/images/logo-french.png?raw=true)
 
 Traductions:
 
