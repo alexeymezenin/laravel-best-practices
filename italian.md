@@ -34,41 +34,41 @@ Questo non è un adattamento su Laravel dei principi SOLID, pattern ecc. Qui tro
 
 ## Indice
 
-[Principio di singola responsabilità](#single-responsibility-principle)
+[Principio di singola responsabilità](#principio-di-singola-responsabilità)
 
-[Model grassi, controllers magri](#fat-models-skinny-controllers)
+[Model grassi, controller magri](#model-grassi-controller-magri)
 
-[Validazione](#validation)
+[Validazione](#validazione)
 
-[Le logiche di business dovrebbero stare in una classe service](#business-logic-should-be-in-service-class)
+[Le logiche di business dovrebbero stare in una classe service](#le-logiche-di-business-dovrebbero-stare-in-una-classe-service)
 
 [Don't repeat yourself (DRY)](#dont-repeat-yourself-dry)
 
-[Prediligi Eloquent al Query Builder e alle query SQL grezze. Prediligi le collection agli array](#prefer-to-use-eloquent-over-using-query-builder-and-raw-sql-queries-prefer-collections-over-arrays)
+[Prediligi Eloquent al Query Builder e alle query SQL grezze. Prediligi le collection agli array](#prediligi-eloquent-al-query-builder-e-alle-query-sql-grezze)
 
-[Assegnazione di massa](#mass-assignment)
+[Assegnamento di massa](#assegnamento-di-massa)
 
-[Non eseguire query nei template Blade e utilizza l'eager loading (N + 1 problem)](#do-not-execute-queries-in-blade-templates-and-use-eager-loading-n--1-problem)
+[Non eseguire query nei template Blade e utilizza l'eager loading (N + 1 problem)](#non-eseguire-query-nei-template-blade-e-utilizza-l-eager-loading-n-1-problem)
 
-[Commenta il tuo codice, ma prediligi nomi descrittivi per metodi e variabili al posto dei commenti](#comment-your-code-but-prefer-descriptive-method-and-variable-names-over-comments)
+[Commenta il tuo codice, ma prediligi nomi descrittivi per metodi e variabili ai commenti](#commenta-il-tuo-codice-ma-prediligi-nomi-descrittivi-per-metodi-e-variabili-ai-commenti)
 
-[Non inserire JS e CSS nei template Blade e non inserire HTML nelle classi PHP](#do-not-put-js-and-css-in-blade-templates-and-do-not-put-any-html-in-php-classes)
+[Non inserire JS e CSS nei template Blade e non inserire HTML nelle classi PHP](#non-inserire-js-e-css-nei-template-blade-e-non-inserire-html-nelle-classi-php)
 
-[Usa i file config e delle lingue, costanti al posto del testo nel codice](#use-config-and-language-files-constants-instead-of-text-in-the-code)
+[Usa i file config e delle lingue, costanti al posto del testo nel codice](#usa-i-file-config-e-delle-lingue-costanti-al-posto-del-testo-nel-codice)
 
-[Isa gli strumenti standard per Laravel accettati dalla community](#use-standard-laravel-tools-accepted-by-community)
+[Usa gli strumenti standard per Laravel accettati dalla comunità](#usa-gli-strumenti-standard-per-laravel-accettati-dalla-comunità)
 
-[Segui le convenzioni di naming di Laravel](#follow-laravel-naming-conventions)
+[Segui le convenzioni di naming di Laravel](#segui-le-convenzioni-di-naming-di-laravel)
 
-[Usa una sintassi breve e più leggibile dove possibile](#use-shorter-and-more-readable-syntax-where-possible)
+[Usa una sintassi breve e più leggibile dove possibile](#usa-una-sintassi-breve-e-piu-leggibile-dove-possibile)
 
-[Usa gli IoC container o i facades al posto di nuove classi](#use-ioc-container-or-facades-instead-of-new-class)
+[Usa gli IoC container o i facades al posto di nuove classi](#usa-gli-ioc-container-o-i-facades-al-posto-di-nuove-classi)
 
-[Non prendere dati dal file `.env` direttamente](#do-not-get-data-from-the-env-file-directly)
+[Non prendere dati dal file `.env` direttamente](#non-prendere-dati-dal-file-env-direttamente)
 
-[Salva le date nel formato standard. Usa accessors e mutators per modificare i formati delle date](#store-dates-in-the-standard-format-use-accessors-and-mutators-to-modify-date-format)
+[Salva le date nel formato standard. Usa accessors e mutators per modificare i formati delle date](#salva-le-date-nel-formato-standard-usa-accessors-e-mutators-per-modificare-i-formati-delle-date)
 
-[Altre good practices](#other-good-practices)
+[Altre buone abitudini](#alte-buone-abitudini)
 
 ### **Principio di singola responsabilità**
 
@@ -111,7 +111,7 @@ public function getFullNameShort()
 }
 ```
 
-[🔝 Torna all'indice](#contents)
+[🔝 Torna all'indice](#indice)
 
 ### **Model grassi, controller magri**
 
@@ -153,7 +153,7 @@ class Client extends Model
 }
 ```
 
-[🔝 Torna all'indice](#contents)
+[🔝 Torna all'indice](#indice)
 
 ### **Validazione**
 
@@ -195,7 +195,7 @@ class PostRequest extends Request
 }
 ```
 
-[🔝 Torna all'indice](#contents)
+[🔝 Torna all'indice](#indice)
 
 ### **Le logiche di business dovrebbero stare nelle classi service**
 
@@ -235,7 +235,7 @@ class ArticleService
 }
 ```
 
-[🔝 Torna all'indice](#contents)
+[🔝 Torna all'indice](#indice)
 
 ### **Don't repeat yourself (DRY)**
 
@@ -278,13 +278,13 @@ public function getArticles()
 }
 ```
 
-[🔝 Torna all'indice](#contents)
+[🔝 Torna all'indice](#indice)
 
-### **Prefer to use Eloquent over using Query Builder and raw SQL queries. Prefer collections over arrays**
+### **Prediligi Eloquent al Query Builder e alle query SQL grezze. Prediligi le collection agli array**
 
-Eloquent allows you to write readable and maintainable code. Also, Eloquent has great built-in tools like soft deletes, events, scopes etc.
+Eloquent ti permette di scrivere codice leggibile e manutenibile. Inoltre, Eloquent ha degli stumenti built-in come cancellazione logica, eventi, scopes ecc.
 
-Bad:
+Male:
 
 ```sql
 SELECT *
@@ -301,17 +301,17 @@ AND `active` = '1'
 ORDER BY `created_at` DESC
 ```
 
-Good:
+Bene:
 
 ```php
 Article::has('user.profile')->verified()->latest()->get();
 ```
 
-[🔝 Torna all'indice](#contents)
+[🔝 Torna all'indice](#indice)
 
 ### **Assegnazione di massa**
 
-Bad:
+Male:
 
 ```php
 $article = new Article;
@@ -323,17 +323,17 @@ $article->category_id = $category->id;
 $article->save();
 ```
 
-Good:
+Bene:
 
 ```php
 $category->article()->create($request->validated());
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 Torna all'indice](#indice)
 
-### **Do not execute queries in Blade templates and use eager loading (N + 1 problem)**
+### **Non eseguire query nei template Blade e utilizza l'eager loading (N + 1 problem)**
 
-Bad (for 100 users, 101 DB queries will be executed):
+Male (per 100 utenti, verranno eseguite 101 query):
 
 ```php
 @foreach (User::all() as $user)
@@ -341,7 +341,7 @@ Bad (for 100 users, 101 DB queries will be executed):
 @endforeach
 ```
 
-Good (for 100 users, 2 DB queries will be executed):
+Bene (per 100 utenti, verranno eseguite 2 query):
 
 ```php
 $users = User::with('profile')->get();
@@ -353,62 +353,62 @@ $users = User::with('profile')->get();
 @endforeach
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 Torna all'indice](#indice)
 
-### **Comment your code, but prefer descriptive method and variable names over comments**
+### **Commenta il tuo codice, ma prediligi nomi descrittivi per metodi e variabili ai commenti**
 
-Bad:
+Male:
 
 ```php
 if (count((array) $builder->getQuery()->joins) > 0)
 ```
 
-Better:
+Meglio:
 
 ```php
 // Determine if there are any joins.
 if (count((array) $builder->getQuery()->joins) > 0)
 ```
 
-Good:
+Bene:
 
 ```php
 if ($this->hasJoins())
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 Torna all'indice](#indice)
 
-### **Do not put JS and CSS in Blade templates and do not put any HTML in PHP classes**
+### **Non inserire JS e CSS nei template Blade e non inserire HTML nelle classi PHP**
 
-Bad:
+Male:
 
 ```php
 let article = `{{ json_encode($article) }}`;
 ```
 
-Better:
+Meglio:
 
 ```php
 <input id="article" type="hidden" value='@json($article)'>
 
-Or
+Oppure
 
 <button class="js-fav-article" data-article='@json($article)'>{{ $article->name }}<button>
 ```
 
-In a Javascript file:
+In un file javascript:
 
 ```javascript
 let article = $('#article').val();
 ```
 
-The best way is to use specialized PHP to JS package to transfer the data.
+Il modo migliore è utilizzare dei paccheddi dedicati PHP to JS package per trasferire dati.
 
-[🔝 Back to contents](#contents)
+[🔝 Torna all'indice](#indice)
 
-### **Use config and language files, constants instead of text in the code**
+### **Usa i file config e delle lingue, costanti al posto del testo nel codice**
 
-Bad:
+Male:
 
 ```php
 public function isNormal()
@@ -419,7 +419,7 @@ public function isNormal()
 return back()->with('message', 'Your article has been added!');
 ```
 
-Good:
+Bene:
 
 ```php
 public function isNormal()
@@ -430,13 +430,13 @@ public function isNormal()
 return back()->with('message', __('app.article_added'));
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 Torna all'indice](#indice)
 
-### **Use standard Laravel tools accepted by community**
+### **Usa gli strumenti standard per Laravel accettati dalla comunità**
 
-Prefer to use built-in Laravel functionality and community packages instead of using 3rd party packages and tools. Any developer who will work with your app in the future will need to learn new tools. Also, chances to get help from the Laravel community are significantly lower when you're using a 3rd party package or tool. Do not make your client pay for that.
+Cerca di utilizzare le funzionalità built-in di Laravel e i pacchetti della comunità invece di utilizzare pacchetti e strumenti di terze parti. Ogni sviluppatore che lavorerà con la tua applicazione in futuro avrà bisogno di imparare nuovi strumenti. Inoltre, le possibilità di ricevere aiuto dalla comunità di laravel è significativamente minore quando utilizzi strumenti o pacchetti di terze parti. Non far pagare il tuo cliente per questo.
 
-Task | Standard tools | 3rd party tools
+Attività | Strumento standard | Strumento di terze parti
 ------------ | ------------- | -------------
 Authorization | Policies | Entrust, Sentinel and other packages
 Compiling assets | Laravel Mix | Grunt, Gulp, 3rd party packages
@@ -458,15 +458,15 @@ Generating testing data | Seeder classes, Model Factories, Faker | Creating test
 Task scheduling | Laravel Task Scheduler | Scripts and 3rd party packages
 DB | MySQL, PostgreSQL, SQLite, SQL Server | MongoDB
 
-[🔝 Back to contents](#contents)
+[🔝 Torna all'indice](#indice)
 
-### **Follow Laravel naming conventions**
+### **Segui le convenzioni di naming di Laravel**
 
- Follow [PSR standards](http://www.php-fig.org/psr/psr-2/).
+ Segui gli [standard PSR](http://www.php-fig.org/psr/psr-2/).
  
- Also, follow naming conventions accepted by Laravel community:
+ Inoltre, segui le convenzioni di naming accettate dalla comunità di Laravel:
 
-What | How | Good | Bad
+Cosa | Come | Bene | Male
 ------------ | ------------- | ------------- | -------------
 Controller | singular | ArticleController | ~~ArticlesController~~
 Route | plural | articles/1 | ~~article/1~~
@@ -493,27 +493,27 @@ Config | snake_case | google_calendar.php | ~~googleCalendar.php, google-calenda
 Contract (interface) | adjective or noun | Authenticatable | ~~AuthenticationInterface, IAuthentication~~
 Trait | adjective | Notifiable | ~~NotificationTrait~~
 
-[🔝 Back to contents](#contents)
+[🔝 Torna all'indice](#indice)
 
-### **Use shorter and more readable syntax where possible**
+### **Usa una sintassi breve e più leggibile dove possibile**
 
-Bad:
+Male:
 
 ```php
 $request->session()->get('cart');
 $request->input('name');
 ```
 
-Good:
+Bene:
 
 ```php
 session('cart');
 $request->name;
 ```
 
-More examples:
+Più esempi:
 
-Common syntax | Shorter and more readable syntax
+Sintassi comune | Sintassi più breve e leggibile
 ------------ | -------------
 `Session::get('cart')` | `session('cart')`
 `$request->session()->get('cart')` | `session('cart')`
@@ -532,20 +532,20 @@ Common syntax | Shorter and more readable syntax
 `->select('id', 'name')->get()` | `->get(['id', 'name'])`
 `->first()->name` | `->value('name')`
 
-[🔝 Back to contents](#contents)
+[🔝 Torna all'indice](#indice)
 
-### **Use IoC container or facades instead of new Class**
+### **Usa gli IoC container o i facades al posto di nuove classi**
 
-new Class syntax creates tight coupling between classes and complicates testing. Use IoC container or facades instead.
+La sintassi `new Class` crea tight coupling tra le classi and complica le attività di test. Piuttosto usa gli IoC container o i facades.
 
-Bad:
+Male:
 
 ```php
 $user = new User;
 $user->create($request->validated());
 ```
 
-Good:
+Bene:
 
 ```php
 public function __construct(User $user)
@@ -558,40 +558,40 @@ public function __construct(User $user)
 $this->user->create($request->validated());
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 Torna all'indice](#indice)
 
-### **Do not get data from the `.env` file directly**
+### **Non prendere dati dal file `.env` direttamente**
 
-Pass the data to config files instead and then use the `config()` helper function to use the data in an application.
+Passa i dati dai file di config piuttosto e utilizza la funzione helper `config()` per utilizzare i dati nell'applicazione.
 
-Bad:
+Male:
 
 ```php
 $apiKey = env('API_KEY');
 ```
 
-Good:
+Bene:
 
 ```php
 // config/api.php
 'key' => env('API_KEY'),
 
-// Use the data
+// Utilizza i dati
 $apiKey = config('api.key');
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 Torna all'indice](#indice)
 
-### **Store dates in the standard format. Use accessors and mutators to modify date format**
+### **Salva le date nel formato standard. Usa accessors e mutators per modificare i formati delle date**
 
-Bad:
+Male:
 
 ```php
 {{ Carbon::createFromFormat('Y-d-m H-i', $object->ordered_at)->toDateString() }}
 {{ Carbon::createFromFormat('Y-d-m H-i', $object->ordered_at)->format('m-d') }}
 ```
 
-Good:
+Bene:
 
 ```php
 // Model
@@ -606,12 +606,12 @@ public function getSomeDateAttribute($date)
 {{ $object->ordered_at->some_date }}
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 Torna all'indice](#indice)
 
-### **Other good practices**
+### **Altre buone abitudini**
 
-Never put any logic in routes files.
+Non inserire mai nessuna logica nei file di route.
 
-Minimize usage of vanilla PHP in Blade templates.
+Minimizza l'utilizzo di PHP puro nei template Blade.
 
-[🔝 Back to contents](#contents)
+[🔝 Torna all'indice](#indice)
