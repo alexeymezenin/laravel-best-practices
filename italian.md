@@ -44,7 +44,7 @@ Questo non è un adattamento su Laravel dei principi SOLID, pattern ecc. Qui tro
 
 [Don't repeat yourself (DRY)](#dont-repeat-yourself-dry)
 
-[Prediligi Eloquent al Query Builder e alle query SQL grezze. Prediligi le collection agli array](#prediligi-eloquent-al-query-builder-e-alle-query-sql-grezze)
+[Prediligi Eloquent al Query Builder e alle query SQL grezze. Prediligi le collection agli array](#prediligi-eloquent-al-query-builder-e-alle-query-sql-grezze-prediligi-le-collection-agli-array)
 
 [Assegnamento di massa](#assegnamento-di-massa)
 
@@ -197,7 +197,7 @@ class PostRequest extends Request
 
 [🔝 Torna all'indice](#indice)
 
-### **Le logiche di business dovrebbero stare nelle classi service**
+### **Le logiche di business dovrebbero stare in una classe service**
 
 Un controller dovrebbe avere una sola responsabilità, allora sposta le logiche di business dai controller alle classe service.
 
