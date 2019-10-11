@@ -48,7 +48,7 @@ Questo non è un adattamento su Laravel dei principi SOLID, pattern ecc. Qui tro
 
 [Assegnazione di massa](#assegnazione-di-massa)
 
-[Non eseguire query nei template Blade e utilizza l'eager loading (N + 1 problem)](#non-eseguire-query-nei-template-blade-e-utilizza-l-eager-loading-n-1-problem)
+[Non eseguire query nei template Blade e utilizza l'eager loading (N + 1 problem)](#non-eseguire-query-nei-template-blade-e-utilizza-l-eager-loading-n--1-problem)
 
 [Commenta il tuo codice, ma prediligi nomi descrittivi per metodi e variabili ai commenti](#commenta-il-tuo-codice-ma-prediligi-nomi-descrittivi-per-metodi-e-variabili-ai-commenti)
 
@@ -60,7 +60,7 @@ Questo non è un adattamento su Laravel dei principi SOLID, pattern ecc. Qui tro
 
 [Segui le convenzioni di naming di Laravel](#segui-le-convenzioni-di-naming-di-laravel)
 
-[Usa una sintassi breve e più leggibile dove possibile](#usa-una-sintassi-breve-e-piu-leggibile-dove-possibile)
+[Usa una sintassi più breve e leggibile dove possibile](#usa-una-sintassi-più-breve-e-leggibile-dove-possibile)
 
 [Usa gli IoC container o i facades al posto di nuove classi](#usa-gli-ioc-container-o-i-facades-al-posto-di-nuove-classi)
 
@@ -495,7 +495,7 @@ Trait | adjective | Notifiable | ~~NotificationTrait~~
 
 [🔝 Torna all'indice](#indice)
 
-### **Usa una sintassi breve e più leggibile dove possibile**
+### **Usa una sintassi più breve e leggibile dove possibile**
 
 Male:
 
