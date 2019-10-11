@@ -32,7 +32,7 @@ Traduzioni:
 
 Questo non è un adattamento su Laravel dei principi SOLID, pattern ecc. Qui troverai le best practices che sono solitamente ignorate nei progetti Laravel.
 
-## Contents
+## Indice
 
 [Principio di singola responsabilità](#single-responsibility-principle)
 
@@ -46,7 +46,7 @@ Questo non è un adattamento su Laravel dei principi SOLID, pattern ecc. Qui tro
 
 [Prediligi Eloquent al Query Builder e alle query SQL grezze. Prediligi le collection agli array](#prefer-to-use-eloquent-over-using-query-builder-and-raw-sql-queries-prefer-collections-over-arrays)
 
-[Assegnamento di massa](#mass-assignment)
+[Assegnazione di massa](#mass-assignment)
 
 [Non eseguire query nei template Blade e utilizza l'eager loading (N + 1 problem)](#do-not-execute-queries-in-blade-templates-and-use-eager-loading-n--1-problem)
 
@@ -70,11 +70,11 @@ Questo non è un adattamento su Laravel dei principi SOLID, pattern ecc. Qui tro
 
 [Altre good practices](#other-good-practices)
 
-### **Single responsibility principle**
+### **Principio di singola responsabilità**
 
-A class and a method should have only one responsibility.
+Una classe e un metodo devono avere una sola responsabilità.
 
-Bad:
+Male:
 
 ```php
 public function getFullNameAttribute()
@@ -87,7 +87,7 @@ public function getFullNameAttribute()
 }
 ```
 
-Good:
+Bene:
 
 ```php
 public function getFullNameAttribute()
@@ -111,13 +111,13 @@ public function getFullNameShort()
 }
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 Torna all'indice](#contents)
 
-### **Fat models, skinny controllers**
+### **Model grassi, controller magri**
 
-Put all DB related logic into Eloquent models or into Repository classes if you're using Query Builder or raw SQL queries.
+Metti tutta la logica relativa al DB nei model Eloquent o nelle classi Repository se stai usando i Query Builder o le query SQL.
 
-Bad:
+Male:
 
 ```php
 public function index()
@@ -132,7 +132,7 @@ public function index()
 }
 ```
 
-Good:
+Bene:
 
 ```php
 public function index()
@@ -153,13 +153,13 @@ class Client extends Model
 }
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 Torna all'indice](#contents)
 
-### **Validation**
+### **Validazione**
 
-Move validation from controllers to Request classes.
+Sposta la validazione dai controller alle classi Request.
 
-Bad:
+Male:
 
 ```php
 public function store(Request $request)
@@ -174,7 +174,7 @@ public function store(Request $request)
 }
 ```
 
-Good:
+Bene:
 
 ```php
 public function store(PostRequest $request)
@@ -195,13 +195,13 @@ class PostRequest extends Request
 }
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 Torna all'indice](#contents)
 
-### **Business logic should be in service class**
+### **Le logiche di business dovrebbero stare nelle classi service**
 
-A controller must have only one responsibility, so move business logic from controllers to service classes.
+Un controller dovrebbe avere una sola responsabilità, allora sposta le logiche di business dai controller alle classe service.
 
-Bad:
+Male:
 
 ```php
 public function store(Request $request)
@@ -214,7 +214,7 @@ public function store(Request $request)
 }
 ```
 
-Good:
+Bene:
 
 ```php
 public function store(Request $request)
@@ -235,13 +235,13 @@ class ArticleService
 }
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 Torna all'indice](#contents)
 
 ### **Don't repeat yourself (DRY)**
 
-Reuse code when you can. SRP is helping you to avoid duplication. Also, reuse Blade templates, use Eloquent scopes etc.
+Riutilizza il codice quando puoi. Il principio di singola responsabilità ti aiuta ad evitare duplicazioni. Inoltre, riutilizza i template Blade, utilizza gli scope di Eloquent ecc.
 
-Bad:
+Male:
 
 ```php
 public function getActive()
@@ -257,7 +257,7 @@ public function getArticles()
 }
 ```
 
-Good:
+Bene:
 
 ```php
 public function scopeActive($q)
@@ -278,7 +278,7 @@ public function getArticles()
 }
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 Torna all'indice](#contents)
 
 ### **Prefer to use Eloquent over using Query Builder and raw SQL queries. Prefer collections over arrays**
 
@@ -307,9 +307,9 @@ Good:
 Article::has('user.profile')->verified()->latest()->get();
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 Torna all'indice](#contents)
 
-### **Mass assignment**
+### **Assegnazione di massa**
 
 Bad:
 
