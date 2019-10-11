@@ -46,7 +46,7 @@ Questo non è un adattamento su Laravel dei principi SOLID, pattern ecc. Qui tro
 
 [Prediligi Eloquent al Query Builder e alle query SQL grezze. Prediligi le collection agli array](#prediligi-eloquent-al-query-builder-e-alle-query-sql-grezze-prediligi-le-collection-agli-array)
 
-[Assegnamento di massa](#assegnamento-di-massa)
+[Assegnazione di massa](#assegnazione-di-massa)
 
 [Non eseguire query nei template Blade e utilizza l'eager loading (N + 1 problem)](#non-eseguire-query-nei-template-blade-e-utilizza-l-eager-loading-n-1-problem)
 
