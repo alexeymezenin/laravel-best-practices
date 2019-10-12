@@ -1,20 +1,30 @@
-![Laravel best practices](/images/logo-english.png?raw=true)
+![Laravel best practices](/images/logo-french.png?raw=true)
 
 Traductions:
 
-[Nederlands](https://github.com/Protoqol/Beste-Laravel-Praktijken) (par [Protoqol](https://github.com/Protoqol))
+[Nederlands](https://github.com/Protoqol/Beste-Laravel-Praktijken) (by [Protoqol](https://github.com/Protoqol))
 
-[한국어](https://github.com/xotrs/laravel-best-practices) (par [cherrypick](https://github.com/xotrs))
+[한국어](https://github.com/xotrs/laravel-best-practices) (by [cherrypick](https://github.com/xotrs))
+
+[日本語](japanese.md) (by [2bo](https://github.com/2bo))
+
+[漢語](chinese.md) (by [xiaoyi](https://github.com/Shiloh520))
+
+[ภาษาไทย](thai.md) (by [kongvut sangkla](https://github.com/kongvut))
+
+[فارسی](persian.md) (by [amirhossein baghaie](https://github.com/amirbagh75))
+
+[Português](https://github.com/jonaselan/laravel-best-practices) (by [jonaselan](https://github.com/jonaselan))
 
 [Русский](russian.md)
 
-[فارسی](persian.md) (par [amirhossein baghaie](https://github.com/amirbagh75))
+[Tiếng Việt](https://chungnguyen.xyz/posts/code-laravel-lam-sao-cho-chuan) (by [Chung Nguyễn](https://github.com/nguyentranchung))
 
-[Português](https://github.com/jonaselan/laravel-best-practices) (par [jonaselan](https://github.com/jonaselan))
+[Español](spanish.md) (by [César Escudero](https://github.com/cedaesca))
 
-[Tiếng Việt](https://chungnguyen.xyz/posts/code-laravel-lam-sao-cho-chuan) (par [Chung Nguyễn](https://github.com/nguyentranchung))
+[Français](french.md) (by [Mikayil S.](https://github.com/mikayilsrt))
 
-[Español](spanish.md) (par [César Escudero](https://github.com/cedaesca))
+[Polski](https://github.com/maciejjeziorski/laravel-best-practices-pl) (by [Maciej Jeziorski](https://github.com/maciejjeziorski))
 
 [Türkçe](turkish.md) (by [Burak](https://github.com/ikidnapmyself))
 

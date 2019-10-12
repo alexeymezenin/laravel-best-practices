@@ -1,4 +1,4 @@
-![روش های روش قابل قبول توسعه پروژه های مبتنی بر فریم ورک لاراول](/images/logo-english.png?raw=true)
+![روش های روش قابل قبول توسعه پروژه های مبتنی بر فریم ورک لاراول](/images/logo-persian.png?raw=true)
 
 <div dir="rtl">
 
