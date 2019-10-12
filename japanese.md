@@ -22,6 +22,10 @@
 
 [Türkçe](turkish.md) (by [Burak](https://github.com/ikidnapmyself))
 
+[Deutsche](german.md) (by [Sujal Patel](https://github.com/sujalpatel2209))
+
+[Italiana](italian.md) (by [Sujal Patel](https://github.com/sujalpatel2209))
+
 これはSOLID原則やパターンなどをLavavelに適用させたものではありません。
 ここでは、実際のLaravelプロジェクトでは通常無視されるベストプラクティスを見つけることができます。
 
