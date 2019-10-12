@@ -26,6 +26,10 @@
 
 [Türkçe](turkish.md) (by [Burak](https://github.com/ikidnapmyself))
 
+[Deutsche](german.md) (by [Sujal Patel](https://github.com/sujalpatel2209))
+
+[Italiana](italian.md) (by [Sujal Patel](https://github.com/sujalpatel2209))
+
 Bu metin Laravel için SOLID prensipleri, patternler vb. şeylerin uygulaması değildir. Burada, Laravel projelerinde 
 geliştiriciler tarafından dikkate alınmayan iyi ve kötü pratiklerin karşılaştırmalarını bulacaksınız.
 
