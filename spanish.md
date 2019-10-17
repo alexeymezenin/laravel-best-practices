@@ -4,41 +4,41 @@ No se trata de una adaptación a Laravel de los principios SOLID ni de patrones,
 
 ## Índice de contenido
 
-[Principio de propósito único](#principio-de-proposito-unico)
+[Principio de propósito único](#principio-de-propósito-único)
 
 [Modelos gordos, controladores delgados](#modelos-gordos-controladores-delgados)
 
-[Validación](#validacion)
+[Validación](#validación)
 
-[La lógica de negocios debe estar en una clase ayudante](#la-logica-de-negocios-debe-estar-en-una-clase-ayudante)
+[La lógica de negocios debe estar en una clase ayudante](#la-lógica-de-negocios-debe-estar-en-una-clase-ayudante)
 
 [No te repitas (DRY)](#no-te-repitas-dry)
 
 [Prioriza el uso de Eloquent por sobre el constructor de consultas y consultas puras. Prioriza las colecciones sobre los arreglos](#prioriza-el-uso-de-eloquent-por-sobre-el-constructor-de-consultas-y-consultas-puras-prioriza-las-colecciones-sobre-los-arreglos)
 
-[Asignación en masa](#asignacion-en-masa)
+[Asignación en masa](#asignación-en-masa)
 
 [No ejecutes consultas en las plantillas blade y utiliza el cargado prematuro (Problema N + 1)](#no-ejecutes-consultas-en-las-plantillas-blade-y-utiliza-el-cargado-prematuro-problema-n--1))
 
-[Comenta tu código, pero prioriza los métodos y nombres de variables descriptivas por sobre los comentarios](#comenta-tu-codigo-pero-prioriza-los-metodos-y-nombres-de-variables-descriptivas-por-sobre-los-comentarios)
+[Comenta tu código, pero prioriza los métodos y nombres de variables descriptivas por sobre los comentarios](#comenta-tu-código-pero-prioriza-los-métodos-y-nombres-de-variables-descriptivas-por-sobre-los-comentarios)
 
 [No coloques JS ni CSS en las plantillas blade y no coloques HTML en clases de PHP](#no-coloques-js-ni-css-en-las-plantillas-blade-y-no-coloques-html-en-clases-de-php)
 
-[Utiliza los archivos de configuración y lenguaje en lugar de texto en el código](#utiliza-los-archivos-de-configuracion-y-lenguaje-en-lugar-de-texto-en-el-codigo)
+[Utiliza los archivos de configuración y lenguaje en lugar de texto en el código](#utiliza-los-archivos-de-configuración-y-lenguaje-en-lugar-de-texto-en-el-código)
 
-[Utiliza las herramientas estándar de Laravel aceptadas por la comunidad](#utiliza-las-herramientas-estandar-de-laravel-aceptadas-por-la-comunidad)
+[Utiliza las herramientas estándar de Laravel aceptadas por la comunidad](#utiliza-las-herramientas-estándar-de-laravel-aceptadas-por-la-comunidad)
 
-[Sigue la convención de Laravel para los nombres](#sigue-la-convencion-de-laravel-para-los-nombres)
+[Sigue la convención de Laravel para los nombres](#sigue-la-convención-de-laravel-para-los-nombres)
 
 [Utiliza sintaxis cortas y legibles siempre que sea posible](#utiliza-sintaxis-cortas-y-legibles-siempre-que-sea-posible)
 
 [Utiliza contenedores IoC o fachadas en lugar de new Class](#utiliza-contenedores-ioc-o-fachadas-en-lugar-de-new-class)
 
-[No saques información directamente del archivo .env](#no-saques-informacion-directamente-del-archivo-env)
+[No saques información directamente del archivo .env](#no-saques-información-directamente-del-archivo-env)
 
-[Guarda las fechas en los formatos estándares. Utiliza los accessors y mutators para modificar el formato](#guarda-las-fechas-en-los-formatos-estandares-utiliza-los-accessors-y-mutators-para-modificar-el-formato)
+[Guarda las fechas en los formatos estándares. Utiliza los accessors y mutators para modificar el formato](#guarda-las-fechas-en-los-formatos-estándares-utiliza-los-accessors-y-mutators-para-modificar-el-formato)
 
-[Otras buenas prácticas](#otras-buenas-practicas)
+[Otras buenas prácticas](#otras-buenas-prácticas)
 
 ### **Principio de propósito único**
 
