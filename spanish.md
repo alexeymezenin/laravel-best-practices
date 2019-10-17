@@ -40,7 +40,7 @@ No se trata de una adaptación a Laravel de los principios SOLID ni de patrones,
 
 [Otras buenas prácticas](#otras-buenas-practicas)
 
-### **Principio de proposito unico**
+### **Principio de propósito único**
 
 Las clases y los métodos deben tener un solo propósito.
 
@@ -125,7 +125,7 @@ class Client extends Model
 
 [🔝 Volver al índice](#índice-de-contenido)
 
-### **Validacion**
+### **Validación**
 
 Quita las validaciones de los controladores y colócalas en clases Request
 
@@ -167,7 +167,7 @@ class PostRequest extends Request
 
 [🔝 Volver al índice](#índice-de-contenido)
 
-### **La logica de negocios debe estar en una clase ayudante**
+### **La lógica de negocios debe estar en una clase ayudante**
 
 Un controlador solo debe tener un propósito, así que mueve la lógica de negocio fuera de los controladores y colócala en clases ayudantes.
 
@@ -279,7 +279,7 @@ Article::has('user.profile')->verified()->latest()->get();
 
 [🔝 Volver al índice](#índice-de-contenido)
 
-### **Asignacion en masa**
+### **Asignación en masa**
 
 Malo:
 
@@ -325,7 +325,7 @@ $users = User::with('profile')->get();
 
 [🔝 Volver al índice](#índice-de-contenido)
 
-### **Comenta tu codigo, pero prioriza los metodos y nombres de variables descriptivas por sobre los comentarios**
+### **Comenta tu código, pero prioriza los métodos y nombres de variables descriptivas por sobre los comentarios**
 
 Malo:
 
@@ -376,7 +376,7 @@ La mejor ruta es utilizar algún paquete especializado para transferir informaci
 
 [🔝 Volver al índice](#índice-de-contenido)
 
-### **Utiliza los archivos de configuracion y lenguaje en lugar de texto en el codigo**
+### **Utiliza los archivos de configuración y lenguaje en lugar de texto en el código**
 
 Malo:
 
@@ -430,7 +430,7 @@ Base de datos | MySQL, PostgreSQL, SQLite, SQL Server | MongoDB
 
 [🔝 Volver al índice](#índice-de-contenido)
 
-### **Sigue la convencion de Laravel para los nombres**
+### **Sigue la convención de Laravel para los nombres**
 
  Sigue los [estándares PSR](http://www.php-fig.org/psr/psr-2/).
  
@@ -530,7 +530,7 @@ $this->user->create($request->validated());
 
 [🔝 Volver al índice](#índice-de-contenido)
 
-### **No saques informacion directamente del archivo `.env`**
+### **No saques información directamente del archivo `.env`**
 
 En lugar de ello, pasa la información a un archivo de configuración y luego utiliza el ayudante `config()` para obtener la información en tu aplicación.
 
@@ -552,7 +552,7 @@ $apiKey = config('api.key');
 
 [🔝 Volver al índice](#índice-de-contenido)
 
-### **Guarda las fechas en los formatos estandares. Utiliza los accessors y mutators para modificar el formato**
+### **Guarda las fechas en los formatos estándares. Utiliza los accessors y mutators para modificar el formato**
 
 Malo:
 
@@ -578,7 +578,7 @@ public function getSomeDateAttribute($date)
 
 [🔝 Volver al índice](#índice-de-contenido)
 
-### **Otras buenas practicas**
+### **Otras buenas prácticas**
 
 No coloques ningún tipo de lógica en los archivos de rutas.
 
