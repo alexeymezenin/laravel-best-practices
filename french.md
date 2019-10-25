@@ -115,7 +115,7 @@ public function getFullNameShort()
 
 [🔝 Retour au contenu](#contents)
 
-### **Modèles Fat, contrôleurs maigres**
+### **Gros modèles, maigres contrôleurs**
 
 Placez toute la logique liée à la base de données dans les modèles Eloquent ou dans les classes du référentiel si vous utilisez le générateur de requêtes ou des requêtes SQL brutes.
 
@@ -614,6 +614,6 @@ public function getSomeDateAttribute($date)
 
 Ne mettez jamais aucune logique dans les fichiers de routes.
 
-Minimisez l'utilisation de PHP vanille dans les modèles de blade.
+Minimisez l'utilisation de PHP vanilla dans les modèles de blade.
 
 [🔝 Retour au contenu](#contents)
