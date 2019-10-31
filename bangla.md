@@ -1,6 +1,6 @@
 ![Laravel best practices](/images/logo-english.png?raw=true)
 
-অনুবাদ:
+অনুবাদঃ
 
 [Nederlands](https://github.com/Protoqol/Beste-Laravel-Praktijken) (by [Protoqol](https://github.com/Protoqol))
 
@@ -37,7 +37,7 @@
 
 এটা লারাভেল এর সাথে SOLID Principles বা Patterns সংযোজন নয়। এখানে আপনি সেরা অনুশীলন গুলা পাবেন যা বাস্তব জীবনে লারাভেল প্রজেক্টে সাধারণত অবহেলা করা হয়। 
 
-## Contents
+## সূচীপত্র
 
 [সিঙ্গেল রেস্পন্সিবিলিটি প্রিন্সিপল বা একক দায়িত্ব নীতি](#single-responsibility-principle)
 
@@ -79,7 +79,7 @@
 
 একটা ক্লাস এবং একটা মেথডের একটা কাজই হওয়া উচিৎ।
 
-খারাপ:
+খারাপঃ
 
 ```php
 public function getFullNameAttribute()
@@ -92,7 +92,7 @@ public function getFullNameAttribute()
 }
 ```
 
-ভালো:
+ভালঃ
 
 ```php
 public function getFullNameAttribute()
@@ -122,7 +122,7 @@ public function getFullNameShort()
 
 সবগুলো ডাটাবেস লজিক Eloquent মডেলে অথবা Repository ক্লাসে থাকা উচিৎ, আপনি যদি Query Builder অথবা raw SQL queries ব্যাবহার করেন।
 
-খারাপ:
+খারাপঃ
 
 ```php
 public function index()
@@ -137,7 +137,7 @@ public function index()
 }
 ```
 
-ভালো:
+ভালঃ
 
 ```php
 public function index()
@@ -164,7 +164,7 @@ class Client extends Model
 
 ভ্যালিডেশন কোড গুলো Controller থেকে Request class এ সরিয়ে ফেলুন।
 
-খারাপ:
+খারাপঃ
 
 ```php
 public function store(Request $request)
@@ -179,7 +179,7 @@ public function store(Request $request)
 }
 ```
 
-ভালো:
+ভালঃ
 
 ```php
 public function store(PostRequest $request)
@@ -206,7 +206,7 @@ class PostRequest extends Request
 
 একটা কন্ট্রোলারের একটাই কাজ হওয়া উচিৎ। তাই বিজনেস লজিক গুলো কন্ট্রোলার থেকে সার্ভিস ক্লাসে সরিয়ে ফেলুন।
 
-খারাপ:
+খারাপঃ
 
 ```php
 public function store(Request $request)
@@ -219,7 +219,7 @@ public function store(Request $request)
 }
 ```
 
-ভালো:
+ভালঃ
 
 ```php
 public function store(Request $request)
@@ -246,7 +246,7 @@ class ArticleService
 
 কোডের পুনঃব্যবহার নিশ্চিত করুন। বার বার লেখার থেকে SRP আপনাকে সাহায্য করবে। সাথে Blade টেম্পলেট, Eloquent স্কোপ ইত্যাদির পুনঃব্যবহার করুন।
 
-খারাপ:
+খারাপঃ
 
 ```php
 public function getActive()
@@ -262,7 +262,7 @@ public function getArticles()
 }
 ```
 
-ভালো:
+ভালঃ
 
 ```php
 public function scopeActive($q)
@@ -289,7 +289,7 @@ public function getArticles()
 
 Eloquent আপনাকে পাঠযোগ্য এবং রক্ষণাবেক্ষণযোগ্য কোড করতে সাহায্য করবে। এছাড়াও, Eloquent এর বেশ কিছু বিল্ট-ইন টুলস আছে যেমনঃ soft deletes, events, scopes ইত্যাদি।
 
-খারাপ:
+খারাপঃ
 
 ```sql
 SELECT *
@@ -306,7 +306,7 @@ AND `active` = '1'
 ORDER BY `created_at` DESC
 ```
 
-ভালো:
+ভালঃ
 
 ```php
 Article::has('user.profile')->verified()->latest()->get();
@@ -316,7 +316,7 @@ Article::has('user.profile')->verified()->latest()->get();
 
 ### **সমানে এসাইন করা**
 
-খারাপ:
+খারাপঃ
 
 ```php
 $article = new Article;
@@ -328,7 +328,7 @@ $article->category_id = $category->id;
 $article->save();
 ```
 
-ভালো:
+ভালঃ
 
 ```php
 $category->article()->create($request->validated());
@@ -346,7 +346,7 @@ $category->article()->create($request->validated());
 @endforeach
 ```
 
-ভালো (১০০ জন ইউজারের জন্য, ২ টা DB queries এক্সিকিউট হবে):
+ভালো (১০০ জন ইউজারের জন্য, ২ টা DB queries এক্সিকিউট হবে)-ঃ 
 
 ```php
 $users = User::with('profile')->get();
@@ -362,20 +362,20 @@ $users = User::with('profile')->get();
 
 ### **কোড মন্তব্য লিখতে সমস্যা নাই, কিন্তু মেথডের নামকরণ এবং ভেরিয়েবলের নামকরণ মন্তব্য থেকে বেশি গুরুত্বপুর্ণ**
 
-খারাপ:
+খারাপঃ
 
 ```php
 if (count((array) $builder->getQuery()->joins) > 0)
 ```
 
-কিছুটা ভালো:
+তুলনামূলক ভালঃ
 
 ```php
 // Determine if there are any joins.
 if (count((array) $builder->getQuery()->joins) > 0)
 ```
 
-ভালো:
+ভালঃ
 
 ```php
 if ($this->hasJoins())
@@ -385,13 +385,13 @@ if ($this->hasJoins())
 
 ### **ব্লেড টেমপ্লেটের মধ্যে JS এবং CSS সরাসরি ইঞ্জেক্ট করবেন না এবং PHP Class এ HTML লিখবেন না**
 
-খারাপ:
+খারাপঃ
 
 ```php
 let article = `{{ json_encode($article) }}`;
 ```
 
-কিছুটা ভালো:
+তুলনামূলক ভালঃ
 
 ```php
 <input id="article" type="hidden" value='@json($article)'>
@@ -401,7 +401,7 @@ Or
 <button class="js-fav-article" data-article='@json($article)'>{{ $article->name }}<button>
 ```
 
-Javascript ফাইলের এর মধ্যে:
+Javascript ফাইলের এর মধ্যেঃ
 
 ```javascript
 let article = $('#article').val();
@@ -413,7 +413,7 @@ let article = $('#article').val();
 
 ### **সরাসরি লেখা থেকে কনফিগারেশন, ল্যাঙ্গুয়েজ এবং কনস্টান্ট ফাইল ব্যাবহার করুন**
 
-খারাপ:
+খারাপঃ
 
 ```php
 public function isNormal()
@@ -424,7 +424,7 @@ public function isNormal()
 return back()->with('message', 'Your article has been added!');
 ```
 
-ভালো:
+ভালঃ
 
 ```php
 public function isNormal()
@@ -470,7 +470,7 @@ DB | MySQL, PostgreSQL, SQLite, SQL Server | MongoDB
  [PSR standards](http://www.php-fig.org/psr/psr-2/) অনুসরণ করুন।
  
  
- এছাড়াও, লারাভেল কমিউনিটি কর্তিক স্বীকৃত নেমিং কনভেনশন (নামকরণ) ফলো করা যায়:
+ এছাড়াও, লারাভেল কমিউনিটি কর্তিক স্বীকৃত নেমিং কনভেনশন (নামকরণ) ফলো করা যায়ঃ
 
 কি | কিভাবে | ভাল | খারাপ
 ------------ | ------------- | ------------- | -------------
@@ -503,14 +503,14 @@ Trait | adjective | Notifiable | ~~NotificationTrait~~
 
 ### **যত সম্ভব সংক্ষিপ্ত ও সহজে পড়া যায় এমন সিনট্যাক্স লিখবেন**
 
-খারাপ:
+খারাপঃ
 
 ```php
 $request->session()->get('cart');
 $request->input('name');
 ```
 
-ভালো:
+ভালঃ
 
 ```php
 session('cart');
@@ -544,14 +544,14 @@ $request->name;
 
 নতুন ক্লাসের সিনট্যাক্স ক্লাস গুলোকে টাইট কাপলিং করে এবং টেস্টিং জটিল করে। এর থেকে ভালো IoC container অথবা facades ব্যাবহার করা।
 
-খারাপ:
+খারাপঃ
 
 ```php
 $user = new User;
 $user->create($request->validated());
 ```
 
-ভালো:
+ভালঃ
 
 ```php
 public function __construct(User $user)
@@ -570,13 +570,13 @@ $this->user->create($request->validated());
 
 বরং ডাটা গুলোকে কনফিগ ফাইলের মধ্যে রাখুন এবং `config()` হেল্পার ফাংশন ব্যাবহার করে আপনার এপ্লিকেশনে ব্যাবহার করুন।
 
-খারাপ:
+খারাপঃ
 
 ```php
 $apiKey = env('API_KEY');
 ```
 
-ভালো:
+ভালঃ
 
 ```php
 // config/api.php
@@ -590,14 +590,14 @@ $apiKey = config('api.key');
 
 ### **তারিখ গুলো স্ট্যান্ডার্ড ফরম্যাট এ রাখবেন। তারিখের ফরম্যাট পরিবর্তনের জন্য accessors এবং mutators ব্যবহার করুন**
 
-খারাপ:
+খারাপঃ
 
 ```php
 {{ Carbon::createFromFormat('Y-d-m H-i', $object->ordered_at)->toDateString() }}
 {{ Carbon::createFromFormat('Y-d-m H-i', $object->ordered_at)->format('m-d') }}
 ```
 
-ভালো:
+ভালঃ
 
 ```php
 // Model
