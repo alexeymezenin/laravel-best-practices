@@ -12,6 +12,8 @@ Translations:
 
 [ภาษาไทย](thai.md) (by [kongvut sangkla](https://github.com/kongvut))
 
+[বাংলা](bangla.md) (by [Anowar Hossain](https://github.com/AnowarCST))
+
 [فارسی](persian.md) (by [amirhossein baghaie](https://github.com/amirbagh75))
 
 [Português](https://github.com/jonaselan/laravel-best-practices) (by [jonaselan](https://github.com/jonaselan))
