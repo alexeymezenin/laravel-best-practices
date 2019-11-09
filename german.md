@@ -16,6 +16,8 @@ Translations:
 
 [Português](https://github.com/jonaselan/laravel-best-practices) (by [jonaselan](https://github.com/jonaselan))
 
+[Українська](ukrainian.md) (by [Tenevyk](https://github.com/tenevyk))
+
 [Русский](russian.md)
 
 [Tiếng Việt](https://chungnguyen.xyz/posts/code-laravel-lam-sao-cho-chuan) (by [Chung Nguyễn](https://github.com/nguyentranchung))
