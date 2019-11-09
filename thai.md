@@ -8,6 +8,8 @@
 
 [한국어](https://github.com/xotrs/laravel-best-practices) (by [cherrypick](https://github.com/xotrs))
 
+[Українська](ukrainian.md) (by [Tenevyk](https://github.com/tenevyk))
+
 [Русский](russian.md)
 
 [日本語](japanese.md) (by [2bo](https://github.com/2bo))
