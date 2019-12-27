@@ -462,7 +462,7 @@ API автентифікація | Laravel Passport | 3rd party JWT and OAuth pa
 Метод у тестовому класі | camelCase | testGuestCannotSeeArticle | ~~test_guest_cannot_see_article~~
 Змінна | camelCase | $articlesWithAuthor | ~~$articles_with_author~~
 Зібрання | описове, множина | $activeUsers = User::active()->get() | ~~$active, $data~~
-Об’єкт | описове, множина | $activeUser = User::active()->first() | ~~$users, $obj~~
+Об’єкт | описове, однина | $activeUser = User::active()->first() | ~~$users, $obj~~
 Індекси в конфігураційних та мовних файлах | snake_case | articles_enabled | ~~ArticlesEnabled; articles-enabled~~
 Вигляд | kebab-case | show-filtered.blade.php | ~~showFiltered.blade.php, show_filtered.blade.php~~
 Конфігурація | snake_case | google_calendar.php | ~~googleCalendar.php, google-calendar.php~~
