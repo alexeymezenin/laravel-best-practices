@@ -50,7 +50,7 @@ Ce n'est pas une adaptation Laravel des principes SOLID, des modèles, etc. Vous
 
 [Préférez utiliser Eloquent à l’utilisation de Query Builder et de requêtes SQL brutes. Préférez les collections aux tableaux](#préférez-utiliser-eloquent-à-l-utilisation-de-Query-Builder-et-de-requêtes-SQL-brutes-Préférez-les-collections-aux-tableaux)
 
-[Assignement en masse](#mission-de-masse)
+[Affectation en masse](#affectation-de-masse)
 
 [N'exécutez pas de requêtes dans les modèles de blade et utilisez un chargement rapide (N + 1 problème)](#n-exécutez-pas-de-requêtes-dans-les-modèles-de-blade-et-utilisez-un-chargement-rapide-n--1-problem)
 
@@ -117,7 +117,7 @@ public function getFullNameShort()
 
 [🔝 Retour au contenu](#contents)
 
-### **Gros modèles, maigres contrôleurs**
+### **Gros modèles, contrôleurs maigres**
 
 Placez toute la logique liée à la base de données dans les modèles Eloquent ou dans les classes du Repository si vous utilisez le générateur de requêtes ou des requêtes SQL brutes.
 
@@ -313,7 +313,7 @@ Article::has('user.profile')->verified()->latest()->get();
 
 [🔝 Retour au contenu](#contents)
 
-### **Assignement en masse**
+### **Affectation en masse**
 
 Mal:
 
@@ -359,7 +359,7 @@ $users = User::with('profile')->get();
 
 [🔝 Retour au contenu](#contents)
 
-### **Commentez votre code, mais préferez une méthode descriptive et des noms de variables aux commentaires**
+### **Commentez votre code, mais préférez une méthode descriptive et des noms de variables aux commentaires**
 
 Mal:
 
