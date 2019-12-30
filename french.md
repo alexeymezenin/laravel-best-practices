@@ -50,7 +50,7 @@ Ce n'est pas une adaptation Laravel des principes SOLID, des modèles, etc. Vous
 
 [Préférez utiliser Eloquent à l’utilisation de Query Builder et de requêtes SQL brutes. Préférez les collections aux tableaux](#préférez-utiliser-eloquent-à-l-utilisation-de-Query-Builder-et-de-requêtes-SQL-brutes-Préférez-les-collections-aux-tableaux)
 
-[Mission de masse](#mission-de-masse)
+[Affectation en masse](#affectation-de-masse)
 
 [N'exécutez pas de requêtes dans les modèles de blade et utilisez un chargement rapide (N + 1 problème)](#n-exécutez-pas-de-requêtes-dans-les-modèles-de-blade-et-utilisez-un-chargement-rapide-n--1-problem)
 
@@ -117,9 +117,9 @@ public function getFullNameShort()
 
 [🔝 Retour au contenu](#contents)
 
-### **Gros modèles, maigres contrôleurs**
+### **Gros modèles, contrôleurs maigres**
 
-Placez toute la logique liée à la base de données dans les modèles Eloquent ou dans les classes du référentiel si vous utilisez le générateur de requêtes ou des requêtes SQL brutes.
+Placez toute la logique liée à la base de données dans les modèles Eloquent ou dans les classes du Repository si vous utilisez le générateur de requêtes ou des requêtes SQL brutes.
 
 Mal:
 
@@ -161,7 +161,7 @@ class Client extends Model
 
 ### **Validation**
 
-Déplacer la validation des contrôleurs vers les classes Request.
+Déplacez la validation des contrôleurs vers les classes Request.
 
 Mal:
 
@@ -243,7 +243,7 @@ class ArticleService
 
 ### **Ne te répète pas (DRY)**
 
-Réutilisez le code quand vous le pouvez. SRP vous aide à éviter les doubles emplois. Réutilisez également les modèles de lame, utilisez les étendues Eloquent, etc.
+Réutilisez le code quand vous le pouvez. SRP vous aide à éviter les doubles emplois. Réutilisez également les modèles Blade, utilisez les Eloquent scopes, etc.
 
 Mal:
 
@@ -286,7 +286,7 @@ public function getArticles()
 
 ### **Préférez utiliser Eloquent à l’utilisation de Query Builder et de requêtes SQL brutes. Préférez les collections aux tableaux**
 
-Eloquent vous permet d’écrire du code lisible et maintenable. Eloquent dispose également d'excellents outils intégrés tels que les suppressions, les événements, les étendues, etc.
+Eloquent vous permet d’écrire du code lisible et maintenable. Eloquent dispose également d'excellents outils intégrés tels que les suppressions, les événements, les scopes, etc.
 
 Mal:
 
@@ -313,7 +313,7 @@ Article::has('user.profile')->verified()->latest()->get();
 
 [🔝 Retour au contenu](#contents)
 
-### **Mission de masse**
+### **Affectation en masse**
 
 Mal:
 
@@ -335,9 +335,9 @@ $category->article()->create($request->validated());
 
 [🔝 Retour au contenu](#contents)
 
-### **N'exécutez pas de requêtes dans les modèles de lames et utilisez un chargement rapide (N + 1 problem)**
+### **N'exécutez pas de requêtes dans les modèles Blade et utilisez un chargement rapide (eager loading) (problème N + 1)**
 
-Mal (Pour 100 utilisateur, 101 requêtes DB seront exécutées):
+Mal (Pour 100 utilisateurs, 101 requêtes DB seront exécutées):
 
 ```php
 @foreach (User::all() as $user)
@@ -359,7 +359,7 @@ $users = User::with('profile')->get();
 
 [🔝 Retour au contenu](#contents)
 
-### **Commentez votre code, mais préférez la méthode descriptive et les noms de variables aux commentaires**
+### **Commentez votre code, mais préférez une méthode descriptive et des noms de variables aux commentaires**
 
 Mal:
 
@@ -472,30 +472,30 @@ DB | MySQL, PostgreSQL, SQLite, SQL Server | MongoDB
 
 Quoi | Comment | Bien | Mal
 ------------ | ------------- | ------------- | -------------
-Controller | singulière | ArticleController | ~~ArticlesController~~
-Route | plurielle | articles/1 | ~~article/1~~
-Route nommé | snake_case avec notation par points | users.show_active | ~~users.show-active, show-active-users~~
-Model | singulière | User | ~~Users~~
-hasOne or belongsTo relationship | singulière | articleComment | ~~articleComments, article_comment~~
-All other relationships | plurielle | articleComments | ~~articleComment, article_comments~~
+Controller | singulier | ArticleController | ~~ArticlesController~~
+Route | pluriel | articles/1 | ~~article/1~~
+Route nommée | snake_case avec notation par points | users.show_active | ~~users.show-active, show-active-users~~
+Model | singulier | User | ~~Users~~
+Relations hasOne or belongsTo | singulier | articleComment | ~~articleComments, article_comment~~
+Toutes les autres relations | pluriel | articleComments | ~~articleComment, article_comments~~
 Table | plurielle | article_comments | ~~article_comment, articleComments~~
-Pivot table | singulière model names in alphabetical order | article_user | ~~user_article, articles_users~~
-Table column | snake_case sans nom de modèle | meta_title | ~~MetaTitle; article_meta_title~~
-Model property | snake_case | $model->created_at | ~~$model->createdAt~~
+Table pivot | noms des modèles au singulier dans l'ordre alphabétique | article_user | ~~user_article, articles_users~~
+Colonne de table | snake_case sans nom de modèle | meta_title | ~~MetaTitle; article_meta_title~~
+Attribut du Model | snake_case | $model->created_at | ~~$model->createdAt~~
 Foreign key | Nom du modèle au singulier avec _id comme suffix | article_id | ~~ArticleId, id_article, articles_id~~
 Primary key | - | id | ~~custom_id~~
 Migration | - | 2017_01_01_000000_create_articles_table | ~~2017_01_01_000000_articles~~
-Method | camelCase | getAll | ~~get_all~~
-Method in resource controller | [table](https://laravel.com/docs/master/controllers#resource-controllers) | store | ~~saveArticle~~
-Method in test class | camelCase | testGuestCannotSeeArticle | ~~test_guest_cannot_see_article~~
+Méthode | camelCase | getAll | ~~get_all~~
+Méthodes dans le controlleur de ressource | [table](https://laravel.com/docs/master/controllers#resource-controllers) | store | ~~saveArticle~~
+Méthode dans une classe de test | camelCase | testGuestCannotSeeArticle | ~~test_guest_cannot_see_article~~
 Variable | camelCase | $articlesWithAuthor | ~~$articles_with_author~~
-Collection | descriptive, plurielle | $activeUsers = User::active()->get() | ~~$active, $data~~
-Object | descriptive, singulière | $activeUser = User::active()->first() | ~~$users, $obj~~
-Config and language files index | snake_case | articles_enabled | ~~ArticlesEnabled; articles-enabled~~
+Collection | descriptif, pluriel | $activeUsers = User::active()->get() | ~~$active, $data~~
+Object | descriptif, singulier | $activeUser = User::active()->first() | ~~$users, $obj~~
+Index de fichier de config et de langage | snake_case | articles_enabled | ~~ArticlesEnabled; articles-enabled~~
 Vue | kebab-case | show-filtered.blade.php | ~~showFiltered.blade.php, show_filtered.blade.php~~
 Config | snake_case | google_calendar.php | ~~googleCalendar.php, google-calendar.php~~
 Contract (interface) | adjectif ou nom | Authenticatable | ~~AuthenticationInterface, IAuthentication~~
-Traite | adjective | Notifiable | ~~NotificationTrait~~
+Trait | adjectif | Notifiable | ~~NotificationTrait~~
 
 [🔝 Retour au contenu](#contents)
 
@@ -564,7 +564,7 @@ $this->user->create($request->validated());
 
 [🔝 Retour au contenu](#contents)
 
-### **Ne pas obtenir les données du fichier `.env` directement**
+### **Ne pas obtenir directement les données du fichier `.env`**
 
 Passez les données aux fichiers de configuration à la place, puis utilisez la fonction d'assistance `config ()` pour utiliser les données dans une application.
 
