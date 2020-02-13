@@ -1,10 +1,12 @@
-![Laravel ベストプラクティス](/images/logo-english.png?raw=true)
+![Laravel ベストプラクティス](/images/logo-japanese.png?raw=true)
 
 翻訳:
 
 [Nederlands](https://github.com/Protoqol/Beste-Laravel-Praktijken) (by [Protoqol](https://github.com/Protoqol))
 
 [한국어](https://github.com/xotrs/laravel-best-practices) (by [cherrypick](https://github.com/xotrs))
+
+[Українська](ukrainian.md) (by [Tenevyk](https://github.com/tenevyk))
 
 [Русский](russian.md)
 
@@ -21,6 +23,10 @@
 [Polski](https://github.com/maciejjeziorski/laravel-best-practices-pl) (by [Maciej Jeziorski](https://github.com/maciejjeziorski))
 
 [Türkçe](turkish.md) (by [Burak](https://github.com/ikidnapmyself))
+
+[Deutsche](german.md) (by [Sujal Patel](https://github.com/sujalpatel2209))
+
+[Italiana](italian.md) (by [Sujal Patel](https://github.com/sujalpatel2209))
 
 これはSOLID原則やパターンなどをLavavelに適用させたものではありません。
 ここでは、実際のLaravelプロジェクトでは通常無視されるベストプラクティスを見つけることができます。

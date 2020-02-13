@@ -12,9 +12,13 @@ Translations:
 
 [ภาษาไทย](thai.md) (by [kongvut sangkla](https://github.com/kongvut))
 
+[বাংলা](bangla.md) (by [Anowar Hossain](https://github.com/AnowarCST))
+
 [فارسی](persian.md) (by [amirhossein baghaie](https://github.com/amirbagh75))
 
 [Português](https://github.com/jonaselan/laravel-best-practices) (by [jonaselan](https://github.com/jonaselan))
+
+[Українська](ukrainian.md) (by [Tenevyk](https://github.com/tenevyk))
 
 [Русский](russian.md)
 
@@ -27,6 +31,12 @@ Translations:
 [Polski](https://github.com/maciejjeziorski/laravel-best-practices-pl) (by [Maciej Jeziorski](https://github.com/maciejjeziorski))
 
 [Türkçe](turkish.md) (by [Burak](https://github.com/ikidnapmyself))
+
+[Deutsche](german.md) (by [Sujal Patel](https://github.com/sujalpatel2209))
+
+[Italiana](italian.md) (by [Sujal Patel](https://github.com/sujalpatel2209))
+
+[Azərbaycanca](https://github.com/Maharramoff/laravel-best-practices-az) (by [Maharramoff](https://github.com/Maharramoff))
 
 It's not a Laravel adaptation of SOLID principles, patterns etc. Here you'll find the best practices which are usually ignored in real life Laravel projects.
 

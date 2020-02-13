@@ -1,10 +1,12 @@
-![Laravel best practices](/images/logo-english.png?raw=true)
+![Laravel best practices](/images/logo-chinese.png?raw=true)
 
 多国语言列表:
 
 [Nederlands](https://github.com/Protoqol/Beste-Laravel-Praktijken) (by [Protoqol](https://github.com/Protoqol))
 
 [한국어](https://github.com/xotrs/laravel-best-practices) (by [cherrypick](https://github.com/xotrs))
+
+[Українська](ukrainian.md) (by [Tenevyk](https://github.com/tenevyk))
 
 [Русский](russian.md)
 
@@ -22,6 +24,9 @@
 
 [Türkçe](turkish.md) (by [Burak](https://github.com/ikidnapmyself))
 
+[Deutsche](german.md) (by [Sujal Patel](https://github.com/sujalpatel2209))
+
+[Italiana](italian.md) (by [Sujal Patel](https://github.com/sujalpatel2209))
 
 这并非laravel官方强制要求的规范，而是我们在日常开发过程中遇到的一些容易忽视的优秀实现方式。
 

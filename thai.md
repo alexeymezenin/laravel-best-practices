@@ -1,4 +1,4 @@
-![Laravel best practices](./images/logo-english.png?raw=true)
+![Laravel best practices](./images/logo-thai.png?raw=true)
 
 การแปลภาษา:
 
@@ -7,6 +7,8 @@
 [Nederlands](https://github.com/Protoqol/Beste-Laravel-Praktijken) (by [Protoqol](https://github.com/Protoqol))
 
 [한국어](https://github.com/xotrs/laravel-best-practices) (by [cherrypick](https://github.com/xotrs))
+
+[Українська](ukrainian.md) (by [Tenevyk](https://github.com/tenevyk))
 
 [Русский](russian.md)
 
@@ -29,6 +31,10 @@
 [Türkçe](turkish.md) (by [Burak](https://github.com/ikidnapmyself))
 
 [ภาษาไทย](thai.md) (by [Kongvut](https://github.com/kongvut/laravel-best-practices))
+
+[Deutsche](german.md) (by [Sujal Patel](https://github.com/sujalpatel2209))
+
+[Italiana](italian.md) (by [Sujal Patel](https://github.com/sujalpatel2209))
 
 เอกสารนี้ไม่ใช่การดัดแปลงหลักการ SOLID หรือรูปแบบและอื่น ๆ ของ Laravel โดยบทความนี้คุณจะพบแนวทางปฏิบัติในการ Coding ที่ดีที่สุด ซึ่งหลายคนมักจะละเลยในงานโปรเจค Laravel จริงของคุณ
 
