@@ -10,6 +10,8 @@ Translations:
 
 [漢語](chinese.md) (by [xiaoyi](https://github.com/Shiloh520))
 
+[中文維基百科](traditional-chinese.md) (by [woeichern](https://github.com/woeichern))
+
 [ภาษาไทย](thai.md) (by [kongvut sangkla](https://github.com/kongvut))
 
 [বাংলা](bangla.md) (by [Anowar Hossain](https://github.com/AnowarCST))
