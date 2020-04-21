@@ -1,4 +1,4 @@
-![Laravel best practices](/images/logo-english.png?raw=true)
+![Laravel best practices](/images/logo-german.png?raw=true)
 
 Translations:
 
@@ -72,7 +72,7 @@ Es handelt sich nicht um eine Laravel-Anpassung von SOLID-Prinzipien, Mustern us
 
 [Verwenden Sie nach Möglichkeit eine kürzere und besser lesbare Syntax](#verwenden-sie-nach-möglichkeit-eine-kürzere-und-besser-lesbare-syntax)
 
-[Verwenden Sie IoC-Container oder -Fassaden anstelle der neuen Klasse](#verwenden-sie-ioc-container-oder--fassaden-anstelle-der-neuen-klasse)
+[Verwenden Sie IoC-Container oder -Fassaden anstelle der neuen Klasse](#verwenden-sie-ioc-container-oder--fassaden-anstelle-einer-neuen-klasse)
 
 [Rufen Sie keine Daten direkt aus der ENV-Datei ab](#rufen-sie-keine-daten-direkt-aus-der-env-datei-ab)
 
@@ -500,7 +500,7 @@ Objekt | beschreibend, singular | $activeUser = User::active()->first() | ~~$use
 Konfigurations- und Sprachdateien index | snake_case | articles_enabled | ~~ArticlesEnabled; articles-enabled~~
 Ansicht | kebab-case | show-filtered.blade.php | ~~showFiltered.blade.php, show_filtered.blade.php~~
 Config | snake_case | google_calendar.php | ~~googleCalendar.php, google-calendar.php~~
-Vertrag (Schnittstelle) | Adjektiv oder Substantiv Authenticatable | ~~AuthenticationInterface, IAuthentication~~
+Vertrag (Schnittstelle) | Adjektiv oder Substantiv | Authenticatable | ~~AuthenticationInterface, IAuthentication~~
 Merkmal | Adjektiv | Notifiable | ~~NotificationTrait~~
 
 [🔝 Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
