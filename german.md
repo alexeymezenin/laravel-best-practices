@@ -38,43 +38,41 @@ Es handelt sich nicht um eine Laravel-Anpassung von SOLID-Prinzipien, Mustern us
 
 ## Contents
 
-[Prinzip der Einzelverantwortung](#single-responsibility-principle)
+[Prinzip der Einzelverantwortung](#prinzip-der-einzelverantwortung)
 
-[Fette Models, dünne Controller](#fat-models-skinny-controllers)
+[Fette Models, dünne Controller](#fette-models-dünne-controller)
 
-[Validierung](#validation)
+[Validierung](#validierung)
 
-[Geschäftslogik sollte in der Serviceklasse sein](#business-logic-should-be-in-service-class)
+[Geschäftslogik sollte in der Serviceklasse sein](#geschäftslogik-sollte-in-der-serviceklasse-sein)
 
-[Wiederhole dich nicht (DRY)](#dont-repeat-yourself-dry)
+[Wiederhole dich nicht (DRY)](#wiederhole-dich-nicht-dry)
 
-[Ziehen Sie es vor, Eloquent anstelle von Query Builder und unformatierten SQL-Abfragen zu verwenden. Ziehen Sie Sammlungen Arrays vor](#prefer-to-use-eloquent-over-using-query-builder-and-raw-sql-queries-prefer-collections-over-arrays)
+[Ziehen Sie es vor, Eloquent anstelle von Query Builder und unformatierten SQL-Abfragen zu verwenden. Ziehen Sie Sammlungen Arrays vor](#verwenden-sie-lieber-eloquent-als-query-builder-und-sql-rohdatenabfragen-ziehen-sie-sammlungen-arrays-vor)
 
-[Massenzuordnung](#mass-assignment)
+[Massenzuordnung](#massenzuordnung)
 
-[Führen Sie keine Abfragen in Blade-Vorlagen aus und verwenden Sie das eifrige Laden (N + 1-Problem).](#do-not-execute-queries-in-blade-templates-and-use-eager-loading-n--1-problem)
+[Führen Sie keine Abfragen in Blade-Vorlagen aus und verwenden Sie das eifrige Laden (N + 1-Problem).](#führen-sie-keine-abfragen-in-blade-vorlagen-aus-und-verwenden-sie-das-eifrige-laden-n--1-problem)
 
-[Kommentieren Sie Ihren Code, bevorzugen Sie jedoch beschreibende Methoden- und Variablennamen gegenüber Kommentaren](#comment-your-code-but-prefer-descriptive-method-and-variable-names-over-comments)
+[Kommentieren Sie Ihren Code, bevorzugen Sie jedoch beschreibende Methoden- und Variablennamen gegenüber Kommentaren](#kommentieren-sie-ihren-code-bevorzugen-sie-jedoch-beschreibende-methoden--und-variablennamen-gegenüber-kommentaren)
 
-[Setzen Sie JS und CSS nicht in Blade-Vorlagen und setzen Sie kein HTML in PHP-Klassen](#do-not-put-js-and-css-in-blade-templates-and-do-not-put-any-html-in-php-classes)
+[Setzen Sie JS und CSS nicht in Blade-Vorlagen und setzen Sie kein HTML in PHP-Klassen](#setzen-sie-js-und-css-nicht-in-blade-vorlagen-und-setzen-sie-kein-html-in-php-klassen)
 
-[Verwenden Sie Konfigurations- und Sprachdateien, Konstanten anstelle von Text im Code
-](#use-config-and-language-files-constants-instead-of-text-in-the-code)
+[Verwenden Sie Konfigurations- und Sprachdateien, Konstanten anstelle von Text im Code](#verwenden-sie-konfigurations--und-sprachdateien-konstanten-anstelle-von-text-im-code)
 
-[Verwenden Sie Standard-Laravel-Tools, die von der Community akzeptiert werden
-](#use-standard-laravel-tools-accepted-by-community)
+[Verwenden Sie Standard-Laravel-Tools, die von der Community akzeptiert werden](#verwenden-sie-standard-laravel-tools-die-von-der-community-akzeptiert-werden)
 
-[Befolgen Sie die Namenskonventionen von Laravel](#follow-laravel-naming-conventions)
+[Befolgen Sie die Namenskonventionen von Laravel](#befolgen-sie-die-namenskonventionen-von-laravel)
 
-[Verwenden Sie nach Möglichkeit eine kürzere und besser lesbare Syntax](#use-shorter-and-more-readable-syntax-where-possible)
+[Verwenden Sie nach Möglichkeit eine kürzere und besser lesbare Syntax](#verwenden-sie-nach-möglichkeit-eine-kürzere-und-besser-lesbare-syntax)
 
-[Verwenden Sie IoC-Container oder -Fassaden anstelle der neuen Klasse](#use-ioc-container-or-facades-instead-of-new-class)
+[Verwenden Sie IoC-Container oder -Fassaden anstelle der neuen Klasse](#verwenden-sie-ioc-container-oder--fassaden-anstelle-der-neuen-klasse)
 
-[Rufen Sie keine Daten direkt aus der ENV-Datei ab](#do-not-get-data-from-the-env-file-directly)
+[Rufen Sie keine Daten direkt aus der ENV-Datei ab](#rufen-sie-keine-daten-direkt-aus-der-env-datei-ab)
 
-[Speichern Sie Daten im Standardformat. Verwenden Sie Accessoren und Mutatoren, um das Datumsformat zu ändern](#store-dates-in-the-standard-format-use-accessors-and-mutators-to-modify-date-format)
+[Speichern Sie Daten im Standardformat. Verwenden Sie Accessoren und Mutatoren, um das Datumsformat zu ändern](#speichern-sie-daten-im-standardformat-verwenden-sie-accessoren-und-mutatoren-um-das-datumsformat-zu-ändern)
 
-[Andere gute Praktiken](#other-good-practices)
+[Andere gute Praktiken](#andere-gute-praktiken)
 
 ### **Prinzip der Einzelverantwortung**
 
