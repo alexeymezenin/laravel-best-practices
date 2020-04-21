@@ -10,7 +10,11 @@ Translations:
 
 [漢語](chinese.md) (by [xiaoyi](https://github.com/Shiloh520))
 
+[中文維基百科](traditional-chinese.md) (by [woeichern](https://github.com/woeichern))
+
 [ภาษาไทย](thai.md) (by [kongvut sangkla](https://github.com/kongvut))
+
+[বাংলা](bangla.md) (by [Anowar Hossain](https://github.com/AnowarCST))
 
 [فارسی](persian.md) (by [amirhossein baghaie](https://github.com/amirbagh75))
 
@@ -30,9 +34,11 @@ Translations:
 
 [Türkçe](turkish.md) (by [Burak](https://github.com/ikidnapmyself))
 
-[Deutsche](german.md) (by [Sujal Patel](https://github.com/sujalpatel2209))
+[Deutsch](german.md) (by [Sujal Patel](https://github.com/sujalpatel2209))
 
 [Italiana](italian.md) (by [Sujal Patel](https://github.com/sujalpatel2209))
+
+[Azərbaycanca](https://github.com/Maharramoff/laravel-best-practices-az) (by [Maharramoff](https://github.com/Maharramoff))
 
 Es handelt sich nicht um eine Laravel-Anpassung von SOLID-Prinzipien, Mustern usw. Hier finden Sie die Best Practices, die in echten Laravel-Projekten normalerweise ignoriert werden.
 
