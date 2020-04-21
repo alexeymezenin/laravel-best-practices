@@ -32,7 +32,7 @@
 
 [ภาษาไทย](thai.md) (by [Kongvut](https://github.com/kongvut/laravel-best-practices))
 
-[Deutsche](german.md) (by [Sujal Patel](https://github.com/sujalpatel2209))
+[Deutsch](german.md) (by [Sujal Patel](https://github.com/sujalpatel2209))
 
 [Italiana](italian.md) (by [Sujal Patel](https://github.com/sujalpatel2209))
 
