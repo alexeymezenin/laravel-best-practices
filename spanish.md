@@ -4,43 +4,43 @@ No se trata de una adaptación a Laravel de los principios SOLID ni de patrones,
 
 ## Índice de contenido
 
-[Principio de propósito único](#principio-de-proposito-unico)
+[Principio de propósito único](#principio-de-propósito-único)
 
 [Modelos gordos, controladores delgados](#modelos-gordos-controladores-delgados)
 
-[Validación](#validacion)
+[Validación](#validación)
 
-[La lógica de negocios debe estar en una clase ayudante](#la-logica-de-negocios-debe-estar-en-una-clase-ayudante)
+[La lógica de negocios debe estar en una clase ayudante](#la-lógica-de-negocios-debe-estar-en-una-clase-ayudante)
 
 [No te repitas (DRY)](#no-te-repitas-dry)
 
 [Prioriza el uso de Eloquent por sobre el constructor de consultas y consultas puras. Prioriza las colecciones sobre los arreglos](#prioriza-el-uso-de-eloquent-por-sobre-el-constructor-de-consultas-y-consultas-puras-prioriza-las-colecciones-sobre-los-arreglos)
 
-[Asignación en masa](#asignacion-en-masa)
+[Asignación en masa](#asignación-en-masa)
 
 [No ejecutes consultas en las plantillas blade y utiliza el cargado prematuro (Problema N + 1)](#no-ejecutes-consultas-en-las-plantillas-blade-y-utiliza-el-cargado-prematuro-problema-n--1))
 
-[Comenta tu código, pero prioriza los métodos y nombres de variables descriptivas por sobre los comentarios](#comenta-tu-codigo-pero-prioriza-los-metodos-y-nombres-de-variables-descriptivas-por-sobre-los-comentarios)
+[Comenta tu código, pero prioriza los métodos y nombres de variables descriptivas por sobre los comentarios](#comenta-tu-código-pero-prioriza-los-métodos-y-nombres-de-variables-descriptivas-por-sobre-los-comentarios)
 
 [No coloques JS ni CSS en las plantillas blade y no coloques HTML en clases de PHP](#no-coloques-js-ni-css-en-las-plantillas-blade-y-no-coloques-html-en-clases-de-php)
 
-[Utiliza los archivos de configuración y lenguaje en lugar de texto en el código](#utiliza-los-archivos-de-configuracion-y-lenguaje-en-lugar-de-texto-en-el-codigo)
+[Utiliza los archivos de configuración y lenguaje en lugar de texto en el código](#utiliza-los-archivos-de-configuración-y-lenguaje-en-lugar-de-texto-en-el-código)
 
-[Utiliza las herramientas estándar de Laravel aceptadas por la comunidad](#utiliza-las-herramientas-estandar-de-laravel-aceptadas-por-la-comunidad)
+[Utiliza las herramientas estándar de Laravel aceptadas por la comunidad](#utiliza-las-herramientas-estándar-de-laravel-aceptadas-por-la-comunidad)
 
-[Sigue la convención de Laravel para los nombres](#sigue-la-convencion-de-laravel-para-los-nombres)
+[Sigue la convención de Laravel para los nombres](#sigue-la-convención-de-laravel-para-los-nombres)
 
 [Utiliza sintaxis cortas y legibles siempre que sea posible](#utiliza-sintaxis-cortas-y-legibles-siempre-que-sea-posible)
 
 [Utiliza contenedores IoC o fachadas en lugar de new Class](#utiliza-contenedores-ioc-o-fachadas-en-lugar-de-new-class)
 
-[No saques información directamente del archivo .env](#no-saques-informacion-directamente-del-archivo-env)
+[No saques información directamente del archivo .env](#no-saques-información-directamente-del-archivo-env)
 
-[Guarda las fechas en los formatos estándares. Utiliza los accessors y mutators para modificar el formato](#guarda-las-fechas-en-los-formatos-estandares-utiliza-los-accessors-y-mutators-para-modificar-el-formato)
+[Guarda las fechas en los formatos estándares. Utiliza los accessors y mutators para modificar el formato](#guarda-las-fechas-en-los-formatos-estándares-utiliza-los-accessors-y-mutators-para-modificar-el-formato)
 
-[Otras buenas prácticas](#otras-buenas-practicas)
+[Otras buenas prácticas](#otras-buenas-prácticas)
 
-### **Principio de proposito unico**
+### **Principio de propósito único**
 
 Las clases y los métodos deben tener un solo propósito.
 
@@ -125,7 +125,7 @@ class Client extends Model
 
 [🔝 Volver al índice](#índice-de-contenido)
 
-### **Validacion**
+### **Validación**
 
 Quita las validaciones de los controladores y colócalas en clases Request
 
@@ -167,7 +167,7 @@ class PostRequest extends Request
 
 [🔝 Volver al índice](#índice-de-contenido)
 
-### **La logica de negocios debe estar en una clase ayudante**
+### **La lógica de negocios debe estar en una clase ayudante**
 
 Un controlador solo debe tener un propósito, así que mueve la lógica de negocio fuera de los controladores y colócala en clases ayudantes.
 
@@ -279,7 +279,7 @@ Article::has('user.profile')->verified()->latest()->get();
 
 [🔝 Volver al índice](#índice-de-contenido)
 
-### **Asignacion en masa**
+### **Asignación en masa**
 
 Malo:
 
@@ -325,7 +325,7 @@ $users = User::with('profile')->get();
 
 [🔝 Volver al índice](#índice-de-contenido)
 
-### **Comenta tu codigo, pero prioriza los metodos y nombres de variables descriptivas por sobre los comentarios**
+### **Comenta tu código, pero prioriza los métodos y nombres de variables descriptivas por sobre los comentarios**
 
 Malo:
 
@@ -376,7 +376,7 @@ La mejor ruta es utilizar algún paquete especializado para transferir informaci
 
 [🔝 Volver al índice](#índice-de-contenido)
 
-### **Utiliza los archivos de configuracion y lenguaje en lugar de texto en el codigo**
+### **Utiliza los archivos de configuración y lenguaje en lugar de texto en el código**
 
 Malo:
 
@@ -430,7 +430,7 @@ Base de datos | MySQL, PostgreSQL, SQLite, SQL Server | MongoDB
 
 [🔝 Volver al índice](#índice-de-contenido)
 
-### **Sigue la convencion de Laravel para los nombres**
+### **Sigue la convención de Laravel para los nombres**
 
  Sigue los [estándares PSR](http://www.php-fig.org/psr/psr-2/).
  
@@ -530,7 +530,7 @@ $this->user->create($request->validated());
 
 [🔝 Volver al índice](#índice-de-contenido)
 
-### **No saques informacion directamente del archivo `.env`**
+### **No saques información directamente del archivo `.env`**
 
 En lugar de ello, pasa la información a un archivo de configuración y luego utiliza el ayudante `config()` para obtener la información en tu aplicación.
 
@@ -552,7 +552,7 @@ $apiKey = config('api.key');
 
 [🔝 Volver al índice](#índice-de-contenido)
 
-### **Guarda las fechas en los formatos estandares. Utiliza los accessors y mutators para modificar el formato**
+### **Guarda las fechas en los formatos estándares. Utiliza los accessors y mutators para modificar el formato**
 
 Malo:
 
@@ -578,7 +578,7 @@ public function getSomeDateAttribute($date)
 
 [🔝 Volver al índice](#índice-de-contenido)
 
-### **Otras buenas practicas**
+### **Otras buenas prácticas**
 
 No coloques ningún tipo de lógica en los archivos de rutas.
 
