@@ -16,7 +16,7 @@ O que é descrito aqui não é uma adaptação ao principio SOLID, padrões e et
 
 [Usar o Eloquent em vez de Query Builder e consultas SQL puras (raw SQL). Usar collections no lugar de  arrays](#usar-o-eloquent-em-vez-de-query-builder-e-consultas-sql-puras-raw-sql-usar-collections-no-lugar-de--arrays)
 
-[Mass assignment](#mass-assignment)
+[Atribuição em massa](#atribuição-em-massa)
 
 [Não executar consultas no Blade templates e usar eager loading (N + 1)](#não-executar-consultas-no-blade-templates-e-usar-eager-loading-n--1)
 
@@ -28,7 +28,7 @@ O que é descrito aqui não é uma adaptação ao principio SOLID, padrões e et
 
 [Use ferramentas padrões do Laravel aceitas pela comunidade](#use-ferramentas-padrões-do-laravel-aceitas-pela-comunidade)
 
-[Siga a conversão de nomes usada no Laravel](#siga-a-conversão-de-nomes-usada-no-laravel)
+[Siga a convenção de nomes usada no Laravel](#siga-a-convenção-de-nomes-usada-no-laravel)
 
 [Tente sempre usar sintaxes pequenas e legíveis](#tente-sempre-usar-sintaxes-pequenas-e-legíveis)
 
@@ -36,13 +36,13 @@ O que é descrito aqui não é uma adaptação ao principio SOLID, padrões e et
 
 [Não recupere informaçẽos diretamente do `.env`](#não-recupere-informaçẽos-diretamente-do-env)
 
-[Armaze datas em formatoes padrões. Use "accessors" and "mutators" para modificar o formato das datas](#armaze-datas-em-formatoes-padrões-use-accessors-and-mutators-para-modificar-o-formato-das-datas)
+[Armazene datas em formatos padrões. Use "accessors" and "mutators" para modificar o formato das datas](#armazene-datas-em-formatos-padrões-use-accessors-and-mutators-para-modificar-o-formato-das-datas)
 
 [Outras boas práticas](#outras-boas-práticas)
 
 ### **Princípio da responsabilidade única**
 
-Classes e metódos devem possui somente uma responsabilidade.
+Classes e metódos devem possuir somente uma responsabilidade.
 
 Ruim:
 
@@ -169,7 +169,7 @@ class PostRequest extends Request
 
 ### **Lógica de negócio deve ser posta em classes**
 
-Controller devem ter somente uma responsabilidade, então mova lógica de negócio para outros serviços.
+Controllers devem ter somente uma responsabilidade, então mova lógica de negócio para outros serviços.
 
 Ruim:
 
@@ -252,7 +252,7 @@ public function getArticles()
 
 ### **Usar o Eloquent em vez de Query Builder e consultas SQL puras (raw SQL). Usar collections no lugar de  arrays**
 
-Eloquent permite que você escreva código legível e mantível mais fácil. Além disso, Eloquent possui ferramentas ótimas para implementar "soft deletes", eventos, escopos e etc.
+Eloquent permite que você escreva código legível e manutenível. Além disso, Eloquent possui ferramentas ótimas para implementar "soft deletes", eventos, escopos e etc.
 
 Ruim:
 
@@ -279,7 +279,7 @@ Article::has('user.profile')->verified()->latest()->get();
 
 [🔝 Voltar para o início](#conteúdo)
 
-### **Mass assignment**
+### **Atribuição em massa**
 
 Ruim:
 
@@ -336,7 +336,7 @@ if (count((array) $builder->getQuery()->joins) > 0)
 Melhor:
 
 ```php
-// Determine if there are any joins.
+// Determine se há algum join.
 if (count((array) $builder->getQuery()->joins) > 0)
 ```
 
@@ -429,11 +429,11 @@ DB | MySQL, PostgreSQL, SQLite, SQL Server | MongoDB
 
 [🔝 Voltar para o início](#conteúdo)
 
-### **Siga a conversão de nomes usada no Laravel**
+### **Siga a convenção de nomes usada no Laravel**
 
  Siga [PSR standards](http://www.php-fig.org/psr/psr-2/).
 
- Siga também a conversão de nomes aceita pelo a comunidade Laravel:
+ Siga também a convenção de nomes aceita pelo a comunidade Laravel:
 
 O que | Como | Bom | Ruim
 ------------ | ------------- | ------------- | -------------
@@ -482,7 +482,7 @@ $request->name;
 
 Mais exemplos:
 
-Sintaxe comum | Pequena e mais legíveis
+Sintaxe comum | Pequena e mais legível
 ------------ | -------------
 `Session::get('cart')` | `session('cart')`
 `$request->session()->get('cart')` | `session('cart')`
@@ -505,7 +505,7 @@ Sintaxe comum | Pequena e mais legíveis
 
 ### **Use contaneirs IoC (inversão de controle) ou facades no lugar de classes**
 
-"new Class" sintaxe cria maior acoplamento classes e teste. Use IoC ou facades em vez disso.
+"new Class" sintaxe cria maior acoplamento de classes e teste. Use IoC ou facades em vez disso.
 
 Ruim:
 
@@ -551,7 +551,7 @@ $apiKey = config('api.key');
 
 [🔝 Voltar para o início](#conteúdo)
 
-### **Armaze datas em formatoes padrões. Use "accessors" and "mutators" para modificar o formato das datas**
+### **Armazene datas em formatos padrões. Use "accessors" and "mutators" para modificar o formato das datas**
 
 Ruim:
 
