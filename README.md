@@ -34,7 +34,7 @@ O que é descrito aqui não é uma adaptação ao principio SOLID, padrões e et
 
 [Use contaneirs IoC (inversão de controle) ou facades no lugar de classes](#use-contaneirs-ioc-inversão-de-controle-ou-facades-no-lugar-de-classes)
 
-[Não recupere informaçẽos diretamente do `.env`](#não-recupere-informaçẽos-diretamente-do-env)
+[Não recupere informações diretamente do `.env`](#não-recupere-informações-diretamente-do-env)
 
 [Armazene datas em formatos padrões. Use "accessors" and "mutators" para modificar o formato das datas](#armazene-datas-em-formatos-padrões-use-accessors-and-mutators-para-modificar-o-formato-das-datas)
 
