@@ -36,6 +36,8 @@
 
 [Italiana](italian.md) (by [Sujal Patel](https://github.com/sujalpatel2209))
 
+[العربية](arabic.md) (by [ahmedsaoud31](https://github.com/ahmedsaoud31))
+
 เอกสารนี้ไม่ใช่การดัดแปลงหลักการ SOLID หรือรูปแบบและอื่น ๆ ของ Laravel โดยบทความนี้คุณจะพบแนวทางปฏิบัติในการ Coding ที่ดีที่สุด ซึ่งหลายคนมักจะละเลยในงานโปรเจค Laravel จริงของคุณ
 
 ## เนื้อหา<a name="contents"></a>

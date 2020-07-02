@@ -36,6 +36,8 @@
 
 [বাংলা](bangla.md) (by [Anowar Hossain](https://github.com/AnowarCST))
 
+[العربية](arabic.md) (by [ahmedsaoud31](https://github.com/ahmedsaoud31))
+
 
 এটা লারাভেল এর সাথে SOLID Principles বা Patterns সংযোজন নয়। এখানে আপনি সেরা অনুশীলন গুলা পাবেন যা বাস্তব জীবনে লারাভেল প্রজেক্টে সাধারণত অবহেলা করা হয়। 
 

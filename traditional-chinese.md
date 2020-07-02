@@ -28,6 +28,8 @@
 
 [Italiana](italian.md) (by [Sujal Patel](https://github.com/sujalpatel2209))
 
+[العربية](arabic.md) (by [ahmedsaoud31](https://github.com/ahmedsaoud31))
+
 這並非laravel官方強制要求的規範，而是我們在日常開發過程中遇到的一些容易忽視的優秀實作方式。
 
 ## 內容

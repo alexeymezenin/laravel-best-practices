@@ -34,6 +34,8 @@ Traductions:
 
 [Italiana](italian.md) (by [Sujal Patel](https://github.com/sujalpatel2209))
 
+[العربية](arabic.md) (by [ahmedsaoud31](https://github.com/ahmedsaoud31))
+
 Ce n'est pas une adaptation Laravel des principes SOLID, des modèles, etc. Vous trouverez ici les meilleures pratiques qui sont généralement ignorées dans les projets réels de Laravel.
 
 ## Contenu

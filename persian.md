@@ -22,6 +22,8 @@
 
 [Italiana](italian.md) (by [Sujal Patel](https://github.com/sujalpatel2209))
 
+[العربية](arabic.md) (by [ahmedsaoud31](https://github.com/ahmedsaoud31))
+
 این مستندات درباره سازگاری لاراول با اصول SOLID یا Design Pattern ها و ... نیست. اینجا شما روش های اصولی توسعه پروژه های مبتنی بر لاراول رو پیدا میکنید که معمولا داخل پروژه ها در نظر گرفته نمیشوند.
 
 ## فهرست مطالب
