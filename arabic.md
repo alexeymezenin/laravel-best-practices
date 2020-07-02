@@ -1,4 +1,4 @@
-![Laravel best practices](/images/logo-english.png?raw=true)
+![Laravel best practices](/images/logo-arabic.png?raw=true)
 
 ## <p dir="rtl">الترجمات</p>
 
