@@ -38,7 +38,7 @@
 
 [Azərbaycanca](https://github.com/Maharramoff/laravel-best-practices-az) (by [Maharramoff](https://github.com/Maharramoff))
 
-[العربية](persian.md) (by [ahmedsaoud31](https://github.com/ahmedsaoud31))
+[العربية](arabic.md) (by [ahmedsaoud31](https://github.com/ahmedsaoud31))
 
 <p dir='rtl' align='right'>هذا المحتوى لا يصنف كمبادئ SOLID للارافيل أو أنماط التصميم، إلخ... هنا ستجد أفضل الممارسات التي يتم تجاهلها عادةً في مشاريع لارافيل الفعلية.</p>
  
