@@ -40,7 +40,7 @@ Translations:
 
 [Azərbaycanca](https://github.com/Maharramoff/laravel-best-practices-az) (by [Maharramoff](https://github.com/Maharramoff))
 
-[العربية](persian.md) (by [ahmedsaoud31](https://github.com/ahmedsaoud31))
+[العربية](arabic.md) (by [ahmedsaoud31](https://github.com/ahmedsaoud31))
 
 It's not a Laravel adaptation of SOLID principles, patterns etc. Here you'll find the best practices which are usually ignored in real life Laravel projects.
 
