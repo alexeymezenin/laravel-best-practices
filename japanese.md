@@ -28,7 +28,7 @@
 
 [Italiana](italian.md) (by [Sujal Patel](https://github.com/sujalpatel2209))
 
-[العربية](persian.md) (by [ahmedsaoud31](https://github.com/ahmedsaoud31))
+[العربية](arabic.md) (by [ahmedsaoud31](https://github.com/ahmedsaoud31))
 
 これはSOLID原則やパターンなどをLavavelに適用させたものではありません。
 ここでは、実際のLaravelプロジェクトでは通常無視されるベストプラクティスを見つけることができます。
