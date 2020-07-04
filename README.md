@@ -489,7 +489,7 @@ Sintaxe comum | Pequena e mais legível
 `Session::put('cart', $data)` | `session(['cart' => $data])`
 `$request->input('name'), Request::get('name')` | `$request->name, request('name')`
 `return Redirect::back()` | `return back()`
-`is_null($object->relation) ? $object->relation->id : null }` | `optional($object->relation)->id`
+`is_null($object->relation) ? null : $object->relation->id` | `optional($object->relation)->id`
 `return view('index')->with('title', $title)->with('client', $client)` | `return view('index', compact('title', 'client'))`
 `$request->has('value') ? $request->value : 'default';` | `$request->get('value', 'default')`
 `Carbon::now(), Carbon::today()` | `now(), today()`
@@ -529,7 +529,7 @@ $this->user->create($request->all());
 
 [🔝 Voltar para o início](#conteúdo)
 
-### **Não recupere informaçẽos diretamente do `.env`**
+### **Não recupere informações diretamente do `.env`**
 
 Coloque os dados em arquivos de configuração e recupere através do helper `config()`.
 
