@@ -476,8 +476,7 @@ DB | MySQL, PostgreSQL, SQLite, SQL Server | MongoDB
 [<p dir="rtl">🔝 الرجوع للفهرس</p>](#الفهرس)
 ### <p dir="rtl">13</p>
 ### **<p dir="rtl">اتبع طريقة لارافيل في التسميات</p>**
-
-راجع [PSR standards](http://www.php-fig.org/psr/psr-2/).
+<p dir="rtl">راجع <a href="http://www.php-fig.org/psr/psr-2">PSR standards</a></p>
  
  <p dir="rtl">وأيضا، راجع اصطلاح التسميات المقبول من جهه مجتمع لارافيل:</p>
 
