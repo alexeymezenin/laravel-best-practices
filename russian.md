@@ -464,7 +464,7 @@ Pivot таблица | имена моделей в алфавитном пор�
 Индексы в конфиге и языковых файлах | snake_case | articles_enabled | ~~ArticlesEnabled; articles-enabled~~
 Представление | kebab-case | show-filtered.blade.php | ~~showFiltered.blade.php, show_filtered.blade.php~~
 Конфигурационный файл | snake_case | google_calendar.php | ~~googleCalendar.php, google-calendar.php~~
-Контракт (интерфейс) | прилагательное или существительное | Authenticatable | ~~AuthenticationInterface, IAuthentication~~
+Контракт (интерфейс) | прилагательное или существительное | AuthenticationInterface | ~~Authenticatable, IAuthentication~~
 Трейт | прилагательное | Notifiable | ~~NotificationTrait~~
 
 [🔝 Наверх](#Содержание)
