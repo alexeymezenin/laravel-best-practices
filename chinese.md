@@ -493,7 +493,7 @@ hasOne或belongsTo关系 | 单数 | articleComment | ~~articleComments, article_
 配置和语言文件索引 | 蛇形命名 | articles_enabled | ~~ArticlesEnabled; articles-enabled~~
 视图 | 短横线命名 | show-filtered.blade.php | ~~showFiltered.blade.php, show_filtered.blade.php~~
 配置 | 蛇形命名 | google_calendar.php | ~~googleCalendar.php, google-calendar.php~~
-内容 (interface) | 形容词或名词 | Authenticatable | ~~AuthenticationInterface, IAuthentication~~
+内容 (interface) | 形容词或名词 | AuthenticationInterface | ~~Authenticatable, IAuthentication~~
 Trait | 使用形容词 | Notifiable | ~~NotificationTrait~~
 
 [🔝 返回目录](#内容)

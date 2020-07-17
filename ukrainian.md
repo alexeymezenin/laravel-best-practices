@@ -466,7 +466,7 @@ API автентифікація | Laravel Passport | 3rd party JWT and OAuth pa
 Індекси в конфігураційних та мовних файлах | snake_case | articles_enabled | ~~ArticlesEnabled; articles-enabled~~
 Вигляд | kebab-case | show-filtered.blade.php | ~~showFiltered.blade.php, show_filtered.blade.php~~
 Конфігурація | snake_case | google_calendar.php | ~~googleCalendar.php, google-calendar.php~~
-Домовленість (інтерфейс) | прикметник або іменник | Authenticatable | ~~AuthenticationInterface, IAuthentication~~
+Домовленість (інтерфейс) | прикметник або іменник | AuthenticationInterface | ~~Authenticatable, IAuthentication~~
 Trait | прикметник | Notifiable | ~~NotificationTrait~~
 
 [🔝 Назад до змісту](#Зміст)

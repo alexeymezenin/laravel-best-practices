@@ -496,7 +496,7 @@ Object | descriptif, singulier | $activeUser = User::active()->first() | ~~$user
 Index de fichier de config et de langage | snake_case | articles_enabled | ~~ArticlesEnabled; articles-enabled~~
 Vue | kebab-case | show-filtered.blade.php | ~~showFiltered.blade.php, show_filtered.blade.php~~
 Config | snake_case | google_calendar.php | ~~googleCalendar.php, google-calendar.php~~
-Contract (interface) | adjectif ou nom | Authenticatable | ~~AuthenticationInterface, IAuthentication~~
+Contract (interface) | adjectif ou nom | AuthenticationInterface | ~~Authenticatable, IAuthentication~~
 Trait | adjectif | Notifiable | ~~NotificationTrait~~
 
 [🔝 Retour au contenu](#contents)

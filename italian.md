@@ -496,7 +496,7 @@ Oggetto | descrittivo, singolare | $ activeUser = User :: active () -> first () 
 Indice file di configurazione e lingua | snake_case | articoli abilitati |~~ArticlesEnabled; articles-enabled~~
 Visualizza | astuccio per kebab | show-filtered.blade.php | ~~showFiltered.blade.php, show_filtered.blade.php~~
 Config | snake_case | google_calendar.php |~~googleCalendar.php, google-calendar.php~~
-Contratto (interfaccia) | aggettivo o sostantivo | Autenticabile | ~~AuthenticationInterface, IAuthentication~~
+Contratto (interfaccia) | aggettivo o sostantivo | AuthenticationInterface | ~~Authenticatable, IAuthentication~~
 Tratto | aggettivo | Notificabile | ~~NotificationTrait~~
 
 [Torna ai contenuti](#contents)

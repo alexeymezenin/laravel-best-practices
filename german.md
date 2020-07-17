@@ -502,7 +502,7 @@ Objekt | beschreibend, singular | $activeUser = User::active()->first() | ~~$use
 Konfigurations- und Sprachdateien index | snake_case | articles_enabled | ~~ArticlesEnabled; articles-enabled~~
 Ansicht | kebab-case | show-filtered.blade.php | ~~showFiltered.blade.php, show_filtered.blade.php~~
 Config | snake_case | google_calendar.php | ~~googleCalendar.php, google-calendar.php~~
-Vertrag (Schnittstelle) | Adjektiv oder Substantiv | Authenticatable | ~~AuthenticationInterface, IAuthentication~~
+Vertrag (Schnittstelle) | Adjektiv oder Substantiv | AuthenticationInterface | ~~Authenticatable, IAuthentication~~
 Merkmal | Adjektiv | Notifiable | ~~NotificationTrait~~
 
 [🔝 Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
