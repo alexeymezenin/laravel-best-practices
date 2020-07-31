@@ -4,6 +4,8 @@ Translations:
 
 [Nederlands](https://github.com/Protoqol/Beste-Laravel-Praktijken) (by [Protoqol](https://github.com/Protoqol))
 
+[Indonesia](indonesia.md) (by [P0rguy](https://github.com/p0rguy))
+
 [한국어](https://github.com/xotrs/laravel-best-practices) (by [cherrypick](https://github.com/xotrs))
 
 [日本語](japanese.md) (by [2bo](https://github.com/2bo))
