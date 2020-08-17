@@ -30,7 +30,7 @@
 
 [Türkçe](turkish.md) (by [Burak](https://github.com/ikidnapmyself))
 
-[ภาษาไทย](thai.md) (by [Kongvut](https://github.com/kongvut/laravel-best-practices))
+[ภาษาไทย](thai.md) (by [Kongvut Sangkla](https://github.com/kongvut/laravel-best-practices))
 
 [Deutsch](german.md) (by [Sujal Patel](https://github.com/sujalpatel2209))
 
@@ -42,45 +42,45 @@
 
 ## เนื้อหา<a name="contents"></a>
 
-[1. แนวทางรูปแบบการตอบกลับเพียงที่เดียว [Single responsibility principle]](#single-responsibility-principle)
+[1. แนวทางรูปแบบการตอบกลับเพียงที่เดียว](#single-responsibility-principle)
 
-[2. ความอ้วนของ Models และ Controllers ขนาดเล็ก [Fat models, skinny controllers]](#fat-models-skinny-controllers)
+[2. ความอ้วนของ Models และ Controllers ขนาดเล็ก](#fat-models-skinny-controllers)
 
-[3. การตรวจสอบ [Validation]](#validation)
+[3. การตรวจสอบค่า](#validation)
 
-[4. Business logic ควรจะอยู่ในคลาส Service [Business logic should be in service class]](#business-logic-should-be-in-service-class)
+[4. Business logic ควรจะอยู่ใน Service คลาส](#business-logic-should-be-in-service-class)
 
-[5. อย่าเรียกตัวเองซ้ำ [Don't repeat yourself (DRY)]](#dont-repeat-yourself-dry)
+[5. อย่าเรียกตัวเองซ้ำ](#dont-repeat-yourself-dry)
 
-[6. ควรจะใช้ Eloquent มากกว่า Query Builder หรือ Raw SQL queries และชอบที่จะใช้ collections มากกว่า arrays [Prefer to use Eloquent over using Query Builder and raw SQL queries. Prefer collections over arrays]](#prefer-to-use-eloquent-over-using-query-builder-and-raw-sql-queries-prefer-collections-over-arrays)
+[6. ควรจะใช้ Eloquent มากกว่า Query Builder หรือ Raw SQL queries และชอบที่จะใช้ Collections มากกว่า Arrays แบบปกติ](#prefer-to-use-eloquent-over-using-query-builder-and-raw-sql-queries-prefer-collections-over-arrays)
 
-[7. ความอ้วนเบอะบะของการกำหนดค่า [Mass assignment]](#mass-assignment)
+[7. ความอ้วนเบอะบะของการกำหนดค่า](#mass-assignment)
 
-[8. ไม่ควรที่จะเรียกรัน Queries ในเทมเพลต Blade และใช้เทคนิค Eager loading แทน (เพราะปัญหา N + 1) [Do not execute queries in Blade templates and use eager loading (N + 1 problem)]](#do-not-execute-queries-in-blade-templates-and-use-eager-loading-n--1-problem)
+[8. ไม่ควรที่จะเรียกรัน SQL Queries ในเทมเพลต Blade และใช้เทคนิค Eager loading แทน (เพราะปัญหา N + 1)](#do-not-execute-queries-in-blade-templates-and-use-eager-loading-n--1-problem)
 
-[9. หมั่นคอมเม้นโค้ดของคุณ อีกทั้งควรจะอธิบายการทำงานของเมธอด และชื่อตัวแปร มากกว่าการคอมเม้นเฉย ๆ  [Comment your code, but prefer descriptive method and variable names over comments]](#comment-your-code-but-prefer-descriptive-method-and-variable-names-over-comments)
+[9. หมั่นคอมเมนต์โค้ดของคุณ อีกทั้งควรจะอธิบายการทำงานของเมธอด และชื่อตัวแปร มากกว่าการคอมเมนต์เฉย ๆ](#comment-your-code-but-prefer-descriptive-method-and-variable-names-over-comments)
 
-[10. อย่าใส่ JS และ CSS ในเทมเพลต Blade และอย่าใส่ HTML ใด ๆ ในคลาส PHP [Do not put JS and CSS in Blade templates and do not put any HTML in PHP classes]](#do-not-put-js-and-css-in-blade-templates-and-do-not-put-any-html-in-php-classes)
+[10. อย่าใส่ JS และ CSS ในเทมเพลต Blade และอย่าใส่ HTML ใด ๆ ในคลาส PHP](#do-not-put-js-and-css-in-blade-templates-and-do-not-put-any-html-in-php-classes)
 
-[11. ใช้ค่าคงที่ Config และไฟล์ภาษา แทนการใส่ข้อความตรง ๆ ลงในโค้ด [Use config and language files, constants instead of text in the code]](#use-config-and-language-files-constants-instead-of-text-in-the-code)
+[11. ใช้ค่าคงที่ Config และค่าคงที่ของข้อความไฟล์ภาษา แทนการใส่ข้อความตรง ๆ ลงในโค้ด](#use-config-and-language-files-constants-instead-of-text-in-the-code)
 
-[12. ใช้เครื่องมือ Laravel มาตรฐานที่ชุมชนยอมรับ [Use standard Laravel tools accepted by community]](#use-standard-laravel-tools-accepted-by-community)
+[12. ใช้เครื่องมือมาตรฐานของ Laravel ที่ชุมชนยอมรับ](#use-standard-laravel-tools-accepted-by-community)
 
-[13. ปฏิบัติตามแนวทางการตั้งชื่อต่าง ๆ ตามกรอบกติกา Laravel [Follow Laravel naming conventions]](#follow-laravel-naming-conventions)
+[13. ปฏิบัติตามแนวทางการตั้งชื่อต่าง ๆ ตามกรอบกติกา Laravel](#follow-laravel-naming-conventions)
 
-[14. ใช้ไวยากรณ์ที่สั้นกว่าและอ่านง่ายกว่าถ้าเป็นไปได้ [Use shorter and more readable syntax where possible]](#use-shorter-and-more-readable-syntax-where-possible)
+[14. ใช้ไวยากรณ์ที่สั้นกว่าและอ่านง่ายกว่าถ้าเป็นไปได้](#use-shorter-and-more-readable-syntax-where-possible)
 
-[15. ใช้ชุดรูปแบบ IoC หรือ Facades แทนเรียกคลาสใหม่ [Use IoC container or facades instead of new Class]](#use-ioc-container-or-facades-instead-of-new-class)
+[15. ใช้ชุดรูปแบบ IoC หรือ Facades แทนเรียกคลาสใหม่](#use-ioc-container-or-facades-instead-of-new-class)
 
-[16. อย่าเรียกข้อมูลจากไฟล์ `.env` โดยตรง [Do not get data from the `.env` file directly]](#do-not-get-data-from-the-env-file-directly)
+[16. อย่าเรียกข้อมูลจากไฟล์ `.env` โดยตรง](#do-not-get-data-from-the-env-file-directly)
 
-[17. เก็บวันที่ในรูปแบบมาตรฐาน อีกทั้งใช้ Accessors และ Mutators เพื่อแก้ไขรูปแบบวันที่ [Store dates in the standard format. Use accessors and mutators to modify date format]](#store-dates-in-the-standard-format-use-accessors-and-mutators-to-modify-date-format)
+[17. เก็บวันที่ในรูปแบบมาตรฐาน อีกทั้งใช้ Accessors และ Mutators เพื่อแก้ไขรูปแบบวันที่](#store-dates-in-the-standard-format-use-accessors-and-mutators-to-modify-date-format)
 
-[- แนวทางการปฏิบัติที่ดีอื่น ๆ [Other good practices]](#other-good-practices)
+[- แนวทางการปฏิบัติที่ดีอื่น ๆ](#other-good-practices)
 
 ##
 
-### <a name="single-responsibility-principle">1. แนวทางรูปแบบการตอบกลับเพียงที่เดียว [Single responsibility principle]</a>
+### <a name="single-responsibility-principle">1. แนวทางรูปแบบการตอบกลับเพียงที่เดียว</a>
 
 ภายในคลาส ซึ่งในเมธอดควรมีการ Return ค่าเพียงที่เดียว
 
@@ -123,7 +123,7 @@ public function getFullNameShort()
 
 [🔝 Back to contents](#contents)
 
-### <a name="fat-models-skinny-controllers">2. ความอ้วนของ Models และ Controllers ขนาดเล็ก [Fat models, skinny controllers]</a>
+### <a name="fat-models-skinny-controllers">2. ความอ้วนของ Models และ Controllers ขนาดเล็ก</a>
 
 เขียนความสัมพันธ์ฐานข้อมูลทั้งหมด (รวมทั้งแบบ Query Builder หรือ raw SQL queries) ลงใน Model Eloquent หรือในคลาส Repository สร้างเป็น Method สำหรับเรียกใช้งาน เพื่อลดความซ้ำซ้อนของ Logic และขนาด Controllers เพื่อให้มีขนาดเล็กลง
 
@@ -165,7 +165,7 @@ class Client extends Model
 
 [🔝 Back to contents](#contents)
 
-### <a name="validation">3. การตรวจสอบ [Validation]</a>
+### <a name="validation">3. การตรวจสอบค่า</a>
 
 ย้ายการตรวจสอบ Validation จาก Controllers ไปที่ Request classes แทน
 
@@ -207,7 +207,7 @@ class PostRequest extends Request
 
 [🔝 Back to contents](#contents)
 
-### <a name="business-logic-should-be-in-service-class">4. Business logic ควรจะอยู่ในคลาส Service [Business logic should be in service class]</a>
+### <a name="business-logic-should-be-in-service-class">4. Business logic ควรจะอยู่ใน Service คลาส</a>
 
 เพื่อให้ Method ภายใน Controller มีขนาดที่เล็กลง ดังนั้นควรย้าย Business logic จาก Controllers ไปที่คลาส Service แทน
 
@@ -247,7 +247,7 @@ class ArticleService
 
 [🔝 Back to contents](#contents)
 
-### <a name="dont-repeat-yourself-dry">5. อย่าเรียกตัวเองซ้ำ [Don't repeat yourself (DRY)]</a>
+### <a name="dont-repeat-yourself-dry">5. อย่าเรียกตัวเองซ้ำ</a>
 
 ทำการ Reuse โค้ดเพื่อช่วยหลีกเลี่ยงโค้ดที่ซ้ำซ้อน เช่นเดียวกันกับการ Reuse เทมเพลต Blade โดยสำหรับ Model ให้ใช้ Eloquent scopes ช่วยเป็นต้น
 
@@ -290,7 +290,7 @@ public function getArticles()
 
 [🔝 Back to contents](#contents)
 
-### <a name="prefer-to-use-eloquent-over-using-query-builder-and-raw-sql-queries-prefer-collections-over-arrays">6. ควรที่จะใช้ Eloquent มากกว่า Query Builder หรือ Raw SQL queries และชอบที่จะใช้ collections มากกว่า arrays [Prefer to use Eloquent over using Query Builder and raw SQL queries. Prefer collections over arrays]</a>
+### <a name="prefer-to-use-eloquent-over-using-query-builder-and-raw-sql-queries-prefer-collections-over-arrays">6. ควรที่จะใช้ Eloquent มากกว่า Query Builder หรือ Raw SQL queries และชอบที่จะใช้ Collections มากกว่า Arrays แบบปกติ</a>
 
 Eloquent ช่วยให้คุณสามารถอ่านโค้ดเข้าใจง่าย
 และบำรุงรักษาได้ง่าย นอกจากนี้ Eloquent ยังมีเครื่องมือในตัวที่ยอดเยี่ยม เช่น soft deletes, events, scopes เป็นต้น
@@ -320,7 +320,7 @@ Article::has('user.profile')->verified()->latest()->get();
 
 [🔝 Back to contents](#contents)
 
-### <a name="mass-assignment">7. ความอ้วนเบอะบะของการกำหนดค่า [Mass assignment]</a>
+### <a name="mass-assignment">7. ความอ้วนเบอะบะของการกำหนดค่า</a>
 
 ที่แย่:
 
@@ -342,7 +342,7 @@ $category->article()->create($request->validated());
 
 [🔝 Back to contents](#contents)
 
-### <a name="do-not-execute-queries-in-blade-templates-and-use-eager-loading-n--1-problem">8. ไม่ควรที่จะเรียกรัน Queries ในเทมเพลต Blade และใช้เทคนิค Eager loading แทน (เพราะปัญหา N + 1) [Do not execute queries in Blade templates and use eager loading (N + 1 problem)]</a>
+### <a name="do-not-execute-queries-in-blade-templates-and-use-eager-loading-n--1-problem">8. ไม่ควรที่จะเรียกรัน SQL Queries ในเทมเพลต Blade และใช้เทคนิค Eager loading แทน (เพราะปัญหา N + 1)</a>
 
 ที่แย่: (สำหรับข้อมูลตารางผู้ใช้ 100 users โดยจะมีการรันคำสั่ง Queries 101 ครั้ง):
 
@@ -366,7 +366,7 @@ $users = User::with('profile')->get();
 
 [🔝 Back to contents](#contents)
 
-### <a name="comment-your-code-but-prefer-descriptive-method-and-variable-names-over-comments">9. หมั่นคอมเม้นโค้ดของคุณ อีกทั้งควรจะอธิบายการทำงานของเมธอด และชื่อตัวแปร มากกว่าการคอมเม้นเฉย ๆ  [Comment your code, but prefer descriptive method and variable names over comments]</a>
+### <a name="comment-your-code-but-prefer-descriptive-method-and-variable-names-over-comments">9. หมั่นคอมเมนต์โค้ดของคุณ อีกทั้งควรจะอธิบายการทำงานของเมธอด และชื่อตัวแปร มากกว่าการคอมเมนต์เฉย ๆ</a>
 
 ที่แย่:
 
@@ -389,7 +389,7 @@ if ($this->hasJoins())
 
 [🔝 Back to contents](#contents)
 
-### <a name="do-not-put-js-and-css-in-blade-templates-and-do-not-put-any-html-in-php-classes">10. อย่าใส่ JS และ CSS ในเทมเพลต Blade และอย่าใส่ HTML ใด ๆ ในคลาส PHP [Do not put JS and CSS in Blade templates and do not put any HTML in PHP classes]</a>
+### <a name="do-not-put-js-and-css-in-blade-templates-and-do-not-put-any-html-in-php-classes">10. อย่าใส่ JS และ CSS ในเทมเพลต Blade และอย่าใส่ HTML ใด ๆ ในคลาส PHP</a>
 
 ที่แย่:
 
@@ -415,7 +415,7 @@ let article = $('#article').val();
 
 [🔝 Back to contents](#contents)
 
-### <a name="use-config-and-language-files-constants-instead-of-text-in-the-code">11. ใช้ค่าคงที่ Config และไฟล์ภาษา แทนการใส่ข้อความตรง ๆ ลงในโค้ด [Use config and language files, constants instead of text in the code]</a>
+### <a name="use-config-and-language-files-constants-instead-of-text-in-the-code">11. ใช้ค่าคงที่ Config และค่าคงที่ของข้อความไฟล์ภาษา แทนการใส่ข้อความตรง ๆ ลงในโค้ด</a>
 
 ที่แย่:
 
@@ -441,7 +441,7 @@ return back()->with('message', __('app.article_added'));
 
 [🔝 Back to contents](#contents)
 
-### <a name="use-standard-laravel-tools-accepted-by-community">12. ใช้เครื่องมือ Laravel มาตรฐานที่ชุมชนยอมรับ [Use standard Laravel tools accepted by community]</a>
+### <a name="use-standard-laravel-tools-accepted-by-community">12. ใช้เครื่องมือมาตรฐานของ Laravel ที่ชุมชนยอมรับ</a>
 
 ควรที่จะใช้ฟังก์ชันมาตรฐานที่ Built-in มาใน Laravel และแพ็คเกจคอมมิวนิตี้ยอดนิยม แทนการใช้แพ็คเกจและเครื่องมือของ 3rd party ปัญหาก็คือนักพัฒนาใหม่ ๆ ที่จะมาพัฒนาร่วมกับแอพของคุณในอนาคต จะต้องเรียนรู้เครื่องมือใหม่ ๆ (3rd party packages) นอกจากนี้โอกาสที่จะได้รับความช่วยเหลือจากชุมชน Laravel จะน้อยอย่างมากเมื่อคุณใช้แพ็คเกจหรือเครื่องมือของ 3rd party อีกทั้งอย่าทำให้ลูกค้าของคุณจ่ายเงินเพิ่มเติมสำหรับสิ่งพวกนั้น (Licenses)
 
@@ -472,7 +472,7 @@ DB | MySQL, PostgreSQL, SQLite, SQL Server | MongoDB
 
 [🔝 Back to contents](#contents)
 
-### <a name="follow-laravel-naming-conventions">13. ปฏิบัติตามแนวทางการตั้งชื่อต่าง ๆ ตามกรอบกติกา Laravel [Follow Laravel naming conventions]</a>
+### <a name="follow-laravel-naming-conventions">13. ปฏิบัติตามแนวทางการตั้งชื่อต่าง ๆ ตามกรอบกติกา Laravel</a>
 
 ปฏิบัติตามแนวทาง [มาตรฐาน PSR](http://www.php-fig.org/psr/psr-2/).
  
@@ -507,7 +507,7 @@ Trait | adjective | Notifiable | ~~NotificationTrait~~
 
 [🔝 Back to contents](#contents)
 
-### <a name="use-shorter-and-more-readable-syntax-where-possible">14. ใช้ไวยากรณ์ที่สั้นกว่าและอ่านง่ายกว่าถ้าเป็นไปได้ [Use shorter and more readable syntax where possible]</a>
+### <a name="use-shorter-and-more-readable-syntax-where-possible">14. ใช้ไวยากรณ์ที่สั้นกว่าและอ่านง่ายกว่าถ้าเป็นไปได้</a>
 
 ที่แย่:
 
@@ -546,7 +546,7 @@ Syntax ทั่วไป | Syntax ที่สั้นและอ่านง
 
 [🔝 Back to contents](#contents)
 
-### <a name="use-ioc-container-or-facades-instead-of-new-class">15. ใช้ชุดรูปแบบ IoC หรือ Facades แทนเรียกคลาสใหม่ [Use IoC container or facades instead of new Class]</a>
+### <a name="use-ioc-container-or-facades-instead-of-new-class">15. ใช้ชุดรูปแบบ IoC หรือ Facades แทนเรียกคลาสใหม่</a>
 
 การเรียกคลาสใหม่ระหว่างคลาสเป็นอะไรที่ซับซ้อนและซ้ำซ้อน แนะนำให้ใช้หลัก IoC หรือ Facades แทน
 
@@ -574,7 +574,7 @@ $this->user->create($request->validated());
 
 [🔝 Back to contents](#contents)
 
-### <a name="do-not-get-data-from-the-env-file-directly">16. อย่าเรียกข้อมูลจากไฟล์ `.env` โดยตรง [Do not get data from the `.env` file directly]</a>
+### <a name="do-not-get-data-from-the-env-file-directly">16. อย่าเรียกข้อมูลจากไฟล์ `.env` โดยตรง</a>
 
 แนะนำให้ส่งผ่านข้อมูลเพื่อกำหนดค่าจากไฟล์ Config แทน จากนั้นเรียกใช้ฟังก์ชันตัวช่วย `config ()` เพื่อเรียกใช้ข้อมูลในแอปพลิเคชัน
 
@@ -596,7 +596,7 @@ $apiKey = config('api.key');
 
 [🔝 Back to contents](#contents)
 
-### <a name="store-dates-in-the-standard-format-use-accessors-and-mutators-to-modify-date-format">17. เก็บวันที่ในรูปแบบมาตรฐาน อีกทั้งใช้ Accessors และ Mutators เพื่อแก้ไขรูปแบบวันที่ [Store dates in the standard format. Use accessors and mutators to modify date format]</a>
+### <a name="store-dates-in-the-standard-format-use-accessors-and-mutators-to-modify-date-format">17. เก็บวันที่ในรูปแบบมาตรฐาน อีกทั้งใช้ Accessors และ Mutators เพื่อแก้ไขรูปแบบวันที่</a>
 
 ที่แย่:
 
@@ -622,7 +622,7 @@ public function getSomeDateAttribute($date)
 
 [🔝 Back to contents](#contents)
 
-### <a name="other-good-practices">- แนวทางการปฏิบัติที่ดีอื่น ๆ [Other good practices]</a>
+### <a name="other-good-practices">- แนวทางการปฏิบัติที่ดีอื่น ๆ</a>
 
 - อย่าใส่ Logic ใด ๆ ในไฟล์ routes
 - ลดการใช้ Vanilla PHP ให้น้อยที่สุดในเทมเพลต Blade
