@@ -32,6 +32,8 @@
 
 [Italiana](italian.md) (by [Sujal Patel](https://github.com/sujalpatel2209))
 
+[العربية](arabic.md) (by [ahmedsaoud31](https://github.com/ahmedsaoud31))
+
 Bu metin Laravel için SOLID prensipleri, patternler vb. şeylerin uygulaması değildir. Burada, Laravel projelerinde 
 geliştiriciler tarafından dikkate alınmayan iyi ve kötü pratiklerin karşılaştırmalarını bulacaksınız.
 
@@ -503,7 +505,7 @@ Object | tanımlayıcı, tekil | $activeUser = User::active()->first() | ~~$user
 Config and language files index | snake_case | articles_enabled | ~~ArticlesEnabled; articles-enabled~~
 View | kebab-case | show-filtered.blade.php | ~~showFiltered.blade.php, show_filtered.blade.php~~
 Config | snake_case | google_calendar.php | ~~googleCalendar.php, google-calendar.php~~
-Contract (interface) | sıfat ya da isim | Authenticatable | ~~AuthenticationInterface, IAuthentication~~
+Contract (interface) | sıfat ya da isim | AuthenticationInterface | ~~Authenticatable, IAuthentication~~
 Trait | sıfat | Notifiable | ~~NotificationTrait~~
 
 [🔝 Başa dön](#içerik)

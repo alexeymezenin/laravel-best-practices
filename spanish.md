@@ -460,7 +460,7 @@ Objeto | descriptivo, singular | $usuarioActivo = Usuario::active()->first() | ~
 Índice de archivos de configuración y lenguaje | snake_case | articulos_habilitados | ~~articulosHabilitados; articulos-habilitados~~
 Vistas | kebab-case | show-filtered.blade.php | ~~showFiltered.blade.php, show_filtered.blade.php~~
 Configuración | snake_case | google_calendar.php | ~~googleCalendar.php, google-calendar.php~~
-Contrato (interface) | adjetivo o sustantivo | Autenticable | ~~interfaceAutenticacion, IAutenticacion~~
+Contrato (interface) | adjetivo o sustantivo | AuthenticationInterface | ~~Authenticatable, IAuthentication~~
 Trait | adjetivo | Notifiable | ~~NotificationTrait~~
 
 [🔝 Volver al índice](#índice-de-contenido)

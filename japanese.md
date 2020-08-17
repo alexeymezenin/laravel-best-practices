@@ -28,6 +28,8 @@
 
 [Italiana](italian.md) (by [Sujal Patel](https://github.com/sujalpatel2209))
 
+[العربية](arabic.md) (by [ahmedsaoud31](https://github.com/ahmedsaoud31))
+
 これはSOLID原則やパターンなどをLavavelに適用させたものではありません。
 ここでは、実際のLaravelプロジェクトでは通常無視されるベストプラクティスを見つけることができます。
 
@@ -490,7 +492,7 @@ Pivotテーブル | 単数形 モデル名のアルファベット順 | article_
 設定ファイルと言語ファイルのインデックス | スネークケース | articles_enabled | ~~ArticlesEnabled; articles-enabled~~
 ビュー | ケバブケース | show-filtered.blade.php | ~~showFiltered.blade.php, show_filtered.blade.php~~
 コンフィグ | スネークケース | google_calendar.php | ~~googleCalendar.php, google-calendar.php~~
-契約 (インターフェイス) | 形容詞または名詞 | Authenticatable | ~~AuthenticationInterface, IAuthentication~~
+契約 (インターフェイス) | 形容詞または名詞 | AuthenticationInterface | ~~Authenticatable, IAuthentication~~
 Trait | 形容詞 | Notifiable | ~~NotificationTrait~~
 
 [🔝 コンテンツに戻る](#コンテンツ)

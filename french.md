@@ -34,6 +34,8 @@ Traductions:
 
 [Italiana](italian.md) (by [Sujal Patel](https://github.com/sujalpatel2209))
 
+[العربية](arabic.md) (by [ahmedsaoud31](https://github.com/ahmedsaoud31))
+
 Ce n'est pas une adaptation Laravel des principes SOLID, des modèles, etc. Vous trouverez ici les meilleures pratiques qui sont généralement ignorées dans les projets réels de Laravel.
 
 ## Contenu
@@ -494,7 +496,7 @@ Object | descriptif, singulier | $activeUser = User::active()->first() | ~~$user
 Index de fichier de config et de langage | snake_case | articles_enabled | ~~ArticlesEnabled; articles-enabled~~
 Vue | kebab-case | show-filtered.blade.php | ~~showFiltered.blade.php, show_filtered.blade.php~~
 Config | snake_case | google_calendar.php | ~~googleCalendar.php, google-calendar.php~~
-Contract (interface) | adjectif ou nom | Authenticatable | ~~AuthenticationInterface, IAuthentication~~
+Contract (interface) | adjectif ou nom | AuthenticationInterface | ~~Authenticatable, IAuthentication~~
 Trait | adjectif | Notifiable | ~~NotificationTrait~~
 
 [🔝 Retour au contenu](#contents)

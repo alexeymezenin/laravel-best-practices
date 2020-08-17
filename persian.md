@@ -22,6 +22,8 @@
 
 [Italiana](italian.md) (by [Sujal Patel](https://github.com/sujalpatel2209))
 
+[العربية](arabic.md) (by [ahmedsaoud31](https://github.com/ahmedsaoud31))
+
 این مستندات درباره سازگاری لاراول با اصول SOLID یا Design Pattern ها و ... نیست. اینجا شما روش های اصولی توسعه پروژه های مبتنی بر لاراول رو پیدا میکنید که معمولا داخل پروژه ها در نظر گرفته نمیشوند.
 
 ## فهرست مطالب
@@ -566,7 +568,7 @@ Object | توصیفی و اسامی مفرد | $activeUser = User::active()->fir
 Config and language files index | snake_case | articles_enabled | ~~ArticlesEnabled; articles-enabled~~
 View | kebab-case | show-filtered.blade.php | ~~showFiltered.blade.php, show_filtered.blade.php~~
 Config | snake_case | google_calendar.php | ~~googleCalendar.php, google-calendar.php~~
-Contract (interface) | صفت یا اسم | Authenticatable | ~~AuthenticationInterface, IAuthentication~~
+Contract (interface) | صفت یا اسم | AuthenticationInterface | ~~Authenticatable, IAuthentication~~
 Trait | صفت | Notifiable | ~~NotificationTrait~~
 
 <div dir="rtl">

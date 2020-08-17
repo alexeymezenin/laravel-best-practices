@@ -1,18 +1,14 @@
-![Laravel best practices](/images/logo-english.png?raw=true)
+![Laravel best practices](/images/logo-arabic.png?raw=true)
 
-Translations:
+## <p dir="rtl">الترجمات</p>
 
 [Nederlands](https://github.com/Protoqol/Beste-Laravel-Praktijken) (by [Protoqol](https://github.com/Protoqol))
-
-[Indonesia](indonesia.md) (by [P0rguy](https://github.com/p0rguy))
 
 [한국어](https://github.com/xotrs/laravel-best-practices) (by [cherrypick](https://github.com/xotrs))
 
 [日本語](japanese.md) (by [2bo](https://github.com/2bo))
 
 [漢語](chinese.md) (by [xiaoyi](https://github.com/Shiloh520))
-
-[中文維基百科](traditional-chinese.md) (by [woeichern](https://github.com/woeichern))
 
 [ภาษาไทย](thai.md) (by [kongvut sangkla](https://github.com/kongvut))
 
@@ -44,51 +40,52 @@ Translations:
 
 [العربية](arabic.md) (by [ahmedsaoud31](https://github.com/ahmedsaoud31))
 
-It's not a Laravel adaptation of SOLID principles, patterns etc. Here you'll find the best practices which are usually ignored in real life Laravel projects.
+<p dir='rtl' align='right'>هذا المحتوى لا يصنف بصفته مبادئ SOLID للارافيل أو أنماط التصميم، إلخ... هنا ستجد أفضل الممارسات التي يتم تجاهلها عادةً في مشاريع لارافيل الفعلية.</p>
+ 
 
-## Contents
+## <p dir="rtl">الفهرس</p>
 
-[Single responsibility principle](#single-responsibility-principle)
+[<p dir="rtl">نمط المسؤولية الواحدة</p>](#1)
 
-[Fat models, skinny controllers](#fat-models-skinny-controllers)
+[<p dir="rtl">شيفرة أكثر في النماذج، شيفرة أقل في المتحكمات</p>](#2)
 
-[Validation](#validation)
+[<p dir="rtl">التحقق</p>](#3)
 
-[Business logic should be in service class](#business-logic-should-be-in-service-class)
+[<p dir="rtl">الشيفرات المنطقية يجب أن تكون في فئة خادمة منفصلة</p>](#4)
 
-[Don't repeat yourself (DRY)](#dont-repeat-yourself-dry)
+[<p dir="rtl">لا تكرر نفس الشيفرة</p>](#5)
+،
+[<p dir="rtl">يفضل استخدام نظام التعامل مع قواعد البيانات المسمى بـEloquent بدل استخدام باني الإستعلامات Query Builder أو الاستخدام المباشر لأوامر الإستعلامات SQL عبر raw، ويفضل استخدام المجموعات بدل المصفوفات</p>](#6)
 
-[Prefer to use Eloquent over using Query Builder and raw SQL queries. Prefer collections over arrays](#prefer-to-use-eloquent-over-using-query-builder-and-raw-sql-queries-prefer-collections-over-arrays)
+[<p dir="rtl">تقليص المهام</p>](#7)
 
-[Mass assignment](#mass-assignment)
+[<p dir="rtl">لا تقم بتنفيذ الإستعلامات داخل ملفات blade واستخدم التحميل الحثيث مشكلة (N+1)</p>](#8)
 
-[Do not execute queries in Blade templates and use eager loading (N + 1 problem)](#do-not-execute-queries-in-blade-templates-and-use-eager-loading-n--1-problem)
+[<p dir="rtl">اضف التعليقات للشيفرة ويفضل استخدام صيغ التعليقات القياسية للمتغيرات والخواص والقيم المعادة إلخ</p>](#9)
 
-[Comment your code, but prefer descriptive method and variable names over comments](#comment-your-code-but-prefer-descriptive-method-and-variable-names-over-comments)
+[<p dir="rtl">لا تضع شيفرات js و css داخل ملفات Blade ولا تضع أي ششفرات HTML في فئات php</p>](#10)
 
-[Do not put JS and CSS in Blade templates and do not put any HTML in PHP classes](#do-not-put-js-and-css-in-blade-templates-and-do-not-put-any-html-in-php-classes)
+[<p dir="rtl">استخدم ملفات الإعدادت واللغات، والثوابت بدلاً من النص داخل الشيفرة</p>](#11)
 
-[Use config and language files, constants instead of text in the code](#use-config-and-language-files-constants-instead-of-text-in-the-code)
+[<p dir="rtl">استخدم الأدوات القياسية المعتمدة من مجتمع لارافيل</p>](#12)
 
-[Use standard Laravel tools accepted by community](#use-standard-laravel-tools-accepted-by-community)
+[<p dir="rtl">اتبع طريقة لارافيل في التسميات</p>](#13)
 
-[Follow Laravel naming conventions](#follow-laravel-naming-conventions)
+[<p dir="rtl">استخدم شيفرة أقصر قابلة للقراءة والفهم السريع قدر المستطاع</p>](#14)
 
-[Use shorter and more readable syntax where possible](#use-shorter-and-more-readable-syntax-where-possible)
+[<p dir="rtl">استخدم الحاويات أو الواجهات بدلاً من الفئات الجديدة</p>](#15)
 
-[Use IoC container or facades instead of new Class](#use-ioc-container-or-facades-instead-of-new-class)
+[<p dir="rtl">لا تقم بجلب البيانات من ملف `.env`</p>](#16)
 
-[Do not get data from the `.env` file directly](#do-not-get-data-from-the-env-file-directly)
+[<p dir="rtl">احفظ البيانات في الشكل القياسي. استخدم المسترجعات والمُعدلات في تعديل شكل صيغة التاريخ</p>](#17)
 
-[Store dates in the standard format. Use accessors and mutators to modify date format](#store-dates-in-the-standard-format-use-accessors-and-mutators-to-modify-date-format)
+[<p dir="rtl">ممارسات جيدة أخرى</p>](#18)
+### <p dir="rtl">1</p>
+### **<p dir="rtl">نمط المسئولية الواحدة</p>**
 
-[Other good practices](#other-good-practices)
+<p dir="rtl">وظيفة الفئة والطريقة يجب أن تكون مسئولية واحدة فقط، بمعنى آخر يجب ألا تكون الفئة أو الطريقة متعددة المهام ويجب أن تختص بمهمة واحدة فقط</p>
 
-### **Single responsibility principle**
-
-A class and a method should have only one responsibility.
-
-Bad:
+<p dir="rtl">❌ طريقة سيئة:</p>
 
 ```php
 public function getFullNameAttribute()
@@ -101,7 +98,7 @@ public function getFullNameAttribute()
 }
 ```
 
-Good:
+<p dir="rtl">✔️ طريقة جيدة:</p>
 
 ```php
 public function getFullNameAttribute()
@@ -125,13 +122,13 @@ public function getFullNameShort()
 }
 ```
 
-[🔝 Back to contents](#contents)
+[<p dir="rtl">🔝 الرجوع للفهرس</p>](#الفهرس)
 
-### **Fat models, skinny controllers**
+### <p dir="rtl">2</p>
+### **<p dir="rtl">شيفرة أكثر في النماذج، شيفرة أقل في المتحكمات</p>**
 
-Put all DB related logic into Eloquent models or into Repository classes if you're using Query Builder or raw SQL queries.
-
-Bad:
+<p dir="rtl">ضع كل الشيفرات الخاصة بالتعامل مع قواعد البيانات في فئات خاصة منفصلة ولا تضعها في المتحكمات</p>
+<p dir="rtl">❌ طريقة سيئة:</p>
 
 ```php
 public function index()
@@ -146,7 +143,7 @@ public function index()
 }
 ```
 
-Good:
+<p dir="rtl">✔️ طريقة جيدة:</p>
 
 ```php
 public function index()
@@ -167,13 +164,12 @@ class Client extends Model
 }
 ```
 
-[🔝 Back to contents](#contents)
+[<p dir="rtl">🔝 الرجوع للفهرس</p>](#الفهرس)
+### <p dir="rtl">3</p>
+### **<p dir="rtl">التحقق</p>**
 
-### **Validation**
-
-Move validation from controllers to Request classes.
-
-Bad:
+<p dir="rtl">انقل شيفرات التحقق من المتحكمات إلى فئات الطلبات Request classes</p>
+<p dir="rtl">❌ طريقة سيئة:</p>
 
 ```php
 public function store(Request $request)
@@ -188,7 +184,7 @@ public function store(Request $request)
 }
 ```
 
-Good:
+<p dir="rtl">✔️ طريقة جيدة:</p>
 
 ```php
 public function store(PostRequest $request)
@@ -209,13 +205,13 @@ class PostRequest extends Request
 }
 ```
 
-[🔝 Back to contents](#contents)
+[<p dir="rtl">🔝 الرجوع للفهرس</p>](#الفهرس)
+### <p dir="rtl">4</p>
+### **<p dir="rtl">الشيفرات المنطقية يجب أن تكون في فئة خادمة منفصلة</p>**
 
-### **Business logic should be in service class**
+<p dir="rtl">المتحكم يجب أن يكون له مسئولية واحدة فقط، أنقل الشيفرات المنطقية لفئات خادمة منفصلة</p>
 
-A controller must have only one responsibility, so move business logic from controllers to service classes.
-
-Bad:
+<p dir="rtl">❌ طريقة سيئة:</p>
 
 ```php
 public function store(Request $request)
@@ -228,7 +224,7 @@ public function store(Request $request)
 }
 ```
 
-Good:
+<p dir="rtl">✔️ طريقة جيدة:</p>
 
 ```php
 public function store(Request $request)
@@ -249,13 +245,15 @@ class ArticleService
 }
 ```
 
-[🔝 Back to contents](#contents)
+[<p dir="rtl">🔝 الرجوع للفهرس</p>](#الفهرس)
+### <p dir="rtl">5</p>
+### **<p dir="rtl">لا تكرر نفس الشيفرة</p>**
 
-### **Don't repeat yourself (DRY)**
+<p dir="rtl">أعد استخدام نفس الشيفرة قدر المستطاع ولا تقم بإعادة كتابتها، سيساعدك هذا على عدم وجود أكثر من شيفرة لتنفيذ نفس المهمة، وإعادة استخدام قوالب blade وفئات التعامل مع قواعد البيانات Eloquent</p>
 
-Reuse code when you can. SRP is helping you to avoid duplication. Also, reuse Blade templates, use Eloquent scopes etc.
-
-Bad:
+<p dir="rtl">مثال استخدم scope في فئات التعامل مع قواعد البيانات Eloquent</p>
+ 
+<p dir="rtl">❌ طريقة سيئة:</p>
 
 ```php
 public function getActive()
@@ -271,7 +269,7 @@ public function getArticles()
 }
 ```
 
-Good:
+<p dir="rtl">✔️ طريقة جيدة:</p>
 
 ```php
 public function scopeActive($q)
@@ -292,13 +290,13 @@ public function getArticles()
 }
 ```
 
-[🔝 Back to contents](#contents)
+[<p dir="rtl">🔝 الرجوع للفهرس</p>](#الفهرس)
+### <p dir="rtl">6</p>
+### **<p dir="rtl">يفضل استخدام نظام التعامل مع قواعد البيانات المسمى بـEloquent بدل استخدام باني الإستعلامات Query Builder أو الاستخدام المباشر لأوامر الإستعلامات SQL عبر raw، ويفضل استخدام المجموعات بدل المصفوفات</p>**
 
-### **Prefer to use Eloquent over using Query Builder and raw SQL queries. Prefer collections over arrays**
+<p dir="rtl">Eloquent يجعلك تكتب شيفرة قابلة للقراءة والصيانة. وأيضاً، Eloquent يحتوي على أدوات وخواص داخلية على سبيل الذكر: الحذف الناعم والأحداث والنطاقات إلخ...</p> 
 
-Eloquent allows you to write readable and maintainable code. Also, Eloquent has great built-in tools like soft deletes, events, scopes etc.
-
-Bad:
+<p dir="rtl">❌ طريقة سيئة:</p>
 
 ```sql
 SELECT *
@@ -315,17 +313,17 @@ AND `active` = '1'
 ORDER BY `created_at` DESC
 ```
 
-Good:
+<p dir="rtl">✔️ طريقة جيدة:</p>
 
 ```php
 Article::has('user.profile')->verified()->latest()->get();
 ```
 
-[🔝 Back to contents](#contents)
+[<p dir="rtl">🔝 الرجوع للفهرس</p>](#الفهرس)
+### <p dir="rtl">7</p>
+### **<p dir="rtl">تقليص المهام</p>**
 
-### **Mass assignment**
-
-Bad:
+<p dir="rtl">❌ طريقة سيئة:</p>
 
 ```php
 $article = new Article;
@@ -337,17 +335,18 @@ $article->category_id = $category->id;
 $article->save();
 ```
 
-Good:
+<p dir="rtl">✔️ طريقة جيدة:</p>
 
 ```php
 $category->article()->create($request->validated());
 ```
 
-[🔝 Back to contents](#contents)
+[<p dir="rtl">🔝 الرجوع للفهرس</p>](#الفهرس)
+### <p dir="rtl">8</p>
+### **<p dir="rtl">لا تقم بتنفيذ الإستعلامات داخل ملفات blade واستخدم التحميل الحثيث مشكلة (N+1)</p>**
 
-### **Do not execute queries in Blade templates and use eager loading (N + 1 problem)**
-
-Bad (for 100 users, 101 DB queries will be executed):
+<p dir="rtl">❌ طريقة سيئة:</p>
+<p dir="rtl">~لعدد 100 مستخدم سيُنفذ 101 استعلام على قاعدة البيانات</p>
 
 ```php
 @foreach (User::all() as $user)
@@ -355,7 +354,8 @@ Bad (for 100 users, 101 DB queries will be executed):
 @endforeach
 ```
 
-Good (for 100 users, 2 DB queries will be executed):
+<p dir="rtl">✔️ طريقة جيدة:</p>
+<p dir="rtl">~لعدد 100 مستخدم سيُنفذ 2 استعلام فقط على قاعدة البيانات~</p>
 
 ```php
 $users = User::with('profile')->get();
@@ -367,40 +367,40 @@ $users = User::with('profile')->get();
 @endforeach
 ```
 
-[🔝 Back to contents](#contents)
+[<p dir="rtl">🔝 الرجوع للفهرس</p>](#الفهرس)
+### <p dir="rtl">9</p>
+### **<p dir="rtl">اضف التعليقات للشيفرة، ويفضل استخدام صيغ التعليقات القياسية للمتغيرات والخواص والقيم المعادة إلخ</p>**
 
-### **Comment your code, but prefer descriptive method and variable names over comments**
-
-Bad:
+<p dir="rtl">❌ طريقة سيئة:</p>
 
 ```php
 if (count((array) $builder->getQuery()->joins) > 0)
 ```
 
-Better:
+<p dir="rtl">طريقة أفضل:</p>
 
 ```php
 // Determine if there are any joins.
 if (count((array) $builder->getQuery()->joins) > 0)
 ```
 
-Good:
+<p dir="rtl">✔️ طريقة جيدة:</p>
 
 ```php
 if ($this->hasJoins())
 ```
 
-[🔝 Back to contents](#contents)
+[<p dir="rtl">🔝 الرجوع للفهرس</p>](#الفهرس)
+### <p dir="rtl">10</p>
+### **<p dir="rtl">لا تضع شيفرات js و css داخل ملفات Blade ولا تضع أي شيفرات HTML في فئات php</p>**
 
-### **Do not put JS and CSS in Blade templates and do not put any HTML in PHP classes**
-
-Bad:
+<p dir="rtl">❌ طريقة سيئة:</p>
 
 ```php
 let article = `{{ json_encode($article) }}`;
 ```
 
-Better:
+<p dir="rtl">✔️ طريقة أفضل:</p>
 
 ```php
 <input id="article" type="hidden" value='@json($article)'>
@@ -410,19 +410,20 @@ Or
 <button class="js-fav-article" data-article='@json($article)'>{{ $article->name }}<button>
 ```
 
-In a Javascript file:
+في ملف جافا سكريبت:
 
 ```javascript
 let article = $('#article').val();
 ```
 
-The best way is to use specialized PHP to JS package to transfer the data.
+<p dir="rtl">الطريقة الأفضل هي استخدام الحزم الخاصة بنقل البيانات من PHP إلى جافا سكريبت.</p>
 
-[🔝 Back to contents](#contents)
 
-### **Use config and language files, constants instead of text in the code**
+[<p dir="rtl">🔝 الرجوع للفهرس</p>](#الفهرس)
+### <p dir="rtl">11</p>
+### **<p dir="rtl">استخدم ملفات الإعدادت واللغات، والثوابت بدلاً من النص داخل الشيفرة</p>**
 
-Bad:
+<p dir="rtl">❌ طريقة سيئة:</p>
 
 ```php
 public function isNormal()
@@ -433,7 +434,7 @@ public function isNormal()
 return back()->with('message', 'Your article has been added!');
 ```
 
-Good:
+<p dir="rtl">✔️ طريقة جيدة:</p>
 
 ```php
 public function isNormal()
@@ -444,13 +445,13 @@ public function isNormal()
 return back()->with('message', __('app.article_added'));
 ```
 
-[🔝 Back to contents](#contents)
+[<p dir="rtl">🔝 الرجوع للفهرس</p>](#الفهرس)
+### <p dir="rtl">12</p>
+### **<p dir="rtl">استخدم الأدوات القياسية المعتمدة من مجتمع لارافيل</p>**
 
-### **Use standard Laravel tools accepted by community**
+<p dir="rtl">يفضل استخدام الأدوات المدمجة مع إطار عمل لارافيل والحزم المقترحة من مجتمع لارفيل بدل استخدام غيرها، أي مطور سيعمل على تطبيقك في وقت لاحق سيحتاج إلى تعلم تلك الأدوات التي لا يشيع استخدامها في تطبيقات لارافيل، وأيضاً أطلب المساعدة من مجتمع لارافيل عندما تقرر الإعتماد على أحد الأدوات أو الحزم، ولا تجعل عميلك يدفع مقابل ذلك. </p>
 
-Prefer to use built-in Laravel functionality and community packages instead of using 3rd party packages and tools. Any developer who will work with your app in the future will need to learn new tools. Also, chances to get help from the Laravel community are significantly lower when you're using a 3rd party package or tool. Do not make your client pay for that.
-
-Task | Standard tools | 3rd party tools
+الوظيفة | الأدوات القياسية  | أدوات الطرف الثالث
 ------------ | ------------- | -------------
 Authorization | Policies | Entrust, Sentinel and other packages
 Compiling assets | Laravel Mix | Grunt, Gulp, 3rd party packages
@@ -472,15 +473,14 @@ Generating testing data | Seeder classes, Model Factories, Faker | Creating test
 Task scheduling | Laravel Task Scheduler | Scripts and 3rd party packages
 DB | MySQL, PostgreSQL, SQLite, SQL Server | MongoDB
 
-[🔝 Back to contents](#contents)
-
-### **Follow Laravel naming conventions**
-
- Follow [PSR standards](http://www.php-fig.org/psr/psr-2/).
+[<p dir="rtl">🔝 الرجوع للفهرس</p>](#الفهرس)
+### <p dir="rtl">13</p>
+### **<p dir="rtl">اتبع طريقة لارافيل في التسميات</p>**
+<p dir="rtl">راجع <a href="http://www.php-fig.org/psr/psr-2">PSR standards</a></p>
  
- Also, follow naming conventions accepted by Laravel community:
+ <p dir="rtl">وأيضا، راجع اصطلاح التسميات المقبول من جهه مجتمع لارافيل:</p>
 
-What | How | Good | Bad
+ماذا | كيف | جيدة | سيئة
 ------------ | ------------- | ------------- | -------------
 Controller | singular | ArticleController | ~~ArticlesController~~
 Route | plural | articles/1 | ~~article/1~~
@@ -507,27 +507,27 @@ Config | snake_case | google_calendar.php | ~~googleCalendar.php, google-calenda
 Contract (interface) | adjective or noun | AuthenticationInterface | ~~Authenticatable, IAuthentication~~
 Trait | adjective | Notifiable | ~~NotificationTrait~~
 
-[🔝 Back to contents](#contents)
+[<p dir="rtl">🔝 الرجوع للفهرس</p>](#الفهرس)
+### <p dir="rtl">14</p>
+### **<p dir="rtl">استخدم شيفرة أقصر قابلة للقراءة والفهم السريع قدر المستطاع</p>**
 
-### **Use shorter and more readable syntax where possible**
-
-Bad:
+<p dir="rtl">❌ طريقة سيئة:</p>
 
 ```php
 $request->session()->get('cart');
 $request->input('name');
 ```
 
-Good:
+<p dir="rtl">✔️ طريقة جيدة:</p>
 
 ```php
 session('cart');
 $request->name;
 ```
 
-More examples:
+<p dir="rtl">أمثلة أكثر:</p>
 
-Common syntax | Shorter and more readable syntax
+جمل مركبة | جمل أقصر وأكثر قابلية للقراءة
 ------------ | -------------
 `Session::get('cart')` | `session('cart')`
 `$request->session()->get('cart')` | `session('cart')`
@@ -546,20 +546,20 @@ Common syntax | Shorter and more readable syntax
 `->select('id', 'name')->get()` | `->get(['id', 'name'])`
 `->first()->name` | `->value('name')`
 
-[🔝 Back to contents](#contents)
+[<p dir="rtl">🔝 الرجوع للفهرس</p>](#الفهرس)
+### <p dir="rtl">15</p>
+### **<p dir="rtl">استخدم الحاويات أو الواجهات بدلاً من الفئات الجديدة</p>**
 
-### **Use IoC container or facades instead of new Class**
+<p dir="rtl">إنشاء فئات جديدة يخلق شيئا من التشويش بين الفئات ويعقد عملة الإختبار، الأفضل الإعتماد على الحاويات أو الواجهات في هذا الأمر</p>
 
-new Class syntax creates tight coupling between classes and complicates testing. Use IoC container or facades instead.
-
-Bad:
+<p dir="rtl">❌ طريقة سيئة:</p>
 
 ```php
 $user = new User;
 $user->create($request->validated());
 ```
 
-Good:
+<p dir="rtl">✔️ طريقة جيدة:</p>
 
 ```php
 public function __construct(User $user)
@@ -572,19 +572,19 @@ public function __construct(User $user)
 $this->user->create($request->validated());
 ```
 
-[🔝 Back to contents](#contents)
+[<p dir="rtl">🔝 الرجوع للفهرس</p>](#الفهرس)
+### <p dir="rtl">16</p>
+### **<p dir="rtl">لا تقم بجلب البيانات من ملف  `.env` مباشرة</p>**
 
-### **Do not get data from the `.env` file directly**
+<p dir="rtl">مرر البيانات لملف الإعدادت ومن ثَم استخدم الدالة المساعدة `config()` لاستخدامها في جلب البيانات المخزنة في ملف الإعدادت داخل تطبيقك.</p>
 
-Pass the data to config files instead and then use the `config()` helper function to use the data in an application.
-
-Bad:
+<p dir="rtl">❌ طريقة سيئة:</p>
 
 ```php
 $apiKey = env('API_KEY');
 ```
 
-Good:
+<p dir="rtl">✔️ طريقة جيدة:</p>
 
 ```php
 // config/api.php
@@ -594,18 +594,18 @@ Good:
 $apiKey = config('api.key');
 ```
 
-[🔝 Back to contents](#contents)
+[<p dir="rtl">🔝 الرجوع للفهرس</p>](#الفهرس)
+### <p dir="rtl">17</p>
+### **<p dir="rtl">خزن التواريخ بأشكالها القياسية، واستخدم المسترجعات والمُعدلات لتعديل صيغة التواريخ كما تريد.</p>**
 
-### **Store dates in the standard format. Use accessors and mutators to modify date format**
-
-Bad:
+<p dir="rtl">❌ طريقة سيئة:</p>
 
 ```php
 {{ Carbon::createFromFormat('Y-d-m H-i', $object->ordered_at)->toDateString() }}
 {{ Carbon::createFromFormat('Y-d-m H-i', $object->ordered_at)->format('m-d') }}
 ```
 
-Good:
+<p dir="rtl">✔️ طريقة جيدة:</p>
 
 ```php
 // Model
@@ -615,17 +615,17 @@ public function getSomeDateAttribute($date)
     return $date->format('m-d');
 }
 
-// View
+// ملف العرض
 {{ $object->ordered_at->toDateString() }}
 {{ $object->ordered_at->some_date }}
 ```
 
-[🔝 Back to contents](#contents)
+[<p dir="rtl">🔝 الرجوع للفهرس</p>](#الفهرس)
+### <p dir="rtl">18</p>
+### **<p dir="rtl">ممارسات جيدة أخرى</p>**
 
-### **Other good practices**
+<p dir="rtl">لا تضع أي شيفرة برمجية في ملفات الموجهات.</p>
 
-Never put any logic in routes files.
+<p dir="rtl">قلل من استخدامك الشيفرات البرمجية المنطقية في ملفات العرض blade.</p>
 
-Minimize usage of vanilla PHP in Blade templates.
-
-[🔝 Back to contents](#contents)
+[<p dir="rtl">🔝 الرجوع للفهرس</p>](#الفهرس)
