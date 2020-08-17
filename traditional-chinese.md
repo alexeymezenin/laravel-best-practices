@@ -1,4 +1,4 @@
-![Laravel best practices](/images/logo-chinese.png?raw=true)
+![Laravel best practices](/images/logo-traditional-chinese.png?raw=true)
 
 多國語言列表:
 
