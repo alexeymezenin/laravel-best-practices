@@ -10,9 +10,9 @@ Translations:
 
 [日本語](japanese.md) (by [2bo](https://github.com/2bo))
 
-[漢語](chinese.md) (by [xiaoyi](https://github.com/Shiloh520))
+[简体中文](chinese.md) (by [xiaoyi](https://github.com/Shiloh520))
 
-[中文維基百科](traditional-chinese.md) (by [woeichern](https://github.com/woeichern))
+[繁體中文](traditional-chinese.md) (by [woeichern](https://github.com/woeichern))
 
 [ภาษาไทย](thai.md) (by [kongvut sangkla](https://github.com/kongvut))
 

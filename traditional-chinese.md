@@ -1,78 +1,48 @@
-![Laravel best practices](/images/logo-chinese.png?raw=true)
+![Laravel best practices](/images/logo-traditional-chinese.png?raw=true)
 
-多國語言列表:
-
-[Nederlands](https://github.com/Protoqol/Beste-Laravel-Praktijken) (by [Protoqol](https://github.com/Protoqol))
-
-[한국어](https://github.com/xotrs/laravel-best-practices) (by [cherrypick](https://github.com/xotrs))
-
-[Українська](ukrainian.md) (by [Tenevyk](https://github.com/tenevyk))
-
-[Русский](russian.md)
-
-[فارسی](persian.md) (by [amirhossein baghaie](https://github.com/amirbagh75))
-
-[Português](https://github.com/jonaselan/laravel-best-practices) (by [jonaselan](https://github.com/jonaselan))
-
-[Tiếng Việt](https://chungnguyen.xyz/posts/code-laravel-lam-sao-cho-chuan) (by [Chung Nguyễn](https://github.com/nguyentranchung))
-
-[Español](spanish.md) (by [César Escudero](https://github.com/cedaesca))
-
-[Français](french.md) (by [Mikayil S.](https://github.com/mikayilsrt))
-
-[Polski](https://github.com/maciejjeziorski/laravel-best-practices-pl) (by [Maciej Jeziorski](https://github.com/maciejjeziorski))
-
-[Türkçe](turkish.md) (by [Burak](https://github.com/ikidnapmyself))
-
-[Deutsch](german.md) (by [Sujal Patel](https://github.com/sujalpatel2209))
-
-[Italiana](italian.md) (by [Sujal Patel](https://github.com/sujalpatel2209))
-
-[العربية](arabic.md) (by [ahmedsaoud31](https://github.com/ahmedsaoud31))
-
-這並非laravel官方強制要求的規範，而是我們在日常開發過程中遇到的一些容易忽視的優秀實作方式。
+本文件中列出的並不是 Laravel 版的 SOLID 原則、模式等。在本文件中，我們列出許多在實際 Laravel 專案中常常被忽略的一些最佳實踐。
 
 ## 內容
 
 [單一職責原則](#單一職責原則)
 
-[保持控制器的簡潔](#保持控制器的簡潔)
+[使 Controller 簡潔，Model 肥大](#使-controller-簡潔model-肥大)
 
-[使用自定義Request類別來進行驗證](#使用自定義Request類別來進行驗證)
+[驗證](#驗證)
 
-[商業邏輯程式碼要放到服務層中](#商業邏輯程式碼要放到服務層中)
+[商業邏輯應放置於 Service 類別內](#商業邏輯應放置於-service-類別內)
 
-[DRY原則 不要重覆自己](#DRY原則-不要重覆自己)
+[DRY 原則 - 不要重覆自己](#dry-原則---不要重覆自己)
 
-[使用ORM而不是純sql語句，使用集合而不是陣列](#使用ORM而不是純sql語句使用集合而不是陣列)
+[優先使用 Eloquent 而不是 Query Builder 與原始 SQL 語句；優先使用 Collection 而不是陣列](#優先使用-eloquent-而不是-query-builder-與原始-sql-語句；優先使用-collection-而不是陣列)
 
-[集中處理資料](#集中處理資料)
+[Mass Assignement - 大量賦值](#mass-assignement---大量賦值)
 
-[不要在模板中查詢，盡量使用惰性加載](#不要在模板中查詢盡量使用惰性加載)
+[不要在 Blade 樣板中執行查詢，並使用 Eager Loading (N + 1 問題)](#不要在-blade-樣板中執行查詢並使用-eager-loading-n--1-問題)
 
-[註釋你的程式碼，但是更優雅的做法是使用描述性的語言來編寫你的程式碼](#註釋你的程式碼但是更優雅的做法是使用描述性的語言來編寫你的程式碼)
+[在程式碼中加上註解，但比起註解應儘量使用描述性的方法與變數名稱](#在程式碼中加上註解但比起註解應儘量使用描述性的方法與變數名稱)
 
-[不要把 JS 和 CSS 放到 Blade 模板中，也不要把任何 HTML 程式碼放到 PHP 程式碼裡](#不要把-JS-和-CSS-放到-Blade-模板中也不要把任何-HTML-程式碼放到-PHP-程式碼裡)
+[不要將 JS 與 CSS 放到 Blade 樣板內，也不要把 HTML 放到 PHP 內](#不要將-js-與-css-放到-blade-樣板內也不要把-html-放到-php-內)
 
-[在程式碼中使用配置、語言包和常量，而不是使用寫死的方式](#在程式碼中使用配置語言包和常量而不是使用寫死的方式)
+[使用設定檔與語系檔，並在程式碼中使用常數來代替文字](#使用設定檔與語系檔並在程式碼中使用常數來代替文字)
 
-[使用社群認可的標準Laravel工具](#使用社群認可的標準Laravel工具)
+[使用社群認可的標準 Laravel 工具](#使用社群認可的標準-laravel-工具)
 
-[遵循laravel命名規範](#遵循laravel命名規範)
+[遵循 Laravel 命名規範](#遵循-laravel-命名規範)
 
 [盡可能使用簡短且可讀性更好的語法](#盡可能使用簡短且可讀性更好的語法)
 
-[使用IOC容器來創建實例 而不是直接new一個實例](#使用IOC容器來創建實例-而不是直接new一個實例)
+[使用 IoC Container 或 Facade 而不是直接 new Class](#使用-ioc-container-或-facade-而不是直接-new-class)
 
-[避免直接從 `.env` 文件裡獲取資料](#避免直接從-env-文件裡獲取資料)
+[不要直接從 .env 檔案取得資料](#不要直接從-env-檔案取得資料)
 
-[使用標準格式來儲存日期，用訪問器和修改器來修改日期格式](#使用標準格式來儲存日期用訪問器和修改器來修改日期格式)
+[以標準格式來儲存日期時間，並以 Accesor 或 Mutator 來修改日期格式](#以標準格式來儲存日期時間並以-accesor-或-mutator-來修改日期格式)
 
-[其他的好建議](#其他的一些好建議)
+[其他優良實踐](#其他優良實踐)
 
 ### **單一職責原則**
 
-一個類別和一個方法應該只有一個責任。
+一個類別與方法應只有一個職責。
 
 例如:
 
@@ -87,7 +57,7 @@ public function getFullNameAttribute()
 }
 ```
 
-更優的寫法:
+Good:
 
 ```php
 public function getFullNameAttribute()
@@ -111,13 +81,13 @@ public function getFullNameShort()
 }
 ```
 
-[🔝 返回目錄](#內容)
+[🔝 回到目錄](#內容)
 
-### **保持控制器的簡潔**
+### **使 Controller 簡潔，Model 肥大**
 
-如果您使用的是查詢生成器或原始SQL查詢，請將所有與資料庫相關的邏輯放入Eloquent模型或Repository類別中。
+如果使用 Query Builder 或原始 SQL 查詢，則請將所有 DB 關聯的邏輯放在 Eloquent Model 或 Repository 類別中。
 
-例如:
+Bad:
 
 ```php
 public function index()
@@ -132,7 +102,7 @@ public function index()
 }
 ```
 
-更優的寫法:
+Good:
 
 ```php
 public function index()
@@ -153,13 +123,13 @@ class Client extends Model
 }
 ```
 
-[🔝 返回目錄](#內容)
+[🔝 回到目錄](#內容)
 
-### **使用自定義Request類別來進行驗證**
+### **驗證**
 
-把驗證規則放到 Request 類別中.
+將資料類別從 Controller 中移到 Request 類別內。
 
-例子:
+Bad:
 
 ```php
 public function store(Request $request)
@@ -174,7 +144,7 @@ public function store(Request $request)
 }
 ```
 
-更優的寫法:
+Good:
 
 ```php
 public function store(PostRequest $request)
@@ -195,13 +165,13 @@ class PostRequest extends Request
 }
 ```
 
-[🔝 返回目錄](#內容)
+[🔝 回到目錄](#內容)
 
-### **商業邏輯程式碼要放到服務層中**
+### **商業邏輯應放置於 Service 類別內**
 
-控制器必須遵循單一職責原則，因此最好將商業邏輯程式碼從控制器移動到服務層中。
+Controller 必須只能有單一職責，因此將商業邏輯移到 Service 類別內。
 
-例子:
+Bad:
 
 ```php
 public function store(Request $request)
@@ -214,7 +184,7 @@ public function store(Request $request)
 }
 ```
 
-更優的寫法:
+Good:
 
 ```php
 public function store(Request $request)
@@ -235,13 +205,13 @@ class ArticleService
 }
 ```
 
-[🔝 返回目錄](#內容)
+[🔝 回到目錄](#內容)
 
-### **DRY原則 不要重覆自己**
+### **DRY 原則 - 不要重覆自己**
 
-盡可能重用程式碼，SRP可以幫助您避免重覆造輪子。 此外盡量重覆使用Blade模板，使用Eloquent的 scopes 方法來實作程式碼。
+盡可能重複使用程式碼。通過 SRP (單一職責原則) 有助於避免重複。另外，請重複使用 Blade 樣板，並使用 Eloquent Scope 等。
 
-例子:
+Bad:
 
 ```php
 public function getActive()
@@ -257,7 +227,7 @@ public function getArticles()
 }
 ```
 
-更優的寫法:
+Good:
 
 ```php
 public function scopeActive($q)
@@ -278,13 +248,13 @@ public function getArticles()
 }
 ```
 
-[🔝 返回目錄](#內容)
+[🔝 回到目錄](#內容)
 
-### **使用ORM而不是純sql語句，使用集合而不是陣列**
+### **優先使用 Eloquent 而不是 Query Builder 與原始 SQL 語句；優先使用 Collection 而不是陣列**
 
-使用Eloquent可以幫您編寫可讀和可維護的程式碼。 此外Eloquent還有非常優雅的內建工具，如軟刪除，事件，範圍等。
+使用 Eloquent 可以寫出有較高可讀性與可維護性的程式碼。另外，Eloquent 還內建了許多不錯的工具，如軟刪除、事件、Scope 等功能。
 
-例子:
+Bad:
 
 ```sql
 SELECT *
@@ -301,17 +271,17 @@ AND `active` = '1'
 ORDER BY `created_at` DESC
 ```
 
-更優的寫法:
+Good:
 
 ```php
 Article::has('user.profile')->verified()->latest()->get();
 ```
 
-[🔝 返回目錄](#內容)
+[🔝 回到目錄](#內容)
 
-### **集中處理資料**
+### **Mass Assignement - 大量賦值**
 
-例子:
+Bad:
 
 ```php
 $article = new Article;
@@ -323,17 +293,17 @@ $article->category_id = $category->id;
 $article->save();
 ```
 
-更優的寫法:
+Good:
 
 ```php
 $category->article()->create($request->validated());
 ```
 
-[🔝 返回目錄](#內容)
+[🔝 回到目錄](#內容)
 
-### **不要在模板中查詢，盡量使用惰性加載**
+### **不要在 Blade 樣板中執行查詢，並使用 Eager Loading (N + 1 問題)**
 
-例子 (對於100個用戶，將執行101次DB查詢):
+例子 (若有 100 個使用者，則會執行 101 次 DB 查詢):
 
 ```php
 @foreach (User::all() as $user)
@@ -341,7 +311,7 @@ $category->article()->create($request->validated());
 @endforeach
 ```
 
-更優的寫法 (對於100個用戶，使用以下寫法只需執行2次DB查詢):
+更優的寫法 (若有 100 個使用者，則會執行 2 次 DB 查詢):
 
 ```php
 $users = User::with('profile')->get();
@@ -353,11 +323,11 @@ $users = User::with('profile')->get();
 @endforeach
 ```
 
-[🔝 返回目錄](#內容)
+[🔝 回到目錄](#內容)
 
-### **註釋你的程式碼，但是更優雅的做法是使用描述性的語言來編寫你的程式碼**
+### **在程式碼中加上註解，但比起註解應儘量使用描述性的方法與變數名稱**
 
-例子:
+Bad:
 
 ```php
 if (count((array) $builder->getQuery()->joins) > 0)
@@ -366,49 +336,49 @@ if (count((array) $builder->getQuery()->joins) > 0)
 加上註釋:
 
 ```php
-// 確定是否有任何連接
+// 確定是否有任何 Join
 if (count((array) $builder->getQuery()->joins) > 0)
 ```
 
-更優的寫法:
+Good:
 
 ```php
 if ($this->hasJoins())
 ```
 
-[🔝 返回目錄](#內容)
+[🔝 回到目錄](#內容)
 
-### **不要把 JS 和 CSS 放到 Blade 模板中，也不要把任何 HTML 程式碼放到 PHP 程式碼裡**
+### **不要將 JS 與 CSS 放到 Blade 樣板內，也不要把 HTML 放到 PHP 內**
 
-例子:
+Bad:
 
 ```php
 let article = `{{ json_encode($article) }}`;
 ```
 
-更好的寫法:
+Good:
 
 ```php
 <input id="article" type="hidden" value='@json($article)'>
 
-Or
+或
 
 <button class="js-fav-article" data-article='@json($article)'>{{ $article->name }}<button>
 ```
 
-在Javascript文件中加上:
+在 JavaScript 檔案中:
 
 ```javascript
 let article = $('#article').val();
 ```
 
-當然最好的辦法還是使用專業的PHP的JS包傳輸資料。
+最好的方法是用專門的 PHP 或 JS 套件來傳遞資料。
 
-[🔝 返回目錄](#內容)
+[🔝 回到目錄](#內容)
 
-### **在程式碼中使用配置、語言包和常量，而不是使用寫死的方式**
+### **使用設定檔與語系檔，並在程式碼中使用常數來代替文字**
 
-例子:
+Bad:
 
 ```php
 public function isNormal()
@@ -419,7 +389,7 @@ public function isNormal()
 return back()->with('message', 'Your article has been added!');
 ```
 
-更優的寫法:
+Good:
 
 ```php
 public function isNormal()
@@ -430,93 +400,91 @@ public function isNormal()
 return back()->with('message', __('app.article_added'));
 ```
 
-[🔝 返回目錄](#內容)
+[🔝 回到目錄](#內容)
 
-### **使用社群認可的標準Laravel工具**
+### **使用社群認可的標準 Laravel 工具**
 
 
-強力推薦使用內建的Laravel功能和擴展包，而不是使用第三方的擴展包和工具。
-如果你的項目被其他開發人員接手了，他們將不得不重新學習這些第三方工具的使用教程。
-此外，當您使用第三方擴展包或工具時，你很難從Laravel社群獲得什麽幫助。 不要讓你的客戶為額外的問題付錢。
+儘量使用內建的 Laravel 功能以及社群套件，而不是使用第三方套件與工具。若未來有哪位開發者接手你的專案，就必須要再學習新工具。另外，若使用第三方套件或工具，那麼從 Laravel 社群中取得協助的機會也會減少。請避免增加客戶的成本。
 
-想要實作的功能 | 標準工具 | 第三方工具
+任務 | 標準工具 | 第三方工具
 ------------ | ------------- | -------------
-權限 | Policies | Entrust, Sentinel 或者其他擴展包
-資源編譯工具| Laravel Mix | Grunt, Gulp, 或者其他第三方包
-開發環境| Homestead | Docker
-部署 | Laravel Forge | Deployer 或者其他解決方案
-自動化測試 | PHPUnit, Mockery | Phpspec
-頁面預覽測試 | Laravel Dusk | Codeception
-DB操縱 | Eloquent | SQL, Doctrine
-模板 | Blade | Twig
-資料操縱 | Laravel集合 | 陣列
-表單驗證| Request classes | 他第三方包,甚至在控制器中做驗證
-權限 | Built-in | 他第三方包或者你自己解決
-API身份驗證 | Laravel Passport | 第三方的JWT或者 OAuth 擴展包
-創建 API | Built-in | Dingo API 或者類似的擴展包
-創建資料庫結構 | Migrations | 直接用 DB 語句創建
-本土化 | Built-in |第三方包
-實時消息隊列 | Laravel Echo, Pusher | 使用第三方包或者直接使用WebSockets
-創建測試資料| Seeder classes, Model Factories, Faker | 手動創建測試資料
-任務調度| Laravel Task Scheduler | 腳本和第三方包
+權限控制 | Policies | Entrust, Sentinel 或其他套件
+編譯資源 | Laravel Mix | Grunt, Gulp, 或其他第三方套件
+開發環境 | Homestead | Docker
+部署 | Laravel Forge | Deployer 或其他解決方案
+單元測試 | PHPUnit, Mockery | Phpspec
+瀏覽器測試 | Laravel Dusk | Codeception
+DB | Eloquent | SQL, Doctrine
+樣板 | Blade | Twig
+資料操作 | Laravel Collection | 陣列
+表單驗證 | Request 類別 | 第三方套件、在 Controller 中驗證
+登入驗證 | 內建 | 其他第三方套件或自製解決方案
+API 登入驗證 | Laravel Passport | 第三方 JWT 或 OAuth 套件
+建立 API | 內建 | Dingo API 或類似套件
+處理 DB 結構 | Migrations | 直接操作 DB 結構
+本地化 | 內建 | 第三方套件
+即時使用者界面 | Laravel Echo, Pusher | 第三方套件或直接使用 WebSocket
+建立測試資料 | Seeder 類別, Model Factories, Faker | 手動建立測試資料
+任務排程 | Laravel Task Scheduler | 腳本或第三方套件
 資料庫 | MySQL, PostgreSQL, SQLite, SQL Server | MongoDB
 
-[🔝 返回目錄](#內容)
+[🔝 回到目錄](#內容)
 
-### **遵循laravel命名規範**
+### **遵循 Laravel 命名規範**
 
-來源 [PSR standards](http://www.php-fig.org/psr/psr-2/).
+遵守 [PSR 標準 (英語)](http://www.php-fig.org/psr/psr-2/)。
 
-另外，遵循Laravel社群認可的命名規範：
+另外，請遵守 Laravel 社群認可的命名規範:
 
-對象 | 規則 | 更優的寫法 | 應避免的寫法
+東西 | 命名方式 | Good | Bad
 ------------ | ------------- | ------------- | -------------
-控制器 | 單數 | ArticleController | ~~ArticlesController~~
-路由 | 覆數 | articles/1 | ~~article/1~~
-路由命名| 帶點符號的蛇形命名 | users.show_active | ~~users.show-active, show-active-users~~
-模型 | 單數 | User | ~~Users~~
-hasOne或belongsTo關系 | 單數 | articleComment | ~~articleComments, article_comment~~
-所有其他關系 | 覆數 | articleComments | ~~articleComment, article_comments~~
-表單 | 覆數 | article_comments | ~~article_comment, articleComments~~
-透視表| 按字母順序排列模型 | article_user | ~~user_article, articles_users~~
-資料表字段| 使用蛇形並且不要帶表名 | meta_title | ~~MetaTitle; article_meta_title~~
-模型參數 | 蛇形命名 | $model->created_at | ~~$model->createdAt~~
-外鍵 | 帶有_id後綴的單數模型名稱 | article_id | ~~ArticleId, id_article, articles_id~~
-主鍵 | - | id | ~~custom_id~~
-遷移 | - | 2017_01_01_000000_create_articles_table | ~~2017_01_01_000000_articles~~
-方法 | 駝峰命名 | getAll | ~~get_all~~
-資源控制器 | [table](https://laravel.com/docs/master/controllers#resource-controllers) | store | ~~saveArticle~~
-測試類別| 駝峰命名 | testGuestCannotSeeArticle | ~~test_guest_cannot_see_article~~
-變量 | 駝峰命名 | $articlesWithAuthor | ~~$articles_with_author~~
-集合 | 描述性的, 覆數的 | $activeUsers = User::active()->get() | ~~$active, $data~~
-對象 | 描述性的, 單數的 | $activeUser = User::active()->first() | ~~$users, $obj~~
-配置和語言文件索引 | 蛇形命名 | articles_enabled | ~~ArticlesEnabled; articles-enabled~~
-視圖 | 短橫線命名 | show-filtered.blade.php | ~~showFiltered.blade.php, show_filtered.blade.php~~
-配置 | 蛇形命名 | google_calendar.php | ~~googleCalendar.php, google-calendar.php~~
-內容 (interface) | 形容詞或名詞 | AuthenticationInterface | ~~Authenticatable, IAuthentication~~
-Trait | 使用形容詞 | Notifiable | ~~NotificationTrait~~
+Controller | 單數 | ArticleController | ~~ArticlesController~~
+Route - 路由 | 複數 | articles/1 | ~~article/1~~
+Named Route - 路由命名| 使用點標記的 snake_case | users.show_active | ~~users.show-active, show-active-users~~
+Model | 單數 | User | ~~Users~~
+hasOne 或 belongsTo 關聯 | 單數 | articleComment | ~~articleComments, article_comment~~
+所有其他關聯 | 複數 | articleComments | ~~articleComment, article_comments~~
+資料表 | 複數 | article_comments | ~~article_comment, articleComments~~
+Pivat Table 透視表 | 以字母順序排列的單數 Model 名稱 | article_user | ~~user_article, articles_users~~
+資料表欄位| 使用 snake_case，並且不包含 Model 名稱 | meta_title | ~~MetaTitle; article_meta_title~~
+Model 屬性 | snake_case | $model->created_at | ~~$model->createdAt~~
+Foreign Key - 外鍵 | 以單數 Model 名稱後方加上 _id | article_id | ~~ArticleId, id_article, articles_id~~
+Primary Key - 主鍵 | - | id | ~~custom_id~~
+Migration | - | 2017_01_01_000000_create_articles_table | ~~2017_01_01_000000_articles~~
+方法 | camelCase | getAll | ~~get_all~~
+Resource Controller 中的方法 | [table](https://laravel.com/docs/master/controllers#resource-controllers) | store | ~~saveArticle~~
+測試類別中的方法| camelCase | testGuestCannotSeeArticle | ~~test_guest_cannot_see_article~~
+變數 | camelCase | $articlesWithAuthor | ~~$articles_with_author~~
+Collection | 描述性名稱、複數 | $activeUsers = User::active()->get() | ~~$active, $data~~
+物件 | 秒屬性名稱、單數 | $activeUser = User::active()->first() | ~~$users, $obj~~
+設定檔與語系檔的索引鍵 | snake_case | articles_enabled | ~~ArticlesEnabled; articles-enabled~~
+View | kebab-case | show-filtered.blade.php | ~~showFiltered.blade.php, show_filtered.blade.php~~
+設定檔 | snake_case | google_calendar.php | ~~googleCalendar.php, google-calendar.php~~
+Contract (界面) | 形容詞或名詞 | AuthenticationInterface | ~~Authenticatable, IAuthentication~~
+Trait | 形容詞 | Notifiable | ~~NotificationTrait~~
 
-[🔝 返回目錄](#內容)
+[🔝 回到目錄](#內容)
 
 ### **盡可能使用簡短且可讀性更好的語法**
 
-例子:
+Bad:
 
 ```php
 $request->session()->get('cart');
 $request->input('name');
 ```
 
-更優的寫法:
+Good:
 
 ```php
 session('cart');
 $request->name;
 ```
 
-更多示例:
+更多範例:
 
-常規寫法 | 更優雅的寫法
+一般語法 | Good
 ------------ | -------------
 `Session::get('cart')` | `session('cart')`
 `$request->session()->get('cart')` | `session('cart')`
@@ -535,20 +503,20 @@ $request->name;
 `->select('id', 'name')->get()` | `->get(['id', 'name'])`
 `->first()->name` | `->value('name')`
 
-[🔝 返回目錄](#內容)
+[🔝 回到目錄](#內容)
 
-### **使用IOC容器來創建實例 而不是直接new一個實例**
+### **使用 IoC Container 或 Facade 而不是直接 new Class**
 
-創建新的類別會讓類別之間的更加耦合，使得測試越發複雜。請改用IoC容器或注入來實作。
+new Class 語法增加物件間的耦合度，且會讓測試更複雜。應使用 IoC Container 或 Facade 來代替。
 
-例子:
+Bad:
 
 ```php
 $user = new User;
 $user->create($request->validated());
 ```
 
-更優的寫法:
+Good:
 
 ```php
 public function __construct(User $user)
@@ -561,19 +529,19 @@ public function __construct(User $user)
 $this->user->create($request->validated());
 ```
 
-[🔝 返回目錄](#內容)
+[🔝 回到目錄](#內容)
 
-### **避免直接從 `.env` 文件裡獲取資料**
+### **不要直接從 `.env` 檔案取得資料**
 
-將資料傳遞給配置文件，然後使用`config（）`輔助函數來調用資料
+請改而將資料傳至設定檔並使用 `config()` helper 函式來在應用程式中使用資料。
 
-例子:
+Bad:
 
 ```php
 $apiKey = env('API_KEY');
 ```
 
-更優的寫法:
+Good:
 
 ```php
 // config/api.php
@@ -583,18 +551,18 @@ $apiKey = env('API_KEY');
 $apiKey = config('api.key');
 ```
 
-[🔝 返回目錄](#內容)
+[🔝 回到目錄](#內容)
 
-### **使用標準格式來儲存日期，用訪問器和修改器來修改日期格式**
+### **以標準格式來儲存日期時間，並以 Accesor 或 Mutator 來修改日期格式**
 
-例子:
+Bad:
 
 ```php
 {{ Carbon::createFromFormat('Y-d-m H-i', $object->ordered_at)->toDateString() }}
 {{ Carbon::createFromFormat('Y-d-m H-i', $object->ordered_at)->format('m-d') }}
 ```
 
-更優的寫法:
+Good:
 
 ```php
 // Model
@@ -609,14 +577,14 @@ public function getSomeDateAttribute($date)
 {{ $object->ordered_at->some_date }}
 ```
 
-[🔝 返回目錄](#內容)
+[🔝 回到目錄](#內容)
 
-### **其他的一些好建議**
+### **其他優良實踐**
 
-永遠不要在路由文件中放任何的邏輯程式碼。
+絕對不要在路由檔案中撰寫任何邏輯。
 
-盡量不要在Blade模板中寫原始 PHP 程式碼。
+在 Blade 樣板中避免使用原始 PHP。
 
-[🔝 返回目錄](#內容)
+[🔝 回到目錄](#內容)
 
 
