@@ -1,96 +1,51 @@
 
 ![Laravel best practices](/images/logo-english.png?raw=true)
 
-Terjemahan :
+Ini bukan adaptasi Laravel dari prinsip SOLID, *pattern*, dll. Di sini Anda akan menemukan praktik terbaik yang biasanya diabaikan dalam proyek Laravel di kehidupan nyata.
 
+## Konten
 
-[Nederlands](https://github.com/Protoqol/Beste-Laravel-Praktijken) (by [Protoqol](https://github.com/Protoqol))
+[Prinsip *single responsibility*](#prinsip-single-responsibility)
 
-[Indonesia](indonesia.md) (by [P0rguy](https://github.com/p0rguy))
-
-[한국어](https://github.com/xotrs/laravel-best-practices) (by [cherrypick](https://github.com/xotrs))
-
-[日本語](japanese.md) (by [2bo](https://github.com/2bo))
-
-[漢語](chinese.md) (by [xiaoyi](https://github.com/Shiloh520))
-
-[中文維基百科](traditional-chinese.md) (by [woeichern](https://github.com/woeichern))
-
-[ภาษาไทย](thai.md) (by [kongvut sangkla](https://github.com/kongvut))
-
-[বাংলা](bangla.md) (by [Anowar Hossain](https://github.com/AnowarCST))
-
-[فارسی](persian.md) (by [amirhossein baghaie](https://github.com/amirbagh75))
-
-[Português](https://github.com/jonaselan/laravel-best-practices) (by [jonaselan](https://github.com/jonaselan))
-
-[Українська](ukrainian.md) (by [Tenevyk](https://github.com/tenevyk))
-
-[Русский](russian.md)
-
-[Tiếng Việt](https://chungnguyen.xyz/posts/code-laravel-lam-sao-cho-chuan) (by [Chung Nguyễn](https://github.com/nguyentranchung))
-
-[Español](spanish.md) (by [César Escudero](https://github.com/cedaesca))
-
-[Français](french.md) (by [Mikayil S.](https://github.com/mikayilsrt))
-
-[Polski](https://github.com/maciejjeziorski/laravel-best-practices-pl) (by [Maciej Jeziorski](https://github.com/maciejjeziorski))
-
-[Türkçe](turkish.md) (by [Burak](https://github.com/ikidnapmyself))
-
-[Deutsch](german.md) (by [Sujal Patel](https://github.com/sujalpatel2209))
-
-[Italiana](italian.md) (by [Sujal Patel](https://github.com/sujalpatel2209))
-
-[Azərbaycanca](https://github.com/Maharramoff/laravel-best-practices-az) (by [Maharramoff](https://github.com/Maharramoff))
-
-[العربية](arabic.md) (by [ahmedsaoud31](https://github.com/ahmedsaoud31))
-
-Ini bukan adaptasi Laravel dari prinsip SOLID, pola dll. Di sini Anda akan menemukan praktik terbaik yang biasanya diabaikan dalam proyek Laravel kehidupan nyata.
-
-## Contents
-
-[Prinsip tanggung jawab tunggal](#prinsip-tanggung-jawab-tunggal)
-
-[Model gemuk, Controller Kecil](#model-gemuk-controller-kecil)
+[Model tebal, *controller* tipis](#model-tebal-controller-tipis)
 
 [Validasi](#validasi)
 
-[Logika bisnis harus dalam kelas layanan](#logika-bisnis-harus-dalam-kelas-layanan)
+[*Business logic* harus di dalam kelas *services*](#business-logic-harus-di-dalam-kelas-services)
 
-[Jangan ulangi diri sendiri (DRY)](#jangan-ulangi-diri-sendiri-dry)
+[*Don't repeat yourself* (DRY)](#dont-repeat-yourself-dry)
 
-[Lebih suka menggunakan Eloquent daripada menggunakan Query Builder dan query SQL mentah. Lebih suka koleksi daripada array](#lebih-suka-menggunakan-eloquent-daripada-menggunakan-query-builder-dan-query-sql-mentah-lebih-suka-koleksi-daripada-array)
+[Lebih memilih menggunakan *Eloquent* daripada menggunakan *Query Builder* dan query SQL mentah. Lebih memilih *collections* daripada *array*](#lebih-memilih-menggunakan-eloquent-daripada-menggunakan-query-builder-dan-query-sql-mentah-lebih-memilih-collections-daripada-array)
 
-[Tugas massal](#tugas-massal)
+[*Mass assignment*](#mass-assignment)
 
-[Jangan mengeksekusi kueri dalam templat Blade dan menggunakan eager loading (masalah N + 1)](#jangan-mengeksekusi-kueri-dalam-templat-blade-dan-menggunakan-eager-loading-masalah-n1)
+[Jangan mengeksekusi kueri dalam *template blade* dan gunakan *eager loading* (masalah N + 1)](#jangan-mengeksekusi-kueri-dalam-template-blade-dan-gunakan-eager-loading-masalah-n-1)
 
-[Komentari kode Anda, tetapi lebih suka metode deskriptif dan nama variabel daripada komentar](#komentari-kode-anda-terapi-lebih-suka-metode-deskriptif-dan-nama-variable-daripada-komentar)
+[Komentari kode anda, tetapi lebih baik *method* dan nama variabel yang deskriptif daripada komentar](#komentari-kode-anda-tetapi-lebih-baik-method-dan-nama-variabel-yang-deskriptif-daripada-komentar)
 
-[Jangan letakkan JS dan CSS di templat Blade dan jangan letakkan HTML apa pun di kelas PHP](#jangan-letakkan-js-dan-css-di-templat-blade-dan-jangan-letakkan-html-apa-pun-di-kelas-php)
+[Jangan letakkan JS dan CSS di *template blade* dan jangan letakkan HTML apa pun di kelas PHP](#jangan-letakkan-js-dan-css-di-template-blade-dan-jangan-letakkan-html-apa-pun-di-kelas-php)
 
-[Gunakan file config dan bahasa, konstanta alih-alih teks dalam kode](#gunakan-file-config-dan-bahasa-konstanta-alih-alih-teks-dalam-kode)
+[Gunakan file *config*, *language*, dan konstanta daripada teks dalam kode](#gunakan-file-config-language-dan-konstanta-daripada-teks-dalam-kode)
 
-[Gunakan alat Laravel standar yang diterima oleh komunitas](#gunakan-alat-laravel-standar-yang-diterima-oleh-komunitas)
+[Gunakan *tools* standar Laravel yang diterima oleh komunitas](#gunakan-tools-standar-laravel-yang-diterima-oleh-komunitas)
 
 [Ikuti konvensi penamaan Laravel](#ikuti-konvensi-penamaan-laravel)
 
 [Gunakan sintaks yang lebih pendek dan lebih mudah dibaca jika memungkinkan](#gunakan-sintaks-yang-lebih-pendek-dan-lebih-mudah-dibaca-jika-memungkinkan)
 
-[Gunakan wadah atau fasad IoC sebagai ganti Kelas baru](#gunakan-wadah-atau-fasad-ioc-sebagai-ganti-kelas-baru)
+[Gunakan *IoC Container* atau *facades* daripada kelas baru](#gunakan-ioc-container-atau-facades-daripada-kelas-baru)
 
 [Jangan mendapatkan data dari file `.env` secara langsung](#jangan-mendapatkan-data-dari-file-env-secara-langsung)
 
-[Simpan tanggal dalam format standar. Gunakan pengakses dan mutator untuk mengubah format tanggal](#simpan-tanggal-dalam-format-standar-gunakan-pengakses-dan-mutator-untuk-mengubah-format-tanggal)
+[Simpan tanggal dalam format standar. Gunakan *accessors* dan *mutators* untuk mengubah format tanggal](#simpan-tanggal-dalam-format-standar-gunakan-accessors-dan-mutators-untuk-mengubah-format-tanggal)
 
-[Praktik baik lainnya](#praktik-baik-lainnya)
+[Praktik bagus lainnya](#praktik-bagus-lainnya)
 
-### **Prinsip tanggung jawab tunggal**
+### **Prinsip *single responsibility***
 
-Kelas dan metode seharusnya hanya memiliki satu tanggung jawab
+Kelas dan metode seharusnya hanya memiliki satu tanggung jawab.
 
-Kurang Bagus:
+Contoh buruk:
 
 ```php
 public function getFullNameAttribute()
@@ -103,7 +58,7 @@ public function getFullNameAttribute()
 }
 ```
 
-Bagus:
+Contoh terbaik:
 
 ```php
 public function getFullNameAttribute()
@@ -127,13 +82,13 @@ public function getFullNameShort()
 }
 ```
 
-[🔝 Kembali ke Contents](#contents)
+[🔝 Kembali ke konten](#konten)
 
-### **Model gemuk, Controller Kecil**
+### **Model tebal, *controller* tipis**
 
-Masukkan semua logika terkait DB ke model Eloquent atau ke dalam kelas Repositori jika anda menggunakan Query Builder atau kueri SQL mentah.
+Masukkan semua logika terkait DB ke model *eloquent* atau ke dalam kelas repositori jika anda menggunakan *Query Builder* atau kueri SQL mentah.
 
-Kurang Bagus:
+Contoh buruk:
 
 ```php
 public function index()
@@ -148,7 +103,7 @@ public function index()
 }
 ```
 
-Bagus:
+Contoh terbaik:
 
 ```php
 public function index()
@@ -169,13 +124,13 @@ class Client extends Model
 }
 ```
 
-[🔝 Kemabli ke Contents](#contents)
+[🔝 Kembali ke konten](#konten)
 
 ### **Validasi**
 
-Pindahkan validasi dari Controller ke class Request
+Pindahkan validasi dari *controller* ke kelas *request*.
 
-Kurang Bagus:
+Contoh buruk:
 
 ```php
 public function store(Request $request)
@@ -190,7 +145,7 @@ public function store(Request $request)
 }
 ```
 
-Bagus:
+Contoh terbaik:
 
 ```php
 public function store(PostRequest $request)
@@ -211,13 +166,13 @@ class PostRequest extends Request
 }
 ```
 
-[🔝 Kembali ke Contents](#contents)
+[🔝 Kembali ke konten](#konten)
 
-### **Logika bisnis harus dalam kelas layanan**
+### ***Business logic* harus di dalam kelas *services***
 
-Controller harus hanya memiliki satu tanggung jawab, jadi pindahkan logika bisnis dari Controller ke kelas Service
+*Controller* harus hanya memiliki satu tanggung jawab, jadi pindahkan *business logic* dari *controller* ke kelas *service*.
 
-Kurang Bagus:
+Contoh buruk:
 
 ```php
 public function store(Request $request)
@@ -230,7 +185,7 @@ public function store(Request $request)
 }
 ```
 
-Bagus:
+Contoh terbaik:
 
 ```php
 public function store(Request $request)
@@ -251,13 +206,13 @@ class ArticleService
 }
 ```
 
-[🔝 Kemabli ke Contents](#contents)
+[🔝 Kembali ke konten](#konten)
 
-### **Jangan ulangi diri sendiri (DRY)**
+### ***Don't repeat yourself* (DRY)**
 
-Gunakan kembali kode ketika anda bisa. SRP membantu anda menghindari duplikasi. juga gunakan kembali template blade gunakan lingkup Eloquent dll.
+Gunakan kembali kode ketika anda bisa. [PSR](#prinsip-single-responsibility) membantu anda menghindari duplikasi. Juga, gunakan kembali *template blade*, *scope eloquent*, dll.
 
-Kurang Bagus:
+Contoh buruk:
 
 ```php
 public function getActive()
@@ -273,7 +228,7 @@ public function getArticles()
 }
 ```
 
-Bagus:
+Contoh terbaik:
 
 ```php
 public function scopeActive($q)
@@ -294,13 +249,13 @@ public function getArticles()
 }
 ```
 
-[🔝 Kembali ke Contents](#contents)
+[🔝 Kembali ke konten](#konten)
 
-### **Lebih suka menggunakan Eloquent daripada menggunakan Query Builder dan query SQL mentah. Lebih suka koleksi daripada array**
+### **Lebih memilih menggunakan *Eloquent* daripada menggunakan *Query Builder* dan query SQL mentah. Lebih memilih *collections* daripada *array***
 
-Eloquent memungkinkan anda menulis kode bisa dibaca dan dipelihara. juga Eloquent memilki alat bawaan yang hebat seperti penghapus lunak, acara, cakupan, dll
+*Eloquent* memungkinkan anda menulis kode yang dapat dibaca dan *maintainable*. Dan, *Eloquent* memiliki *built-in tools* yang bagus seperti *soft deletes*, *events*, *scopes*, dll.
 
-Kurang Bagus:
+Contoh buruk:
 
 ```sql
 SELECT *
@@ -317,17 +272,17 @@ AND `active` = '1'
 ORDER BY `created_at` DESC
 ```
 
-Bagus:
+Contoh terbaik:
 
 ```php
 Article::has('user.profile')->verified()->latest()->get();
 ```
 
-[🔝 Kembali ke Contents](#contents)
+[🔝 Kembali ke konten](#konten)
 
-### **Tugas massal**
+### ***Mass assignment***
 
-Kurang Bagus:
+Contoh buruk:
 
 ```php
 $article = new Article;
@@ -339,17 +294,17 @@ $article->category_id = $category->id;
 $article->save();
 ```
 
-Bagus:
+Contoh terbaik:
 
 ```php
 $category->article()->create($request->validated());
 ```
 
-[🔝 Kembali ke Contents](#contents)
+[🔝 Kembali ke konten](#konten)
 
-### **Jangan mengeksekusi kueri dalam templat Blade dan menggunakan eager loading (masalah N + 1))**
+### **Jangan mengeksekusi kueri dalam *template blade* dan gunakan *eager loading* (masalah N + 1)**
 
-Buruk ( untuk 100 pengguna, 101 permintaan DB akan dieksekusi):
+Contoh buruk (untuk 100 *user*, 101 kueri DB akan dieksekusi):
 
 ```php
 @foreach (User::all() as $user)
@@ -357,7 +312,7 @@ Buruk ( untuk 100 pengguna, 101 permintaan DB akan dieksekusi):
 @endforeach
 ```
 
-Bagus (untuk 100 pengguna, 2 permintaan DB akan dieksekusi):
+Contoh terbaik (untuk 100 *user*, 2 kueri DB akan dieksekusi):
 
 ```php
 $users = User::with('profile')->get();
@@ -369,40 +324,40 @@ $users = User::with('profile')->get();
 @endforeach
 ```
 
-[🔝 Kembali ke Contents](#contents)
+[🔝 Kembali ke konten](#konten)
 
-### **Komentari kode Anda, tetapi lebih suka metode deskriptif dan nama variabel daripada komentar**
+### **Komentari kode anda, tetapi lebih baik *method* dan nama variabel yang deskriptif daripada komentar**
 
-Kurang Bagus:
+Contoh buruk:
 
 ```php
 if (count((array) $builder->getQuery()->joins) > 0)
 ```
 
-Lebih Baik:
+Contoh lebih baik:
 
 ```php
 // Determine if there are any joins.
 if (count((array) $builder->getQuery()->joins) > 0)
 ```
 
-Bagus:
+Contoh terbaik:
 
 ```php
 if ($this->hasJoins())
 ```
 
-[🔝 Kembali ke Contents](#contents)
+[🔝 Kembali ke konten](#konten)
 
-### **Jangan letakkan JS dan CSS di templat Blade dan jangan letakkan HTML apa pun di kelas PHP**
+### **Jangan letakkan JS dan CSS di *template blade* dan jangan letakkan HTML apa pun di kelas PHP**
 
-Kurang Bagus:
+Contoh buruk:
 
 ```php
 let article = `{{ json_encode($article) }}`;
 ```
 
-Lebih Baik:
+Contoh lebih baik:
 
 ```php
 <input id="article" type="hidden" value='@json($article)'>
@@ -418,13 +373,13 @@ Dalam file javascript:
 let article = $('#article').val();
 ```
 
-Cara terbaik adalah dengan menggunakan paket PHP ke JS khusus untuk mentransfer data.
+Cara terbaik adalah dengan menggunakan *package* `PHP to JS` khusus untuk mentransfer data.
 
-[🔝 Kembali ke Contents](#contents)
+[🔝 Kembali ke konten](#konten)
 
-### **Gunakan file config dan bahasa, konstanta alih-alih teks dalam kode**
+### **Gunakan file *config*, *language*, dan konstanta daripada teks dalam kode**
 
-Kurang Bagus:
+Contoh buruk:
 
 ```php
 public function isNormal()
@@ -435,7 +390,7 @@ public function isNormal()
 return back()->with('message', 'Your article has been added!');
 ```
 
-Bagus:
+Contoh terbaik:
 
 ```php
 public function isNormal()
@@ -446,13 +401,13 @@ public function isNormal()
 return back()->with('message', __('app.article_added'));
 ```
 
-[🔝 Kembali ke Contents](#contents)
+[🔝 Kembali ke konten](#konten)
 
-### **Gunakan alat Laravel standar yang diterima oleh komunitas**
+### **Gunakan *tools* standar Laravel yang diterima oleh komunitas**
 
-Lebih suka menggunakan fungsionalitas bawaan dan paket komunitas daripada menggunakan paket dan alat pihak ke-3. Pengembang apa pun yang akan bekerja dengan aplikasi Anda di masa mendatang perlu mempelajari alat baru. Juga, peluang untuk mendapatkan bantuan dari komunitas Laravel jauh lebih rendah saat Anda menggunakan paket atau alat pihak ke-3. Jangan membuat klien Anda membayar untuk itu.
+Selalu gunakan fungsi *built-in* bawaan laravel dan *packages* komunitas daripada menggunakan *packages* dan *tools* pihak ke-3. *Developer* manapun yang akan bekerja dengan aplikasi anda di masa mendatang perlu mempelajari *tools* baru. Dan juga, peluang untuk mendapatkan bantuan dari komunitas Laravel jauh lebih rendah saat anda menggunakan *packages* atau *tools* pihak ke-3. Jangan membuat klien Anda membayar untuk itu.
 
-Task | Standard tools | 3rd party tools
+Task | Tools *standar* | *Tools* pihak ke-3
 ------------ | ------------- | -------------
 Authorization | Policies | Entrust, Sentinel and other packages
 Compiling assets | Laravel Mix | Grunt, Gulp, 3rd party packages
@@ -474,13 +429,12 @@ Generating testing data | Seeder classes, Model Factories, Faker | Creating test
 Task scheduling | Laravel Task Scheduler | Scripts and 3rd party packages
 DB | MySQL, PostgreSQL, SQLite, SQL Server | MongoDB
 
-[🔝 Kembali ke Contents](#contents)
+[🔝 Kembali ke konten](#konten)
 
 ### **Ikuti konvensi penamaan Laravel**
 
- Ikuti [PSR standards](http://www.php-fig.org/psr/psr-2/).
- 
-Juga, ikuti konvensi penamaan yang diterima oleh komunitas Laravel:
+Ikuti [PSR standards](http://www.php-fig.org/psr/psr-2/).
+Dan juga, ikuti konvensi penamaan yang diterima oleh komunitas Laravel:
 
 What | How | Good | Bad
 ------------ | ------------- | ------------- | -------------
@@ -509,18 +463,18 @@ Config | snake_case | google_calendar.php | ~~googleCalendar.php, google-calenda
 Contract (interface) | adjective or noun | AuthenticationInterface | ~~Authenticatable, IAuthentication~~
 Trait | adjective | Notifiable | ~~NotificationTrait~~
 
-[🔝 Kembali ke Contents](#contents)
+[🔝 Kembali ke konten](#konten)
 
 ### **Gunakan sintaks yang lebih pendek dan lebih mudah dibaca jika memungkinkan**
 
-Kurang Bagus:
+Contoh buruk:
 
 ```php
 $request->session()->get('cart');
 $request->input('name');
 ```
 
-Bagus:
+Contoh terbaik:
 
 ```php
 session('cart');
@@ -529,7 +483,7 @@ $request->name;
 
 Contoh:
 
-Common syntax | Shorter and more readable syntax
+Sintaks umum | Sintaks pendek dan mudah dibaca
 ------------ | -------------
 `Session::get('cart')` | `session('cart')`
 `$request->session()->get('cart')` | `session('cart')`
@@ -548,20 +502,20 @@ Common syntax | Shorter and more readable syntax
 `->select('id', 'name')->get()` | `->get(['id', 'name'])`
 `->first()->name` | `->value('name')`
 
-[🔝 Kembali ke Contents](#contents)
+[🔝 Kembali ke konten](#konten)
 
-### **Gunakan wadah atau fasad IoC sebagai ganti Kelas baru**
+### **Gunakan *IoC Container* atau *facades* daripada kelas baru**
 
-Sintaks Kelas baru menciptakan kopling ketat antara kelas dan mempersulit pengujian. Gunakan wadah atau fasad IoC sebagai gantinya.
+Sintaks Kelas baru membuat penggabungan yang sempit antar kelas dan memperumit proses pengujian. Gunakan *facades* atau *IoC container* sebagai gantinya.
 
-Kurang Bagus:
+Contoh buruk:
 
 ```php
 $user = new User;
 $user->create($request->validated());
 ```
 
-Bagus:
+Contoh terbaik:
 
 ```php
 public function __construct(User $user)
@@ -574,19 +528,19 @@ public function __construct(User $user)
 $this->user->create($request->validated());
 ```
 
-[🔝 Kembali ke Contents](#contents)
+[🔝 Kembali ke konten](#konten)
 
 ### **Jangan mendapatkan data dari file `.env` secara langsung**
 
-Alihkan data ke file konfigurasi sebagai gantinya dan kemudian gunakan fungsi pembantu `config ()` untuk menggunakan data dalam aplikasi.
+Alihkan data ke file konfigurasi sebagai gantinya dan kemudian gunakan fungsi `config ()` untuk menggunakan data dalam aplikasi.
 
-Kurang Bagus:
+Contoh buruk:
 
 ```php
 $apiKey = env('API_KEY');
 ```
 
-Bagus:
+Contoh terbaik:
 
 ```php
 // config/api.php
@@ -596,18 +550,18 @@ Bagus:
 $apiKey = config('api.key');
 ```
 
-[🔝 Kembali ke Contents](#contents)
+[🔝 Kembali ke konten](#konten)
 
-### **Simpan tanggal dalam format standar. Gunakan pengakses dan mutator untuk mengubah format tanggal**
+### **Simpan tanggal dalam format standar. Gunakan *accessors* dan *mutators* untuk mengubah format tanggal**
 
-Kurang Bagus:
+Contoh buruk:
 
 ```php
 {{ Carbon::createFromFormat('Y-d-m H-i', $object->ordered_at)->toDateString() }}
 {{ Carbon::createFromFormat('Y-d-m H-i', $object->ordered_at)->format('m-d') }}
 ```
 
-Bagus:
+Contoh terbaik:
 
 ```php
 // Model
@@ -622,12 +576,12 @@ public function getSomeDateAttribute($date)
 {{ $object->ordered_at->some_date }}
 ```
 
-[🔝 Kembali ke Contents](#contents)
+[🔝 Kembali ke konten](#konten)
 
-### **Praktik baik lainnya**
+### **Praktik bagus lainnya**
 
-Jangan pernah menaruh logika apa pun di file rute.
+Jangan pernah menaruh logika apa pun di file `route`.
 
-Minimalkan penggunaan vanilla PHP di templat Blade.
+Minimalkan penggunaan *vanilla* PHP di *template blade*.
 
-[🔝 Kemabali ke Contents](#contents)
+[🔝 Kembali ke konten](#konten)
