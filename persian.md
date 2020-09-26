@@ -4,6 +4,8 @@
 
 ترجمه ها:
 
+</div>
+
 [Nederlands](https://github.com/Protoqol/Beste-Laravel-Praktijken) (by [Protoqol](https://github.com/Protoqol))
 
 [Indonesia](indonesia.md) (by [P0rguy](https://github.com/p0rguy), [Doni Ahmad](https://github.com/donyahmd))
@@ -45,6 +47,8 @@
 [Azərbaycanca](https://github.com/Maharramoff/laravel-best-practices-az) (by [Maharramoff](https://github.com/Maharramoff))
 
 [العربية](arabic.md) (by [ahmedsaoud31](https://github.com/ahmedsaoud31))
+
+<div dir="rtl">
 
 این مستندات درباره سازگاری لاراول با اصول SOLID یا Design Pattern ها و ... نیست. اینجا شما روش های اصولی توسعه پروژه های مبتنی بر لاراول رو پیدا میکنید که معمولا داخل پروژه ها در نظر گرفته نمیشوند.
 
@@ -648,15 +652,14 @@ $request->name;
 
 ### **به جای ایجاد یک object با new، از IoC container و facades استفاده کنید.**
 
-به‌جای این که آبجکت‌ها را مستقیما در هرجایی با کلمه کلیدی new ایجاد و استفاده کنید، از مهوم IoC لاراول استفاده کنید. چرا که با این کار عملا dependencyهای هر چیزی را در صورت نیاز آن inject‌ میکنیم که به ما قدرت استفاده از مفهوم تست‌نویسی را میدهد.
+به‌جای این که آبجکت‌ها را مستقیما در هرجایی با کلمه کلیدی new ایجاد و استفاده کنید، از امکان IoC لاراول استفاده کنید. چرا که با این کار عملا dependency های هر چیزی را در صورت نیاز آن inject‌ میکنیم که به ما قدرت استفاده از مفهوم تست‌نویسی را میدهد.
 
 ❌ روش اشتباه:
 
-</div
+</div>
 
 ```php
 $user = new User;
-
 $user->create($request->all());
 ```
 <div dir="rtl">
