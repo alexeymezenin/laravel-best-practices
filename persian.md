@@ -4,17 +4,39 @@
 
 ترجمه ها:
 
+</div>
+
+[Nederlands](https://github.com/Protoqol/Beste-Laravel-Praktijken) (by [Protoqol](https://github.com/Protoqol))
+
+[Indonesia](indonesia.md) (by [P0rguy](https://github.com/p0rguy), [Doni Ahmad](https://github.com/donyahmd))
+
 [한국어](https://github.com/xotrs/laravel-best-practices) (by [cherrypick](https://github.com/xotrs))
+
+[日本語](japanese.md) (by [2bo](https://github.com/2bo))
+
+[简体中文](chinese.md) (by [xiaoyi](https://github.com/Shiloh520))
+
+[繁體中文](traditional-chinese.md) (by [woeichern](https://github.com/woeichern))
+
+[ภาษาไทย](thai.md) (by [kongvut sangkla](https://github.com/kongvut))
+
+[বাংলা](bangla.md) (by [Anowar Hossain](https://github.com/AnowarCST))
+
+[فارسی](persian.md) (by [Amirhossein baghaie](https://github.com/amirbagh75))
+
+[Português](https://github.com/jonaselan/laravel-best-practices) (by [jonaselan](https://github.com/jonaselan))
 
 [Українська](ukrainian.md) (by [Tenevyk](https://github.com/tenevyk))
 
-[روسی](russian.md)
-
-[فارسی](persian.md)
-
-[پرتقالی](https://github.com/jonaselan/laravel-best-practices) (by [jonaselan](https://github.com/jonaselan))
+[Русский](russian.md)
 
 [Tiếng Việt](https://chungnguyen.xyz/posts/code-laravel-lam-sao-cho-chuan) (by [Chung Nguyễn](https://github.com/nguyentranchung))
+
+[Español](spanish.md) (by [César Escudero](https://github.com/cedaesca))
+
+[Français](french.md) (by [Mikayil S.](https://github.com/mikayilsrt))
+
+[Polski](https://github.com/maciejjeziorski/laravel-best-practices-pl) (by [Maciej Jeziorski](https://github.com/maciejjeziorski))
 
 [Türkçe](turkish.md) (by [Burak](https://github.com/ikidnapmyself))
 
@@ -22,7 +44,11 @@
 
 [Italiana](italian.md) (by [Sujal Patel](https://github.com/sujalpatel2209))
 
+[Azərbaycanca](https://github.com/Maharramoff/laravel-best-practices-az) (by [Maharramoff](https://github.com/Maharramoff))
+
 [العربية](arabic.md) (by [ahmedsaoud31](https://github.com/ahmedsaoud31))
+
+<div dir="rtl">
 
 این مستندات درباره سازگاری لاراول با اصول SOLID یا Design Pattern ها و ... نیست. اینجا شما روش های اصولی توسعه پروژه های مبتنی بر لاراول رو پیدا میکنید که معمولا داخل پروژه ها در نظر گرفته نمیشوند.
 
@@ -626,11 +652,11 @@ $request->name;
 
 ### **به جای ایجاد یک object با new، از IoC container و facades استفاده کنید.**
 
-ایجاد یک object جدید با کلمه new یک اتصال کامل بین class ها و تست های پیچیده ایجاد میکند! بهتر است از IoC container یا facades استفاده کنید. [این بخش از مطلب تا جایی که من متوجه شدم مربوط به مباحث توسعه تست محور میباشد که من آشنایی زیادی ندارم ولی بعد از مطالعه و تکمیل اطلاعاتم این بخش را با توضیح تکمیلی، کامل خواهم کرد.]
+به‌جای این که آبجکت‌ها را مستقیما در هرجایی با کلمه کلیدی new ایجاد و استفاده کنید، از امکان IoC لاراول استفاده کنید. چرا که با این کار عملا dependency های هر چیزی را در صورت نیاز آن inject‌ میکنیم که به ما قدرت استفاده از مفهوم تست‌نویسی را میدهد.
 
 ❌ روش اشتباه:
 
-</div
+</div>
 
 ```php
 $user = new User;
