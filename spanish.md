@@ -1,5 +1,49 @@
 ![Laravel best practices](/images/logo-spanish.png?raw=true)
 
+Traducciones:
+
+[Nederlands](https://github.com/Protoqol/Beste-Laravel-Praktijken) (por [Protoqol](https://github.com/Protoqol))
+
+[Indonesia](indonesia.md) (por [P0rguy](https://github.com/p0rguy), [Doni Ahmad](https://github.com/donyahmd))
+
+[한국어](https://github.com/xotrs/laravel-best-practices) (por [cherrypick](https://github.com/xotrs))
+
+[日本語](japanese.md) (por [2bo](https://github.com/2bo))
+
+[简体中文](chinese.md) (por [xiaoyi](https://github.com/Shiloh520))
+
+[繁體中文](traditional-chinese.md) (por [woeichern](https://github.com/woeichern))
+
+[ภาษาไทย](thai.md) (por [kongvut sangkla](https://github.com/kongvut))
+
+[বাংলা](bangla.md) (por [Anowar Hossain](https://github.com/AnowarCST))
+
+[فارسی](persian.md) (por [amirhossein baghaie](https://github.com/amirbagh75))
+
+[Português](https://github.com/jonaselan/laravel-best-practices) (por [jonaselan](https://github.com/jonaselan))
+
+[Українська](ukrainian.md) (por [Tenevyk](https://github.com/tenevyk))
+
+[Русский](russian.md)
+
+[Tiếng Việt](https://chungnguyen.xyz/posts/code-laravel-lam-sao-cho-chuan) (por [Chung Nguyễn](https://github.com/nguyentranchung))
+
+[Español](spanish.md) (por [César Escudero](https://github.com/cedaesca))
+
+[Français](french.md) (por [Mikayil S.](https://github.com/mikayilsrt))
+
+[Polski](https://github.com/maciejjeziorski/laravel-best-practices-pl) (por [Maciej Jeziorski](https://github.com/maciejjeziorski))
+
+[Türkçe](turkish.md) (por [Burak](https://github.com/ikidnapmyself))
+
+[Deutsch](german.md) (por [Sujal Patel](https://github.com/sujalpatel2209))
+
+[Italiana](italian.md) (por [Sujal Patel](https://github.com/sujalpatel2209))
+
+[Azərbaycanca](https://github.com/Maharramoff/laravel-best-practices-az) (por [Maharramoff](https://github.com/Maharramoff))
+
+[العربية](arabic.md) (por [ahmedsaoud31](https://github.com/ahmedsaoud31))
+
 No se trata de una adaptación a Laravel de los principios SOLID ni de patrones, etcétera. Aquí encontrarás las mejores prácticas que, por lo general, son ignoradas en proyectos Laravel de la vida real.
 
 ## Índice de contenido
@@ -10,7 +54,7 @@ No se trata de una adaptación a Laravel de los principios SOLID ni de patrones,
 
 [Validación](#validación)
 
-[La lógica de negocios debe estar en una clase ayudante](#la-lógica-de-negocios-debe-estar-en-una-clase-ayudante)
+[La lógica de negocios debe estar en una clase de servicio](#la-lógica-de-negocios-debe-estar-en-una-clase-de-servicio)
 
 [No te repitas (DRY)](#no-te-repitas-dry)
 
@@ -18,11 +62,11 @@ No se trata de una adaptación a Laravel de los principios SOLID ni de patrones,
 
 [Asignación en masa](#asignación-en-masa)
 
-[No ejecutes consultas en las plantillas blade y utiliza el cargado prematuro (Problema N + 1)](#no-ejecutes-consultas-en-las-plantillas-blade-y-utiliza-el-cargado-prematuro-problema-n--1))
+[No ejecutes consultas en las plantillas Blade y utiliza el cargado prematuro (Problema N + 1)](#no-ejecutes-consultas-en-las-plantillas-blade-y-utiliza-el-cargado-prematuro-problema-n--1))
 
 [Comenta tu código, pero prioriza los métodos y nombres de variables descriptivas por sobre los comentarios](#comenta-tu-código-pero-prioriza-los-métodos-y-nombres-de-variables-descriptivas-por-sobre-los-comentarios)
 
-[No coloques JS ni CSS en las plantillas blade y no coloques HTML en clases de PHP](#no-coloques-js-ni-css-en-las-plantillas-blade-y-no-coloques-html-en-clases-de-php)
+[No coloques JS ni CSS en las plantillas Blade y no coloques HTML en clases de PHP](#no-coloques-js-ni-css-en-las-plantillas-blade-y-no-coloques-html-en-clases-de-php)
 
 [Utiliza los archivos de configuración y lenguaje en lugar de texto en el código](#utiliza-los-archivos-de-configuración-y-lenguaje-en-lugar-de-texto-en-el-código)
 
@@ -85,7 +129,7 @@ public function getFullNameShort()
 
 ### **Modelos gordos, controladores delgados**
 
-Coloca toda la lógica relacionada a la base de datos en los modelos de Eloquent o en un repositorio de clases si estás utilizando el constructor de consultas o consultas SQL puras.
+Coloca toda la lógica relacionada a la base de datos en los modelos de Eloquent o en una clase Repositorio si estás utilizando el constructor de consultas o consultas SQL puras.
 
 Malo:
 
@@ -167,9 +211,9 @@ class PostRequest extends Request
 
 [🔝 Volver al índice](#índice-de-contenido)
 
-### **La lógica de negocios debe estar en una clase ayudante**
+### **La lógica de negocios debe estar en una clase de servicio**
 
-Un controlador solo debe tener un propósito, así que mueve la lógica de negocio fuera de los controladores y colócala en clases ayudantes.
+Un controlador solo debe tener un propósito, así que mueve la lógica de negocio fuera de los controladores y colócala en clases de servicio.
 
 Malo:
 
@@ -209,7 +253,7 @@ class ArticleService
 
 ### **No te repitas (DRY)**
 
-Reutiliza código cada vez que puedas.  El SRP te ayuda a evitar la duplicación. Reutiliza también las plantillas blade, utiliza eloquent scope, etcétera.
+Reutiliza código cada vez que puedas.  El SRP (Principio de Propósito Único) te ayuda a evitar la duplicación. Reutiliza también las plantillas Blade, utiliza scopes de Eloquent, etcétera.
 
 Malo:
 
@@ -301,7 +345,7 @@ $category->article()->create($request->validated());
 
 [🔝 Volver al índice](#índice-de-contenido)
 
-### **No ejecutes consultas en las plantillas blade y utiliza el cargado prematuro (Problema N + 1)**
+### **No ejecutes consultas en las plantillas Blade y utiliza el cargado prematuro (Problema N + 1)**
 
 Malo (Para 100 usuarios, se ejecutarán 101 consultas):
 
@@ -348,7 +392,7 @@ if ($this->hasJoins())
 
 [🔝 Volver al índice](#índice-de-contenido)
 
-### **No coloques JS ni CSS en las plantillas blade y no coloques HTML en clases de PHP**
+### **No coloques JS ni CSS en las plantillas Blade y no coloques HTML en clases de PHP**
 
 Malo:
 
@@ -366,7 +410,7 @@ Or
 <button class="js-fav-article" data-article='@json($article)'>{{ $article->name }}<button>
 ```
 
-En el archivo JavaScript:
+En un archivo JavaScript:
 
 ```javascript
 let article = $('#article').val();
@@ -447,7 +491,7 @@ Cualquier otra relación | plural | comentariosArticulo | ~~comentarioArticulo, 
 Tabla | plural | comentarios_articulo | ~~comentario_articulo, comentariosArticulo~~
 Tabla de pivote | Nombres de modelos en singular y en orden alfabético | articulo_usuario | ~~usuario_articulo, articulos_usuarios~~
 Columna de tabla | snake_case sin el nombre del modelo | meta_titulo | ~~MetaTitulo; articulo_meta_titulo~~
-Propiedad de mdelo | snake_case | $model->created_at | ~~$model->createdAt~~
+Propiedad de modelo | snake_case | $model->created_at | ~~$model->createdAt~~
 Clave foránea | Nombre en singular del modelo con el sufijo _id | articulo_id | ~~articuloId, id_articulo, articulos_id~~
 Clave primaria | - | id | ~~id_personalizado~~
 Migración | - | 2017_01_01_000000_create_articles_table | ~~2017_01_01_000000_articles~~
@@ -582,6 +626,6 @@ public function getSomeDateAttribute($date)
 
 No coloques ningún tipo de lógica en los archivos de rutas.
 
-Minimiza el uso de PHP vanilla en las plantillas blade.
+Minimiza el uso de PHP vanilla en las plantillas Blade.
 
 [🔝 Volver al índice](#índice-de-contenido)
