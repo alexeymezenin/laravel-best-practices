@@ -463,7 +463,7 @@ Plantillas | Blade | Twig
 Trabajar con data | Laravel collections | Arreglos
 Validación de formularios | Clases Request | Paquetes de terceros, validación en el controlador
 Autenticación | Integrada | Paquetes de terceros, solución propia
-Autenticación para API's | Laravel Passport | Paquetes oAuth y JWT de terceros
+Autenticación para API's | Laravel Passport, Laravel Sanctum | Paquetes oAuth y JWT de terceros
 Creación de API's | Integrado | Dingo API y paquetes similares
 Estructura de la base de datos | Migraciones | Trabajar directamente con la estructura
 Localización | Integrada | Paquetes de terceros
