@@ -451,7 +451,7 @@ DB | Eloquent | SQL, Doctrine
 データの取り扱い | Laravel collections | Arrays
 フォームバリデーション | Request classes | サードパーティ製パッケージ、コントローラ内でバリデーション
 認証 | 標準組み込み | サードパーティ製パッケージ、独自実装
-API 認証 | Laravel Passport | サードパーティ製の JWT や OAuth パッケージ
+API 認証 | Laravel Passport, Laravel Sanctum | サードパーティ製の JWT や OAuth パッケージ
 API作成 | 標準組み込み | Dingo API や類似パッケージ
 DB構造の取り扱い | Migrations | 直接DB構造を扱う
 ローカライゼーション | 標準組み込み | サードパーティ製パッケージ
