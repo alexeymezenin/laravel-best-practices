@@ -464,7 +464,7 @@ Template | Blade | Twig
 Veri işleme | Laravel collections | Arrays
 Form doğrulama | Request classları | 3rd party paketler, controllerda doğrulama
 Authentication (Doğrulama) | Dahili | 3rd party paketler ya da kendi çözümünüz
-API authentication (Doğrulama) | Laravel Passport | 3rd party JWT and OAuth packetleri
+API authentication (Doğrulama) | Laravel Passport, Laravel Sanctum | 3rd party JWT and OAuth packetleri
 API Oluşturma | Dahili | Dingo API vb.
 DB Yapısı | Migrations | Doğrudan DB yönetimi
 Lokalizasyon (Yerelleştirme) | Dahili | 3rd party paketler

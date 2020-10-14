@@ -455,7 +455,7 @@ Modelli | Lama | Ramoscello
 Lavorare con i dati | Collezioni Laravel | Array
 Convalida del modulo | Richiedi classi | Pacchetti di terze parti, convalida nel controller
 Autenticazione | Incorporato | Pacchetti di terze parti, la tua soluzione
-Autenticazione API | Passaporto Laravel | Pacchetti JWT e OAuth di terze parti
+Autenticazione API | Laravel Passport, Laravel Sanctum | Pacchetti JWT e OAuth di terze parti
 Creazione dell'API | Incorporato | API Dingo e pacchetti simili
 Lavorare con la struttura DB | Migrazioni | Lavorare direttamente con la struttura DB
 Localizzazione | Incorporato | Pacchetti di terze parti

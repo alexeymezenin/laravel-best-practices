@@ -461,7 +461,7 @@ Templates | Blade | Twig
 Mit Daten arbeiten | Laravel Sammlungen | Arrays
 Formularvalidierung | Request-Klassen | Pakete von Drittanbietern, Validierung im Controller
 Authentifizierung | Eingebaut | Pakete von Drittanbietern, Ihre eigene Lösung
-API-Authentifizierung | Laravel Passport | JWT- und OAuth-Pakete von Drittanbietern
+API-Authentifizierung | Laravel Passport, Laravel Sanctum | JWT- und OAuth-Pakete von Drittanbietern
 API erstellen | Eingebaut | Dingo API und ähnliche Pakete
 Mit DB-Struktur arbeiten | Migrationen | Direkt mit der DB-Struktur arbeiten
 Lokalisierung | Eingebaut | Pakete von Drittanbietern

@@ -455,7 +455,7 @@ Templates | Blade | Twig
 Travailler avec des données | Laravel collections | Arrays
 Validation du formulaire | Request classes | 3rd party packages, validation dans le contrôleur
 Authentification | Built-in | 3rd party packages, votre propre solution
-API D'authentification | Laravel Passport | 3rd party JWT et OAuth packages
+API D'authentification | Laravel Passport, Laravel Sanctum | 3rd party JWT et OAuth packages
 Création d'API | Built-in | Dingo API and similar packages
 Travailler avec une structure de base de données | Migrations | Travailler directement avec la structure de la base de données
 Localisation | Built-in | 3rd party packages

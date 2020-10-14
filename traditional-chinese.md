@@ -420,7 +420,7 @@ DB | Eloquent | SQL, Doctrine
 資料操作 | Laravel Collection | 陣列
 表單驗證 | Request 類別 | 第三方套件、在 Controller 中驗證
 登入驗證 | 內建 | 其他第三方套件或自製解決方案
-API 登入驗證 | Laravel Passport | 第三方 JWT 或 OAuth 套件
+API 登入驗證 | Laravel Passport, Laravel Sanctum | 第三方 JWT 或 OAuth 套件
 建立 API | 內建 | Dingo API 或類似套件
 處理 DB 結構 | Migrations | 直接操作 DB 結構
 本地化 | 內建 | 第三方套件

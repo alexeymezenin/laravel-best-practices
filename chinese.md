@@ -452,7 +452,7 @@ DB操纵 | Eloquent | SQL, Doctrine
 数据操纵 | Laravel集合 | 数组
 表单验证| Request classes | 他第三方包,甚至在控制器中做验证
 权限 | Built-in | 他第三方包或者你自己解决
-API身份验证 | Laravel Passport | 第三方的JWT或者 OAuth 扩展包
+API身份验证 | Laravel Passport, Laravel Sanctum | 第三方的JWT或者 OAuth 扩展包
 创建 API | Built-in | Dingo API 或者类似的扩展包
 创建数据库结构 | Migrations | 直接用 DB 语句创建
 本土化 | Built-in |第三方包
