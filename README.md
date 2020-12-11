@@ -409,8 +409,7 @@ Tarefas | Ferramentas padrões | Pacotes de terceiros
 ------------ | ------------- | -------------
 Autorização | Policies | Entrust, Sentinel e outros pacotes
 Compilar assets | Laravel Mix | Grunt, Gulp, pacotes de terceiros
-Ambiente de desenvolvimento | Homestead | Docker
-Ambiente de desenvolvimento | Laradock | Docker
+Ambiente de desenvolvimento | Homestead, Laradock | Docker
 Deployment | Laravel Forge | Deployer e outras soluções
 Testes unitários | PHPUnit, Mockery | Phpspec
 Teste em navegador | Laravel Dusk | Codeception
