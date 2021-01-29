@@ -76,7 +76,7 @@ Non è un adattamento Laravel di principi, schemi, ecc. SOLID. Qui troverai le m
 
 [Altre buone pratiche](#other-good-practices)
 
-### **Principio della sola responsabilità**
+### **Principio di singola responsabilità**
 
 Una classe e un metodo dovrebbero avere una sola responsabilità.
 
@@ -121,7 +121,7 @@ public function getFullNameShort()
 
 ### **Fat models, skinny controllers**
 
-Put all DB related logic into Eloquent models or into Repository classes if you're using Query Builder or raw SQL queries.
+Inserisci tutta la logica legata al DB nei Model Eloquent oppure nei Repository a seconda che tu stia usando il Query Builder o le query SQL raw.
 
 Male:
 
@@ -163,7 +163,7 @@ class Client extends Model
 
 ### **Validazione**
 
-Sposta la convalida dai controller alle classi di richiesta.
+Sposta le logiche di validazione dai controller alle Request class.
 
 Male:
 
@@ -203,9 +203,9 @@ class PostRequest extends Request
 
 [Torna ai contenuti](#contents)
 
-### **La logica aziendale dovrebbe essere nella classe di servizio**
+### **La logica di business dovrebbe essere nella classe di servizio**
 
-Un controller deve avere una sola responsabilità, quindi sposta la logica aziendale dai controller alle classi di servizio.
+Un controller deve avere una sola responsabilità, quindi sposta la logica di business dai controller alle classi di servizio.
 
 Male:
 
@@ -243,9 +243,9 @@ class ArticleService
 
 [Torna ai contenuti](#contents)
 
-### **Non ripeterti (SECCO)**
+### **Non ripeterti (DRY: Don't Repeat Yourself)**
 
-Riutilizzare il codice quando è possibile. SRP ti aiuta a evitare la duplicazione. Inoltre, riutilizza i modelli di blade, usa gli ambiti eloquenti ecc.
+Riutilizzare il codice quando è possibile. Il Principio di Singola Responsabilità (SRP) ti aiuta a evitare la duplicazione. Inoltre, riutilizza i template blade, usa gli eloquenti scopes, ecc.
 
 Male:
 
@@ -286,9 +286,9 @@ public function getArticles()
 
 [Torna ai contenuti](#contents)
 
-### **Preferisco usare Eloquent rispetto a Query Builder e query SQL non elaborate. Preferisce raccolte su array**
+### **Favorisci l'utilizzo dei Model Eloquent rispetto al Query Builder e alle query SQL raw. Preferisci le Collection agli array**
 
-Eloquent ti consente di scrivere codice leggibile e gestibile. Inoltre, Eloquent ha ottimi strumenti integrati come eliminazioni soft, eventi, ambiti ecc.
+Eloquent ti consente di scrivere codice leggibile e manutenibile. Inoltre, Eloquent ha ottimi strumenti integrati come eliminazioni soft, eventi, scopes, ecc.
 
 Male:
 
@@ -337,7 +337,7 @@ $category->article()->create($request->validated());
 
 [Torna ai contenuti](#contents)
 
-### **Non eseguire query nei modelli Blade e utilizzare il caricamento desideroso (problema N + 1)**
+### **Non eseguire query nei template Blade e utilizzare l'eager loading (problema N + 1)**
 
 Male (fo 100 utenti, verranno eseguite 101 query DB):
 
@@ -361,7 +361,7 @@ $users = User::with('profile')->get();
 
 [Torna ai contenuti](#contents)
 
-### **Commenta il tuo codice, ma preferisci il metodo descrittivo e i nomi delle variabili rispetto ai commenti**
+### **Commenta il tuo codice, ma cerca anche di rendere autoesplicativi i nomi di metodi e variabili**
 
 Male:
 
@@ -384,7 +384,7 @@ if ($this->hasJoins())
 
 [Torna ai contenuti](#contents)
 
-### **Non inserire JS e CSS nei modelli Blade e non inserire HTML nelle classi PHP**
+### **Non inserire JS e CSS nei templte Blade e non inserire HTML nelle classi PHP**
 
 Male:
 
@@ -440,9 +440,9 @@ return back()->with('message', __('app.article_added'));
 
 ### **Utilizzare gli strumenti standard Laravel accettati dalla community**
 
-Preferisci utilizzare la funzionalità Laravel integrata e i pacchetti della community anziché utilizzare pacchetti e strumenti di terze parti. Qualsiasi sviluppatore che lavorerà con la tua app in futuro dovrà imparare nuovi strumenti. Inoltre, le possibilità di ottenere aiuto dalla comunità Laravel sono significativamente inferiori quando si utilizza un pacchetto o uno strumento di terze parti. Non far pagare il tuo cliente per quello.
+Favorisci l'utilizzo delle funzionalità integrate in Laravel e i pacchetti della community anziché utilizzare pacchetti e strumenti di terze parti. Altrimenti, qualsiasi sviluppatore che lavorerà con la tua app in futuro dovrà imparare nuovi strumenti. Inoltre, le possibilità di ottenere aiuto dalla comunità Laravel sono significativamente inferiori quando si utilizza un pacchetto o uno strumento di terze parti. Non far pagare il tuo cliente per quello.
 
-Compito | Strumenti standard | Strumenti di terze parti
+Task | Strumenti standard | Strumenti di terze parti
 ------------ | ------------- | -------------
 Autorizzazione | Politiche | Affida, Sentinel e altri pacchetti
 Compiling assets | Laravel Mix | Grunt, Gulp, 3rd party packages
@@ -466,7 +466,7 @@ DB | MySQL, PostgreSQL, SQLite, SQL Server | MongoDB
 
 [Torna ai contenuti](#contents)
 
-### **Segui le convenzioni di denominazione di Laravel**
+### **Segui le naming convention di Laravel**
 
  Seguire [Standard PSR](http://www.php-fig.org/psr/psr-2/).
  
@@ -475,33 +475,33 @@ DB | MySQL, PostgreSQL, SQLite, SQL Server | MongoDB
 Cosa | Come | Buono | Male
 ------------ | ------------- | ------------- | -------------
 Controller | singolare | Controllo articolo |~~ArticlesController~~
-Rotta | plurale | articoli / 1 | ~~article/1~~
-Percorso denominato | snake_case con notazione punto | users.show_active | ~~users.show-active, show-active-users~~
-Modello | singolare | Utente | ~~Users~~
+Route | plurale | articoli / 1 | ~~article/1~~
+Named route | snake_case con notazione punto | users.show_active | ~~users.show-active, show-active-users~~
+Model | singolare | Utente | ~~Users~~
 hasOne o appartiene alla relazione | singolare | articleComment |~~articleComments, article_comment~~
 Tutte le altre relazioni | plurale | articleComments | ~~articleComment, article_comments~~
 Tabella | plurale | commenti_articolo | ~~article_comment, articleComments~~
 Tabella pivot | nomi di modelli singolari in ordine alfabetico | user_user | ~~user_article, articles_users~~
 Colonna della tabella | snake_case senza nome modello | meta_title |~~Meta Title; articolo meta_title~~
-Proprietà del modello | snake_case | $ model-> Created_at |~~$model->createdAt~~
+Proprietà del Model | snake_case | $ model-> Created_at |~~$model->createdAt~~
 Foreign key | singular model name with _id suffix | article_id | ~~ArticleId, id_article, articles_id~~
 Chiave primaria | - | id |~~custom_id~~
-Migrazione | - | 2017_01_01_000000_create_articles_table |~~2017_01_01_000000_articles~~
+Migration | - | 2017_01_01_000000_create_articles_table |~~2017_01_01_000000_articles~~
 Metodo | camelCase | getAll | ~~get_all~~
-Metodo nel controller delle risorse | [tavolo](https://laravel.com/docs/master/controllers#resource-controllers) | store | ~~saveArticle~~
-Metodo nella classe di prova | camelCase | testGuestCannotSeeArticle |~~test_guest_cannot_see_article~~
+Metodo nel resource controller | [tavolo](https://laravel.com/docs/master/controllers#resource-controllers) | store | ~~saveArticle~~
+Metodo nella test class | camelCase | testGuestCannotSeeArticle |~~test_guest_cannot_see_article~~
 Variabile | camelCase | $ articoliWithAuthor |~~$articles_with_author~~
-Collezione | descrittivo, plurale | $ activeUsers = Utente :: active () -> get () | ~~$active, $data~~
+Collection | descrittivo, plurale | $ activeUsers = Utente :: active () -> get () | ~~$active, $data~~
 Oggetto | descrittivo, singolare | $ activeUser = User :: active () -> first () | ~~$users, $obj~~
 Indice file di configurazione e lingua | snake_case | articoli abilitati |~~ArticlesEnabled; articles-enabled~~
-Visualizza | astuccio per kebab | show-filtered.blade.php | ~~showFiltered.blade.php, show_filtered.blade.php~~
+View | astuccio per kebab | show-filtered.blade.php | ~~showFiltered.blade.php, show_filtered.blade.php~~
 Config | snake_case | google_calendar.php |~~googleCalendar.php, google-calendar.php~~
 Contratto (interfaccia) | aggettivo o sostantivo | AuthenticationInterface | ~~Authenticatable, IAuthentication~~
-Tratto | aggettivo | Notificabile | ~~NotificationTrait~~
+Trait | aggettivo | Notificabile | ~~NotificationTrait~~
 
 [Torna ai contenuti](#contents)
 
-### **Utilizzare la sintassi più breve e più leggibile ove possibile**
+### **Utilizzare una sintassi più breve e più leggibile ove possibile**
 
 Male:
 
@@ -540,9 +540,9 @@ Common syntax | Shorter and more readable syntax
 
 [Torna ai contenuti](#contents)
 
-### **Utilizzare il contenitore o le facciate IoC anziché la nuova classe**
+### **Utilizzare il container IoC o i Facades invece di istanziare nuove classi**
 
-la nuova sintassi della classe crea un accoppiamento stretto tra le classi e complica i test. Utilizzare invece il contenitore o le facciate IoC.
+La sintassi new Class crea un accoppiamento stretto tra le classi e complica i test. Utilizzare invece il container IoC o i Facades.
 
 Male:
 
@@ -566,9 +566,9 @@ $this->user->create($request->validated());
 
 [Torna ai contenuti](#contents)
 
-### **Non ottiene direttamente i dati dal file `.env`**
+### **Non prelevare direttamente i dati dal file `.env`**
 
-Passa invece i dati ai file di configurazione e quindi usa la funzione di supporto `config ()` per usare i dati in un'applicazione.
+Passa i dati presenti nell'.env file ai file di configurazione e quindi usa l'helper `config ()` per prelevare i dati all'interno dell'applicazione.
 
 Male:
 
@@ -588,7 +588,7 @@ $apiKey = config('api.key');
 
 [Torna ai contenuti](#contents)
 
-### **Memorizza le date nel formato standard. Utilizzare accessori e mutatori per modificare il formato della data**
+### **Memorizza le date nel formato standard. Utilizza gli accessors e i mutators per modificare il formato della data**
 
 Male:
 
@@ -618,6 +618,6 @@ public function getSomeDateAttribute($date)
 
 Non inserire mai alcuna logica nei file di route.
 
-Ridurre al minimo l'utilizzo di PHP vaniglia nei modelli Blade.
+Ridurre al minimo l'utilizzo di vanilla PHP nei template Blade.
 
 [Torna ai contenuti](#contents)
