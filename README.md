@@ -17,6 +17,7 @@ Translations:
 [ภาษาไทย](thai.md) (by [kongvut sangkla](https://github.com/kongvut))
 
 [বাংলা](bangla.md) (by [Anowar Hossain](https://github.com/AnowarCST))
+[বাংলা](bangla.md) (by [Haronur Rashid](https://github.com/Haronur))
 
 [فارسی](persian.md) (by [amirhossein baghaie](https://github.com/amirbagh75))
 
