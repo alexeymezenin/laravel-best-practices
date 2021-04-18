@@ -32,7 +32,7 @@ Traducciones:
 
 [Français](french.md) (por [Mikayil S.](https://github.com/mikayilsrt))
 
-[Polski](https://github.com/maciejjeziorski/laravel-best-practices-pl) (por [Maciej Jeziorski](https://github.com/maciejjeziorski))
+[Polski](polish.md) (by [Karol Pietruszka](https://github.com/pietrushek))
 
 [Türkçe](turkish.md) (por [Burak](https://github.com/ikidnapmyself))
 
