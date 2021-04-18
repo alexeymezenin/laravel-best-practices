@@ -48,39 +48,39 @@ To nie jest Laravel-owa adaptacja zasad SOLID, wzorców itp. Znajdziesz tu najle
 
 ## Spis treści
 
-[Zasada pojedynczej odpowiedzialności](#zasada-pojedynczej-odpowiedzialnoci)
+[Zasada pojedynczej odpowiedzialności](#zasada-pojedynczej-odpowiedzialności)
 
 [Grube modele, chude kontrolery](#grube-modele-chude-kontrolery)
 
 [Walidacja](#walidacja)
 
-[Logika biznesowa powinna znajdować się w klasie Service](#logika-biznesowa-powinna-znajdowa-si-w-klasie-service)
+[Logika biznesowa powinna znajdować się w klasie Service](#logika-biznesowa-powinna-znajdować-się-w-klasie-service)
 
-[Nie powtarzaj się (DRY)](#nie-powtarzaj-si-dry)
+[Nie powtarzaj się (DRY)](#nie-powtarzaj-się-dry)
 
-[Preferuj używanie modeli Eloquent-a ponad klasy Query Builder lub surowe zapytania SQL. Staraj się używać kolecji zamist tablic](#preferuj-uywanie-modeli-eloquent-a-ponad-klasy-query-builder-lub-surowe-zapytania-sql-staraj-si-uywa-kolecji-zamist-tablic)
+[Preferuj używanie modeli Eloquent-a ponad klasy Query Builder lub surowe zapytania SQL. Staraj się używać kolecji zamist tablic](#preferuj-używanie-modeli-eloquent-a-ponad-klasy-query-builder-lub-surowe-zapytania-sql-staraj-się-używać-kolecji-zamist-tablic)
 
 [Masowe przypisywanie](#masowe-przypisywanie)
 
-[Nie wykonuj zapytań w szablonach Blade oraz używaj eager loading-u (problem N + 1)](#nie-wykonuj-zapyta-w-szablonach-blade-oraz-uywaj-eager-loading-u-problem-n--1)
+[Nie wykonuj zapytań w szablonach Blade oraz używaj eager loading-u (problem N + 1)](#nie-wykonuj-zapytań-w-szablonach-blade-oraz-używaj-eager-loading-u-problem-n--1)
 
-[Komentuj swój kod, ale preferuj opisowe nazwy metod i zmiennych zamiast komentarzy](#komentuj-swj-kod-ale-preferuj-opisowe-nazwy-metod-i-zmiennych-zamiast-komentarzy)
+[Komentuj swój kod, ale preferuj opisowe nazwy metod i zmiennych zamiast komentarzy](#komentuj-swój-kod-ale-preferuj-opisowe-nazwy-metod-i-zmiennych-zamiast-komentarzy)
 
-[Nie umieszczaj kodu JS i CSS w szablonach Blade oraz nie osadzaj żadnego kodu HTML wewnątrz klas PHP.](#nie-umieszczaj-kodu-js-i-css-w-szablonach-blade-oraz-nie-osadzaj-adnego-kodu-html-wewntrz-klas-php)
+[Nie umieszczaj kodu JS i CSS w szablonach Blade oraz nie osadzaj żadnego kodu HTML wewnątrz klas PHP.](#nie-umieszczaj-kodu-js-i-css-w-szablonach-blade-oraz-nie-osadzaj-żadnego-kodu-html-wewnątrz-klas-php)
 
-[Używaj plików konfiguracyjnych oraz językowych, stałych zamiast tekstu w kodzie](#uywaj-plikw-konfiguracyjnych-oraz-jzykowych-staych-zamiast-tekstu-w-kodzie)
+[Używaj plików konfiguracyjnych oraz językowych, stałych zamiast tekstu w kodzie](#używaj-plikw-konfiguracyjnych-oraz-językowych-stałych-zamiast-tekstu-w-kodzie)
 
-[Używaj standardowych narzędzi Laravel-a zaakceptowanych przez społeczność](#uywaj-standardowych-narzdzi-laravel-a-zaakceptowanych-przez-spoeczno)
+[Używaj standardowych narzędzi Laravel-a zaakceptowanych przez społeczność](#używaj-standardowych-narzędzi-laravel-a-zaakceptowanych-przez-społeczność)
 
-[Postępuj zgodnie z konwencją nazewniczą Laravel-a](#postpuj-zgodnie-z-konwencj-nazewnicz-laravel-a)
+[Postępuj zgodnie z konwencją nazewniczą Laravel-a](#postępuj-zgodnie-z-konwencją-nazewniczą-laravel-a)
 
-[W miarę możliwości używaj krótszej i bardziej czytelnej składni](#w-miar-moliwoci-uywaj-krtszej-i-bardziej-czytelnej-skadni)
+[W miarę możliwości używaj krótszej i bardziej czytelnej składni](#w-miarę-możliwości-używaj-krótszej-i-bardziej-czytelnej-składni)
 
-[Użyj kontenera IoC lub fasad zamiast nowych klas](#uyj-kontenera-ioc-lub-fasad-zamiast-nowych-klas)
+[Użyj kontenera IoC lub fasad zamiast nowych klas](#użyj-kontenera-ioc-lub-fasad-zamiast-nowych-klas)
 
-[Nie pobieraj wartości z pliku `.env` bezpośrednio](#nie-pobieraj-wartoci-z-pliku-env-bezporednio)
+[Nie pobieraj wartości z pliku `.env` bezpośrednio](#nie-pobieraj-wartości-z-pliku-env-bezpośrednio)
 
-[Przechowuj daty w standardowym formacie. Używaj akcesorów i mutatorów do modyfikacji formatów.](#przechowuj-daty-w-standardowym-formacie-uywaj-akcesorw-i-mutatorw-do-modyfikacji-formatw)
+[Przechowuj daty w standardowym formacie. Używaj akcesorów i mutatorów do modyfikacji formatów.](#przechowuj-daty-w-standardowym-formacie-używaj-akcesorów-i-mutatorów-do-modyfikacji-formatw)
 
 [Inne dobre praktyki](#inne-dobre-praktyki)
 
@@ -125,7 +125,7 @@ public function getFullNameShort()
 }
 ```
 
-[🔝 Wróć do spisu treści](#spis-treci)
+[🔝 Wróć do spisu treści](#spis-treści)
 
 ### **Grube modele, chude kontrolery**
 
@@ -167,7 +167,7 @@ class Client extends Model
 }
 ```
 
-[🔝 Wróć do spisu treści](#spis-treci)
+[🔝 Wróć do spisu treści](#spis-treści)
 
 ### **Walidacja**
 
@@ -209,7 +209,7 @@ class PostRequest extends Request
 }
 ```
 
-[🔝 Wróć do spisu treści](#spis-treci)
+[🔝 Wróć do spisu treści](#spis-treści)
 
 ### **Logika biznesowa powinna znajdować się w klasie Service**
 
@@ -249,7 +249,7 @@ class ArticleService
 }
 ```
 
-[🔝 Wróć do spisu treści](#spis-treci)
+[🔝 Wróć do spisu treści](#spis-treści)
 
 ### **Nie powtarzaj się (DRY)**
 
@@ -292,7 +292,7 @@ public function getArticles()
 }
 ```
 
-[🔝 Wróć do spisu treści](#spis-treci)
+[🔝 Wróć do spisu treści](#spis-treści)
 
 ### **Preferuj używanie modeli Eloquent-a ponad klasy Query Builder lub surowe zapytania SQL. Staraj się używać kolecji zamist tablic**
 
@@ -321,7 +321,7 @@ Dobrze:
 Article::has('user.profile')->verified()->latest()->get();
 ```
 
-[🔝 Wróć do spisu treści](#spis-treci)
+[🔝 Wróć do spisu treści](#spis-treści)
 
 ### **Masowe przypisywanie**
 
@@ -343,7 +343,7 @@ Dobrze:
 $category->article()->create($request->validated());
 ```
 
-[🔝 Wróć do spisu treści](#spis-treci)
+[🔝 Wróć do spisu treści](#spis-treści)
 
 ### **Nie wykonuj zapytań w szablonach Blade oraz używaj eager loading-u (problem N + 1)**
 
@@ -367,7 +367,7 @@ $users = User::with('profile')->get();
 @endforeach
 ```
 
-[🔝 Wróć do spisu treści](#spis-treci)
+[🔝 Wróć do spisu treści](#spis-treści)
 
 ### **Komentuj swój kod, ale preferuj opisowe nazwy metod i zmiennych zamiast komentarzy**
 
@@ -390,7 +390,7 @@ Dobrze:
 if ($this->hasJoins())
 ```
 
-[🔝 Wróć do spisu treści](#spis-treci)
+[🔝 Wróć do spisu treści](#spis-treści)
 
 ### **Nie umieszczaj kodu JS i CSS w szablonach Blade oraz nie osadzaj żadnego kodu HTML wewnątrz klas PHP.**
 
@@ -418,7 +418,7 @@ let article = $('#article').val();
 
 Najlepszym sposobem jest użycie specialnego obiektu do transferu danych pomiędzy PHP i JS.
 
-[🔝 Wróć do spisu treści](#spis-treci)
+[🔝 Wróć do spisu treści](#spis-treści)
 
 ### **Używaj plików konfiguracyjnych oraz językowych, stałych zamiast tekstu w kodzie**
 
@@ -444,7 +444,7 @@ public function isNormal()
 return back()->with('message', __('app.article_added'));
 ```
 
-[🔝 Wróć do spisu treści](#spis-treci)
+[🔝 Wróć do spisu treści](#spis-treści)
 
 ### **Używaj standardowych narzędzi Laravel-a zaakceptowanych przez społeczność**
 
@@ -475,7 +475,7 @@ Generowanie danych testowych | klasy Seeder-ów, fabryki modeli, Faker | manualn
 Planowanie zadań | Laravel Task Scheduler | skrypty oraz inne paczki
 Baza danych | MySQL, PostgreSQL, SQLite, SQL Server | MongoDB
 
-[🔝 Wróć do spisu treści](#spis-treci)
+[🔝 Wróć do spisu treści](#spis-treści)
 
 ### **Postępuj zgodnie z konwencją nazewniczą Laravel-a**
 
@@ -510,7 +510,7 @@ Pliki konfiguracyjne | snake_case | google_calendar.php | ~~googleCalendar.php, 
 Kontrakt (interfejs) | przymiotnik lub rzeczownik | AuthenticationInterface | ~~Authenticatable, IAuthentication~~
 Cecha (trait) | przymiotnik | Notifiable | ~~NotificationTrait~~
 
-[🔝 Wróć do spisu treści](#spis-treci)
+[🔝 Wróć do spisu treści](#spis-treści)
 
 ### **W miarę możliwości używaj krótszej i bardziej czytelnej składni**
 
@@ -549,7 +549,7 @@ Powszechna składnia | Krótsza i bardziej czytelna składnia
 `->select('id', 'name')->get()` | `->get(['id', 'name'])`
 `->first()->name` | `->value('name')`
 
-[🔝 Wróć do spisu treści](#spis-treci)
+[🔝 Wróć do spisu treści](#spis-treści)
 
 ### **Użyj kontenera IoC lub fasad zamiast nowych klas**
 
@@ -576,7 +576,7 @@ public function __construct(User $user)
 $this->user->create($request->validated());
 ```
 
-[🔝 Wróć do spisu treści](#spis-treci)
+[🔝 Wróć do spisu treści](#spis-treści)
 
 ### **Nie pobieraj wartości z pliku `.env` bezpośrednio**
 
@@ -598,7 +598,7 @@ Dobrze:
 $apiKey = config('api.key');
 ```
 
-[🔝 Wróć do spisu treści](#spis-treci)
+[🔝 Wróć do spisu treści](#spis-treści)
 
 ### **Przechowuj daty w standardowym formacie. Używaj akcesorów i mutatorów do modyfikacji formatów.**
 
@@ -624,7 +624,7 @@ public function getSomeDateAttribute($date)
 {{ $object->ordered_at->some_date }}
 ```
 
-[🔝 Wróć do spisu treści](#spis-treci)
+[🔝 Wróć do spisu treści](#spis-treści)
 
 ### **Inne dobre praktyki**
 
@@ -632,4 +632,4 @@ NNigdy nie umieszczaj żadnej logiki w plikach ścieżek URL (routes/*.php).
 
 Zminimalizuj użycie natywnego kodu PHP w szablonach Blade.
 
-[🔝 Wróć do spisu treści](#spis-treci)
+[🔝 Wróć do spisu treści](#spis-treści)
