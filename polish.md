@@ -80,7 +80,7 @@ To nie jest Laravel-owa adaptacja zasad SOLID, wzorców itp. Znajdziesz tu najle
 
 [Nie pobieraj wartości z pliku `.env` bezpośrednio](#nie-pobieraj-wartości-z-pliku-env-bezpośrednio)
 
-[Przechowuj daty w standardowym formacie. Używaj akcesorów i mutatorów do modyfikacji formatów.](#przechowuj-daty-w-standardowym-formacie-używaj-akcesorów-i-mutatorów-do-modyfikacji-formatw)
+[Przechowuj daty w standardowym formacie. Używaj akcesorów i mutatorów do modyfikacji formatów.](#przechowuj-daty-w-standardowym-formacie-używaj-akcesorów-i-mutatorów-do-modyfikacji-formatów)
 
 [Inne dobre praktyki](#inne-dobre-praktyki)
 
