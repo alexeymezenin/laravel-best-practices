@@ -452,7 +452,7 @@ Aufgabe | Standardwerkzeuge | Tools von Drittanbietern
 ------------ | ------------- | -------------
 Genehmigung | Richtlinien | Entrust, Sentinel und andere Pakete
 Assets zusammenstellen | Laravel Mix | Grunt, Gulp, 3rd-Party-Pakete
-Entwicklungsumgebung | Homestead | Docker
+Entwicklungsumgebung | Laravel Sail, Homestead | Docker
 Bereitstellung | Laravel Forge | Deployer und andere Lösungen
 Unit Tests | PHPUnit, Mockery | Phpspec
 Browsertests | Laravel Dusk | Codeception
