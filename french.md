@@ -446,7 +446,7 @@ Tâche | Outils standard | Outils tiers
 ------------ | ------------- | -------------
 Autorisation | Policies | Entrust, Sentinel et d'autres packages
 Compiler des assets | Laravel Mix | Grunt, Gulp, packages tiers
-Environnement de développement | Homestead | Docker
+Environnement de développement | Laravel Sail, Homestead | Docker
 Déploiement | Laravel Forge | Deployer et d'autre solutions
 Tests unitaires | PHPUnit, Mockery | Phpspec
 Test du navigateur | Laravel Dusk | Codeception

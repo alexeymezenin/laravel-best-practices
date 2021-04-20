@@ -446,7 +446,7 @@ Task | Strumenti standard | Strumenti di terze parti
 ------------ | ------------- | -------------
 Autorizzazione | Politiche | Affida, Sentinel e altri pacchetti
 Compiling assets | Laravel Mix | Grunt, Gulp, 3rd party packages
-Ambiente di sviluppo | Fattoria | docker
+Ambiente di sviluppo | Laravel Sail, Fattoria | docker
 Distribuzione | Laravel Forge | Deployer e altre soluzioni
 Test unitari | PHPUnit, Mockery | Phpspec
 Test del browser | Laravel Dusk | Codeception

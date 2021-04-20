@@ -454,7 +454,7 @@ Tarea | Herramienta estándar | Herramientas de terceras personas
 ------------ | ------------- | -------------
 Autorización | Policies | Entrust, Sentinel y otros paquetes
 Compilar assets | Laravel Mix | Grunt, Gulp, paquetes de terceros
-Entorno de desarrollo | Homestead | Docker
+Entorno de desarrollo | Laravel Sail, Homestead | Docker
 Deployment | Laravel Forge | Deployer y otras soluciones
 Unit testing | PHPUnit, Mockery | Phpspec
 Testeo en el navegador | Laravel Dusk | Codeception
