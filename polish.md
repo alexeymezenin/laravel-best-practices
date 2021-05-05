@@ -32,7 +32,7 @@ Tłumaczenia:
 
 [Français](french.md) (by [Mikayil S.](https://github.com/mikayilsrt))
 
-[Polski](polish.md) (by [Karol Pietruszka](https://github.com/pietrushek))
+[Polski](polish.md) (by [Karol Pietruszka](https://github.com/pietrushek), [Olsza](https://github.com/olsza))
 
 [Türkçe](turkish.md) (by [Burak](https://github.com/ikidnapmyself))
 
