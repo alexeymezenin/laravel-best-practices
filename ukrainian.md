@@ -416,7 +416,7 @@ return back()->with('message', __('app.article_added'));
 ------------ | ------------- | -------------
 Авторизація | Policies | Entrust, Sentinel and other packages
 Компіляція засобів | Laravel Mix | Grunt, Gulp, 3rd party packages
-Середовище розробки | Homestead | Docker
+Середовище розробки | Laravel Sail, Homestead | Docker
 Розгортання застосунків | Laravel Forge | Deployer and other solutions
 Unit тестування | PHPUnit, Mockery | Phpspec
 Тестування браузера | Laravel Dusk | Codeception

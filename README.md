@@ -32,7 +32,7 @@ Translations:
 
 [Français](french.md) (by [Mikayil S.](https://github.com/mikayilsrt))
 
-[Polski](https://github.com/maciejjeziorski/laravel-best-practices-pl) (by [Maciej Jeziorski](https://github.com/maciejjeziorski))
+[Polski](polish.md) (by [Karol Pietruszka](https://github.com/pietrushek))
 
 [Türkçe](turkish.md) (by [Burak](https://github.com/ikidnapmyself))
 
@@ -454,7 +454,7 @@ Task | Standard tools | 3rd party tools
 ------------ | ------------- | -------------
 Authorization | Policies | Entrust, Sentinel and other packages
 Compiling assets | Laravel Mix | Grunt, Gulp, 3rd party packages
-Development Environment | Homestead | Docker
+Development Environment | Laravel Sail, Homestead | Docker
 Deployment | Laravel Forge | Deployer and other solutions
 Unit testing | PHPUnit, Mockery | Phpspec
 Browser testing | Laravel Dusk | Codeception

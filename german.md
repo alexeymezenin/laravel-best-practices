@@ -30,7 +30,7 @@ Translations:
 
 [Français](french.md) (by [Mikayil S.](https://github.com/mikayilsrt))
 
-[Polski](https://github.com/maciejjeziorski/laravel-best-practices-pl) (by [Maciej Jeziorski](https://github.com/maciejjeziorski))
+[Polski](polish.md) (by [Karol Pietruszka](https://github.com/pietrushek))
 
 [Türkçe](turkish.md) (by [Burak](https://github.com/ikidnapmyself))
 
@@ -452,7 +452,10 @@ Aufgabe | Standardwerkzeuge | Tools von Drittanbietern
 ------------ | ------------- | -------------
 Autorisierung | Policies | Entrust, Sentinel und andere Pakete
 Assets kompilieren | Laravel Mix | Grunt, Gulp, 3rd-Party-Pakete
-Entwicklungsumgebung | Homestead | Docker
+Entwicklungsumgebung | Laravel Sail, Homestead | Docker
+Genehmigung | Richtlinien | Entrust, Sentinel und andere Pakete
+Assets zusammenstellen | Laravel Mix | Grunt, Gulp, 3rd-Party-Pakete
+Entwicklungsumgebung | Laravel Sail, Homestead | Docker
 Bereitstellung | Laravel Forge | Deployer und andere Lösungen
 Unit Tests | PHPUnit, Mockery | Phpspec
 Browsertests | Laravel Dusk | Codeception

@@ -20,7 +20,7 @@
 
 [Français](french.md) (by [Mikayil S.](https://github.com/mikayilsrt))
 
-[Polski](https://github.com/maciejjeziorski/laravel-best-practices-pl) (by [Maciej Jeziorski](https://github.com/maciejjeziorski))
+[Polski](polish.md) (by [Karol Pietruszka](https://github.com/pietrushek))
 
 [Türkçe](turkish.md) (by [Burak](https://github.com/ikidnapmyself))
 
@@ -442,7 +442,7 @@ return back()->with('message', __('app.article_added'));
 ------------ | ------------- | -------------
 認可 | Policies | Entrust, Sentinel または他のパッケージ
 アセットコンパイル | Laravel Mix | Grunt, Gulp, サードパーティ製パッケージ
-開発環境 | Homestead | Docker
+開発環境 | Laravel Sail, Homestead | Docker
 デプロイ | Laravel Forge | Deployer またはその他ソリューション
 単体テスト| PHPUnit, Mockery | Phpspec
 ブラウザテスト | Laravel Dusk | Codeception
