@@ -199,9 +199,9 @@ class PostRequest extends Request
     public function rules()
     {
         return [
-            'title' => 'required|unique:posts|max:255',
-            'body' => 'required',
-            'publish_at' => 'nullable|date',
+            'title' =>  ['required','unique:posts','max:255'],
+            'body' => ['required'],
+            'publish_at' => ['nullable','date'],
         ];
     }
 }
