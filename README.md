@@ -14,7 +14,7 @@ O que é descrito aqui não é uma adaptação ao principio SOLID, padrões e et
 
 [Não se repita (Don't repeat yourself: DRY)](#não-se-repita-dont-repeat-yourself-dry)
 
-[Usar o Eloquent em vez de Query Builder e consultas SQL puras (raw SQL). Usar collections no lugar de  arrays](#usar-o-eloquent-em-vez-de-query-builder-e-consultas-sql-puras-raw-sql-usar-collections-no-lugar-de--arrays)
+[Usar o Eloquent em vez de Query Builder e consultas SQL puras (raw SQL). Usar collections no lugar de arrays](#usar-o-eloquent-em-vez-de-query-builder-e-consultas-sql-puras-raw-sql-usar-collections-no-lugar-de--arrays)
 
 [Atribuição em massa](#atribuição-em-massa)
 
@@ -36,13 +36,13 @@ O que é descrito aqui não é uma adaptação ao principio SOLID, padrões e et
 
 [Não recupere informações diretamente do `.env`](#não-recupere-informações-diretamente-do-env)
 
-[Armazene datas em formatos padrões. Use "accessors" and "mutators" para modificar o formato das datas](#armazene-datas-em-formatos-padrões-use-accessors-and-mutators-para-modificar-o-formato-das-datas)
+[Armazene datas em formatos padrões. Use "accessors" e "mutators" para modificar o formato das datas](#armazene-datas-em-formatos-padrões-use-accessors-and-mutators-para-modificar-o-formato-das-datas)
 
 [Outras boas práticas](#outras-boas-práticas)
 
 ### **Princípio da responsabilidade única**
 
-Classes e metódos devem possuir somente uma responsabilidade.
+Classes e métodos devem possuir somente uma responsabilidade.
 
 Ruim:
 
@@ -250,7 +250,7 @@ public function getArticles()
 
 [🔝 Voltar para o início](#conteúdo)
 
-### **Usar o Eloquent em vez de Query Builder e consultas SQL puras (raw SQL). Usar collections no lugar de  arrays**
+### **Usar o Eloquent em vez de Query Builder e consultas SQL puras (raw SQL). Usar collections no lugar de arrays**
 
 Eloquent permite que você escreva código legível e manutenível. Além disso, Eloquent possui ferramentas ótimas para implementar "soft deletes", eventos, escopos e etc.
 
@@ -325,7 +325,7 @@ $users = User::with('profile')->get();
 
 [🔝 Voltar para o início](#conteúdo)
 
-### **Comente seu código, mas prefira um método descritivo e nomes de variáveis em vez de  comentários**
+### **Comente seu código, mas prefira um método descritivo e nomes de variáveis em vez de comentários**
 
 Ruim:
 
@@ -551,7 +551,7 @@ $apiKey = config('api.key');
 
 [🔝 Voltar para o início](#conteúdo)
 
-### **Armazene datas em formatos padrões. Use "accessors" and "mutators" para modificar o formato das datas**
+### **Armazene datas em formatos padrões. Use "accessors" e "mutators" para modificar o formato das datas**
 
 Ruim:
 
