@@ -40,6 +40,8 @@
 
 [العربية](arabic.md) (by [ahmedsaoud31](https://github.com/ahmedsaoud31))
 
+[اردو](urdu.md) (by [RizwanAshraf1](https://github.com/RizwanAshraf1))
+
 <p dir='rtl' align='right'>هذا المحتوى لا يصنف بصفته مبادئ SOLID للارافيل أو أنماط التصميم، إلخ... هنا ستجد أفضل الممارسات التي يتم تجاهلها عادةً في مشاريع لارافيل الفعلية.</p>
  
 
