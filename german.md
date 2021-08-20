@@ -42,6 +42,8 @@ Translations:
 
 [العربية](arabic.md) (by [ahmedsaoud31](https://github.com/ahmedsaoud31))
 
+[اردو](urdu.md) (by [RizwanAshraf1](https://github.com/RizwanAshraf1))
+
 Es handelt sich hierbei nicht um eine Laravel-Adaption von SOLID-Prinzipien, Mustern usw. Hier finden Sie Best Practices, die in echten Laravel-Projekten normalerweise ignoriert werden.
 
 ## Inhaltsverzeichnis
