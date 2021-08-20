@@ -48,6 +48,8 @@ It's not a Laravel adaptation of SOLID principles, patterns etc. Here you'll fin
 
 ## Contents
 
+[Fresh stable dependencies](#fresh-stable-dependencies)
+
 [Single responsibility principle](#single-responsibility-principle)
 
 [Fat models, skinny controllers](#fat-models-skinny-controllers)
@@ -83,6 +85,17 @@ It's not a Laravel adaptation of SOLID principles, patterns etc. Here you'll fin
 [Store dates in the standard format. Use accessors and mutators to modify date format](#store-dates-in-the-standard-format-use-accessors-and-mutators-to-modify-date-format)
 
 [Other good practices](#other-good-practices)
+
+### **Fresh stable dependencies**
+
+Keep your Laravel version up to date with the stable release of the framework.
+
+The stable release always contains:
+- bugfixes;
+- security fixes;
+- new features helpful during development;
+
+[🔝 Back to contents](#contents)
 
 ### **Single responsibility principle**
 
