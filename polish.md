@@ -48,6 +48,8 @@ To nie jest Laravel-owa adaptacja zasad SOLID, wzorców itp. Znajdziesz tu najle
 
 ## Spis treści
 
+[Świeże zależności](#fresh-stable-dependencies)
+
 [Zasada pojedynczej odpowiedzialności](#zasada-pojedynczej-odpowiedzialności)
 
 [Grube modele, chude kontrolery](#grube-modele-chude-kontrolery)
@@ -83,6 +85,15 @@ To nie jest Laravel-owa adaptacja zasad SOLID, wzorców itp. Znajdziesz tu najle
 [Przechowuj daty w standardowym formacie. Używaj akcesorów i mutatorów do modyfikacji formatów.](#przechowuj-daty-w-standardowym-formacie-używaj-akcesorów-i-mutatorów-do-modyfikacji-formatów)
 
 [Inne dobre praktyki](#inne-dobre-praktyki)
+
+### **Świeże zależności**.
+
+Aktualizuj swoją wersję Laravel do stabilnej wersji frameworka.
+
+Stabilna wersja zawsze zawiera:
+- poprawki błędów;
+- poprawki bezpieczeństwa;
+- nowe funkcjonalności, przydatne przy rozwoju aplikacji;
 
 ### **Zasada pojedynczej odpowiedzialności**
 
