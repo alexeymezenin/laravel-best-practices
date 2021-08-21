@@ -44,6 +44,8 @@ Tłumaczenia:
 
 [العربية](arabic.md) (by [ahmedsaoud31](https://github.com/ahmedsaoud31))
 
+[اردو](urdu.md) (by [RizwanAshraf1](https://github.com/RizwanAshraf1))
+
 To nie jest Laravel-owa adaptacja zasad SOLID, wzorców itp. Znajdziesz tu najlepsze praktyki, które są zwykle ignorowane w realnych projektach Laravela.
 
 ## Spis treści
