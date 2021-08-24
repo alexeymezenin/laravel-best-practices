@@ -411,7 +411,7 @@ return back()->with('message', __('app.article_added'));
 ------------ | ------------- | -------------
 權限控制 | Policies | Entrust, Sentinel 或其他套件
 編譯資源 | Laravel Mix | Grunt, Gulp, 或其他第三方套件
-開發環境 | Homestead | Docker
+開發環境 | Laravel Sail, Homestead | Docker
 部署 | Laravel Forge | Deployer 或其他解決方案
 單元測試 | PHPUnit, Mockery | Phpspec
 瀏覽器測試 | Laravel Dusk | Codeception
@@ -446,7 +446,7 @@ Model | 單數 | User | ~~Users~~
 hasOne 或 belongsTo 關聯 | 單數 | articleComment | ~~articleComments, article_comment~~
 所有其他關聯 | 複數 | articleComments | ~~articleComment, article_comments~~
 資料表 | 複數 | article_comments | ~~article_comment, articleComments~~
-Pivat Table 透視表 | 以字母順序排列的單數 Model 名稱 | article_user | ~~user_article, articles_users~~
+Pivot Table 透視表 | 以字母順序排列的單數 Model 名稱 | article_user | ~~user_article, articles_users~~
 資料表欄位| 使用 snake_case，並且不包含 Model 名稱 | meta_title | ~~MetaTitle; article_meta_title~~
 Model 屬性 | snake_case | $model->created_at | ~~$model->createdAt~~
 Foreign Key - 外鍵 | 以單數 Model 名稱後方加上 _id | article_id | ~~ArticleId, id_article, articles_id~~

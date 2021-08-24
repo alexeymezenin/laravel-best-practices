@@ -36,7 +36,7 @@
 
 [Français](french.md) (by [Mikayil S.](https://github.com/mikayilsrt))
 
-[Polski](https://github.com/maciejjeziorski/laravel-best-practices-pl) (by [Maciej Jeziorski](https://github.com/maciejjeziorski))
+[Polski](polish.md) (by [Karol Pietruszka](https://github.com/pietrushek))
 
 [Türkçe](turkish.md) (by [Burak](https://github.com/ikidnapmyself))
 
@@ -540,7 +540,7 @@ return back()->with('message', __('app.article_added'));
 ------------ | ------------- | -------------
 Authorization | Policies | Entrust, Sentinel and other packages
 Compiling assets | Laravel Mix | Grunt, Gulp, 3rd party packages
-Development Environment | Homestead | Docker
+Development Environment | Laravel Sail, Homestead | Docker
 Deployment | Laravel Forge | Deployer and other solutions
 Unit testing | PHPUnit, Mockery | Phpspec
 Browser testing | Laravel Dusk | Codeception
@@ -744,11 +744,42 @@ public function getSomeDateAttribute($date)
 
 [🔝 بازگشت به فهرست](#فهرست-مطالب)
 
-### **دیگر قواعد توسعه روش قابل قبول (بدون فهرست)**
+### **در فایل های route خود هیچوقت منطق برنامه را قرار ندهید.**
 
-- در فایل های route خود هیچوقت منطق برنامه را قرار ندهید.
 
-- تا حد ممکن از vanilla PHP در فایل های blade استفاده نکنید.
+❌ روش اشتباه:
+
+</div>
+
+```php
+// Route
+Route::get('user/1', function (User $user) {
+    return new UserResource($user);
+});
+```
+<div dir="rtl">
+
+✔️ روش قابل قبول:
+
+</div>
+
+```php
+// Route
+Route::get('user/1', 'UserController@show');
+
+// Controlelr
+class UserController extends Controller 
+{
+    public function show(User $user) {
+        return new UserResource($user);
+    }
+}
+```
+<div dir="rtl">
+
+[🔝 بازگشت به فهرست](#فهرست-مطالب)
+
+### **تا حد ممکن از PHP خام در فایل های blade استفاده نکنید.**
 
 [🔝 بازگشت به فهرست](#فهرست-مطالب)
 

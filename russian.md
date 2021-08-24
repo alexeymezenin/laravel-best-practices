@@ -414,7 +414,7 @@ Laravel имеет встроенные инструменты для решен
 ------------ | ------------- | -------------
 Авторизация | Политики | Entrust, Sentinel и др. пакеты, собственное решение
 Работа с JS, CSS и пр. | Laravel Mix | Grunt, Gulp, сторонние пакеты
-Среда разработки | Homestead | Docker
+Среда разработки | Laravel Sail, Homestead | Docker
 Разворачивание приложений | Laravel Forge | Deployer и многие другие
 Тестирование | Phpunit, Mockery | Phpspec
 e2e тестирование | Laravel Dusk | Codeception

@@ -20,7 +20,7 @@
 
 [Français](french.md) (by [Mikayil S.](https://github.com/mikayilsrt))
 
-[Polski](https://github.com/maciejjeziorski/laravel-best-practices-pl) (by [Maciej Jeziorski](https://github.com/maciejjeziorski))
+[Polski](polish.md) (by [Karol Pietruszka](https://github.com/pietrushek))
 
 [Türkçe](turkish.md) (by [Burak](https://github.com/ikidnapmyself))
 
@@ -443,7 +443,7 @@ return back()->with('message', __('app.article_added'));
 ------------ | ------------- | -------------
 权限 | Policies | Entrust, Sentinel 或者其他扩展包
 资源编译工具| Laravel Mix | Grunt, Gulp, 或者其他第三方包
-开发环境| Homestead | Docker
+开发环境| Laravel Sail, Homestead | Docker
 部署 | Laravel Forge | Deployer 或者其他解决方案
 自动化测试 | PHPUnit, Mockery | Phpspec
 页面预览测试 | Laravel Dusk | Codeception
