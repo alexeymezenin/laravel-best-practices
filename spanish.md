@@ -18,7 +18,7 @@ Traducciones:
 
 [বাংলা](bangla.md) (por [Anowar Hossain](https://github.com/AnowarCST))
 
-[فارسی](persian.md) (por [amirhossein baghaie](https://github.com/amirbagh75))
+[فارسی](persian.md) (por [amirhossein baghaie](https://github.com/ohmydevops))
 
 [Português](https://github.com/jonaselan/laravel-best-practices) (por [jonaselan](https://github.com/jonaselan))
 
