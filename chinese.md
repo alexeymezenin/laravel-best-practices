@@ -30,6 +30,8 @@
 
 [العربية](arabic.md) (by [ahmedsaoud31](https://github.com/ahmedsaoud31))
 
+[اردو](urdu.md) (by [RizwanAshraf1](https://github.com/RizwanAshraf1))
+
 这并非laravel官方强制要求的规范，而是我们在日常开发过程中遇到的一些容易忽视的优秀实现方式。
 
 ## 内容
