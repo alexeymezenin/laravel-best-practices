@@ -20,6 +20,8 @@
 
 [Не выполняйте запросы в представлениях и используйте нетерпеливую загрузку (проблема N + 1)](#Не-выполняйте-запросы-в-представлениях-и-используйте-нетерпеливую-загрузку-проблема-n--1)
 
+[Используйте метод chunk при работе с большим количеством данных](#используйте-метод-chunk-при-работе-с-большим-количеством-данных)
+
 [Комментируйте код, предпочитайте читаемые имена методов комментариям](#Комментируйте-код-предпочитайте-читаемые-имена-методов-комментариям)
 
 [Выносите JS и CSS из шаблонов Blade и HTML из PHP кода](#Выносите-js-и-css-из-шаблонов-blade-и-html-из-php-кода)
@@ -64,22 +66,22 @@ public function getFullNameAttribute()
 Хорошо:
 
 ```php
-public function getFullNameAttribute()
+public function getFullNameAttribute(): bool
 {
     return $this->isVerifiedClient() ? $this->getFullNameLong() : $this->getFullNameShort();
 }
 
-public function isVerifiedClient()
+public function isVerifiedClient(): bool
 {
     return auth()->user() && auth()->user()->hasRole('client') && auth()->user()->isVerified();
 }
 
-public function getFullNameLong()
+public function getFullNameLong(): string
 {
     return 'Mr. ' . $this->first_name . ' ' . $this->middle_name . ' ' . $this->last_name;
 }
 
-public function getFullNameShort()
+public function getFullNameShort(): string
 {
     return $this->first_name[0] . '. ' . $this->last_name;
 }
@@ -89,7 +91,7 @@ public function getFullNameShort()
 
 ### **Тонкие контроллеры, толстые модели**
 
-По своей сути, это лишь один из частных случаев принципа единой ответственности. Выносите работу с данными в модели при работе с Eloquent или в репозитории при работе с Query Builder или "сырыми" SQL запросами.
+Выносите работу с данными в модели.
 
 Плохо:
 
@@ -116,7 +118,7 @@ public function index()
 
 class Client extends Model
 {
-    public function getWithNewOrders()
+    public function getWithNewOrders(): Collection
     {
         return $this->verified()
             ->with(['orders' => function ($q) {
@@ -158,7 +160,7 @@ public function store(PostRequest $request)
 
 class PostRequest extends Request
 {
-    public function rules()
+    public function rules(): array
     {
         return [
             'title' => 'required|unique:posts|max:255',
@@ -200,7 +202,7 @@ public function store(Request $request)
 
 class ArticleService
 {
-    public function handleUploadedImage($image)
+    public function handleUploadedImage($image): void
     {
         if (!is_null($image)) {
             $image->move(public_path('images') . 'temp');
@@ -236,15 +238,15 @@ public function getArticles()
 ```php
 public function scopeActive($q)
 {
-    return $q->where('verified', 1)->whereNotNull('deleted_at');
+    return $q->where('verified', true)->whereNotNull('deleted_at');
 }
 
-public function getActive()
+public function getActive(): Collection
 {
     return $this->active()->get();
 }
 
-public function getArticles()
+public function getArticles(): Collection
 {
     return $this->whereHas('user', function ($q) {
             $q->active();
@@ -329,18 +331,36 @@ $users = User::with('profile')->get();
 
 [🔝 Наверх](#Содержание)
 
-### **Комментируйте код, предпочитайте читаемые имена методов комментариям**
+### **Используйте метод chunk при работе с большим количеством данных**
+
+Bad ():
+
+```php
+$users = $this->get();
+
+foreach ($users as $user) {
+    ...
+}
+```
+
+Good:
+
+```php
+$this->chunk(500, function ($users) {
+    foreach ($users as $user) {
+        ...
+    }
+});
+```
+
+[🔝 Наверх](#Содержание)
+
+### **Предпочитайте читаемые имена переменных и методов комментариям**
 
 Плохо:
 
 ```php
-if (count((array) $builder->getQuery()->joins) > 0)
-```
-
-Лучше:
-
-```php
-// Determine if there are any joins.
+// Determine if there are any joins
 if (count((array) $builder->getQuery()->joins) > 0)
 ```
 
@@ -398,7 +418,7 @@ return back()->with('message', 'Ваша статья была успешно д
 Хорошо:
 
 ```php
-public function isNormal()
+public function isNormal(): bool
 {
     return $article->type === Article::TYPE_NORMAL;
 }
@@ -587,8 +607,18 @@ public function getSomeDateAttribute($date)
 
 ### **Другие советы и практики**
 
+Не используйте паттерны и инструменты чужеродные по отношению к Laravel и подобным фреймворкам (RoR, Django). Если вам нравятся подходы, используемые в Symfony (Spring и др.), использовать эти фреймворки для создания веб приложений будет намного разумнее.
+
 Не размещайте логику в маршрутах.
 
 Старайтесь не использовать "сырой" PHP в шаблонах Blade.
+
+Используйте базу данных, размещенную в памяти (in-memory DB) при тестировании.
+
+Не меняйте стандартные инструменты фреймворка, иначе у вас могут возникнуть проблемы при обновлении фреймворка и другие сложности.
+
+Используйте современный синтаксис PHP, но при этом не забывайте, что читаемость важнее.
+
+Используйте такие инструменты, как View Composers, с большой осторожностью. В большинстве случаев, есть возможность найти другое решение проблемы.
 
 [🔝 Наверх](#Содержание)
