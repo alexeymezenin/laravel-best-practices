@@ -1,5 +1,7 @@
 ![Laravel best practices](/images/logo-turkish.png?raw=true)
 
+You might also want to check out the [real-world Laravel example application](https://github.com/alexeymezenin/laravel-realworld-example-app)
+
 Çeviriler:
 
 [Nederlands](https://github.com/Protoqol/Beste-Laravel-Praktijken) (by [Protoqol](https://github.com/Protoqol))
@@ -35,11 +37,6 @@
 [العربية](arabic.md) (by [ahmedsaoud31](https://github.com/ahmedsaoud31))
 
 [اردو](urdu.md) (by [RizwanAshraf1](https://github.com/RizwanAshraf1))
-
-Bu metin Laravel için SOLID prensipleri, patternler vb. şeylerin uygulaması değildir. Burada, Laravel projelerinde 
-geliştiriciler tarafından dikkate alınmayan iyi ve kötü pratiklerin karşılaştırmalarını bulacaksınız.
-
-**Çevirmenin Notu #1: Wikipedia'da Türkçe başlığı olmaması nedeniyle SOLID prensipleri hakkında açıklayıcı bir [Ekşi Sözlük entrysi](https://eksisozluk.com/entry/50438875)*  
 
 ## İçerik
 

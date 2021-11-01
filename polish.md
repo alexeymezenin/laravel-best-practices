@@ -1,5 +1,7 @@
 ![Laravel - najlepsze praktyki](/images/logo-polish.png?raw=true)
 
+You might also want to check out the [real-world Laravel example application](https://github.com/alexeymezenin/laravel-realworld-example-app)
+
 Tłumaczenia:
 
 [Nederlands](https://github.com/Protoqol/Beste-Laravel-Praktijken) (by [Protoqol](https://github.com/Protoqol))
@@ -46,7 +48,6 @@ Tłumaczenia:
 
 [اردو](urdu.md) (by [RizwanAshraf1](https://github.com/RizwanAshraf1))
 
-To nie jest Laravel-owa adaptacja zasad SOLID, wzorców itp. Znajdziesz tu najlepsze praktyki, które są zwykle ignorowane w realnych projektach Laravela.
 
 ## Spis treści
 

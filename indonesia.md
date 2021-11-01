@@ -1,7 +1,7 @@
 
 ![Laravel best practices](/images/logo-english.png?raw=true)
 
-Ini bukan adaptasi Laravel dari prinsip SOLID, *pattern*, dll. Di sini Anda akan menemukan praktik terbaik yang biasanya diabaikan dalam proyek Laravel di kehidupan nyata.
+You might also want to check out the [real-world Laravel example application](https://github.com/alexeymezenin/laravel-realworld-example-app)
 
 ## Konten
 

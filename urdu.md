@@ -1,5 +1,7 @@
 ![Laravel best practices](/images/logo-english.png?raw=true)
 
+You might also want to check out the [real-world Laravel example application](https://github.com/alexeymezenin/laravel-realworld-example-app)
+
 ## <p dir="rtl">ترجمے:</p>
 
 [Nederlands](https://github.com/Protoqol/Beste-Laravel-Praktijken) (by [Protoqol](https://github.com/Protoqol))
@@ -41,10 +43,7 @@
 [العربية](arabic.md) (by [ahmedsaoud31](https://github.com/ahmedsaoud31))
 
 [اردو](urdu.md) (by [RizwanAshraf1](https://github.com/RizwanAshraf1))
-
-<p dir="rtl" align="right">یہ Laravel کے ٹھوس اصولوں ، نمونوں وغیرہ کی  موافقت نہیں ہے یہاں آپ کو بہترین طریقے ملیں گے جنہیں عام طور پر حقیقی زندگی کے Laravel  پروجیکٹس میں نظر انداز کیا جاتا ہے.</p>
  
-
 ## <p dir="rtl">انڈیکس</p>
 
 [<p dir="rtl">واحد ذمہ داری کا اصول</p>](#1)

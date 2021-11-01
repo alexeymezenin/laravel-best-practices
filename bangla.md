@@ -1,5 +1,7 @@
 ![Laravel best practices](/images/logo-english.png?raw=true)
 
+You might also want to check out the [real-world Laravel example application](https://github.com/alexeymezenin/laravel-realworld-example-app)
+
 অনুবাদঃ
 
 [Nederlands](https://github.com/Protoqol/Beste-Laravel-Praktijken) (by [Protoqol](https://github.com/Protoqol))
@@ -40,8 +42,6 @@
 
 [اردو](urdu.md) (by [RizwanAshraf1](https://github.com/RizwanAshraf1))
 
-
-এটা লারাভেল এর সাথে SOLID Principles বা Patterns সংযোজন নয়। এখানে আপনি সেরা অনুশীলন গুলা পাবেন যা বাস্তব জীবনে লারাভেল প্রজেক্টে সাধারণত অবহেলা করা হয়। 
 
 ## সূচীপত্র
 

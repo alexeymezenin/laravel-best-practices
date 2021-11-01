@@ -1,5 +1,7 @@
 ![Laravel best practices](./images/logo-thai.png?raw=true)
 
+You might also want to check out the [real-world Laravel example application](https://github.com/alexeymezenin/laravel-realworld-example-app)
+
 การแปลภาษา:
 
 [English](README.md)
@@ -39,8 +41,6 @@
 [العربية](arabic.md) (by [ahmedsaoud31](https://github.com/ahmedsaoud31))
 
 [اردو](urdu.md) (by [RizwanAshraf1](https://github.com/RizwanAshraf1))
-
-เอกสารนี้ไม่ใช่การดัดแปลงหลักการ SOLID หรือรูปแบบและอื่น ๆ ของ Laravel โดยบทความนี้คุณจะพบแนวทางปฏิบัติในการ Coding ที่ดีที่สุด ซึ่งหลายคนมักจะละเลยในงานโปรเจค Laravel จริงของคุณ
 
 ## เนื้อหา<a name="contents"></a>
 

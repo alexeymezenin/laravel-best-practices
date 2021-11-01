@@ -1,6 +1,6 @@
 ![Хорошие практики Laravel](/images/logo-russian.png?raw=true)
 
-Это не пересказ лучших практик вроде SOLID, паттернов и пр. с адаптацией под Laravel. Здесь собраны именно практики, которые игнорируются в реальных Laravel проектах. Также, рекомендую ознакомиться с [хорошими практиками в контексте PHP](https://github.com/jupeter/clean-code-php). Смотрите также [обсуждение хороших практик Laravel](https://laravel.ru/forum/viewforum.php?id=17).
+Возможно, вам также будет интересно взглянуть на [пример Laravel приложения](https://github.com/alexeymezenin/laravel-realworld-example-app)
 
 ## Содержание
 

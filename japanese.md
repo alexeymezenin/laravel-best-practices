@@ -1,5 +1,7 @@
 ![Laravel ベストプラクティス](/images/logo-japanese.png?raw=true)
 
+You might also want to check out the [real-world Laravel example application](https://github.com/alexeymezenin/laravel-realworld-example-app)
+
 翻訳:
 
 [Nederlands](https://github.com/Protoqol/Beste-Laravel-Praktijken) (by [Protoqol](https://github.com/Protoqol))
@@ -29,9 +31,6 @@
 [Italiana](italian.md) (by [Sujal Patel](https://github.com/sujalpatel2209))
 
 [العربية](arabic.md) (by [ahmedsaoud31](https://github.com/ahmedsaoud31))
-
-これはSOLID原則やパターンなどをLavavelに適用させたものではありません。
-ここでは、実際のLaravelプロジェクトでは通常無視されるベストプラクティスを見つけることができます。
 
 ## コンテンツ
 

@@ -1,6 +1,6 @@
 ![Найкращі практики Laravel](/images/logo-ukrainian.png?raw=true)
 
-Це не адаптація Laravel під принципи SOLID, схем тощо. Тут ви знайдете найкращі практики, які зазвичай ігнорують в справжніх Laravel проєктах. Також, рекомендую ознайомитися з [хорошими практиками в контексті PHP](https://github.com/jupeter/clean-code-php).
+You might also want to check out the [real-world Laravel example application](https://github.com/alexeymezenin/laravel-realworld-example-app)
 
 [Back to English version](README.md)
 

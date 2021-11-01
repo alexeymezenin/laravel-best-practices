@@ -1,6 +1,6 @@
 ![Laravel best practices](/images/logo-traditional-chinese.png?raw=true)
 
-本文件中列出的並不是 Laravel 版的 SOLID 原則、模式等。在本文件中，我們列出許多在實際 Laravel 專案中常常被忽略的一些最佳實踐。
+You might also want to check out the [real-world Laravel example application](https://github.com/alexeymezenin/laravel-realworld-example-app)
 
 ## 內容
 
