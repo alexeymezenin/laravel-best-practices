@@ -32,6 +32,8 @@ You might also want to check out the [real-world Laravel example application](ht
 
 [العربية](arabic.md) (by [ahmedsaoud31](https://github.com/ahmedsaoud31))
 
+[![Laravel example app](/images/laravel-real-world-banner.png?raw=true)](https://github.com/alexeymezenin/laravel-realworld-example-app)
+
 ## コンテンツ
 
 [単一責任の原則](#単一責任の原則)

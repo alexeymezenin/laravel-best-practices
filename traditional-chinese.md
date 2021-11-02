@@ -40,6 +40,8 @@ You might also want to check out the [real-world Laravel example application](ht
 
 [其他優良實踐](#其他優良實踐)
 
+[![Laravel example app](/images/laravel-real-world-banner.png?raw=true)](https://github.com/alexeymezenin/laravel-realworld-example-app)
+
 ### **單一職責原則**
 
 一個類別與方法應只有一個職責。

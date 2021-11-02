@@ -41,6 +41,8 @@ You might also want to check out the [real-world Laravel example application](ht
 
 [Praktik bagus lainnya](#praktik-bagus-lainnya)
 
+[![Laravel example app](/images/laravel-real-world-banner.png?raw=true)](https://github.com/alexeymezenin/laravel-realworld-example-app)
+
 ### **Prinsip *single responsibility***
 
 Kelas dan metode seharusnya hanya memiliki satu tanggung jawab.

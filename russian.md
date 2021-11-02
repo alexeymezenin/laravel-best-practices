@@ -2,6 +2,8 @@
 
 Возможно, вам также будет интересно взглянуть на [пример Laravel приложения](https://github.com/alexeymezenin/laravel-realworld-example-app)
 
+[![Laravel example app](/images/laravel-real-world-banner.png?raw=true)](https://github.com/alexeymezenin/laravel-realworld-example-app)
+
 ## Содержание
 
 [Принцип единственной ответственности (Single responsibility principle)](#Принцип-единственной-ответственности-single-responsibility-principle)

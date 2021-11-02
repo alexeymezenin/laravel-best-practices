@@ -40,6 +40,8 @@ Traductions:
 
 [اردو](urdu.md) (by [RizwanAshraf1](https://github.com/RizwanAshraf1))
 
+[![Laravel example app](/images/laravel-real-world-banner.png?raw=true)](https://github.com/alexeymezenin/laravel-realworld-example-app)
+
 ## Contenu
 
 [Principe de responsabilité unique](#principe-de-responsabilité-unique)

@@ -42,6 +42,7 @@ You might also want to check out the [real-world Laravel example application](ht
 
 [اردو](urdu.md) (by [RizwanAshraf1](https://github.com/RizwanAshraf1))
 
+[![Laravel example app](/images/laravel-real-world-banner.png?raw=true)](https://github.com/alexeymezenin/laravel-realworld-example-app)
 
 ## সূচীপত্র
 

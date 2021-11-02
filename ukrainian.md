@@ -42,6 +42,8 @@ You might also want to check out the [real-world Laravel example application](ht
 
 [Інші хороші практики](#Інші-хороші-практики)
 
+[![Laravel example app](/images/laravel-real-world-banner.png?raw=true)](https://github.com/alexeymezenin/laravel-realworld-example-app)
+
 ### **Принцип єдиної відповідальності (Single responsibility principle)**
 
 Клас та метод повинні мати лише одну відповідальність.
