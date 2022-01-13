@@ -508,6 +508,7 @@ View | kebab-case | show-filtered.blade.php | ~~showFiltered.blade.php, show_fil
 Config | snake_case | google_calendar.php | ~~googleCalendar.php, google-calendar.php~~
 Vertrag (Interface) | Adjektiv oder Substantiv | AuthenticationInterface | ~~Authenticatable, IAuthentication~~
 Trait | Adjektiv | Notifiable | ~~NotificationTrait~~
+Enum | singular | UserType |  ~~UserTypes~~, ~~UserTypeEnum~~
 
 [🔝 Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 

@@ -508,6 +508,7 @@ View | kebab-case | show-filtered.blade.php | ~~showFiltered.blade.php, show_fil
 Config | snake_case | google_calendar.php | ~~googleCalendar.php, google-calendar.php~~
 Contract (interface) | sıfat ya da isim | AuthenticationInterface | ~~Authenticatable, IAuthentication~~
 Trait | sıfat | Notifiable | ~~NotificationTrait~~
+Enum | tekil | UserType |  ~~UserTypes~~, ~~UserTypeEnum~~
 
 [🔝 Başa dön](#içerik)
 

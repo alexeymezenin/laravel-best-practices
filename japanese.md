@@ -495,6 +495,7 @@ Pivotテーブル | 単数形 モデル名のアルファベット順 | article_
 コンフィグ | スネークケース | google_calendar.php | ~~googleCalendar.php, google-calendar.php~~
 契約 (インターフェイス) | 形容詞または名詞 | AuthenticationInterface | ~~Authenticatable, IAuthentication~~
 Trait | 形容詞 | Notifiable | ~~NotificationTrait~~
+Enum | singular | UserType |  ~~UserTypes~~, ~~UserTypeEnum~~
 
 [🔝 コンテンツに戻る](#コンテンツ)
 

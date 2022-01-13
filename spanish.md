@@ -510,6 +510,7 @@ Vistas | kebab-case | show-filtered.blade.php | ~~showFiltered.blade.php, show_f
 Configuración | snake_case | google_calendar.php | ~~googleCalendar.php, google-calendar.php~~
 Contrato (interface) | adjetivo o sustantivo | AuthenticationInterface | ~~Authenticatable, IAuthentication~~
 Trait | adjetivo | Notifiable | ~~NotificationTrait~~
+Enum | singular | UserType |  ~~UserTypes~~, ~~UserTypeEnum~~
 
 [🔝 Volver al índice](#índice-de-contenido)
 

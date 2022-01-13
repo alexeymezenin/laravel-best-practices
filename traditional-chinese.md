@@ -465,6 +465,7 @@ View | kebab-case | show-filtered.blade.php | ~~showFiltered.blade.php, show_fil
 設定檔 | snake_case | google_calendar.php | ~~googleCalendar.php, google-calendar.php~~
 Contract (界面) | 形容詞或名詞 | AuthenticationInterface | ~~Authenticatable, IAuthentication~~
 Trait | 形容詞 | Notifiable | ~~NotificationTrait~~
+Enum | singular | UserType |  ~~UserTypes~~, ~~UserTypeEnum~~
 
 [🔝 回到目錄](#內容)
 

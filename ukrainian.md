@@ -470,6 +470,7 @@ API автентифікація | Laravel Passport, Laravel Sanctum | 3rd party
 Конфігурація | snake_case | google_calendar.php | ~~googleCalendar.php, google-calendar.php~~
 Домовленість (інтерфейс) | прикметник або іменник | AuthenticationInterface | ~~Authenticatable, IAuthentication~~
 Trait | прикметник | Notifiable | ~~NotificationTrait~~
+Enum | однини | UserType |  ~~UserTypes~~, ~~UserTypeEnum~~
 
 [🔝 Назад до змісту](#Зміст)
 

@@ -502,6 +502,7 @@ View | astuccio per kebab | show-filtered.blade.php | ~~showFiltered.blade.php, 
 Config | snake_case | google_calendar.php |~~googleCalendar.php, google-calendar.php~~
 Contratto (interfaccia) | aggettivo o sostantivo | AuthenticationInterface | ~~Authenticatable, IAuthentication~~
 Trait | aggettivo | Notificabile | ~~NotificationTrait~~
+Enum | singular | UserType |  ~~UserTypes~~, ~~UserTypeEnum~~
 
 [Torna ai contenuti](#contents)
 

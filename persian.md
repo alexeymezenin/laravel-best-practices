@@ -600,6 +600,7 @@ View | kebab-case | show-filtered.blade.php | ~~showFiltered.blade.php, show_fil
 Config | snake_case | google_calendar.php | ~~googleCalendar.php, google-calendar.php~~
 Contract (interface) | صفت یا اسم | AuthenticationInterface | ~~Authenticatable, IAuthentication~~
 Trait | صفت | Notifiable | ~~NotificationTrait~~
+Enum | singular | UserType |  ~~UserTypes~~, ~~UserTypeEnum~~
 
 <div dir="rtl">
 

@@ -502,6 +502,7 @@ Vue | kebab-case | show-filtered.blade.php | ~~showFiltered.blade.php, show_filt
 Config | snake_case | google_calendar.php | ~~googleCalendar.php, google-calendar.php~~
 Contract (interface) | adjectif ou nom | AuthenticationInterface | ~~Authenticatable, IAuthentication~~
 Trait | adjectif | Notifiable | ~~NotificationTrait~~
+Enum | singular | UserType |  ~~UserTypes~~, ~~UserTypeEnum~~
 
 [🔝 Retour au contenu](#contents)
 
