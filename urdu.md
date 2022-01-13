@@ -510,6 +510,7 @@ View | kebab-case | show-filtered.blade.php | ~~showFiltered.blade.php, show_fil
 Config | snake_case | google_calendar.php | ~~googleCalendar.php, google-calendar.php~~
 Contract (interface) | adjective or noun | AuthenticationInterface | ~~Authenticatable, IAuthentication~~
 Trait | adjective | Notifiable | ~~NotificationTrait~~
+Trait [(PSR)](https://www.php-fig.org/bylaws/psr-naming-conventions/) | adjective | NotifiableTrait | ~~Notification~~
 Enum | singular | UserType |  ~~UserTypes~~, ~~UserTypeEnum~~
 
 [<p dir="rtl">🔝 انڈیکس پر واپس جائیں</p>](#انڈیکس)

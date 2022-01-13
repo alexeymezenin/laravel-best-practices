@@ -513,6 +513,7 @@ Widok | kebab-case | show-filtered.blade.php | ~~showFiltered.blade.php, show_fi
 Pliki konfiguracyjne | snake_case | google_calendar.php | ~~googleCalendar.php, google-calendar.php~~
 Kontrakt (interfejs) | przymiotnik lub rzeczownik | AuthenticationInterface | ~~Authenticatable, IAuthentication~~
 Cecha (trait) | przymiotnik | Notifiable | ~~NotificationTrait~~
+Trait [(PSR)](https://www.php-fig.org/bylaws/psr-naming-conventions/) | adjective | NotifiableTrait | ~~Notification~~
 Enum | singular | UserType |  ~~UserTypes~~, ~~UserTypeEnum~~
 
 [🔝 Wróć do spisu treści](#spis-treści)
