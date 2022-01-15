@@ -501,6 +501,7 @@ hasOne或belongsTo关系 | 单数 | articleComment | ~~articleComments, article_
 Trait | 使用形容词 | Notifiable | ~~NotificationTrait~~
 Trait [(PSR)](https://www.php-fig.org/bylaws/psr-naming-conventions/) | adjective | NotifiableTrait | ~~Notification~~
 Enum | singular | UserType |  ~~UserTypes~~, ~~UserTypeEnum~~
+FormRequest | singular | UpdateUserRequest |  ~~UpdateUserFormRequest~~, ~~UserFormRequest~~, ~~UserRequest~~
 
 [🔝 返回目录](#内容)
 

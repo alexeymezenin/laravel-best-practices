@@ -515,6 +515,7 @@ Kontrakt (interfejs) | przymiotnik lub rzeczownik | AuthenticationInterface | ~~
 Cecha (trait) | przymiotnik | Notifiable | ~~NotificationTrait~~
 Trait [(PSR)](https://www.php-fig.org/bylaws/psr-naming-conventions/) | adjective | NotifiableTrait | ~~Notification~~
 Enum | singular | UserType |  ~~UserTypes~~, ~~UserTypeEnum~~
+FormRequest | singular | UpdateUserRequest |  ~~UpdateUserFormRequest~~, ~~UserFormRequest~~, ~~UserRequest~~
 
 [🔝 Wróć do spisu treści](#spis-treści)
 
