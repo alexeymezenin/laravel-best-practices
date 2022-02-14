@@ -1,32 +1,20 @@
-![Laravel best practices](/images/logo-english.png?raw=true)
+![Laravel 모범 사례](/images/logo-korean.png?raw=true)
 
 You might also want to check out the [real-world Laravel example application](https://github.com/alexeymezenin/laravel-realworld-example-app)
 
-Translations:
+번역:
 
 [Nederlands](https://github.com/Protoqol/Beste-Laravel-Praktijken) (by [Protoqol](https://github.com/Protoqol))
 
-[Indonesia](indonesia.md) (by [P0rguy](https://github.com/p0rguy), [Doni Ahmad](https://github.com/donyahmd))
-
 [한국어](korean.md) (by [dumbbelloper](https://github.com/dumbbelloper))
-
-[日本語](japanese.md) (by [2bo](https://github.com/2bo))
-
-[简体中文](chinese.md) (by [xiaoyi](https://github.com/Shiloh520))
-
-[繁體中文](traditional-chinese.md) (by [woeichern](https://github.com/woeichern))
-
-[ภาษาไทย](thai.md) (by [kongvut sangkla](https://github.com/kongvut))
-
-[বাংলা](bangla.md) (by [Anowar Hossain](https://github.com/AnowarCST))
-
-[فارسی](persian.md) (by [amirhossein baghaie](https://github.com/ohmydevops))
-
-[Português](https://github.com/jonaselan/laravel-best-practices) (by [jonaselan](https://github.com/jonaselan))
 
 [Українська](ukrainian.md) (by [Tenevyk](https://github.com/tenevyk))
 
 [Русский](russian.md)
+
+[فارسی](persian.md) (by [amirhossein baghaie](https://github.com/ohmydevops))
+
+[Português](https://github.com/jonaselan/laravel-best-practices) (by [jonaselan](https://github.com/jonaselan))
 
 [Tiếng Việt](https://chungnguyen.xyz/posts/code-laravel-lam-sao-cho-chuan) (by [Chung Nguyễn](https://github.com/nguyentranchung))
 
@@ -42,59 +30,54 @@ Translations:
 
 [Italiana](italian.md) (by [Sujal Patel](https://github.com/sujalpatel2209))
 
-[Azərbaycanca](https://github.com/Maharramoff/laravel-best-practices-az) (by [Maharramoff](https://github.com/Maharramoff))
-
 [العربية](arabic.md) (by [ahmedsaoud31](https://github.com/ahmedsaoud31))
-
-[اردو](urdu.md) (by [RizwanAshraf1](https://github.com/RizwanAshraf1))
 
 [![Laravel example app](/images/laravel-real-world-banner.png?raw=true)](https://github.com/alexeymezenin/laravel-realworld-example-app)
 
 ## Contents
+[단일 책임 원칙](#단일-책임-원칙)
 
-[Single responsibility principle](#single-responsibility-principle)
+[모델은 무겁게, 컨트롤러는 가볍게](#모델은-무겁게-컨트롤러는-가볍게)
 
-[Fat models, skinny controllers](#fat-models-skinny-controllers)
+[Validation-유효성 검사](#validation-유효성-검사)
 
-[Validation](#validation)
+[비즈니스 로직은 서비스 클래스에 있어야 합니다.](#비즈니스-로직은-서비스-클래스에-있어야-합니다)
 
-[Business logic should be in service class](#business-logic-should-be-in-service-class)
+[중복 배제(Don't repeat yourself)](#중복-배제dont-repeat-yourself)
 
-[Don't repeat yourself (DRY)](#dont-repeat-yourself-dry)
+[Query Builder, raw SQL 쿼리보다 Eloquent를 사용하는 것이 좋습니다.](#query-builder-raw-sql-쿼리보다-eloquent를-사용하는-것이-좋습니다)
 
-[Prefer to use Eloquent over using Query Builder and raw SQL queries. Prefer collections over arrays](#prefer-to-use-eloquent-over-using-query-builder-and-raw-sql-queries-prefer-collections-over-arrays)
+[Mass assignment-대량 할당](#mass-assignment-대량-할당)
 
-[Mass assignment](#mass-assignment)
+[블레이드 템플릿에서 쿼리를 실행하지 않습니다. 그리고 즉시 로딩을 사용합니다.(N + 1 문제)](#블레이드-템플릿에서-쿼리를-실행하지-않습니다-그리고-즉시-로딩을-사용합니다n--1-문제)
 
-[Do not execute queries in Blade templates and use eager loading (N + 1 problem)](#do-not-execute-queries-in-blade-templates-and-use-eager-loading-n--1-problem)
+[방대한 데이터를 작업할 때 나눠서 처리합니다.](#방대한-데이터를-작업할-때-나눠서-처리합니다)
 
-[Chunk data for data-heavy tasks](#chunk-data-for-data-heavy-tasks)
+[코드에 주석을 작성합니다. 하지만 주석보다 의미있는 메서드 이름과 변수 이름을 사용하는 것이 더 좋습니다.](#코드에-주석을-작성합니다-하지만-주석보다-의미있는-메서드-이름과-변수-이름을-사용하는-것이-더-좋습니다)
 
-[Comment your code, but prefer descriptive method and variable names over comments](#comment-your-code-but-prefer-descriptive-method-and-variable-names-over-comments)
+[블레이드 템플릿에 JS와 CSS를 작성하지 않고 PHP 클래스에 HTML을 작성하지 않습니다.](#블레이드-템플릿에-js와-css를-작성하지-않고-php-클래스에-html을-작성하지-않습니다)
 
-[Do not put JS and CSS in Blade templates and do not put any HTML in PHP classes](#do-not-put-js-and-css-in-blade-templates-and-do-not-put-any-html-in-php-classes)
+[코드에 텍스트로 작성하지 않고, 설정 파일, 언어 파일, 상수 등을 사용합니다.](#코드에-텍스트로-작성하지-않고-설정-파일-언어-파일-상수-등을-사용합니다)
 
-[Use config and language files, constants instead of text in the code](#use-config-and-language-files-constants-instead-of-text-in-the-code)
+[라라벨 커뮤니티에서 수용하는 표준 라라벨 도구를 사용합니다.](#라라벨-커뮤니티에서-수용하는-표준-라라벨-도구를-사용합니다)
 
-[Use standard Laravel tools accepted by community](#use-standard-laravel-tools-accepted-by-community)
+[라라벨 네이밍 규칙을 따릅니다.](#라라벨-네이밍-규칙을-따릅니다)
 
-[Follow Laravel naming conventions](#follow-laravel-naming-conventions)
+[될 수 있으면 짧고 읽기 쉬운 문법을 사용합니다.](#될-수-있으면-짧고-읽기-쉬운-문법을-사용합니다)
 
-[Use shorter and more readable syntax where possible](#use-shorter-and-more-readable-syntax-where-possible)
+[new Class 대신 IoC 컨테이너 또는 파사드를 사용합니다.](#new-class-대신-ioc-컨테이너-또는-파사드를-사용합니다)
 
-[Use IoC container or facades instead of new Class](#use-ioc-container-or-facades-instead-of-new-class)
+[.env 파일에서 직접 데이터를 가져오지 않습니다.](#env-파일에서-직접-데이터를-가져오지-않습니다)
 
-[Do not get data from the `.env` file directly](#do-not-get-data-from-the-env-file-directly)
+[날짜를 표준 형식으로 저장합니다. accessors(get), mutators(set)을 사용해 날짜 형식을 수정합니다.](#날짜를-표준-형식으로-저장합니다-accessorsget-mutatorsset을-사용해-날짜-형식을-수정합니다)
 
-[Store dates in the standard format. Use accessors and mutators to modify date format](#store-dates-in-the-standard-format-use-accessors-and-mutators-to-modify-date-format)
+[또 다른 좋은 사례](#또-다른-좋은-사례)
 
-[Other good practices](#other-good-practices)
+### **단일 책임 원칙**
 
-### **Single responsibility principle**
+클래스와 메서드는 하나의 책임만 있어야 합니다.
 
-A class and a method should have only one responsibility.
-
-Bad:
+나쁜 예:
 
 ```php
 public function getFullNameAttribute()
@@ -107,7 +90,7 @@ public function getFullNameAttribute()
 }
 ```
 
-Good:
+좋은 예:
 
 ```php
 public function getFullNameAttribute(): bool
@@ -131,13 +114,13 @@ public function getFullNameShort(): string
 }
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 목차로 돌아가기](#contents)
 
-### **Fat models, skinny controllers**
+### **모델은 무겁게, 컨트롤러는 가볍게**
 
-Put all DB related logic into Eloquent models.
+DB와 관련된 로직은 Eloquent 모델이나 Repository 클래스에 작성되어야 합니다.
 
-Bad:
+나쁜 예:
 
 ```php
 public function index()
@@ -152,7 +135,7 @@ public function index()
 }
 ```
 
-Good:
+좋은 예:
 
 ```php
 public function index()
@@ -173,13 +156,13 @@ class Client extends Model
 }
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 목차로 돌아가기](#contents)
 
-### **Validation**
+### **Validation-유효성 검사**
 
-Move validation from controllers to Request classes.
+유효성 검사 로직을 컨트롤러에서 Request 클래스로 옮깁니다.
 
-Bad:
+나쁜 예:
 
 ```php
 public function store(Request $request)
@@ -194,7 +177,7 @@ public function store(Request $request)
 }
 ```
 
-Good:
+좋은 예:
 
 ```php
 public function store(PostRequest $request)
@@ -215,13 +198,14 @@ class PostRequest extends Request
 }
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 목차로 돌아가기](#contents)
 
-### **Business logic should be in service class**
+### **비즈니스 로직은 서비스 클래스에 있어야 합니다.**
 
-A controller must have only one responsibility, so move business logic from controllers to service classes.
+컨트롤러는 하나의 책임만 가지기 때문에 비즈니스 로직은 서비스 클래스에 있어야 합니다.
 
-Bad:
+
+나쁜 예:
 
 ```php
 public function store(Request $request)
@@ -234,7 +218,7 @@ public function store(Request $request)
 }
 ```
 
-Good:
+좋은 예:
 
 ```php
 public function store(Request $request)
@@ -255,13 +239,13 @@ class ArticleService
 }
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 목차로 돌아가기](#contents)
 
-### **Don't repeat yourself (DRY)**
+### **중복 배제(Don't repeat yourself)**
 
-Reuse code when you can. SRP is helping you to avoid duplication. Also, reuse Blade templates, use Eloquent scopes etc.
+코드를 재사용합니다. 단일 책임 원칙뿐만 아니라 블레이드 템플릿, Eloquent 스코프 등은 코드의 중복을 피할 수 있도록 도와줍니다.
 
-Bad:
+나쁜 예:
 
 ```php
 public function getActive()
@@ -277,7 +261,7 @@ public function getArticles()
 }
 ```
 
-Good:
+좋은 예:
 
 ```php
 public function scopeActive($q)
@@ -298,13 +282,13 @@ public function getArticles(): Collection
 }
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 목차로 돌아가기](#contents)
 
-### **Prefer to use Eloquent over using Query Builder and raw SQL queries. Prefer collections over arrays**
+### **Query Builder, raw SQL 쿼리보다 Eloquent를 사용하는 것이 좋습니다.**
 
-Eloquent allows you to write readable and maintainable code. Also, Eloquent has great built-in tools like soft deletes, events, scopes etc.
+Eloquent를 사용하면 읽기 쉽고 유지 보수할 수 있는 코드를 작성할 수 있습니다. Eloquent는 소프트 삭제, 이벤트, 스코프 등 좋은 기능이 있습니다.
 
-Bad:
+나쁜 예:
 
 ```sql
 SELECT *
@@ -321,17 +305,17 @@ AND `active` = '1'
 ORDER BY `created_at` DESC
 ```
 
-Good:
+좋은 예:
 
 ```php
 Article::has('user.profile')->verified()->latest()->get();
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 목차로 돌아가기](#contents)
 
-### **Mass assignment**
+### **Mass assignment-대량 할당**
 
-Bad:
+나쁜 예:
 
 ```php
 $article = new Article;
@@ -343,17 +327,17 @@ $article->category_id = $category->id;
 $article->save();
 ```
 
-Good:
+좋은 예:
 
 ```php
 $category->article()->create($request->validated());
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 목차로 돌아가기](#contents)
 
-### **Do not execute queries in Blade templates and use eager loading (N + 1 problem)**
+### **블레이드 템플릿에서 쿼리를 실행하지 않습니다. 그리고 즉시 로딩을 사용합니다.(N + 1 문제)**
 
-Bad (for 100 users, 101 DB queries will be executed):
+나쁜예 (유저 전체를 가져오는 쿼리(1번) + 해당 유저의 프로필을 가져오는 쿼리(100번) = 101번 실행):
 
 ```php
 @foreach (User::all() as $user)
@@ -361,7 +345,7 @@ Bad (for 100 users, 101 DB queries will be executed):
 @endforeach
 ```
 
-Good (for 100 users, 2 DB queries will be executed):
+좋은 예 (유저 전체를 가져오는 쿼리(1번) + 해당 유저의 프로필을 가져오는 쿼리(1번) = 2번 실행):
 
 ```php
 $users = User::with('profile')->get();
@@ -373,11 +357,11 @@ $users = User::with('profile')->get();
 @endforeach
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 목차로 돌아가기](#contents)
 
-### **Chunk data for data-heavy tasks**
+### **대량의 데이터를 작업할 때 나눠서 처리합니다.**
 
-Bad ():
+나쁜예 ():
 
 ```php
 $users = $this->get();
@@ -387,7 +371,7 @@ foreach ($users as $user) {
 }
 ```
 
-Good:
+좋은예:
 
 ```php
 $this->chunk(500, function ($users) {
@@ -399,7 +383,8 @@ $this->chunk(500, function ($users) {
 
 [🔝 Back to contents](#contents)
 
-### **Prefer descriptive method and variable names over comments**
+
+### **코드에 주석을 작성합니다. 하지만 주석보다 의미있는 메서드 이름과 변수 이름을 사용하는 것이 더 좋습니다.**
 
 Bad:
 
@@ -414,17 +399,17 @@ Good:
 if ($this->hasJoins())
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 목차로 돌아가기](#contents)
 
-### **Do not put JS and CSS in Blade templates and do not put any HTML in PHP classes**
+### **블레이드 템플릿에 JS와 CSS를 작성하지 않고 PHP 클래스에 HTML을 작성하지 않습니다.**
 
-Bad:
+나쁜 예:
 
 ```php
 let article = `{{ json_encode($article) }}`;
 ```
 
-Better:
+조금 더 나은 예:
 
 ```php
 <input id="article" type="hidden" value='@json($article)'>
@@ -434,22 +419,22 @@ Or
 <button class="js-fav-article" data-article='@json($article)'>{{ $article->name }}<button>
 ```
 
-In a Javascript file:
+자바스크립트 파일:
 
-```javascript
+```php
 let article = $('#article').val();
 ```
 
 The best way is to use specialized PHP to JS package to transfer the data.
 
-[🔝 Back to contents](#contents)
+[🔝 목차로 돌아가기](#contents)
 
-### **Use config and language files, constants instead of text in the code**
+### **코드에 텍스트로 작성하지 않고, 설정 파일, 언어 파일, 상수 등을 사용합니다.**
 
-Bad:
+나쁜 예:
 
 ```php
-public function isNormal(): bool
+public function isNormal()
 {
     return $article->type === 'normal';
 }
@@ -457,7 +442,7 @@ public function isNormal(): bool
 return back()->with('message', 'Your article has been added!');
 ```
 
-Good:
+좋은 예:
 
 ```php
 public function isNormal()
@@ -468,11 +453,11 @@ public function isNormal()
 return back()->with('message', __('app.article_added'));
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 목차로 돌아가기](#contents)
 
-### **Use standard Laravel tools accepted by community**
+### **라라벨 커뮤니티에서 수용하는 표준 라라벨 도구를 사용합니다.**
 
-Prefer to use built-in Laravel functionality and community packages instead of using 3rd party packages and tools. Any developer who will work with your app in the future will need to learn new tools. Also, chances to get help from the Laravel community are significantly lower when you're using a 3rd party package or tool. Do not make your client pay for that.
+써드파티 패키지 및 도구 대신 내장되어있는 라라벨 기능과 커뮤니티 패키지를 사용합니다. 프로젝트에 참여하게 되는 개발자는 새로운 도구에 대해 학습을 해야합니다. 또한 써드파티 패키지나 도구를 사용할 때 라라벨 커뮤니티의 도움을 받을 수 있는 기회가 줄어듭니다.
 
 Task | Standard tools | 3rd party tools
 ------------ | ------------- | -------------
@@ -496,13 +481,13 @@ Generating testing data | Seeder classes, Model Factories, Faker | Creating test
 Task scheduling | Laravel Task Scheduler | Scripts and 3rd party packages
 DB | MySQL, PostgreSQL, SQLite, SQL Server | MongoDB
 
-[🔝 Back to contents](#contents)
+[🔝 목차로 돌아가기](#contents)
 
-### **Follow Laravel naming conventions**
+### **라라벨 네이밍 규칙을 따릅니다.**
 
- Follow [PSR standards](http://www.php-fig.org/psr/psr-2/).
- 
- Also, follow naming conventions accepted by Laravel community:
+[PSR 표준](http://www.php-fig.org/psr/psr-2/)을 따릅니다.
+
+또한 라라벨 커뮤니티에서 수용하고 있는 네이밍 규칙을 따릅니다:
 
 What | How | Good | Bad
 ------------ | ------------- | ------------- | -------------
@@ -531,25 +516,25 @@ Config | snake_case | google_calendar.php | ~~googleCalendar.php, google-calenda
 Contract (interface) | adjective or noun | AuthenticationInterface | ~~Authenticatable, IAuthentication~~
 Trait | adjective | Notifiable | ~~NotificationTrait~~
 
-[🔝 Back to contents](#contents)
+[🔝 목차로 돌아가기](#contents)
 
-### **Use shorter and more readable syntax where possible**
+### **될 수 있으면 짧고 읽기 쉬운 문법을 사용합니다.**
 
-Bad:
+나쁜 예:
 
 ```php
 $request->session()->get('cart');
 $request->input('name');
 ```
 
-Good:
+좋은 예:
 
 ```php
 session('cart');
 $request->name;
 ```
 
-More examples:
+더 많은 예시:
 
 Common syntax | Shorter and more readable syntax
 ------------ | -------------
@@ -570,20 +555,21 @@ Common syntax | Shorter and more readable syntax
 `->select('id', 'name')->get()` | `->get(['id', 'name'])`
 `->first()->name` | `->value('name')`
 
-[🔝 Back to contents](#contents)
+[🔝 목차로 돌아가기](#contents)
 
-### **Use IoC container or facades instead of new Class**
+### **new Class 대신 IoC 컨테이너 또는 파사드를 사용합니다.**
 
-new Class syntax creates tight coupling between classes and complicates testing. Use IoC container or facades instead.
+new Class 문법은 클래스 간의 결합도를 높이고 테스트를 복잡하게 만듭니다. new Class 문법 대신에 IoC 컨테이너 또는 파사드를 사용합니다.
 
-Bad:
+나쁜 예:
 
 ```php
 $user = new User;
 $user->create($request->validated());
 ```
 
-Good:
+
+좋은 예:
 
 ```php
 public function __construct(User $user)
@@ -596,19 +582,19 @@ public function __construct(User $user)
 $this->user->create($request->validated());
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 목차로 돌아가기](#contents)
 
-### **Do not get data from the `.env` file directly**
+### **`.env` 파일에서 직접 데이터를 가져오지 않습니다.**
 
-Pass the data to config files instead and then use the `config()` helper function to use the data in an application.
+데이터를 설정 파일에 전달한 다음 `config()` helper 함수를 통해 애플리케이션에서 데이터를 사용합니다.
 
-Bad:
+나쁜 예:
 
 ```php
 $apiKey = env('API_KEY');
 ```
 
-Good:
+좋은 예:
 
 ```php
 // config/api.php
@@ -618,18 +604,18 @@ Good:
 $apiKey = config('api.key');
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 목차로 돌아가기](#contents)
 
-### **Store dates in the standard format. Use accessors and mutators to modify date format**
+### **날짜를 표준 형식으로 저장합니다. accessors(get), mutators(set)을 사용해 날짜 형식을 수정합니다.**
 
-Bad:
+나쁜 예:
 
 ```php
 {{ Carbon::createFromFormat('Y-d-m H-i', $object->ordered_at)->toDateString() }}
 {{ Carbon::createFromFormat('Y-d-m H-i', $object->ordered_at)->format('m-d') }}
 ```
 
-Good:
+좋은 예:
 
 ```php
 // Model
@@ -644,22 +630,22 @@ public function getSomeDateAttribute($date)
 {{ $object->ordered_at->some_date }}
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 목차로 돌아가기](#contents)
 
-### **Other good practices**
+### **또 다른 좋은 사례**
 
-Avoid using patterns and tools that are alien to Laravel and similar frameworks (i.e. RoR, Django). If you like Symfony (or Spring) approach for building apps, it's a good idea to use these frameworks instead.
+Laravel 및 유사한 프레임워크(예: RoR, Django)에 익숙하지 않은 패턴 및 도구를 사용하지 마십시오. 앱 빌드를 위한 Symfony(또는 Spring) 접근 방식이 마음에 든다면 이러한 프레임워크를 대신 사용하는 것이 좋습니다.
 
-Never put any logic in routes files.
+routes 파일에 로직을 넣지 마십시오.
 
-Minimize usage of vanilla PHP in Blade templates.
+블레이드 템플릿에서 바닐라 PHP 사용을 최소화합니다.
 
-Use in-memory DB for testing.
+테스트를 위해 인메모리 DB를 사용합니다.
 
-Do not override standard framework features to avoid problems related to updating the framework version and many other issues.
+프레임워크 버전 업데이트 및 기타 여러 문제와 관련된 문제를 피하기 위해 표준 프레임워크 기능을 재정의하지 마십시오.
 
-Use modern PHP syntax where possible, but don't forget about readability.
+가능하면 최신 PHP 구문을 사용하되 가독성을 잊지 마십시오.
 
-Avoid using View Composers and similar tools unless you really know what you're doing. In most cases, there is a better way to solve the problem.
+무엇을 하고 있는지 잘 모르는 경우 View Composers 및 이와 유사한 도구를 사용하지 마십시오. 대부분의 경우 문제를 해결하는 더 좋은 방법이 있습니다.
 
-[🔝 Back to contents](#contents)
+[🔝 목차로 돌아가기](#contents)
