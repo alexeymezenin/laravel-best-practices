@@ -343,7 +343,7 @@ $category->article()->create($request->validated());
 
 ### **Non eseguire query nei template Blade e utilizzare l'eager loading (problema N + 1)**
 
-Male (fo 100 utenti, verranno eseguite 101 query DB):
+Male (per 100 utenti, verranno eseguite 101 query DB):
 
 ```php
 @foreach (User::all() as $user)
