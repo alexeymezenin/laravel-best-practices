@@ -446,7 +446,7 @@ return back()->with('message', __('app.article_added'));
 想要实现的功能 | 标准工具 | 第三方工具
 ------------ | ------------- | -------------
 权限 | Policies | Entrust, Sentinel 或者其他扩展包
-资源编译工具| Laravel Mix | Grunt, Gulp, 或者其他第三方包
+资源编译工具| Laravel Mix, Vite | Grunt, Gulp, 或者其他第三方包
 开发环境| Laravel Sail, Homestead | Docker
 部署 | Laravel Forge | Deployer 或者其他解决方案
 自动化测试 | PHPUnit, Mockery | Phpspec

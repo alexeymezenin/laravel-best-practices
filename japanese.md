@@ -442,7 +442,7 @@ return back()->with('message', __('app.article_added'));
 タスク | 標準ツール | サードパーティ製ツール
 ------------ | ------------- | -------------
 認可 | Policies | Entrust, Sentinel または他のパッケージ
-アセットコンパイル | Laravel Mix | Grunt, Gulp, サードパーティ製パッケージ
+アセットコンパイル | Laravel Mix, Vite | Grunt, Gulp, サードパーティ製パッケージ
 開発環境 | Laravel Sail, Homestead | Docker
 デプロイ | Laravel Forge | Deployer またはその他ソリューション
 単体テスト| PHPUnit, Mockery | Phpspec

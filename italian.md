@@ -449,7 +449,7 @@ Favorisci l'utilizzo delle funzionalità integrate in Laravel e i pacchetti dell
 Task | Strumenti standard | Strumenti di terze parti
 ------------ | ------------- | -------------
 Autorizzazione | Politiche | Affida, Sentinel e altri pacchetti
-Compiling assets | Laravel Mix | Grunt, Gulp, 3rd party packages
+Compiling assets | Laravel Mix, Vite | Grunt, Gulp, 3rd party packages
 Ambiente di sviluppo | Laravel Sail, Fattoria | docker
 Distribuzione | Laravel Forge | Deployer e altre soluzioni
 Test unitari | PHPUnit, Mockery | Phpspec

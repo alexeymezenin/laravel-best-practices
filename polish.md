@@ -460,7 +460,7 @@ Nie każ swojemu klientowi za to płacić.
 Zadanie | Standardowe narzędzia | Narzędzia innych podmiotów
 ------------ | ------------- | -------------
 Autoryzacja | Laravel Policies | Entrust, Sentinel i inne paczki
-Kompilowanie zasobów | Laravel Mix | Grunt, Gulp oraz inne
+Kompilowanie zasobów | Laravel Mix, Vite | Grunt, Gulp oraz inne
 Środowisko pracy | Laravel Sail, Homestead | Docker
 Wdrażanie | Laravel Forge | Deployer i inne rozwiązania
 Testy jednostkowe | PHPUnit, Mockery | Phpspec

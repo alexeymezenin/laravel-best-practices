@@ -455,7 +455,7 @@ return back()->with('message', __('app.article_added'));
 ฟังก์ชัน | เครื่องมือมาตรฐาน | เครื่องมือ 3rd party
 ------------ | ------------- | -------------
 Authorization | Policies | Entrust, Sentinel and other packages
-Compiling assets | Laravel Mix | Grunt, Gulp, 3rd party packages
+Compiling assets | Laravel Mix, Vite | Grunt, Gulp, 3rd party packages
 Development Environment | Laravel Sail, Homestead | Docker
 Deployment | Laravel Forge | Deployer and other solutions
 Unit testing | PHPUnit, Mockery | Phpspec

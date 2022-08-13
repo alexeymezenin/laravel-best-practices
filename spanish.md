@@ -457,7 +457,7 @@ Prioriza la utilización de funcionalidades integradas y los paquetes de la comu
 Tarea | Herramienta estándar | Herramientas de terceras personas
 ------------ | ------------- | -------------
 Autorización | Policies | Entrust, Sentinel y otros paquetes
-Compilar assets | Laravel Mix | Grunt, Gulp, paquetes de terceros
+Compilar assets | Laravel Mix, Vite | Grunt, Gulp, paquetes de terceros
 Entorno de desarrollo | Laravel Sail, Homestead | Docker
 Deployment | Laravel Forge | Deployer y otras soluciones
 Unit testing | PHPUnit, Mockery | Phpspec

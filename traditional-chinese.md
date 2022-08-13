@@ -412,7 +412,7 @@ return back()->with('message', __('app.article_added'));
 任務 | 標準工具 | 第三方工具
 ------------ | ------------- | -------------
 權限控制 | Policies | Entrust, Sentinel 或其他套件
-編譯資源 | Laravel Mix | Grunt, Gulp, 或其他第三方套件
+編譯資源 | Laravel Mix, Vite | Grunt, Gulp, 或其他第三方套件
 開發環境 | Laravel Sail, Homestead | Docker
 部署 | Laravel Forge | Deployer 或其他解決方案
 單元測試 | PHPUnit, Mockery | Phpspec
