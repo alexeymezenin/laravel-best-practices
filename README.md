@@ -572,7 +572,7 @@ Common syntax | Shorter and more readable syntax
 
 [🔝 Back to contents](#contents)
 
-### **Use IoC container or facades instead of new Class**
+### **Use IoC / Service container instead of new Class**
 
 new Class syntax creates tight coupling between classes and complicates testing. Use IoC container or facades instead.
 
