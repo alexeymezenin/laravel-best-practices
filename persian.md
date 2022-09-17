@@ -602,6 +602,7 @@ Contract (interface) | صفت یا اسم | AuthenticationInterface | ~~Authenti
 Trait | صفت | Notifiable | ~~NotificationTrait~~
 Trait [(PSR)](https://www.php-fig.org/bylaws/psr-naming-conventions/) | adjective | NotifiableTrait | ~~Notification~~
 Enum | singular | UserType |  ~~UserTypes~~, ~~UserTypeEnum~~
+FormRequest | singular | UpdateUserRequest |  ~~UpdateUserFormRequest~~, ~~UserFormRequest~~, ~~UserRequest~~
 
 <div dir="rtl">
 

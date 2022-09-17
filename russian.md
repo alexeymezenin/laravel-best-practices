@@ -492,6 +492,7 @@ Pivot таблица | имена моделей в алфавитном пор�
 Трейт | прилагательное | Notifiable | ~~NotificationTrait~~
 Trait [(PSR)](https://www.php-fig.org/bylaws/psr-naming-conventions/) | adjective | NotifiableTrait | ~~Notification~~
 Enum | единственное число | UserType |  ~~UserTypes~~, ~~UserTypeEnum~~
+FormRequest | singular | UpdateUserRequest |  ~~UpdateUserFormRequest~~, ~~UserFormRequest~~, ~~UserRequest~~
 
 [🔝 Наверх](#Содержание)
 

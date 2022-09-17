@@ -510,6 +510,7 @@ Contract (interface) | sıfat ya da isim | AuthenticationInterface | ~~Authentic
 Trait | sıfat | Notifiable | ~~NotificationTrait~~
 Trait [(PSR)](https://www.php-fig.org/bylaws/psr-naming-conventions/) | adjective | NotifiableTrait | ~~Notification~~
 Enum | tekil | UserType |  ~~UserTypes~~, ~~UserTypeEnum~~
+FormRequest | tekil | UpdateUserRequest |  ~~UpdateUserFormRequest~~, ~~UserFormRequest~~, ~~UserRequest~~
 
 [🔝 Başa dön](#içerik)
 

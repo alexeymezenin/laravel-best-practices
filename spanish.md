@@ -512,6 +512,7 @@ Contrato (interface) | adjetivo o sustantivo | AuthenticationInterface | ~~Authe
 Trait | adjetivo | Notifiable | ~~NotificationTrait~~
 Trait [(PSR)](https://www.php-fig.org/bylaws/psr-naming-conventions/) | adjective | NotifiableTrait | ~~Notification~~
 Enum | singular | UserType |  ~~UserTypes~~, ~~UserTypeEnum~~
+FormRequest | singular | UpdateUserRequest |  ~~UpdateUserFormRequest~~, ~~UserFormRequest~~, ~~UserRequest~~
 
 [🔝 Volver al índice](#índice-de-contenido)
 
