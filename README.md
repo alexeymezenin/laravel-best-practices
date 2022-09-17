@@ -644,7 +644,7 @@ public function getSomeDateAttribute($date)
 
 // View
 {{ $object->ordered_at->toDateString() }}
-{{ $object->ordered_at->some_date }}
+{{ $object->some_date }}
 ```
 
 [🔝 Back to contents](#contents)
