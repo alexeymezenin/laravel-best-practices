@@ -417,7 +417,7 @@ return back()->with('message', __('app.article_added'));
 Завдання | Стандартні інструменти | Сторонні інструменти
 ------------ | ------------- | -------------
 Авторизація | Policies | Entrust, Sentinel and other packages
-Компіляція засобів | Laravel Mix | Grunt, Gulp, 3rd party packages
+Компіляція засобів | Laravel Mix, Vite | Grunt, Gulp, 3rd party packages
 Середовище розробки | Laravel Sail, Homestead | Docker
 Розгортання застосунків | Laravel Forge | Deployer and other solutions
 Unit тестування | PHPUnit, Mockery | Phpspec

@@ -451,7 +451,7 @@ return back()->with('message', __('app.article_added'));
 কাজ | স্ট্যান্ডার্ড টুলস | থার্ডপার্টি টুলস
 ------------ | ------------- | -------------
 Authorization | Policies | Entrust, Sentinel and other packages
-Compiling assets | Laravel Mix | Grunt, Gulp, 3rd party packages
+Compiling assets | Laravel Mix, Vite | Grunt, Gulp, 3rd party packages
 Development Environment | Laravel Sail, Homestead | Docker
 Deployment | Laravel Forge | Deployer and other solutions
 Unit testing | PHPUnit, Mockery | Phpspec

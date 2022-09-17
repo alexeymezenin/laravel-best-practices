@@ -455,7 +455,7 @@ Verwenden Sie vorzugsweise integrierte Laravel-Funktionen und Community-Pakete, 
 Aufgabe | Standardwerkzeuge | Tools von Drittanbietern
 ------------ | ------------- | -------------
 Autorisierung | Policies | Entrust, Sentinel und andere Pakete
-Assets kompilieren | Laravel Mix | Grunt, Gulp, 3rd-Party-Pakete
+Assets kompilieren | Laravel Mix, Vite | Grunt, Gulp, 3rd-Party-Pakete
 Entwicklungsumgebung | Laravel Sail, Homestead | Docker
 Bereitstellung | Laravel Forge | Deployer und andere Lösungen
 Unit Tests | PHPUnit, Mockery | Phpspec

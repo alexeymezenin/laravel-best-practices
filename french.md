@@ -449,7 +449,7 @@ Préférez utiliser les fonctionnalités intégrées de Laravel et les packages 
 Tâche | Outils standard | Outils tiers
 ------------ | ------------- | -------------
 Autorisation | Policies | Entrust, Sentinel et d'autres packages
-Compiler des assets | Laravel Mix | Grunt, Gulp, packages tiers
+Compiler des assets | Laravel Mix, Vite | Grunt, Gulp, packages tiers
 Environnement de développement | Laravel Sail, Homestead | Docker
 Déploiement | Laravel Forge | Deployer et d'autre solutions
 Tests unitaires | PHPUnit, Mockery | Phpspec
