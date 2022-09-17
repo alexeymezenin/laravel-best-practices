@@ -478,27 +478,27 @@ DB | MySQL, PostgreSQL, SQLite, SQL Server | MongoDB
 
 Cosa | Come | Buono | Male
 ------------ | ------------- | ------------- | -------------
-Controller | singolare | Controllo articolo |~~ArticlesController~~
-Route | plurale | articoli / 1 | ~~article/1~~
+Controller | singolare | ArticleController |~~ArticlesController~~
+Route | plurale | articles / 1 | ~~article/1~~
 Named route | snake_case con notazione punto | users.show_active | ~~users.show-active, show-active-users~~
-Model | singolare | Utente | ~~Users~~
+Model | singolare | User | ~~Users~~
 hasOne o appartiene alla relazione | singolare | articleComment |~~articleComments, article_comment~~
 Tutte le altre relazioni | plurale | articleComments | ~~articleComment, article_comments~~
-Tabella | plurale | commenti_articolo | ~~article_comment, articleComments~~
-Tabella pivot | nomi di modelli singolari in ordine alfabetico | user_user | ~~user_article, articles_users~~
+Tabella | plurale | article_comments | ~~article_comment, articleComments~~
+Tabella pivot | nomi di modelli singolari in ordine alfabetico | article_user | ~~user_article, articles_users~~
 Colonna della tabella | snake_case senza nome modello | meta_title |~~Meta Title; articolo meta_title~~
-Proprietà del Model | snake_case | $ model-> Created_at |~~$model->createdAt~~
-Foreign key | singular model name with _id suffix | article_id | ~~ArticleId, id_article, articles_id~~
+Proprietà del Model | snake_case | $ model->created_at |~~$model->createdAt~~
+Foreign key | modello in singolare con un suffisso _id | article_id | ~~ArticleId, id_article, articles_id~~
 Chiave primaria | - | id |~~custom_id~~
 Migration | - | 2017_01_01_000000_create_articles_table |~~2017_01_01_000000_articles~~
 Metodo | camelCase | getAll | ~~get_all~~
-Metodo nel resource controller | [tavolo](https://laravel.com/docs/master/controllers#resource-controllers) | store | ~~saveArticle~~
+Metodo nel resource controller | [resource](https://laravel.com/docs/master/controllers#resource-controllers) | store | ~~saveArticle~~
 Metodo nella test class | camelCase | testGuestCannotSeeArticle |~~test_guest_cannot_see_article~~
-Variabile | camelCase | $ articoliWithAuthor |~~$articles_with_author~~
-Collection | descrittivo, plurale | $ activeUsers = Utente :: active () -> get () | ~~$active, $data~~
-Oggetto | descrittivo, singolare | $ activeUser = User :: active () -> first () | ~~$users, $obj~~
-Indice file di configurazione e lingua | snake_case | articoli abilitati |~~ArticlesEnabled; articles-enabled~~
-View | astuccio per kebab | show-filtered.blade.php | ~~showFiltered.blade.php, show_filtered.blade.php~~
+Variabile | camelCase | $articolesWithAuthor |~~$articles_with_author~~
+Collection | descrittivo, plurale | $activeUsers = User::active()->get() | ~~$active, $data~~
+Oggetto | descrittivo, singolare | $activeUser = User::active()->first() | ~~$users, $obj~~
+Indice file di configurazione e lingua | snake_case | articles_enabled |~~ArticlesEnabled; articles-enabled~~
+View | kebab-case | show-filtered.blade.php | ~~showFiltered.blade.php, show_filtered.blade.php~~
 Config | snake_case | google_calendar.php |~~googleCalendar.php, google-calendar.php~~
 Contratto (interfaccia) | aggettivo o sostantivo | AuthenticationInterface | ~~Authenticatable, IAuthentication~~
 Trait | aggettivo | Notificabile | ~~NotificationTrait~~
