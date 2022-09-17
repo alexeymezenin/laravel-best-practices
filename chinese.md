@@ -499,6 +499,8 @@ hasOne或belongsTo关系 | 单数 | articleComment | ~~articleComments, article_
 配置 | 蛇形命名 | google_calendar.php | ~~googleCalendar.php, google-calendar.php~~
 内容 (interface) | 形容词或名词 | AuthenticationInterface | ~~Authenticatable, IAuthentication~~
 Trait | 使用形容词 | Notifiable | ~~NotificationTrait~~
+Trait [(PSR)](https://www.php-fig.org/bylaws/psr-naming-conventions/) | adjective | NotifiableTrait | ~~Notification~~
+Enum | singular | UserType |  ~~UserTypes~~, ~~UserTypeEnum~~
 
 [🔝 返回目录](#内容)
 
