@@ -458,7 +458,7 @@ Autorisierung | Policies | Entrust, Sentinel und andere Pakete
 Assets kompilieren | Laravel Mix, Vite | Grunt, Gulp, 3rd-Party-Pakete
 Entwicklungsumgebung | Laravel Sail, Homestead | Docker
 Bereitstellung | Laravel Forge | Deployer und andere Lösungen
-Unit Tests | PHPUnit, Mockery | Phpspec
+Unit Tests | PHPUnit, Mockery | Phpspec, Pest
 Browsertests | Laravel Dusk | Codeception
 DB | Eloquent | SQL, Doctrine
 Templates | Blade | Twig

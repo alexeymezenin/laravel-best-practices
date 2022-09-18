@@ -449,7 +449,7 @@ return back()->with('message', __('app.article_added'));
 资源编译工具| Laravel Mix, Vite | Grunt, Gulp, 或者其他第三方包
 开发环境| Laravel Sail, Homestead | Docker
 部署 | Laravel Forge | Deployer 或者其他解决方案
-自动化测试 | PHPUnit, Mockery | Phpspec
+自动化测试 | PHPUnit, Mockery | Phpspec, Pest
 页面预览测试 | Laravel Dusk | Codeception
 DB操纵 | Eloquent | SQL, Doctrine
 模板 | Blade | Twig

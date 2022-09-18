@@ -460,7 +460,7 @@ Autorización | Policies | Entrust, Sentinel y otros paquetes
 Compilar assets | Laravel Mix, Vite | Grunt, Gulp, paquetes de terceros
 Entorno de desarrollo | Laravel Sail, Homestead | Docker
 Deployment | Laravel Forge | Deployer y otras soluciones
-Unit testing | PHPUnit, Mockery | Phpspec
+Unit testing | PHPUnit, Mockery | Phpspec, Pest
 Testeo en el navegador | Laravel Dusk | Codeception
 Base de datos | Eloquent | SQL, Doctrine
 Plantillas | Blade | Twig

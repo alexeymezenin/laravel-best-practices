@@ -420,7 +420,7 @@ return back()->with('message', __('app.article_added'));
 Компіляція засобів | Laravel Mix, Vite | Grunt, Gulp, 3rd party packages
 Середовище розробки | Laravel Sail, Homestead | Docker
 Розгортання застосунків | Laravel Forge | Deployer and other solutions
-Unit тестування | PHPUnit, Mockery | Phpspec
+Unit тестування | PHPUnit, Mockery | Phpspec, Pest
 Тестування браузера | Laravel Dusk | Codeception
 База даних | Eloquent | SQL, Doctrine
 Шаблони | Blade | Twig
