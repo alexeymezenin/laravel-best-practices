@@ -407,7 +407,7 @@ Besser:
 ```php
 <input id="article" type="hidden" value='@json($article)'>
 
-Oder
+oder
 
 <button class="js-fav-article" data-article='@json($article)'>{{ $article->name }}<button>
 ```
@@ -615,6 +615,7 @@ Gut:
 ```php
 // Model
 protected $dates = ['ordered_at', 'created_at', 'updated_at'];
+
 public function getSomeDateAttribute($date)
 {
     return $date->format('m-d');
@@ -629,8 +630,8 @@ public function getSomeDateAttribute($date)
 
 ### **Andere gute Praktiken**
 
-Fügen Sie niemals Logik in Routes Dateien ein.
+Logik sollte nicht in Routes Dateien eingebaut werden.
 
-Minimieren Sie die Verwendung von vanilla PHP in Blade-Templates.
+Minimieren Sie die Verwendung von Vanilla PHP in Blade-Templates.
 
 [🔝 Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
