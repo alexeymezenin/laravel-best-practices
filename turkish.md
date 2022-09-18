@@ -458,7 +458,7 @@ Authorization (Yetkilendirme) | Policies | Entrust, Sentinel vb.
 Compiling assets (CSS ve JS Derleme) | Laravel Mix, Vite | Grunt, Gulp, 3rd party paketler
 Geliştirme Ortamı | Laravel Sail, Homestead | Docker
 Deployment | Laravel Forge | Deployer and other solutions
-Unit testing | PHPUnit, Mockery | Phpspec
+Unit testing | PHPUnit, Mockery | Phpspec, Pest
 Browser testing | Laravel Dusk | Codeception
 DB | Eloquent | SQL, Doctrine
 Template | Blade | Twig

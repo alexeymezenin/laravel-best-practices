@@ -415,7 +415,7 @@ return back()->with('message', __('app.article_added'));
 編譯資源 | Laravel Mix, Vite | Grunt, Gulp, 或其他第三方套件
 開發環境 | Laravel Sail, Homestead | Docker
 部署 | Laravel Forge | Deployer 或其他解決方案
-單元測試 | PHPUnit, Mockery | Phpspec
+單元測試 | PHPUnit, Mockery | Phpspec, Pest
 瀏覽器測試 | Laravel Dusk | Codeception
 DB | Eloquent | SQL, Doctrine
 樣板 | Blade | Twig

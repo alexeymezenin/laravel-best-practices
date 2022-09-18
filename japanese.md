@@ -445,7 +445,7 @@ return back()->with('message', __('app.article_added'));
 アセットコンパイル | Laravel Mix, Vite | Grunt, Gulp, サードパーティ製パッケージ
 開発環境 | Laravel Sail, Homestead | Docker
 デプロイ | Laravel Forge | Deployer またはその他ソリューション
-単体テスト| PHPUnit, Mockery | Phpspec
+単体テスト| PHPUnit, Mockery | Phpspec, Pest
 ブラウザテスト | Laravel Dusk | Codeception
 DB | Eloquent | SQL, Doctrine
 テンプレート | Blade | Twig

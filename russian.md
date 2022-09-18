@@ -440,7 +440,7 @@ Laravel имеет встроенные инструменты для решен
 Работа с JS, CSS и пр. | Laravel Mix, Vite | Grunt, Gulp, сторонние пакеты
 Среда разработки | Laravel Sail, Homestead | Docker
 Разворачивание приложений | Laravel Forge | Deployer и многие другие
-Тестирование | Phpunit, Mockery | Phpspec
+Тестирование | Phpunit, Mockery | Phpspec, Pest
 e2e тестирование | Laravel Dusk | Codeception
 Работа с БД | Eloquent | SQL, построитель запросов, Doctrine
 Шаблоны | Blade | Twig
