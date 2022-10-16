@@ -110,7 +110,7 @@ public function getFullNameAttribute()
 Good:
 
 ```php
-public function getFullNameAttribute(): string
+public function getFullNameAttribute()
 {
     return $this->isVerifiedClient() ? $this->getFullNameLong() : $this->getFullNameShort();
 }

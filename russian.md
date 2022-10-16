@@ -68,7 +68,7 @@ public function getFullNameAttribute()
 Хорошо:
 
 ```php
-public function getFullNameAttribute(): bool
+public function getFullNameAttribute()
 {
     return $this->isVerifiedClient() ? $this->getFullNameLong() : $this->getFullNameShort();
 }
