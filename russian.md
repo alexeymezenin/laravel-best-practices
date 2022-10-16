@@ -55,7 +55,7 @@
 Плохо:
 
 ```php
-public function getFullNameAttribute()
+public function getFullNameAttribute(): string
 {
     if (auth()->user() && auth()->user()->hasRole('client') && auth()->user()->isVerified()) {
         return 'Mr. ' . $this->first_name . ' ' . $this->middle_name . ' ' . $this->last_name;
