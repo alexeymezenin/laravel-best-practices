@@ -435,7 +435,7 @@ API 登入驗證 | Laravel Passport, Laravel Sanctum | 第三方 JWT 或 OAuth �
 
 ### **遵循 Laravel 命名規範**
 
-遵守 [PSR 標準 (英語)](http://www.php-fig.org/psr/psr-2/)。
+遵守 [PSR 標準 (英語)](https://www.php-fig.org/psr/psr-12/)。
 
 另外，請遵守 Laravel 社群認可的命名規範:
 

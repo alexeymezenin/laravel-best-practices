@@ -483,9 +483,9 @@ Baza danych | MySQL, PostgreSQL, SQLite, SQL Server | MongoDB
 
 ### **Postępuj zgodnie z konwencją nazewniczą Laravel-a**
 
- Stosuj [standardy PSR](http://www.php-fig.org/psr/psr-2/).
- 
- Przestrzegaj również konwencji nazewniczych przyjętych przez społeczność Laravel-a
+Stosuj [standardy PSR](https://www.php-fig.org/psr/psr-12/).
+
+Przestrzegaj również konwencji nazewniczych przyjętych przez społeczność Laravel-a
 
 Zagadnienie | Konwencja | Dobrze | Źle
 ------------ | ------------- | ------------- | -------------

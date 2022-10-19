@@ -480,9 +480,9 @@ Base de datos | MySQL, PostgreSQL, SQLite, SQL Server | MongoDB
 
 ### **Sigue la convención de Laravel para los nombres**
 
- Sigue los [estándares PSR](http://www.php-fig.org/psr/psr-2/).
- 
- También, sigue la convención aceptada por la comunidad:
+Sigue los [estándares PSR](https://www.php-fig.org/psr/psr-12/).
+
+También, sigue la convención aceptada por la comunidad:
 
 Qué | Cómo | Bueno | Malo
 ------------ | ------------- | ------------- | -------------

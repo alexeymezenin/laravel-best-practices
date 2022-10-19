@@ -469,7 +469,7 @@ API身份验证 | Laravel Passport, Laravel Sanctum | 第三方的JWT或者 OAut
 
 ### **遵循laravel命名约定**
 
-来源 [PSR standards](http://www.php-fig.org/psr/psr-2/).
+来源 [PSR standards](https://www.php-fig.org/psr/psr-12/).
  
 另外，遵循Laravel社区认可的命名约定：
 

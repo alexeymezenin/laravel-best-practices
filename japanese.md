@@ -465,9 +465,9 @@ DB | MySQL, PostgreSQL, SQLite, SQL Server | MongoDB
 
 ### **Laravelの命名規則に従う**
 
- [PSR](http://www.php-fig.org/psr/psr-2/)に従います。
- 
- また、Laravelコミュニティに受け入れられた命名規則に従います。
+[PSR](https://www.php-fig.org/psr/psr-12/)に従います。
+
+また、Laravelコミュニティに受け入れられた命名規則に従います。
 
 対象 | 規則 | Good | Bad
 ------------ | ------------- | ------------- | -------------

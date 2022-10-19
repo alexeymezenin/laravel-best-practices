@@ -478,9 +478,9 @@ DB | MySQL, PostgreSQL, SQLite, SQL Server | MongoDB
 
 ### **Laravel'de isimlendirme**
 
- [PSR standards](http://www.php-fig.org/psr/psr-2/) takip edin.
- 
- Ayrıca, topluluk tarafından kabul gören isimlendirmeler:
+[PSR standards](https://www.php-fig.org/psr/psr-12/) takip edin.
+
+Ayrıca, topluluk tarafından kabul gören isimlendirmeler:
 
 Ne | Nasıl | İyi | Kötü
 ------------ | ------------- | ------------- | -------------

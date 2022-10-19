@@ -435,7 +435,8 @@ DB | MySQL, PostgreSQL, SQLite, SQL Server | MongoDB
 
 ### **Ikuti konvensi penamaan Laravel**
 
-Ikuti [PSR standards](http://www.php-fig.org/psr/psr-2/).
+Ikuti [PSR standards](https://www.php-fig.org/psr/psr-12/).
+
 Dan juga, ikuti konvensi penamaan yang diterima oleh komunitas Laravel:
 
 What | How | Good | Bad

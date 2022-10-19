@@ -500,9 +500,9 @@ DB | MySQL, PostgreSQL, SQLite, SQL Server | MongoDB
 
 ### **Follow Laravel naming conventions**
 
- Follow [PSR standards](http://www.php-fig.org/psr/psr-2/).
- 
- Also, follow naming conventions accepted by Laravel community:
+Follow [PSR standards](https://www.php-fig.org/psr/psr-12/).
+
+Also, follow naming conventions accepted by Laravel community:
 
 What | How | Good | Bad
 ------------ | ------------- | ------------- | -------------

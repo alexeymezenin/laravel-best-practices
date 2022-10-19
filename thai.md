@@ -478,7 +478,7 @@ DB | MySQL, PostgreSQL, SQLite, SQL Server | MongoDB
 
 ### <a name="follow-laravel-naming-conventions">13. ปฏิบัติตามแนวทางการตั้งชื่อต่าง ๆ ตามกรอบกติกา Laravel</a>
 
-ปฏิบัติตามแนวทาง [มาตรฐาน PSR](http://www.php-fig.org/psr/psr-2/).
+ปฏิบัติตามแนวทาง [มาตรฐาน PSR](https://www.php-fig.org/psr/psr-12/).
  
 นอกจากนี้ให้ปฏิบัติตามแบบแผนการตั้งชื่อที่ชุมชน Laravel ยอมรับ:
 

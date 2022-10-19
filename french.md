@@ -472,9 +472,9 @@ DB | MySQL, PostgreSQL, SQLite, SQL Server | MongoDB
 
 ### **Suivre les conventions de nommage de Laravel**
 
- Suivre [Normes PSR](http://www.php-fig.org/psr/psr-2/).
+Suivre [Normes PSR](https://www.php-fig.org/psr/psr-12/).
 
- Suivez également les conventions de nommage acceptées par la communauté Laravel:
+Suivez également les conventions de nommage acceptées par la communauté Laravel:
 
 Quoi | Comment | Bien | Mal
 ------------ | ------------- | ------------- | -------------
