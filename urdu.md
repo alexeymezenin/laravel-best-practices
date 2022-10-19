@@ -455,7 +455,7 @@ return back()->with('message', __('app.article_added'));
 <p dir="rtl">تھرڈ پارٹی پیکجز اور ٹولز استعمال کرنے کے بجائے بلٹ ان Laravel functionality اور کمیونٹی پیکجز استعمال کرنے کو ترجیح دیں۔ کوئی بھی ڈویلپر جو مستقبل میں آپ کی ایپ کے ساتھ کام کرے گا اسے نئے ٹولز سیکھنے کی ضرورت ہوگی۔ نیز ، جب آپ تھرڈ پارٹی پیکیج یا ٹول استعمال کر رہے ہیں تو Laravel کمیونٹی سے مدد حاصل کرنے کے امکانات نمایاں طور پر کم ہیں۔ اپنے کلائنٹ کو اس کی ادائیگی کرنے پر مجبور نہ کریں ۔
  </p>
 
-کام | معیاری ٹولز  |  تھرڈ پارٹی ٹولز
+کام | معیاری ٹولز  | تھرڈ پارٹی ٹولز
 ------------ | ------------- | -------------
 Authorization | Policies | Entrust, Sentinel and other packages
 Compiling assets | Laravel Mix, Vite | Grunt, Gulp, 3rd party packages
@@ -511,9 +511,9 @@ Config | snake_case | google_calendar.php | ~~googleCalendar.php, google-calenda
 Contract (interface) | adjective or noun | AuthenticationInterface | ~~Authenticatable, IAuthentication~~
 Trait | adjective | Notifiable | ~~NotificationTrait~~
 Trait [(PSR)](https://www.php-fig.org/bylaws/psr-naming-conventions/) | adjective | NotifiableTrait | ~~Notification~~
-Enum | singular | UserType |  ~~UserTypes~~, ~~UserTypeEnum~~
-FormRequest | singular | UpdateUserRequest |  ~~UpdateUserFormRequest~~, ~~UserFormRequest~~, ~~UserRequest~~
-Seeder | singular | UserSeeder |  ~~UsersSeeder~~
+Enum | singular | UserType | ~~UserTypes~~, ~~UserTypeEnum~~
+FormRequest | singular | UpdateUserRequest | ~~UpdateUserFormRequest~~, ~~UserFormRequest~~, ~~UserRequest~~
+Seeder | singular | UserSeeder | ~~UsersSeeder~~
 
 [<p dir="rtl">🔝 انڈیکس پر واپس جائیں</p>](#انڈیکس)
 ### <p dir="rtl">14</p>
