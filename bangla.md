@@ -482,7 +482,7 @@ DB | MySQL, PostgreSQL, SQLite, SQL Server | MongoDB
 ------------ | ------------- | ------------- | -------------
 Controller | singular | ArticleController | ~~ArticlesController~~
 Route | plural | articles/1 | ~~article/1~~
-Named route | snake_case with dot notation | users.show_active | ~~users.show-active, show-active-users~~
+Route name | snake_case with dot notation | users.show_active | ~~users.show-active, show-active-users~~
 Model | singular | User | ~~Users~~
 hasOne or belongsTo relationship | singular | articleComment | ~~articleComments, article_comment~~
 All other relationships | plural | articleComments | ~~articleComment, article_comments~~

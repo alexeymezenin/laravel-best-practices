@@ -486,7 +486,7 @@ Ne | Nasıl | İyi | Kötü
 ------------ | ------------- | ------------- | -------------
 Controller | tekil | ArticleController | ~~ArticlesController~~
 Route | çoğul | articles/1 | ~~article/1~~
-Named route | snake_case ve dot notation (nokta kullanımı) | users.show_active | ~~users.show-active, show-active-users~~
+Route name | snake_case ve dot notation (nokta kullanımı) | users.show_active | ~~users.show-active, show-active-users~~
 Model | tekil | User | ~~Users~~
 hasOne or belongsTo relationship | tekil | articleComment | ~~articleComments, article_comment~~
 All other relationships | çoğul | articleComments | ~~articleComment, article_comments~~

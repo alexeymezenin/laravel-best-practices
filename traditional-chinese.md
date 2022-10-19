@@ -443,7 +443,7 @@ API 登入驗證 | Laravel Passport, Laravel Sanctum | 第三方 JWT 或 OAuth �
 ------------ | ------------- | ------------- | -------------
 Controller | 單數 | ArticleController | ~~ArticlesController~~
 Route - 路由 | 複數 | articles/1 | ~~article/1~~
-Named Route - 路由命名| 使用點標記的 snake_case | users.show_active | ~~users.show-active, show-active-users~~
+Route name - 路由命名| 使用點標記的 snake_case | users.show_active | ~~users.show-active, show-active-users~~
 Model | 單數 | User | ~~Users~~
 hasOne 或 belongsTo 關聯 | 單數 | articleComment | ~~articleComments, article_comment~~
 所有其他關聯 | 複數 | articleComments | ~~articleComment, article_comments~~

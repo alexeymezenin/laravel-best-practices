@@ -480,7 +480,7 @@ Cosa | Come | Giusto | Sbagliato
 ------------ | ------------- | ------------- | -------------
 Controller | singolare | ArticleController |~~ArticlesController~~
 Route | plurale | articles/1 | ~~article/1~~
-Named route | snake_case con notazione punto | users.show_active | ~~users.show-active, show-active-users~~
+Route name | snake_case con notazione punto | users.show_active | ~~users.show-active, show-active-users~~
 Model | singolare | User | ~~Users~~
 Relazioni hasOne o belongsTo | singolare | articleComment |~~articleComments, article_comment~~
 Tutte le altre relazioni | plurale | articleComments | ~~articleComment, article_comments~~

@@ -578,7 +578,7 @@ DB | MySQL, PostgreSQL, SQLite, SQL Server | MongoDB
 ------------ | ------------- | ------------- | -------------
 Controller | اسامی مفرد | ArticleController | ~~ArticlesController~~
 Route | اسامی جمع | articles/1 | ~~article/1~~
-Named route | روش snake_case همراه با نقاط اتصال | users.show_active | ~~users.show-active, show-active-users~~
+Route name | روش snake_case همراه با نقاط اتصال | users.show_active | ~~users.show-active, show-active-users~~
 Model | اسامی مفرد | User | ~~Users~~
 hasOne or belongsTo relationship | اسامی مفرد | articleComment | ~~articleComments, article_comment~~
 All other relationships | اسامی جمع | articleComments | ~~articleComment, article_comments~~
