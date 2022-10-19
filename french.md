@@ -188,7 +188,7 @@ Bien:
 
 ```php
 public function store(PostRequest $request)
-{    
+{
     ....
 }
 

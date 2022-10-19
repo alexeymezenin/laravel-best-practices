@@ -151,7 +151,7 @@ Contoh terbaik:
 
 ```php
 public function store(PostRequest $request)
-{    
+{
     ....
 }
 

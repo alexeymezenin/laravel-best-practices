@@ -194,7 +194,7 @@ Gut:
 
 ```php
 public function store(PostRequest $request)
-{    
+{
     ....
 }
 

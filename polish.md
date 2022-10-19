@@ -196,7 +196,7 @@ Dobrze:
 
 ```php
 public function store(PostRequest $request)
-{    
+{
     ...
 }
 

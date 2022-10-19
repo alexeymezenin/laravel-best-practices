@@ -192,7 +192,7 @@ public function store(Request $request)
 
 ```php
 public function store(PostRequest $request)
-{    
+{
     ....
 }
 
