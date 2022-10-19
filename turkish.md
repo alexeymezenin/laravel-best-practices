@@ -179,7 +179,7 @@ public function store(Request $request)
         'publish_at' => 'nullable|date',
     ]);
 
-    ....
+    // ...
 }
 ```
 
@@ -188,7 +188,7 @@ public function store(Request $request)
 ```php
 public function store(PostRequest $request)
 {
-    ....
+    // ...
 }
 
 class PostRequest extends Request
@@ -219,7 +219,7 @@ public function store(Request $request)
         $request->file('image')->move(public_path('images') . 'temp');
     }
     
-    ....
+    // ...
 }
 ```
 
@@ -230,7 +230,7 @@ public function store(Request $request)
 {
     $this->articleService->handleUploadedImage($request->file('image'));
 
-    ....
+    // ...
 }
 
 class ArticleService
