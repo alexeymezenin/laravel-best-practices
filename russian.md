@@ -313,7 +313,7 @@ $category->article()->create($request->validated());
 
 Плохо (будет выполнен 101 запрос в БД для 100 пользователей):
 
-```php
+```blade
 @foreach (User::all() as $user)
     {{ $user->profile->name }}
 @endforeach
@@ -378,7 +378,7 @@ if ($this->hasJoins())
 
 Плохо:
 
-```php
+```javascript
 let article = `{{ json_encode($article) }}`;
 ```
 
@@ -394,7 +394,7 @@ let article = `{{ json_encode($article) }}`;
 
 В Javascript файле:
 
-```php
+```javascript
 let article = $('#article').val();
 ```
 

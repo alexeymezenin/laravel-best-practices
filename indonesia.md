@@ -308,7 +308,7 @@ $category->article()->create($request->validated());
 
 Contoh buruk (untuk 100 *user*, 101 kueri DB akan dieksekusi):
 
-```php
+```blade
 @foreach (User::all() as $user)
     {{ $user->profile->name }}
 @endforeach
@@ -355,7 +355,7 @@ if ($this->hasJoins())
 
 Contoh buruk:
 
-```php
+```javascript
 let article = `{{ json_encode($article) }}`;
 ```
 

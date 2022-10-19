@@ -351,7 +351,7 @@ $category->article()->create($request->validated());
 
 Schlecht (für 100 Benutzer werden 101 Datenbankabfragen ausgeführt):
 
-```php
+```blade
 @foreach (User::all() as $user)
     {{ $user->profile->name }}
 @endforeach
@@ -398,7 +398,7 @@ if ($this->hasJoins())
 
 Schlecht:
 
-```php
+```javascript
 let article = `{{ json_encode($article) }}`;
 ```
 

@@ -307,7 +307,7 @@ $category->article()->create($request->validated());
 
 例子 (若有 100 個使用者，則會執行 101 次 DB 查詢):
 
-```php
+```blade
 @foreach (User::all() as $user)
     {{ $user->profile->name }}
 @endforeach
@@ -354,7 +354,7 @@ if ($this->hasJoins())
 
 Bad:
 
-```php
+```javascript
 let article = `{{ json_encode($article) }}`;
 ```
 

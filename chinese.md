@@ -339,7 +339,7 @@ $category->article()->create($request->validated());
 
 例子 (对于100个用户，将执行101次DB查询):
 
-```php
+```blade
 @foreach (User::all() as $user)
     {{ $user->profile->name }}
 @endforeach
@@ -386,7 +386,7 @@ if ($this->hasJoins())
 
 例子:
 
-```php
+```javascript
 let article = `{{ json_encode($article) }}`;
 ```
 

@@ -353,7 +353,7 @@ $category->article()->create($request->validated());
 
 Malo (Para 100 usuarios, se ejecutarán 101 consultas):
 
-```php
+```blade
 @foreach (User::all() as $user)
     {{ $user->profile->name }}
 @endforeach
@@ -400,7 +400,7 @@ if ($this->hasJoins())
 
 Malo:
 
-```php
+```javascript
 let article = `{{ json_encode($article) }}`;
 ```
 

@@ -337,7 +337,7 @@ $category->article()->create($request->validated());
 
 Bad (100ユーザに対して、101回のDBクエリが実行される):
 
-```php
+```blade
 @foreach (User::all() as $user)
     {{ $user->profile->name }}
 @endforeach
@@ -384,7 +384,7 @@ if ($this->hasJoins())
 
 Bad:
 
-```php
+```javascript
 let article = `{{ json_encode($article) }}`;
 ```
 

@@ -347,7 +347,7 @@ $category->article()->create($request->validated());
 
 খারাপ (১০০ জন ইউজারের জন্য, ১০১ টা DB queries এক্সিকিউট হবে):
 
-```php
+```blade
 @foreach (User::all() as $user)
     {{ $user->profile->name }}
 @endforeach
@@ -394,7 +394,7 @@ if ($this->hasJoins())
 
 খারাপঃ
 
-```php
+```javascript
 let article = `{{ json_encode($article) }}`;
 ```
 

@@ -345,7 +345,7 @@ $category->article()->create($request->validated());
 
 Mal (Pour 100 utilisateurs, 101 requêtes DB seront exécutées):
 
-```php
+```blade
 @foreach (User::all() as $user)
     {{ $user->profile->name }}
 @endforeach
@@ -392,7 +392,7 @@ if ($this->hasJoins())
 
 Mal:
 
-```php
+```javascript
 let article = `{{ json_encode($article) }}`;
 ```
 

@@ -408,7 +408,7 @@ $category->article()->create($request->all());
 
 </div>
 
-```php
+```blade
 @foreach (User::all() as $user)
     {{ $user->profile->name }}
 @endforeach
@@ -471,7 +471,7 @@ if ($this->hasJoins())
 
 </div>
 
-```php
+```javascript
 let article = `{{ json_encode($article) }}`;
 ```
 <div dir="rtl">

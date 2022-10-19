@@ -351,7 +351,7 @@ $category->article()->create($request->validated());
 <p dir="rtl">❌ طريقة سيئة:</p>
 <p dir="rtl">~لعدد 100 مستخدم سيُنفذ 101 استعلام على قاعدة البيانات</p>
 
-```php
+```blade
 @foreach (User::all() as $user)
     {{ $user->profile->name }}
 @endforeach
@@ -399,7 +399,7 @@ if ($this->hasJoins())
 
 <p dir="rtl">❌ طريقة سيئة:</p>
 
-```php
+```javascript
 let article = `{{ json_encode($article) }}`;
 ```
 

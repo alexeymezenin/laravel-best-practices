@@ -350,7 +350,7 @@ $category->article()->create($request->validated());
 
 ที่แย่: (สำหรับข้อมูลตารางผู้ใช้ 100 users โดยจะมีการรันคำสั่ง Queries 101 ครั้ง):
 
-```php
+```blade
 @foreach (User::all() as $user)
     {{ $user->profile->name }}
 @endforeach
@@ -397,7 +397,7 @@ if ($this->hasJoins())
 
 ที่แย่:
 
-```php
+```javascript
 let article = `{{ json_encode($article) }}`;
 ```
 

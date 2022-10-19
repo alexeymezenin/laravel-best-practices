@@ -311,7 +311,7 @@ $category->article()->create($request->validated());
 
 Погано (на 100 користувачів 101 запит у БД (базу даних)):
 
-```php
+```blade
 @foreach (User::all() as $user)
     {{ $user->profile->name }}
 @endforeach
@@ -358,7 +358,7 @@ if ($this->hasJoins())
 
 Погано:
 
-```php
+```javascript
 let article = `{{ json_encode($article) }}`;
 ```
 

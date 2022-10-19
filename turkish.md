@@ -346,7 +346,7 @@ $category->article()->create($request->validated());
 
 Kötü (100 kullanıcı için, 101 DB tane query çalıştırılacak):
 
-```php
+```blade
 @foreach (User::all() as $user)
     {{ $user->profile->name }}
 @endforeach
@@ -393,7 +393,7 @@ if ($this->hasJoins())
 
 Kötü:
 
-```php
+```javascript
 let article = `{{ json_encode($article) }}`;
 ```
 
