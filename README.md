@@ -620,6 +620,30 @@ $apiKey = config('api.key');
 
 [🔝 Back to contents](#contents)
 
+### **Use helper functions provided in Illuminate/Support**
+
+There are numerous helper functions provided in Illuminate/Support, this can be used anywhere in the application, instead of trying to invent the wheel by writing your own PHP helpers, which is unsafe and can be challenging.
+
+Bad:
+```php
+public function uniqueId()
+{
+    $str_result = '23456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjklmnpqrstuvwxyz';
+
+    $id = substr(str_shuffle($str_result), 0, 24); 
+}
+
+Good
+public function uniqueId()
+{
+    ....
+    $id = Str::random(24);
+    ....
+}
+```
+
+[🔝 Back to contents](#contents)
+
 ### **Store dates in the standard format. Use accessors and mutators to modify date format**
 
 Bad:
