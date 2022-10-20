@@ -686,4 +686,6 @@ Use modern PHP syntax where possible, but don't forget about readability.
 
 Avoid using View Composers and similar tools unless you really know what you're doing. In most cases, there is a better way to solve the problem.
 
+After you have done all you can to secure the application. One final reminder is to make sure you don't forget to set APP_DEBUG=TRUE in the .env file. If you leave the debug mode enabled, hackers will be able to access some private parts of your code as well as configuration information and third-party login credentials.
+
 [🔝 Back to contents](#contents)
