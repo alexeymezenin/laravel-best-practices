@@ -365,7 +365,7 @@ Dobrze (dla 100 użytkowników zostaną wykonane tylko 2 zapytania do bazy danyc
 ```php
 $users = User::with('profile')->get();
 
-...
+// ...
 
 @foreach ($users as $user)
     {{ $user->profile->name }}
@@ -580,7 +580,7 @@ public function __construct(User $user)
     $this->user = $user;
 }
 
-....
+// ...
 
 $this->user->create($request->validated());
 ```

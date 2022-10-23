@@ -358,7 +358,7 @@ Kötü (100 kullanıcı için, 101 DB tane query çalıştırılacak):
 ```php
 $users = User::with('profile')->get();
 
-...
+// ...
 
 @foreach ($users as $user)
     {{ $user->profile->name }}
@@ -574,7 +574,7 @@ public function __construct(User $user)
     $this->user = $user;
 }
 
-....
+// ...
 
 $this->user->create($request->validated());
 ```
