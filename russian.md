@@ -339,7 +339,7 @@ return view('users.index', ['users' => $users]);
 
 ### **Используйте метод chunk при работе с большим количеством данных**
 
-Bad ():
+Bad:
 
 ```php
 $users = $this->get();

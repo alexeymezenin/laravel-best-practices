@@ -381,7 +381,7 @@ return view('users.index', ['users' => $users]);
 
 ### **Chunk data for data-heavy tasks**
 
-Bad ():
+Bad:
 
 ```php
 $users = $this->get();
