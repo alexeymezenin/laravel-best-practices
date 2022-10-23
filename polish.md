@@ -336,6 +336,7 @@ $article = new Article;
 $article->title = $request->title;
 $article->content = $request->content;
 $article->verified = $request->verified;
+
 // Dodaj kategorię do artykułu
 $article->category_id = $category->id;
 $article->save();
