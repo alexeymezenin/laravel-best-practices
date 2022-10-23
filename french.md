@@ -357,7 +357,7 @@ Bien (pour 100 utilisateurs, 2 requêtes de base de données seront exécutées)
 ```php
 $users = User::with('profile')->get();
 
-...
+// ...
 
 @foreach ($users as $user)
     {{ $user->profile->name }}
@@ -568,7 +568,7 @@ public function __construct(User $user)
     $this->user = $user;
 }
 
-....
+// ...
 
 $this->user->create($request->validated());
 ```

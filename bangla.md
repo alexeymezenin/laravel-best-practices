@@ -359,7 +359,7 @@ $category->article()->create($request->validated());
 ```php
 $users = User::with('profile')->get();
 
-...
+// ...
 
 @foreach ($users as $user)
     {{ $user->profile->name }}
@@ -570,7 +570,7 @@ public function __construct(User $user)
     $this->user = $user;
 }
 
-....
+// ...
 
 $this->user->create($request->validated());
 ```
