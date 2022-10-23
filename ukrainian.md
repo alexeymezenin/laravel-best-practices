@@ -340,20 +340,26 @@ return view('users.index', ['users' => $users]);
 Погано:
 
 ```php
-if (count((array) $builder->getQuery()->joins) > 0)
+if (count((array) $builder->getQuery()->joins) > 0) {
+    // ...
+}
 ```
 
 Нормально:
 
 ```php
 // Визначає наявність join-ів.
-if (count((array) $builder->getQuery()->joins) > 0)
+if (count((array) $builder->getQuery()->joins) > 0) {
+    // ...
+}
 ```
 
 Добре:
 
 ```php
-if ($this->hasJoins())
+if ($this->hasJoins()) {
+    // ...
+}
 ```
 
 [🔝 Назад до змісту](#Зміст)

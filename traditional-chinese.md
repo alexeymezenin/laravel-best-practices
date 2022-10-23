@@ -336,20 +336,26 @@ return view('users.index', ['users' => $users]);
 Bad:
 
 ```php
-if (count((array) $builder->getQuery()->joins) > 0)
+if (count((array) $builder->getQuery()->joins) > 0) {
+    // ...
+}
 ```
 
 加上註釋:
 
 ```php
 // 確定是否有任何 Join
-if (count((array) $builder->getQuery()->joins) > 0)
+if (count((array) $builder->getQuery()->joins) > 0) {
+    // ...
+}
 ```
 
 Good:
 
 ```php
-if ($this->hasJoins())
+if ($this->hasJoins()) {
+    // ...
+}
 ```
 
 [🔝 回到目錄](#內容)

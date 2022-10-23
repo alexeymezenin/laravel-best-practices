@@ -367,13 +367,17 @@ $this->chunk(500, function ($users) {
 
 ```php
 // Determine if there are any joins
-if (count((array) $builder->getQuery()->joins) > 0)
+if (count((array) $builder->getQuery()->joins) > 0) {
+    // ...
+}
 ```
 
 Хорошо:
 
 ```php
-if ($this->hasJoins())
+if ($this->hasJoins()) {
+    // ...
+}
 ```
 
 [🔝 Наверх](#Содержание)

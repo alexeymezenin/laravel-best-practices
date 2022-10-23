@@ -368,20 +368,26 @@ return view('users.index', ['users' => $users]);
 例子:
 
 ```php
-if (count((array) $builder->getQuery()->joins) > 0)
+if (count((array) $builder->getQuery()->joins) > 0) {
+    // ...
+}
 ```
 
 加上注释:
 
 ```php
 // 确定是否有任何连接
-if (count((array) $builder->getQuery()->joins) > 0)
+if (count((array) $builder->getQuery()->joins) > 0) {
+    // ...
+}
 ```
 
 更优的写法:
 
 ```php
-if ($this->hasJoins())
+if ($this->hasJoins()) {
+    // ...
+}
 ```
 
 [🔝 返回目录](#内容)

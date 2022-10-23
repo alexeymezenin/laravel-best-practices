@@ -389,20 +389,26 @@ return view('users.index', ['users' => $users]);
 <p dir="rtl">❌ غلط طریقہ:</p>
 
 ```php
-if (count((array) $builder->getQuery()->joins) > 0)
+if (count((array) $builder->getQuery()->joins) > 0) {
+    // ...
+}
 ```
 
 <p dir="rtl">بہتر طریقہ۔:</p>
 
 ```php
 // Determine if there are any joins.
-if (count((array) $builder->getQuery()->joins) > 0)
+if (count((array) $builder->getQuery()->joins) > 0) {
+    // ...
+}
 ```
 
 <p dir="rtl">✔️ درست طریقہ:</p>
 
 ```php
-if ($this->hasJoins())
+if ($this->hasJoins()) {
+    // ...
+}
 ```
 
 [<p dir="rtl">🔝 انڈیکس پر واپس جائیں</p>](#انڈیکس)

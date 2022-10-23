@@ -337,20 +337,26 @@ return view('users.index', ['users' => $users]);
 Contoh buruk:
 
 ```php
-if (count((array) $builder->getQuery()->joins) > 0)
+if (count((array) $builder->getQuery()->joins) > 0) {
+    // ...
+}
 ```
 
 Contoh lebih baik:
 
 ```php
 // Determine if there are any joins.
-if (count((array) $builder->getQuery()->joins) > 0)
+if (count((array) $builder->getQuery()->joins) > 0) {
+    // ...
+}
 ```
 
 Contoh terbaik:
 
 ```php
-if ($this->hasJoins())
+if ($this->hasJoins()) {
+    // ...
+}
 ```
 
 [🔝 Kembali ke konten](#konten)

@@ -443,7 +443,9 @@ return view('users.index', ['users' => $users]);
 </div>
 
 ```php
-if (count((array) $builder->getQuery()->joins) > 0)
+if (count((array) $builder->getQuery()->joins) > 0) {
+    // ...
+}
 ```
 <div dir="rtl">
 
@@ -453,7 +455,9 @@ if (count((array) $builder->getQuery()->joins) > 0)
 
 ```php
 // Determine if there are any joins.
-if (count((array) $builder->getQuery()->joins) > 0)
+if (count((array) $builder->getQuery()->joins) > 0) {
+    // ...
+}
 ```
 <div dir="rtl">
 
@@ -462,7 +466,9 @@ if (count((array) $builder->getQuery()->joins) > 0)
 </div>
 
 ```php
-if ($this->hasJoins())
+if ($this->hasJoins()) {
+    // ...
+}
 ```
 
 <div dir="rtl">

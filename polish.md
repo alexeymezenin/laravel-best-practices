@@ -382,20 +382,26 @@ return view('users.index', ['users' => $users]);
 Źle:
 
 ```php
-if (count((array) $builder->getQuery()->joins) > 0)
+if (count((array) $builder->getQuery()->joins) > 0) {
+    // ...
+}
 ```
 
 Lepiej:
 
 ```php
 // Ustal czy istnieją jakieś join-y
-if (count((array) $builder->getQuery()->joins) > 0)
+if (count((array) $builder->getQuery()->joins) > 0) {
+    // ...
+}
 ```
 
 Dobrze:
 
 ```php
-if ($this->hasJoins())
+if ($this->hasJoins()) {
+    // ...
+}
 ```
 
 [🔝 Wróć do spisu treści](#spis-treści)

@@ -381,20 +381,26 @@ return view('users.index', ['users' => $users]);
 <p dir="rtl">❌ طريقة سيئة:</p>
 
 ```php
-if (count((array) $builder->getQuery()->joins) > 0)
+if (count((array) $builder->getQuery()->joins) > 0) {
+    // ...
+}
 ```
 
 <p dir="rtl">طريقة أفضل:</p>
 
 ```php
 // Determine if there are any joins.
-if (count((array) $builder->getQuery()->joins) > 0)
+if (count((array) $builder->getQuery()->joins) > 0) {
+    // ...
+}
 ```
 
 <p dir="rtl">✔️ طريقة جيدة:</p>
 
 ```php
-if ($this->hasJoins())
+if ($this->hasJoins()) {
+    // ...
+}
 ```
 
 [<p dir="rtl">🔝 الرجوع للفهرس</p>](#الفهرس)
