@@ -101,9 +101,9 @@ public function getFullNameShort(): string
 public function index()
 {
     $clients = Client::verified()
-        ->with(['orders' => function ($q) {
-            $q->where('created_at', '>', Carbon::today()->subWeek());
-        }])
+        ->with([
+            'orders' => function ($q) { $q->where('created_at', '>', Carbon::today()->subWeek()); }
+        ])
         ->get();
 
     return view('index', ['clients' => $clients]);
@@ -123,9 +123,9 @@ class Client extends Model
     public function getWithNewOrders(): Collection
     {
         return $this->verified()
-            ->with(['orders' => function ($q) {
-                $q->where('created_at', '>', Carbon::today()->subWeek());
-            }])
+            ->with([
+                'orders' => function ($q) { $q->where('created_at', '>', Carbon::today()->subWeek()); }
+            ])
             ->get();
     }
 }
