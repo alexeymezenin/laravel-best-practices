@@ -323,10 +323,13 @@ $category->article()->create($request->validated());
 Хорошо (будет выполнено 2 запроса в БД для 100 пользователей):
 
 ```php
+// Controller
 $users = User::with('profile')->get();
 
-// ...
+return view('users.index', ['users' => $users]);
+```
 
+```blade
 @foreach ($users as $user)
     {{ $user->profile->name }}
 @endforeach

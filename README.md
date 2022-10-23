@@ -365,10 +365,13 @@ Bad (for 100 users, 101 DB queries will be executed):
 Good (for 100 users, 2 DB queries will be executed):
 
 ```php
+// Controller
 $users = User::with('profile')->get();
 
-// ...
+return view('users.index', ['users' => $users]);
+```
 
+```blade
 @foreach ($users as $user)
     {{ $user->profile->name }}
 @endforeach

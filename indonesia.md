@@ -318,10 +318,13 @@ Contoh buruk (untuk 100 *user*, 101 kueri DB akan dieksekusi):
 Contoh terbaik (untuk 100 *user*, 2 kueri DB akan dieksekusi):
 
 ```php
+// Controller
 $users = User::with('profile')->get();
 
-// ...
+return view('users.index', ['users' => $users]);
+```
 
+```blade
 @foreach ($users as $user)
     {{ $user->profile->name }}
 @endforeach

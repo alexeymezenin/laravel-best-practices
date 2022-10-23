@@ -360,10 +360,13 @@ $category->article()->create($request->validated());
 ที่ดี: (สำหรับข้อมูลตารางผู้ใช้ 100 users โดยจะมีการรันคำสั่ง Queries 2 ครั้ง):
 
 ```php
+// Controller
 $users = User::with('profile')->get();
 
-// ...
+return view('users.index', ['users' => $users]);
+```
 
+```blade
 @foreach ($users as $user)
     {{ $user->profile->name }}
 @endforeach

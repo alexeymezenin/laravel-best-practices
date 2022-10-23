@@ -356,10 +356,13 @@ Kötü (100 kullanıcı için, 101 DB tane query çalıştırılacak):
 İyi (100 kullanıcı için, 2 DB tane query çalıştırılacak):
 
 ```php
+// Controller
 $users = User::with('profile')->get();
 
-// ...
+return view('users.index', ['users' => $users]);
+```
 
+```blade
 @foreach ($users as $user)
     {{ $user->profile->name }}
 @endforeach

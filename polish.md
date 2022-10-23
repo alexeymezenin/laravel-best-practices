@@ -363,10 +363,13 @@ $category->article()->create($request->validated());
 Dobrze (dla 100 użytkowników zostaną wykonane tylko 2 zapytania do bazy danych):
 
 ```php
+// Controller
 $users = User::with('profile')->get();
 
-// ...
+return view('users.index', ['users' => $users]);
+```
 
+```blade
 @foreach ($users as $user)
     {{ $user->profile->name }}
 @endforeach
