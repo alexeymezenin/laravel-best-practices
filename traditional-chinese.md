@@ -317,10 +317,13 @@ $category->article()->create($request->validated());
 更優的寫法 (若有 100 個使用者，則會執行 2 次 DB 查詢):
 
 ```php
+// Controller
 $users = User::with('profile')->get();
 
-// ...
+return view('users.index', ['users' => $users]);
+```
 
+```blade
 @foreach ($users as $user)
     {{ $user->profile->name }}
 @endforeach

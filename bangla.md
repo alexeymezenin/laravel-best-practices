@@ -357,10 +357,13 @@ $category->article()->create($request->validated());
 ভালো (১০০ জন ইউজারের জন্য, ২ টা DB queries এক্সিকিউট হবে)-ঃ 
 
 ```php
+// Controller
 $users = User::with('profile')->get();
 
-// ...
+return view('users.index', ['users' => $users]);
+```
 
+```blade
 @foreach ($users as $user)
     {{ $user->profile->name }}
 @endforeach

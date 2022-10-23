@@ -355,10 +355,13 @@ Mal (Pour 100 utilisateurs, 101 requêtes DB seront exécutées):
 Bien (pour 100 utilisateurs, 2 requêtes de base de données seront exécutées):
 
 ```php
+// Controller
 $users = User::with('profile')->get();
 
-// ...
+return view('users.index', ['users' => $users]);
+```
 
+```blade
 @foreach ($users as $user)
     {{ $user->profile->name }}
 @endforeach

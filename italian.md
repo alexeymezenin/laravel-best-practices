@@ -355,10 +355,13 @@ Sbagliato (per 100 utenti, verranno eseguite 101 query DB):
 Giusto (per 100 utenti, verranno eseguite 2 query DB):
 
 ```php
+// Controller
 $users = User::with('profile')->get();
 
-// ...
+return view('users.index', ['users' => $users]);
+```
 
+```blade
 @foreach ($users as $user)
     {{ $user->profile->name }}
 @endforeach

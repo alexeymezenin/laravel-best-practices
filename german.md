@@ -361,10 +361,13 @@ Schlecht (für 100 Benutzer werden 101 Datenbankabfragen ausgeführt):
 Gut (für 100 Benutzer werden 2 Datenbankabfragen ausgeführt):
 
 ```php
+// Controller
 $users = User::with('profile')->get();
 
-// ...
+return view('users.index', ['users' => $users]);
+```
 
+```blade
 @foreach ($users as $user)
     {{ $user->profile->name }}
 @endforeach

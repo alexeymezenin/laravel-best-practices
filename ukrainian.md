@@ -321,10 +321,13 @@ $category->article()->create($request->validated());
 Добре (на 100 користувачів лише 2 запити у БД):
 
 ```php
+// Controller
 $users = User::with('profile')->get();
 
-// ...
+return view('users.index', ['users' => $users]);
+```
 
+```blade
 @foreach ($users as $user)
     {{ $user->profile->name }}
 @endforeach

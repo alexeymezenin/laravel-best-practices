@@ -363,10 +363,13 @@ Malo (Para 100 usuarios, se ejecutarán 101 consultas):
 Bueno (Para 100 usuarios, se ejecutarán 2 consultas):
 
 ```php
+// Controller
 $users = User::with('profile')->get();
 
-// ...
+return view('users.index', ['users' => $users]);
+```
 
+```blade
 @foreach ($users as $user)
     {{ $user->profile->name }}
 @endforeach

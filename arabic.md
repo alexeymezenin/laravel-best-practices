@@ -362,10 +362,13 @@ $category->article()->create($request->validated());
 <p dir="rtl">~لعدد 100 مستخدم سيُنفذ 2 استعلام فقط على قاعدة البيانات~</p>
 
 ```php
+// Controller
 $users = User::with('profile')->get();
 
-// ...
+return view('users.index', ['users' => $users]);
+```
 
+```blade
 @foreach ($users as $user)
     {{ $user->profile->name }}
 @endforeach

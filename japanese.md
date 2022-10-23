@@ -347,10 +347,13 @@ Bad (100ユーザに対して、101回のDBクエリが実行される):
 Good (100ユーザに対して、2回のDBクエリが実行される):
 
 ```php
+// Controller
 $users = User::with('profile')->get();
 
-// ...
+return view('users.index', ['users' => $users]);
+```
 
+```blade
 @foreach ($users as $user)
     {{ $user->profile->name }}
 @endforeach

@@ -369,10 +369,13 @@ $category->article()->create($request->validated());
 <p dir="rtl">غلط (100 صارفین کے لیے ، 2 DB queries استعمال ہوں گی ):</p>
 
 ```php
+// Controller
 $users = User::with('profile')->get();
 
-// ...
+return view('users.index', ['users' => $users]);
+```
 
+```blade
 @foreach ($users as $user)
     {{ $user->profile->name }}
 @endforeach
