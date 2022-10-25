@@ -138,9 +138,9 @@ public function getFullNameShort(): string
 public function index()
 {
     $clients = Client::verified()
-        ->with([
-            'orders' => function ($q) { $q->where('created_at', '>', Carbon::today()->subWeek()); }
-        ])
+        ->with(['orders' => function ($q) {
+            $q->where('created_at', '>', Carbon::today()->subWeek());
+        }])
         ->get();
 
     return view('index', ['clients' => $clients]);
@@ -160,9 +160,9 @@ class Client extends Model
     public function getWithNewOrders()
     {
         return $this->verified()
-            ->with([
-                'orders' => function ($q) { $q->where('created_at', '>', Carbon::today()->subWeek()); }
-            ])
+            ->with(['orders' => function ($q) {
+                $q->where('created_at', '>', Carbon::today()->subWeek());
+            }])
             ->get();
     }
 }
@@ -185,7 +185,7 @@ public function store(Request $request)
         'publish_at' => 'nullable|date',
     ]);
 
-    // ...
+    ...
 }
 ```
 
@@ -194,7 +194,7 @@ public function store(Request $request)
 ```php
 public function store(PostRequest $request)
 {
-    // ...
+    ...
 }
 
 class PostRequest extends Request
@@ -226,7 +226,7 @@ public function store(Request $request)
         $request->file('image')->move(public_path('images') . 'temp');
     }
     
-    // ...
+    ...
 }
 ```
 
@@ -237,7 +237,7 @@ public function store(Request $request)
 {
     $this->articleService->handleUploadedImage($request->file('image'));
 
-    // ...
+    ...
 }
 
 class ArticleService
@@ -369,13 +369,8 @@ $category->article()->create($request->validated());
 <p dir="rtl">غلط (100 صارفین کے لیے ، 2 DB queries استعمال ہوں گی ):</p>
 
 ```php
-// Controller
 $users = User::with('profile')->get();
 
-return view('users.index', ['users' => $users]);
-```
-
-```blade
 @foreach ($users as $user)
     {{ $user->profile->name }}
 @endforeach
@@ -389,26 +384,20 @@ return view('users.index', ['users' => $users]);
 <p dir="rtl">❌ غلط طریقہ:</p>
 
 ```php
-if (count((array) $builder->getQuery()->joins) > 0) {
-    // ...
-}
+if (count((array) $builder->getQuery()->joins) > 0)
 ```
 
 <p dir="rtl">بہتر طریقہ۔:</p>
 
 ```php
 // Determine if there are any joins.
-if (count((array) $builder->getQuery()->joins) > 0) {
-    // ...
-}
+if (count((array) $builder->getQuery()->joins) > 0)
 ```
 
 <p dir="rtl">✔️ درست طریقہ:</p>
 
 ```php
-if ($this->hasJoins()) {
-    // ...
-}
+if ($this->hasJoins())
 ```
 
 [<p dir="rtl">🔝 انڈیکس پر واپس جائیں</p>](#انڈیکس)
@@ -599,7 +588,7 @@ public function __construct(User $user)
     $this->user = $user;
 }
 
-// ...
+...
 
 $this->user->create($request->validated());
 ```

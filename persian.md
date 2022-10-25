@@ -158,9 +158,9 @@ public function getFullNameShort(): string
 public function index()
 {
     $clients = Client::verified()
-        ->with([
-            'orders' => function ($q) { $q->where('created_at', '>', Carbon::today()->subWeek()); }
-        ])
+        ->with(['orders' => function ($q) {
+            $q->where('created_at', '>', Carbon::today()->subWeek());
+        }])
         ->get();
 
     return view('index', ['clients' => $clients]);
@@ -183,9 +183,9 @@ class Client extends Model
     public function getWithNewOrders()
     {
         return $this->verified()
-            ->with([
-                'orders' => function ($q) { $q->where('created_at', '>', Carbon::today()->subWeek()); }
-            ])
+            ->with(['orders' => function ($q) {
+                $q->where('created_at', '>', Carbon::today()->subWeek());
+            }])
             ->get();
     }
 }
@@ -211,7 +211,7 @@ public function store(Request $request)
         'publish_at' => 'nullable|date',
     ]);
 
-    // ...
+    ...
 }
 ```
 <div dir="rtl">
@@ -223,7 +223,7 @@ public function store(Request $request)
 ```php
 public function store(PostRequest $request)
 {
-    // ...
+    ...
 }
 
 class PostRequest extends Request
@@ -257,7 +257,7 @@ public function store(Request $request)
         $request->file('image')->move(public_path('images') . 'temp');
     }
     
-    // ...
+    ...
 }
 ```
 <div dir="rtl">
@@ -271,7 +271,7 @@ public function store(Request $request)
 {
     $this->articleService->handleUploadedImage($request->file('image'));
 
-    // ...
+    ...
 }
 
 class ArticleService
@@ -421,13 +421,8 @@ $category->article()->create($request->all());
 </div>
 
 ```php
-// Controller
 $users = User::with('profile')->get();
 
-return view('users.index', ['users' => $users]);
-```
-
-```blade
 @foreach ($users as $user)
     {{ $user->profile->name }}
 @endforeach
@@ -443,9 +438,7 @@ return view('users.index', ['users' => $users]);
 </div>
 
 ```php
-if (count((array) $builder->getQuery()->joins) > 0) {
-    // ...
-}
+if (count((array) $builder->getQuery()->joins) > 0)
 ```
 <div dir="rtl">
 
@@ -455,9 +448,7 @@ if (count((array) $builder->getQuery()->joins) > 0) {
 
 ```php
 // Determine if there are any joins.
-if (count((array) $builder->getQuery()->joins) > 0) {
-    // ...
-}
+if (count((array) $builder->getQuery()->joins) > 0)
 ```
 <div dir="rtl">
 
@@ -466,9 +457,7 @@ if (count((array) $builder->getQuery()->joins) > 0) {
 </div>
 
 ```php
-if ($this->hasJoins()) {
-    // ...
-}
+if ($this->hasJoins())
 ```
 
 <div dir="rtl">
@@ -692,7 +681,7 @@ public function __construct(User $user)
     $this->user = $user;
 }
 
-// ...
+...
 
 $this->user->create($request->all());
 ```

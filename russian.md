@@ -101,9 +101,9 @@ public function getFullNameShort(): string
 public function index()
 {
     $clients = Client::verified()
-        ->with([
-            'orders' => function ($q) { $q->where('created_at', '>', Carbon::today()->subWeek()); }
-        ])
+        ->with(['orders' => function ($q) {
+            $q->where('created_at', '>', Carbon::today()->subWeek());
+        }])
         ->get();
 
     return view('index', ['clients' => $clients]);
@@ -123,9 +123,9 @@ class Client extends Model
     public function getWithNewOrders(): Collection
     {
         return $this->verified()
-            ->with([
-                'orders' => function ($q) { $q->where('created_at', '>', Carbon::today()->subWeek()); }
-            ])
+            ->with(['orders' => function ($q) {
+                $q->where('created_at', '>', Carbon::today()->subWeek());
+            }])
             ->get();
     }
 }
@@ -148,7 +148,7 @@ public function store(Request $request)
         'publish_at' => 'nullable|date',
     ]);
 
-    // ...
+    ...
 }
 ```
 
@@ -157,7 +157,7 @@ public function store(Request $request)
 ```php
 public function store(PostRequest $request)
 {
-    // ...
+    ...
 }
 
 class PostRequest extends Request
@@ -188,7 +188,7 @@ public function store(Request $request)
         $request->file('image')->move(public_path('images') . 'temp');
     }
     
-    // ...
+    ...
 }
 ```
 
@@ -199,7 +199,7 @@ public function store(Request $request)
 {
     $this->articleService->handleUploadedImage($request->file('image'));
 
-    // ...
+    ...
 }
 
 class ArticleService
@@ -323,13 +323,8 @@ $category->article()->create($request->validated());
 Хорошо (будет выполнено 2 запроса в БД для 100 пользователей):
 
 ```php
-// Controller
 $users = User::with('profile')->get();
 
-return view('users.index', ['users' => $users]);
-```
-
-```blade
 @foreach ($users as $user)
     {{ $user->profile->name }}
 @endforeach
@@ -345,7 +340,7 @@ Bad:
 $users = $this->get();
 
 foreach ($users as $user) {
-    // ...
+    ...
 }
 ```
 
@@ -354,7 +349,7 @@ Good:
 ```php
 $this->chunk(500, function ($users) {
     foreach ($users as $user) {
-        // ...
+        ...
     }
 });
 ```
@@ -367,17 +362,13 @@ $this->chunk(500, function ($users) {
 
 ```php
 // Determine if there are any joins
-if (count((array) $builder->getQuery()->joins) > 0) {
-    // ...
-}
+if (count((array) $builder->getQuery()->joins) > 0)
 ```
 
 Хорошо:
 
 ```php
-if ($this->hasJoins()) {
-    // ...
-}
+if ($this->hasJoins())
 ```
 
 [🔝 Наверх](#Содержание)
@@ -563,7 +554,7 @@ public function __construct(User $user)
     $this->user = $user;
 }
 
-// ...
+...
 
 $this->user->create($request->validated());
 ```

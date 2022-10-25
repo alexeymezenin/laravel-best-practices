@@ -133,9 +133,9 @@ Sbagliato:
 public function index()
 {
     $clients = Client::verified()
-        ->with([
-            'orders' => function ($q) { $q->where('created_at', '>', Carbon::today()->subWeek()); }
-        ])
+        ->with(['orders' => function ($q) {
+            $q->where('created_at', '>', Carbon::today()->subWeek());
+        }])
         ->get();
 
     return view('index', ['clients' => $clients]);
@@ -155,9 +155,9 @@ class Client extends Model
     public function getWithNewOrders()
     {
         return $this->verified()
-            ->with([
-                'orders' => function ($q) { $q->where('created_at', '>', Carbon::today()->subWeek()); }
-            ])
+            ->with(['orders' => function ($q) {
+                $q->where('created_at', '>', Carbon::today()->subWeek());
+            }])
             ->get();
     }
 }
@@ -180,7 +180,7 @@ public function store(Request $request)
         'publish_at' => 'nullable|date',
     ]);
 
-    // ...
+    ...
 }
 ```
 
@@ -189,7 +189,7 @@ Giusto:
 ```php
 public function store(PostRequest $request)
 {
-    // ...
+    ...
 }
 
 class PostRequest extends Request
@@ -220,7 +220,7 @@ public function store(Request $request)
         $request->file('image')->move(public_path('images') . 'temp');
     }
     
-    // ...
+    ...
 }
 ```
 
@@ -231,7 +231,7 @@ public function store(Request $request)
 {
     $this->articleService->handleUploadedImage($request->file('image'));
 
-    // ...
+    ...
 }
 
 class ArticleService
@@ -355,13 +355,8 @@ Sbagliato (per 100 utenti, verranno eseguite 101 query DB):
 Giusto (per 100 utenti, verranno eseguite 2 query DB):
 
 ```php
-// Controller
 $users = User::with('profile')->get();
 
-return view('users.index', ['users' => $users]);
-```
-
-```blade
 @foreach ($users as $user)
     {{ $user->profile->name }}
 @endforeach
@@ -374,26 +369,20 @@ return view('users.index', ['users' => $users]);
 Sbagliato:
 
 ```php
-if (count((array) $builder->getQuery()->joins) > 0) {
-    // ...
-}
+if (count((array) $builder->getQuery()->joins) > 0)
 ```
 
 Meglio:
 
 ```php
 // Determine if there are any joins.
-if (count((array) $builder->getQuery()->joins) > 0) {
-    // ...
-}
+if (count((array) $builder->getQuery()->joins) > 0)
 ```
 
 Giusto:
 
 ```php
-if ($this->hasJoins()) {
-    // ...
-}
+if ($this->hasJoins())
 ```
 
 [Torna ai contenuti](#contents)
@@ -577,7 +566,7 @@ public function __construct(User $user)
     $this->user = $user;
 }
 
-// ...
+...
 
 $this->user->create($request->validated());
 ```

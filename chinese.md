@@ -127,9 +127,9 @@ public function getFullNameShort(): string
 public function index()
 {
     $clients = Client::verified()
-        ->with([
-            'orders' => function ($q) { $q->where('created_at', '>', Carbon::today()->subWeek()); }
-        ])
+        ->with(['orders' => function ($q) {
+            $q->where('created_at', '>', Carbon::today()->subWeek());
+        }])
         ->get();
 
     return view('index', ['clients' => $clients]);
@@ -149,9 +149,9 @@ class Client extends Model
     public function getWithNewOrders()
     {
         return $this->verified()
-            ->with([
-                'orders' => function ($q) { $q->where('created_at', '>', Carbon::today()->subWeek()); }
-            ])
+            ->with(['orders' => function ($q) {
+                $q->where('created_at', '>', Carbon::today()->subWeek());
+            }])
             ->get();
     }
 }
@@ -174,7 +174,7 @@ public function store(Request $request)
         'publish_at' => 'nullable|date',
     ]);
 
-    // ...
+    ...
 }
 ```
 
@@ -183,7 +183,7 @@ public function store(Request $request)
 ```php
 public function store(PostRequest $request)
 {
-    // ...
+    ...
 }
 
 class PostRequest extends Request
@@ -214,7 +214,7 @@ public function store(Request $request)
         $request->file('image')->move(public_path('images') . 'temp');
     }
     
-    // ...
+    ...
 }
 ```
 
@@ -225,7 +225,7 @@ public function store(Request $request)
 {
     $this->articleService->handleUploadedImage($request->file('image'));
 
-    // ...
+    ...
 }
 
 class ArticleService
@@ -349,13 +349,8 @@ $category->article()->create($request->validated());
 更优的写法 (对于100个用户，使用以下写法只需执行2次DB查询):
 
 ```php
-// Controller
 $users = User::with('profile')->get();
 
-return view('users.index', ['users' => $users]);
-```
-
-```blade
 @foreach ($users as $user)
     {{ $user->profile->name }}
 @endforeach
@@ -368,26 +363,20 @@ return view('users.index', ['users' => $users]);
 例子:
 
 ```php
-if (count((array) $builder->getQuery()->joins) > 0) {
-    // ...
-}
+if (count((array) $builder->getQuery()->joins) > 0)
 ```
 
 加上注释:
 
 ```php
 // 确定是否有任何连接
-if (count((array) $builder->getQuery()->joins) > 0) {
-    // ...
-}
+if (count((array) $builder->getQuery()->joins) > 0)
 ```
 
 更优的写法:
 
 ```php
-if ($this->hasJoins()) {
-    // ...
-}
+if ($this->hasJoins())
 ```
 
 [🔝 返回目录](#内容)
@@ -574,7 +563,7 @@ public function __construct(User $user)
     $this->user = $user;
 }
 
-// ...
+...
 
 $this->user->create($request->validated());
 ```
