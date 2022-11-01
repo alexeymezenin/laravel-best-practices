@@ -603,6 +603,8 @@ $apiKey = config('api.key');
 
 ### **Speichern Sie Datumsangaben im Standardformat. Verwenden Sie Accessoren und Mutatoren, um das Datumsformat zu ändern**
 
+Strings für Datums sind generell weniger belastbar als Objekte (z.B. Carbon Objekte). Es ist empfehlenswert Carbon-Instanzen zwischen Klassen zu übergeben. Formatierung sollte in den blade Dateien erfolgen:
+
 Schlecht:
 
 ```php
@@ -614,16 +616,13 @@ Gut:
 
 ```php
 // Model
-protected $dates = ['ordered_at', 'created_at', 'updated_at'];
+protected $dates = [
+    'ordered_at',
+];
 
-public function getSomeDateAttribute($date)
-{
-    return $date->format('m-d');
-}
-
-// View
+// Blade view
 {{ $object->ordered_at->toDateString() }}
-{{ $object->ordered_at->some_date }}
+{{ $object->ordered_at->format('m-d') }}
 ```
 
 [🔝 Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)

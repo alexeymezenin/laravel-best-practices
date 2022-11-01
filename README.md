@@ -625,6 +625,8 @@ $apiKey = config('api.key');
 
 ### **Store dates in the standard format. Use accessors and mutators to modify date format**
 
+A date as a string is less reliable than an object instance, e.g. a Carbon-instance. It's recommended to pass Carbon objects between classes instead of date strings. Rendering should be done in the display layer (templates):
+
 Bad:
 
 ```php
@@ -636,15 +638,13 @@ Good:
 
 ```php
 // Model
-protected $dates = ['ordered_at', 'created_at', 'updated_at'];
-public function getSomeDateAttribute($date)
-{
-    return $date->format('m-d');
-}
+protected $dates = [
+    'ordered_at',
+];
 
-// View
+// Blade view
 {{ $object->ordered_at->toDateString() }}
-{{ $object->some_date }}
+{{ $object->ordered_at->format('m-d') }}
 ```
 
 [🔝 Back to contents](#contents)
