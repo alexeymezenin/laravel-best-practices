@@ -481,7 +481,7 @@ Development Environment | Laravel Sail, Homestead | Docker
 Deployment | Laravel Forge | Deployer and other solutions
 Unit testing | PHPUnit, Mockery | Phpspec, Pest
 Browser testing | Laravel Dusk | Codeception
-DB | Eloquent | SQL, Doctrine
+ORM | Eloquent | SQL, Doctrine
 Templates | Blade | Twig
 Working with data | Laravel collections | Arrays
 Form validation | Request classes | 3rd party packages, validation in controller
