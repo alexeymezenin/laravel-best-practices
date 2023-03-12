@@ -102,7 +102,7 @@ public function getFullNameAttribute(): string
     if (auth()->user() && auth()->user()->hasRole('client') && auth()->user()->isVerified()) {
         return 'Mr. ' . $this->first_name . ' ' . $this->middle_name . ' ' . $this->last_name;
     } else {
-        return $this->first_name[0] . '. ' . $this->last_name;
+        return $this->first_name . '. ' . $this->last_name;
     }
 }
 ```
@@ -127,7 +127,7 @@ public function getFullNameLong(): string
 
 public function getFullNameShort(): string
 {
-    return $this->first_name[0] . '. ' . $this->last_name;
+    return $this->first_name . '. ' . $this->last_name;
 }
 ```
 
