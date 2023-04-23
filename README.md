@@ -638,8 +638,8 @@ Good:
 
 ```php
 // Model
-protected $dates = [
-    'ordered_at',
+protected $casts = [
+    'ordered_at' => 'datetime',
 ];
 
 // Blade view
