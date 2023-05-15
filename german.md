@@ -603,7 +603,7 @@ $apiKey = config('api.key');
 
 ### **Speichern Sie Datumsangaben im Standardformat. Verwenden Sie Accessoren und Mutatoren, um das Datumsformat zu ändern**
 
-Strings für Datums sind generell weniger belastbar als Objekte (z.B. Carbon Objekte). Es ist empfehlenswert Carbon-Instanzen zwischen Klassen zu übergeben. Formatierung sollte in den blade Dateien erfolgen:
+Strings für Daten sind generell weniger belastbar als Objekte (z.B. Carbon Objekte). Es ist empfehlenswert Carbon-Instanzen zwischen Klassen zu übergeben. Formatierung sollte in den blade Dateien erfolgen:
 
 Schlecht:
 
