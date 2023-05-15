@@ -616,7 +616,10 @@ Bueno:
 
 ```php
 // Modelo
-protected $dates = ['ordered_at', 'created_at', 'updated_at'];
+protected $casts = [
+    'ordered_at' => 'datetime',
+];
+
 public function getSomeDateAttribute($date)
 {
     return $date->format('m-d');
