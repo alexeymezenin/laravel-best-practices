@@ -46,7 +46,7 @@ Traductions:
 
 [Principe de responsabilité unique](#principe-de-responsabilité-unique)
 
-[Modèles Fat, contrôleurs maigres](#modèles-Fat-contrôleurs-maigres)
+[Gros modèles, contrôleurs maigres](#gros-modèles-contrôleurs-maigres)
 
 [Validation](#validation)
 
