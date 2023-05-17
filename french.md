@@ -74,7 +74,7 @@ Traductions:
 
 [Utilisez un conteneur IoC ou des façades au lieu de la nouvelle classe](#utilisez-un-conteneur-IoC-ou-des-façades-au-lieu-de-la-nouvelle-classe)
 
-[Ne pas obtenir les données du fichier `.env` directement](#ne-pas-obtenir-les-données-du-fichier-env-directement)
+[Ne pas obtenir directement les données du fichier `.env`](#ne-pas-obtenir-directement-les-données-du-fichier-env)
 
 [Stocker les dates au format standard. Utiliser des accesseurs et des mutateurs pour modifier le format de date](#stocker-les-dates-au-format-standard-Utiliser-des-accesseurs-et-des-mutateurs-pour-modifier-le-format-de-date)
 
