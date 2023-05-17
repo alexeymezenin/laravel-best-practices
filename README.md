@@ -222,7 +222,7 @@ class PostRequest extends Request
 
 ### **Business logic should be in service class**
 
-A controller must have only one responsibility, so move business logic from controllers to service classes.
+A controller must have only one responsibility, so move business logic from controllers to service classes or using repository and interface.
 
 Bad:
 
@@ -262,7 +262,7 @@ class ArticleService
 
 ### **Don't repeat yourself (DRY)**
 
-Reuse code when you can. SRP is helping you to avoid duplication. Also, reuse Blade templates, use Eloquent scopes etc.
+Whenever you can, reuse code. The single responsibility principle helps prevent duplication. Also, consider reusing Blade templates and using Eloquent scopes,etc ..
 
 Bad:
 
