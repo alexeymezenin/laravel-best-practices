@@ -173,6 +173,45 @@ class Client extends Model
 }
 ```
 
+By adopting best practices such as using interfaces and repositories, you can improve your code organization and maintainability.
+
+Perfect:
+
+```php
+interface ClientRepositoryInterface extends BaseRepositoryInterface
+{
+    public function getWithNewOrders();
+}
+
+class EloquentClientRepository extends EloquentBaseRepository implements ClientRepositoryInterface
+{
+    public function model()
+    {
+        return Role::class;
+    }
+
+    /**
+     * Returns a listing of clients with their orders for last week.
+     * @return Collection
+     */
+    public function getWithNewOrders(array $roles)
+    {
+        return $this->verified()
+            ->with(['orders' => function ($q) {
+                $q->where('created_at', '>', Carbon::today()->subWeek());
+            }])
+            ->get();
+    }
+}
+
+public function __construct(private readonly ClientRepositoryInterface $clientRepository){}
+
+public function index()
+{
+    return view('index', ['clients' => $this->clientRepository->getWithNewOrders()]);
+}
+```
+
 [🔝 Back to contents](#contents)
 
 ### **Validation**
@@ -210,6 +249,44 @@ class PostRequest extends Request
             'title' => 'required|unique:posts|max:255',
             'body' => 'required',
             'publish_at' => 'nullable|date',
+        ];
+    }
+}
+```
+
+Using the array syntax for validation rules in Laravel is preferred for better consistency, extensibility, readability, and alignment with the Laravel community's standard practices.
+
+Bad:
+
+```php
+public function store(Request $request)
+{
+    $request->validate([
+        'title' => 'required|unique:posts|max:255',
+        'body' => 'required',
+        'publish_at' => 'nullable|date',
+    ]);
+
+    ...
+}
+```
+
+Good:
+
+```php
+public function store(PostRequest $request)
+{
+    ...
+}
+
+class PostRequest extends Request
+{
+    public function rules(): array
+    {
+        return [
+            'title' => ['required', 'unique:posts', 'max:255'],
+            'body' => ['required'],
+            'publish_at' => ['nullable', 'date'],
         ];
     }
 }
