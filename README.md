@@ -54,6 +54,8 @@ Translations:
 
 [Single responsibility principle](#single-responsibility-principle)
 
+[Methods should do just one thing](#methods-should-do-just-one-thing)
+
 [Fat models, skinny controllers](#fat-models-skinny-controllers)
 
 [Validation](#validation)
@@ -80,6 +82,8 @@ Translations:
 
 [Follow Laravel naming conventions](#follow-laravel-naming-conventions)
 
+[Convention over configuration](#convention-over-configuration)
+
 [Use shorter and more readable syntax where possible](#use-shorter-and-more-readable-syntax-where-possible)
 
 [Use IoC container or facades instead of new Class](#use-ioc-container-or-facades-instead-of-new-class)
@@ -88,11 +92,54 @@ Translations:
 
 [Store dates in the standard format. Use accessors and mutators to modify date format](#store-dates-in-the-standard-format-use-accessors-and-mutators-to-modify-date-format)
 
+[Do not use DocBlocks](#do-not-use-docblocks)
+
 [Other good practices](#other-good-practices)
 
 ### **Single responsibility principle**
 
-A class and a method should have only one responsibility.
+A class should have only one responsibility.
+
+Bad:
+
+```php
+public function update(Request $request): string
+{
+    $validated = $request->validate([
+        'title' => 'required|max:255',
+        'events' => 'required|array:date,type'
+    ]);
+
+    foreach ($request->events as $event) {
+        $date = $this->carbon->parse($event['date'])->toString();
+
+        $this->logger->log('Update event ' . $date . ' :: ' . $);
+    }
+
+    $this->event->updateGeneralEvent($request->validated());
+
+    return back();
+}
+```
+
+Good:
+
+```php
+public function update(UpdateRequest $request): string
+{
+    $this->logService->logEvents($request->events);
+
+    $this->event->updateGeneralEvent($request->validated());
+
+    return back();
+}
+```
+
+[🔝 Back to contents](#contents)
+
+### **Methods should do just one thing**
+
+A function should do just one thing and do it well.
 
 Bad:
 
@@ -536,6 +583,46 @@ Seeder | singular | UserSeeder | ~~UsersSeeder~~
 
 [🔝 Back to contents](#contents)
 
+### **Convention over configuration**
+
+As long as you follow certain conventions, you do not need to add additional configuration.
+
+Bad:
+
+```php
+// Table name 'Customer'
+// Primary key 'customer_id'
+class Customer extends Model
+{
+    const CREATED_AT = 'created_at';
+    const UPDATED_AT = 'updated_at';
+
+    protected $table = 'Customer';
+    protected $primaryKey = 'customer_id';
+
+    public function roles(): BelongsToMany
+    {
+        return $this->belongsToMany(Role::class, 'role_customer', 'customer_id', 'role_id');
+    }
+}
+```
+
+Good:
+
+```php
+// Table name 'customers'
+// Primary key 'id'
+class Customer extends Model
+{
+    public function roles(): BelongsToMany
+    {
+        return $this->belongsToMany(Role::class);
+    }
+}
+```
+
+[🔝 Back to contents](#contents)
+
 ### **Use shorter and more readable syntax where possible**
 
 Bad:
@@ -645,6 +732,41 @@ protected $casts = [
 // Blade view
 {{ $object->ordered_at->toDateString() }}
 {{ $object->ordered_at->format('m-d') }}
+```
+
+[🔝 Back to contents](#contents)
+
+### **Do not use DocBlocks**
+
+DocBlocks reduce readability. Use a descriptive method name and modern PHP features like return type hints instead.
+
+Bad:
+
+```php
+/**
+ * The function checks if given string is a valid ASCII string
+ *
+ * @param string $string String we get from frontend which might contain
+ *                       illegal characters. Returns True is the string
+ *                       is valid.
+ *
+ * @return bool
+ * @author  John Smith
+ *
+ * @license GPL
+ */
+
+public function checkString($string)
+{
+}
+```
+
+Good:
+
+```php
+public function isValidAsciiString(string $string): bool
+{
+}
 ```
 
 [🔝 Back to contents](#contents)
