@@ -36,6 +36,8 @@ Translations:
 
 [Polski](polish.md) (by [Karol Pietruszka](https://github.com/pietrushek))
 
+[Română](romanian.md) (by [als698](https://github.com/pietrushek](https://github.com/als698))
+
 [Türkçe](turkish.md) (by [Burak](https://github.com/ikidnapmyself))
 
 [Deutsch](german.md) (by [Sujal Patel](https://github.com/sujalpatel2209))
