@@ -775,7 +775,7 @@ Route::get('user/1', function (User $user) {
 
 ```php
 // Route
-Route::get('user/1', 'UserController@show');
+Route::get('users/1', 'UserController@show');
 
 // Controlelr
 class UserController extends Controller 
