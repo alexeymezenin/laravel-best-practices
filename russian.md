@@ -1,6 +1,6 @@
 ![Хорошие практики Laravel](/images/logo-russian.png?raw=true)
 
-Возможно, вам также будет интересно взглянуть на [пример Laravel приложения](https://github.com/alexeymezenin/laravel-realworld-example-app)
+Возможно, вам также будет интересно взглянуть на [пример Laravel приложения](https://github.com/alexeymezenin/laravel-realworld-example-app) и на [SQL запросы, генерируемые Eloquent ORM](https://github.com/alexeymezenin/eloquent-sql-reference)
 
 [![Laravel example app](/images/laravel-real-world-banner.png?raw=true)](https://github.com/alexeymezenin/laravel-realworld-example-app)
 
