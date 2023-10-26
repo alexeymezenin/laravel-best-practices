@@ -1,6 +1,6 @@
 ![Laravel best practices](/images/logo-english.png?raw=true)
 
-You might also want to check out the [real-world Laravel example application](https://github.com/alexeymezenin/laravel-realworld-example-app)
+You might also want to check out the [real-world Laravel example application](https://github.com/alexeymezenin/laravel-realworld-example-app) and [Eloquent SQL reference](https://github.com/alexeymezenin/eloquent-sql-reference)
 
 Translations:
 
