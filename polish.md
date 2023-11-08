@@ -638,7 +638,7 @@ public function getSomeDateAttribute($date)
 
 ### **Inne dobre praktyki**
 
-NNigdy nie umieszczaj żadnej logiki w plikach ścieżek URL (routes/*.php).
+Nigdy nie umieszczaj żadnej logiki w plikach ścieżek URL (routes/*.php).
 
 Zminimalizuj użycie natywnego kodu PHP w szablonach Blade.
 
