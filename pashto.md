@@ -104,9 +104,9 @@ You might also want to check out the [real-world Laravel example application](ht
 
 ### **د یوه مسؤلیت اصل**
 
-A class should have only one responsibility.
+یو کلس باید یوه وظیفه ولري.
 
-Bad:
+بد کوډ:
 
 ```php
 public function update(Request $request): string
@@ -128,7 +128,7 @@ public function update(Request $request): string
 }
 ```
 
-Good:
+ښه کوډ:
 
 ```php
 public function update(UpdateRequest $request): string
@@ -141,13 +141,14 @@ public function update(UpdateRequest $request): string
 }
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 بېرته تګ منځپانګو ته](#د-منځپانګو-یا-مطالبو-نوملړ
+)
 
 ### **میتودونه باید یوازې یو کار ترسره کړي**
 
 A function should do just one thing and do it well.
 
-Bad:
+بد کوډ:
 
 ```php
 public function getFullNameAttribute(): string
@@ -160,7 +161,7 @@ public function getFullNameAttribute(): string
 }
 ```
 
-Good:
+ښه کوډ:
 
 ```php
 public function getFullNameAttribute(): string
@@ -184,14 +185,15 @@ public function getFullNameShort(): string
 }
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 بېرته تګ منځپانګو ته](#د-منځپانګو-یا-مطالبو-نوملړ
+)
 
 ### **لوی ماډلونه، کوچني کنټرولرونه!**
 
 
 Put all DB related logic into Eloquent models.
 
-Bad:
+بد کوډ:
 
 ```php
 public function index()
@@ -206,7 +208,7 @@ public function index()
 }
 ```
 
-Good:
+ښه کوډ:
 
 ```php
 public function index()
@@ -227,13 +229,14 @@ class Client extends Model
 }
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 بېرته تګ منځپانګو ته](#د-منځپانګو-یا-مطالبو-نوملړ
+)
 
 ### **ډېټا تصدیق یا اعتبار**
 
 Move validation from controllers to Request classes.
 
-Bad:
+بد کوډ:
 
 ```php
 public function store(Request $request)
@@ -248,7 +251,7 @@ public function store(Request $request)
 }
 ```
 
-Good:
+ښه کوډ:
 
 ```php
 public function store(PostRequest $request)
@@ -269,13 +272,14 @@ class PostRequest extends Request
 }
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 بېرته تګ منځپانګو ته](#د-منځپانګو-یا-مطالبو-نوملړ
+)
 
 ### **د پروګرام منطق باید په service class کې وي**
 
 A controller must have only one responsibility, so move business logic from controllers to service classes.
 
-Bad:
+بد کوډ:
 
 ```php
 public function store(Request $request)
@@ -288,7 +292,7 @@ public function store(Request $request)
 }
 ```
 
-Good:
+ښه کوډ:
 
 ```php
 public function store(Request $request)
@@ -309,13 +313,14 @@ class ArticleService
 }
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 بېرته تګ منځپانګو ته](#د-منځپانګو-یا-مطالبو-نوملړ
+)
 
 ### **د DRY اصل یا خپل ځان مه تکراروه**
 
 Reuse code when you can. SRP is helping you to avoid duplication. Also, reuse Blade templates, use Eloquent scopes etc.
 
-Bad:
+بد کوډ:
 
 ```php
 public function getActive()
@@ -331,7 +336,7 @@ public function getArticles()
 }
 ```
 
-Good:
+ښه کوډ:
 
 ```php
 public function scopeActive($q)
@@ -352,14 +357,15 @@ public function getArticles(): Collection
 }
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 بېرته تګ منځپانګو ته](#د-منځپانګو-یا-مطالبو-نوملړ
+)
 
 
 ### **د Query Builder او raw SQL queries پر ځای باید د Eloquent ORM څخه کار واخیستل شي. او همچنان د Arrays پر ځای د Collections څخه کار واخیستل شي**
 
 Eloquent allows you to write readable and maintainable code. Also, Eloquent has great built-in tools like soft deletes, events, scopes etc. You may want to check out [Eloquent to SQL reference](https://github.com/alexeymezenin/eloquent-sql-reference)
 
-Bad:
+بد کوډ:
 
 ```sql
 SELECT *
@@ -376,17 +382,18 @@ AND `active` = '1'
 ORDER BY `created_at` DESC
 ```
 
-Good:
+ښه کوډ:
 
 ```php
 Article::has('user.profile')->verified()->latest()->get();
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 بېرته تګ منځپانګو ته](#د-منځپانګو-یا-مطالبو-نوملړ
+)
 
 ### **(Mass assignment) ډله ایزه دنده**
 
-Bad:
+بد کوډ:
 
 ```php
 $article = new Article;
@@ -399,18 +406,19 @@ $article->category_id = $category->id;
 $article->save();
 ```
 
-Good:
+ښه کوډ:
 
 ```php
 $category->article()->create($request->validated());
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 بېرته تګ منځپانګو ته](#د-منځپانګو-یا-مطالبو-نوملړ
+)
 
 ### **د دې پر ځای چې query په blade کې ولیکئ د eager loading څخه کار واخلئ. (N+1 مسئله)**
 
 
-Bad (for 100 users, 101 DB queries will be executed):
+بد کوډ (for 100 users, 101 DB queries will be executed):
 
 ```blade
 @foreach (User::all() as $user)
@@ -418,7 +426,7 @@ Bad (for 100 users, 101 DB queries will be executed):
 @endforeach
 ```
 
-Good (for 100 users, 2 DB queries will be executed):
+ښه کوډ (for 100 users, 2 DB queries will be executed):
 
 ```php
 $users = User::with('profile')->get();
@@ -428,11 +436,12 @@ $users = User::with('profile')->get();
 @endforeach
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 بېرته تګ منځپانګو ته](#د-منځپانګو-یا-مطالبو-نوملړ
+)
 
 ### **د ډېرې ډېټا لپاره د ډېټا چنک (data chunk) نه استفاده وکړئ**
 
-Bad:
+بد کوډ:
 
 ```php
 $users = $this->get();
@@ -442,7 +451,7 @@ foreach ($users as $user) {
 }
 ```
 
-Good:
+ښه کوډ:
 
 ```php
 $this->chunk(500, function ($users) {
@@ -452,30 +461,32 @@ $this->chunk(500, function ($users) {
 });
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 بېرته تګ منځپانګو ته](#د-منځپانګو-یا-مطالبو-نوملړ
+)
 
 ### **تبصرې وکړئ comments مګر د متودونو یا متغیرونو نومونه توضیحي او معنی لرونکي په پام کې و نیسئ**
 
 
-Bad:
+بد کوډ:
 
 ```php
 // Determine if there are any joins
 if (count((array) $builder->getQuery()->joins) > 0)
 ```
 
-Good:
+ښه کوډ:
 
 ```php
 if ($this->hasJoins())
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 بېرته تګ منځپانګو ته](#د-منځپانګو-یا-مطالبو-نوملړ
+)
 
 ### **په Blade ټیمپلیټونو کې له js او css څخه کار مه اخلئ او هېڅ HTML کوډ په PHP class کې مه کاروئ**
 
 
-Bad:
+بد کوډ:
 
 ```javascript
 let article = `{{ json_encode($article) }}`;
@@ -499,11 +510,12 @@ let article = $('#article').val();
 
 The best way is to use specialized PHP to JS package to transfer the data.
 
-[🔝 Back to contents](#contents)
+[🔝 بېرته تګ منځپانګو ته](#د-منځپانګو-یا-مطالبو-نوملړ
+)
 
 ### **پر ځای د مستقیم متنونو څخه په کوډ کې، د config او languages فایلونو څخه کار واخلئ!**
 
-Bad:
+بد کوډ:
 
 ```php
 public function isNormal(): bool
@@ -514,7 +526,7 @@ public function isNormal(): bool
 return back()->with('message', 'Your article has been added!');
 ```
 
-Good:
+ښه کوډ:
 
 ```php
 public function isNormal()
@@ -525,7 +537,8 @@ public function isNormal()
 return back()->with('message', __('app.article_added'));
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 بېرته تګ منځپانګو ته](#د-منځپانګو-یا-مطالبو-نوملړ
+)
 
 ### **د لاراول د معیاري وسایلو څخه چې د لاراول ټولنې یا کمیونیټي لخوا تایید شوي دي کار واخلئ**
 
@@ -553,7 +566,8 @@ Generating testing data | Seeder classes, Model Factories, Faker | Creating test
 Task scheduling | Laravel Task Scheduler | Scripts and 3rd party packages
 DB | MySQL, PostgreSQL, SQLite, SQL Server | MongoDB
 
-[🔝 Back to contents](#contents)
+[🔝 بېرته تګ منځپانګو ته](#د-منځپانګو-یا-مطالبو-نوملړ
+)
 
 ### **د لاراول د نومونو له اصولو څخه کار واخلئ**
 
@@ -561,7 +575,7 @@ Follow [PSR standards](https://www.php-fig.org/psr/psr-12/).
 
 Also, follow naming conventions accepted by Laravel community:
 
-What | How | Good | Bad
+What | How | ښه کوډ | بد کوډ
 ------------ | ------------- | ------------- | -------------
 Controller | singular | ArticleController | ~~ArticlesController~~
 Route | plural | articles/1 | ~~article/1~~
@@ -592,14 +606,15 @@ Enum | singular | UserType | ~~UserTypes~~, ~~UserTypeEnum~~
 FormRequest | singular | UpdateUserRequest | ~~UpdateUserFormRequest~~, ~~UserFormRequest~~, ~~UserRequest~~
 Seeder | singular | UserSeeder | ~~UsersSeeder~~
 
-[🔝 Back to contents](#contents)
+[🔝 بېرته تګ منځپانګو ته](#د-منځپانګو-یا-مطالبو-نوملړ
+)
 
 ### **کنوانسیون د تنظیماتو په پرتله غوره دی**
 
 
 As long as you follow certain conventions, you do not need to add additional configuration.
 
-Bad:
+بد کوډ:
 
 ```php
 // Table name 'Customer'
@@ -619,7 +634,7 @@ class Customer extends Model
 }
 ```
 
-Good:
+ښه کوډ:
 
 ```php
 // Table name 'customers'
@@ -633,18 +648,19 @@ class Customer extends Model
 }
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 بېرته تګ منځپانګو ته](#د-منځپانګو-یا-مطالبو-نوملړ
+)
 
 ### **تر حده پورې په خپل کوډ کې، د معنی لرونکي او لنډ Syntax څخه کار واخلئ**
 
-Bad:
+بد کوډ:
 
 ```php
 $request->session()->get('cart');
 $request->input('name');
 ```
 
-Good:
+ښه کوډ:
 
 ```php
 session('cart');
@@ -672,21 +688,22 @@ Common syntax | Shorter and more readable syntax
 `->select('id', 'name')->get()` | `->get(['id', 'name'])`
 `->first()->name` | `->value('name')`
 
-[🔝 Back to contents](#contents)
+[🔝 بېرته تګ منځپانګو ته](#د-منځپانګو-یا-مطالبو-نوملړ
+)
 
 ### **د object د جوړولو په وخت کې د new کیورد پر ځای IoC container او facades څخه کار واخلئ**
 
 
 new Class syntax creates tight coupling between classes and complicates testing. Use IoC container or facades instead.
 
-Bad:
+بد کوډ:
 
 ```php
 $user = new User;
 $user->create($request->validated());
 ```
 
-Good:
+ښه کوډ:
 
 ```php
 public function __construct(User $user)
@@ -699,20 +716,21 @@ public function __construct(User $user)
 $this->user->create($request->validated());
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 بېرته تګ منځپانګو ته](#د-منځپانګو-یا-مطالبو-نوملړ
+)
 
 ### **له .env فایل څخه هېڅ وخت مستقیم ډېټا مه ترلاسه کوئ**
 
 
 Pass the data to config files instead and then use the `config()` helper function to use the data in an application.
 
-Bad:
+بد کوډ:
 
 ```php
 $apiKey = env('API_KEY');
 ```
 
-Good:
+ښه کوډ:
 
 ```php
 // config/api.php
@@ -722,20 +740,21 @@ Good:
 $apiKey = config('api.key');
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 بېرته تګ منځپانګو ته](#د-منځپانګو-یا-مطالبو-نوملړ
+)
 
 ### **تاریخ او وخت په معیاري بڼه کې ذخیره کړئ. د تاریخ او وخت د ښودلو لپاره له Accessors & Mutators څخه کار واخلئ**
 
 A date as a string is less reliable than an object instance, e.g. a Carbon-instance. It's recommended to pass Carbon objects between classes instead of date strings. Rendering should be done in the display layer (templates):
 
-Bad:
+بد کوډ:
 
 ```php
 {{ Carbon::createFromFormat('Y-d-m H-i', $object->ordered_at)->toDateString() }}
 {{ Carbon::createFromFormat('Y-d-m H-i', $object->ordered_at)->format('m-d') }}
 ```
 
-Good:
+ښه کوډ:
 
 ```php
 // Model
@@ -748,13 +767,14 @@ protected $casts = [
 {{ $object->ordered_at->format('m-d') }}
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 بېرته تګ منځپانګو ته](#د-منځپانګو-یا-مطالبو-نوملړ
+)
 
 ### **ډاټ بلاک مه استفاده کوئ**
 
 DocBlocks reduce readability. Use a descriptive method name and modern PHP features like return type hints instead.
 
-Bad:
+بد کوډ:
 
 ```php
 /**
@@ -775,7 +795,7 @@ public function checkString($string)
 }
 ```
 
-Good:
+ښه کوډ:
 
 ```php
 public function isValidAsciiString(string $string): bool
@@ -783,11 +803,12 @@ public function isValidAsciiString(string $string): bool
 }
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 بېرته تګ منځپانګو ته](#د-منځپانګو-یا-مطالبو-نوملړ
+)
 
 ### **نورې ښې طریقې**
 
-Avoid using patterns and tools that are alien to Laravel and similar frameworks (i.e. RoR, Django). If you like Symfony (or Spring) approach for building apps, it's a good idea to use these frameworks instead.
+Avoid using patterns and tools that are alien to Laravel and similar frameworks (i.e. RoR, Django). If you like Symfony (or Spring) approach for building apps, it's a ښه کوډ idea to use these frameworks instead.
 
 Never put any logic in routes files.
 
@@ -801,4 +822,5 @@ Use modern PHP syntax where possible, but don't forget about readability.
 
 Avoid using View Composers and similar tools unless you really know what you're doing. In most cases, there is a better way to solve the problem.
 
-[🔝 Back to contents](#contents)
+[🔝 بېرته تګ منځپانګو ته](#د-منځپانګو-یا-مطالبو-نوملړ
+)
