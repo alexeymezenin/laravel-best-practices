@@ -54,52 +54,55 @@ You might also want to check out the [real-world Laravel example application](ht
 
 ## د منځپانګو یا مطالبو نوملړ
 
-[د یوه مسؤلیت اصل](#single-responsibility-principle)
+[د یوه مسؤلیت اصل](#د-یوه-مسؤلیت-اصل)
 
-[میتودونه باید یوازې یو کار ترسره کړي](#)
+[میتودونه باید یوازې یو کار ترسره کړي](#میتودونه-باید-یوازې-یو-کار-ترسره-کړي)
+
+[لوی ماډلونه، کوچني کنټرولرونه!](#لوی-ماډلونه-کوچني-کنټرولرونه)
+
+[ډېټا تصدیق یا اعتبار](#ډېټا-تصدیق-یا-اعتبار)
+
+[د پروګرام منطق باید په service class کې وي.](#د-پروګرام-منطق-باید-په-service-class-کې-وي)
+
+[د DRY اصل یا خپل ځان مه تکراروه!](#د-dry-اصل-یا-خپل-ځان-مه-تکراروه)
+
+[د Query Builder او raw SQL queries پر ځای باید د Eloquent ORM څخه کار واخیستل شي. او همچنان د Arrays پر ځای د Collections څخه کار واخیستل شي.](#د-query-builder-او-raw-sql-queries-پر-ځای-باید-د-eloquent-orm-څخه-کار-واخیستل-شي-او-همچنان-د-arrays-پر-ځای-د-collections-څخه-کار-واخیستل-شي)
+
+[(Mass assignment) ډله ایزه دنده](#mass-assignment-ډله-ایزه-دنده)
 
 
-[لوی ماډلونه، کوچني کنټرولرونه!](#fat-models-skinny-controllers)
+[د دې پر ځای چې query په blade کې ولیکئ د eager loading څخه کار واخلئ. (N+1 مسئله)](#د-دې-پر-ځای-چې-query-په-blade-کې-ولیکئ-د-eager-loading-څخه-کار-واخلئ-n1-مسئله)
 
-[ (Validation) ډېټا تصدیق یا اعتبار](#validation)
+[د ډېرې ډېټا لپاره د ډېټا چنک (data chunk) نه استفاده وکړئ](#د-ډېرې-ډېټا-لپاره-د-ډېټا-چنک-data-chunk-نه-استفاده-وکړئ)
 
-[د پروګرام منطق باید په service class کې وي.](#business-logic-should-be-in-service-class)
 
-[د DRY اصل یا خپل ځان مه تکراروه!](#dont-repeat-yourself-dry)
+[تبصرې وکړئ (Comments)، مګر د متودونو یا متغیرونو نومونه توضیحي او معنی لرونکي په پام کې ونیسئ.](#تبصرې-وکړئ-comments-مګر-د-متودونو-یا-متغیرونو-نومونه-توضیحي-او-معنی-لرونکي-په-پام-کې-و-نیسئ)
 
-[د Query Builder او raw SQL queries پر ځای باید د Eloquent ORM څخه کار واخیستل شي.او همچنان د Arrays پر ځای د Collections څخه کار واخیستل شي.](#prefer-to-use-eloquent-over-using-query-builder-and-raw-sql-queries-prefer-collections-over-arrays)
+[په Blade ټیمپلیټونو کې له js او css څخه کار مه اخلئ او هېڅ HTML کوډ په PHP class کې مه کاروئ.](#په-blade-ټیمپلیټونو-کې-له-js-او-css-څخه-کار-مه-اخلئ-او-هېڅ-html-کوډ-په-php-class-کې-مه-کاروئ)
 
-[(Mass assignment) ډله ایزه دنده](#mass-assignment)
+[پر ځای د مستقیم متنونو څخه په کوډ کې، د config او languages فایلونو څخه کار واخلئ!](#پر-ځای-د-مستقیم-متنونو-څخه-په-کوډ-کې-د-config-او-languages-فایلونو-څخه-کار-واخلئ)
 
-[ د دې پر ځای چې query په blade کې ولیکئ د eager loading څخه کار واخلئ. (N+1 مسئله)](#do-not-execute-queries-in-blade-templates-and-use-eager-loading-n--1-problem)
+[د لاراول د معیاري وسایلو څخه چې د لاراول ټولنې یا کمیونیټي لخوا تایید شوي دي کار واخلئ](#د-لاراول-د-معیاري-وسایلو-څخه-چې-د-لاراول-ټولنې-یا-کمیونیټي-لخوا-تایید-شوي-دي-کار-واخلئ)
 
-[د ډېرې ډېټا لپاره د ډېټا چنک (data chunk)نه استفاده وکړ](#chunk-data-for-data-heavy-tasks)
+[د لاراول د نومونو له اصولو څخه کار واخلئ.](#د-لاراول-د-نومونو-له-اصولو-څخه-کار-واخلئ)
 
-[تبصرې وکړئ (Comments)، مګر د متودونو یا متغیرونو نومونه توضیحي او معنی لرونکي په پام کې ونیسئ.](#comment-your-code-but-prefer-descriptive-method-and-variable-names-over-comments)
+[کنوانسیون د تنظیماتو په پرتله غوره دی](#کنوانسیون-د-تنظیماتو-په-پرتله-غوره-دی)
 
-[په Blade ټیمپلیټونو کې له js او css څخه کار مه اخلئ او هېڅ HTML کوډ په PHP class کې مه کاروئ.](#do-not-put-js-and-css-in-blade-templates-and-do-not-put-any-html-in-php-classes)
+[تر حده پورې په خپل کوډ کې، د معنی لرونکي او لنډ Syntax څخه کار واخلئ.](#تر-حده-پورې-په-خپل-کوډ-کې-د-معنی-لرونکي-او-لنډ-syntax-څخه-کار-واخلئ)
 
-[پر ځای د مستقیم متنونو څخه په کوډ کې، د config او languages فایلونو څخه کار واخلئ!](#use-config-and-language-files-constants-instead-of-text-in-the-code)
+[د object د جوړولو په وخت کې د new کیورد پر ځای IoC container او facades څخه کار واخلئ](#د-object-د-جوړولو-په-وخت-کې-د-new-کیورد-پر-ځای-ioc-container-او-facades-څخه-کار-واخلئ)
 
-[د لاراول د معیاري وسایلو څخه چې د لاراول ټولنې  یا کمیونیټي لخوا تایید شوي دي کار واخلئ](#use-standard-laravel-tools-accepted-by-community)
+[له .env فایل څخه هېڅ وخت مستقیم ډېټا مه ترلاسه کوئ.](#له-env-فایل-څخه-هېڅ-وخت-مستقیم-ډېټا-مه-ترلاسه-کوئ)
 
-[د لاراول د نومونو له اصولو څخه کار واخلئ.](#follow-laravel-naming-conventions)
+[تاریخ او وخت په معیاري بڼه کې ذخیره کړئ. د تاریخ او وخت د ښودلو لپاره له Accessors & Mutators څخه کار واخلئ.](#تاریخ-او-وخت-په-معیاري-بڼه-کې-ذخیره-کړئ-د-تاریخ-او-وخت-د-ښودلو-لپاره-له-accessors--mutators-څخه-کار-واخلئ)
 
-[کانونشن ته نظر د کانفګریشن ته ترجیح ورکول ](#convention-over-configuration)
 
-[تر حده پورې په خپل کوډ کې، د معنی لرونکي او لنډ Syntax څخه کار واخلئ.](#use-shorter-and-more-readable-syntax-where-possible)
+[ډاټ بلاک مه استفاده کوئ](#ډاټ-بلاک-مه-استفاده-کوئ)
 
-[ د object د جوړولو په وخت کې د new ،کیورد پر ځایی IoC container او facades څخه کار واخلئ](#use-ioc-container-or-facades-instead-of-new-class)
+[نورې ښې طریقې](#نورې-ښې-طریقې)
 
-[له .env فایل څخه هېڅ وخت مستقیم ډېټا مه ترلاسه کوئ.](#do-not-get-data-from-the-env-file-directly)
 
-[تاریخ او وخت په معیاري بڼه کې ذخیره کړئ. د تاریخ او وخت د ښودلو لپاره له Accessors & Mutators څخه کار واخلئ.](#store-dates-in-the-standard-format-use-accessors-and-mutators-to-modify-date-format)
-
-[ډاټ بلاک مه استفاده کوئ](#do-not-use-docblocks)
-
-[نورې ښې طریقې](#other-good-practices)
-
-### **Single responsibility principle**
+### **د یوه مسؤلیت اصل**
 
 A class should have only one responsibility.
 
@@ -140,7 +143,7 @@ public function update(UpdateRequest $request): string
 
 [🔝 Back to contents](#contents)
 
-### **Methods should do just one thing**
+### **میتودونه باید یوازې یو کار ترسره کړي**
 
 A function should do just one thing and do it well.
 
@@ -183,7 +186,8 @@ public function getFullNameShort(): string
 
 [🔝 Back to contents](#contents)
 
-### **Fat models, skinny controllers**
+### **لوی ماډلونه، کوچني کنټرولرونه!**
+
 
 Put all DB related logic into Eloquent models.
 
@@ -225,7 +229,7 @@ class Client extends Model
 
 [🔝 Back to contents](#contents)
 
-### **Validation**
+### **ډېټا تصدیق یا اعتبار**
 
 Move validation from controllers to Request classes.
 
@@ -267,7 +271,7 @@ class PostRequest extends Request
 
 [🔝 Back to contents](#contents)
 
-### **Business logic should be in service class**
+### **د پروګرام منطق باید په service class کې وي**
 
 A controller must have only one responsibility, so move business logic from controllers to service classes.
 
@@ -307,7 +311,7 @@ class ArticleService
 
 [🔝 Back to contents](#contents)
 
-### **Don't repeat yourself (DRY)**
+### **د DRY اصل یا خپل ځان مه تکراروه**
 
 Reuse code when you can. SRP is helping you to avoid duplication. Also, reuse Blade templates, use Eloquent scopes etc.
 
@@ -350,7 +354,8 @@ public function getArticles(): Collection
 
 [🔝 Back to contents](#contents)
 
-### **Prefer to use Eloquent over using Query Builder and raw SQL queries. Prefer collections over arrays**
+
+### **د Query Builder او raw SQL queries پر ځای باید د Eloquent ORM څخه کار واخیستل شي. او همچنان د Arrays پر ځای د Collections څخه کار واخیستل شي**
 
 Eloquent allows you to write readable and maintainable code. Also, Eloquent has great built-in tools like soft deletes, events, scopes etc. You may want to check out [Eloquent to SQL reference](https://github.com/alexeymezenin/eloquent-sql-reference)
 
@@ -379,7 +384,7 @@ Article::has('user.profile')->verified()->latest()->get();
 
 [🔝 Back to contents](#contents)
 
-### **Mass assignment**
+### **(Mass assignment) ډله ایزه دنده**
 
 Bad:
 
@@ -402,7 +407,8 @@ $category->article()->create($request->validated());
 
 [🔝 Back to contents](#contents)
 
-### **Do not execute queries in Blade templates and use eager loading (N + 1 problem)**
+### **د دې پر ځای چې query په blade کې ولیکئ د eager loading څخه کار واخلئ. (N+1 مسئله)**
+
 
 Bad (for 100 users, 101 DB queries will be executed):
 
@@ -424,7 +430,7 @@ $users = User::with('profile')->get();
 
 [🔝 Back to contents](#contents)
 
-### **Chunk data for data-heavy tasks**
+### **د ډېرې ډېټا لپاره د ډېټا چنک (data chunk) نه استفاده وکړئ**
 
 Bad:
 
@@ -448,7 +454,9 @@ $this->chunk(500, function ($users) {
 
 [🔝 Back to contents](#contents)
 
-### **Prefer descriptive method and variable names over comments**
+
+### **تبصرې وکړئ (Comments)، مګر د متودونو یا متغیرونو نومونه توضیحي او معنی لرونکي په پام کې ونیسئ**
+
 
 Bad:
 
@@ -465,7 +473,8 @@ if ($this->hasJoins())
 
 [🔝 Back to contents](#contents)
 
-### **Do not put JS and CSS in Blade templates and do not put any HTML in PHP classes**
+### **په Blade ټیمپلیټونو کې له js او css څخه کار مه اخلئ او هېڅ HTML کوډ په PHP class کې مه کاروئ**
+
 
 Bad:
 
@@ -493,7 +502,7 @@ The best way is to use specialized PHP to JS package to transfer the data.
 
 [🔝 Back to contents](#contents)
 
-### **Use config and language files, constants instead of text in the code**
+### **پر ځای د مستقیم متنونو څخه په کوډ کې، د config او languages فایلونو څخه کار واخلئ!**
 
 Bad:
 
@@ -519,7 +528,7 @@ return back()->with('message', __('app.article_added'));
 
 [🔝 Back to contents](#contents)
 
-### **Use standard Laravel tools accepted by community**
+### **د لاراول د معیاري وسایلو څخه چې د لاراول ټولنې یا کمیونیټي لخوا تایید شوي دي کار واخلئ**
 
 Prefer to use built-in Laravel functionality and community packages instead of using 3rd party packages and tools. Any developer who will work with your app in the future will need to learn new tools. Also, chances to get help from the Laravel community are significantly lower when you're using a 3rd party package or tool. Do not make your client pay for that.
 
@@ -547,7 +556,7 @@ DB | MySQL, PostgreSQL, SQLite, SQL Server | MongoDB
 
 [🔝 Back to contents](#contents)
 
-### **Follow Laravel naming conventions**
+### **د لاراول د نومونو له اصولو څخه کار واخلئ**
 
 Follow [PSR standards](https://www.php-fig.org/psr/psr-12/).
 
@@ -586,7 +595,8 @@ Seeder | singular | UserSeeder | ~~UsersSeeder~~
 
 [🔝 Back to contents](#contents)
 
-### **Convention over configuration**
+### **کنوانسیون د تنظیماتو په پرتله غوره دی**
+
 
 As long as you follow certain conventions, you do not need to add additional configuration.
 
@@ -626,7 +636,7 @@ class Customer extends Model
 
 [🔝 Back to contents](#contents)
 
-### **Use shorter and more readable syntax where possible**
+### **تر حده پورې په خپل کوډ کې، د معنی لرونکي او لنډ Syntax څخه کار واخلئ**
 
 Bad:
 
@@ -665,7 +675,8 @@ Common syntax | Shorter and more readable syntax
 
 [🔝 Back to contents](#contents)
 
-### **Use IoC / Service container instead of new Class**
+### **د object د جوړولو په وخت کې د new کیورد پر ځای IoC container او facades څخه کار واخلئ**
+
 
 new Class syntax creates tight coupling between classes and complicates testing. Use IoC container or facades instead.
 
@@ -691,7 +702,8 @@ $this->user->create($request->validated());
 
 [🔝 Back to contents](#contents)
 
-### **Do not get data from the `.env` file directly**
+### **له .env فایل څخه هېڅ وخت مستقیم ډېټا مه ترلاسه کوئ**
+
 
 Pass the data to config files instead and then use the `config()` helper function to use the data in an application.
 
@@ -713,7 +725,7 @@ $apiKey = config('api.key');
 
 [🔝 Back to contents](#contents)
 
-### **Store dates in the standard format. Use accessors and mutators to modify date format**
+### **تاریخ او وخت په معیاري بڼه کې ذخیره کړئ. د تاریخ او وخت د ښودلو لپاره له Accessors & Mutators څخه کار واخلئ**
 
 A date as a string is less reliable than an object instance, e.g. a Carbon-instance. It's recommended to pass Carbon objects between classes instead of date strings. Rendering should be done in the display layer (templates):
 
@@ -739,7 +751,7 @@ protected $casts = [
 
 [🔝 Back to contents](#contents)
 
-### **Do not use DocBlocks**
+### **ډاټ بلاک مه استفاده کوئ**
 
 DocBlocks reduce readability. Use a descriptive method name and modern PHP features like return type hints instead.
 
@@ -774,7 +786,7 @@ public function isValidAsciiString(string $string): bool
 
 [🔝 Back to contents](#contents)
 
-### **Other good practices**
+### **نورې ښې طریقې**
 
 Avoid using patterns and tools that are alien to Laravel and similar frameworks (i.e. RoR, Django). If you like Symfony (or Spring) approach for building apps, it's a good idea to use these frameworks instead.
 
