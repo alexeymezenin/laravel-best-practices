@@ -146,7 +146,7 @@ public function update(UpdateRequest $request): string
 
 ### **میتودونه باید یوازې یو کار ترسره کړي**
 
-A function should do just one thing and do it well.
+یو فنکشن باید یوازې یو کار ترسره کړي او باید په ښه شکل یې ترسره کړي.
 
 بد کوډ:
 
@@ -191,7 +191,7 @@ public function getFullNameShort(): string
 ### **لوی ماډلونه، کوچني کنټرولرونه!**
 
 
-Put all DB related logic into Eloquent models.
+د ډېټابیس مربوط شیان په Eloquent models کې ولیکئ.
 
 بد کوډ:
 
@@ -234,7 +234,7 @@ class Client extends Model
 
 ### **ډېټا تصدیق یا اعتبار**
 
-Move validation from controllers to Request classes.
+د ډېټا تصدیق یا ولیدیشن د کنټرولرونو پر ځای په Request classess کې ولیکئ.
 
 بد کوډ:
 
@@ -277,7 +277,7 @@ class PostRequest extends Request
 
 ### **د پروګرام منطق باید په service class کې وي**
 
-A controller must have only one responsibility, so move business logic from controllers to service classes.
+یو کنټرولر باید یوازې یو مسؤلیت ولري، نو د کوډ منطق په د کنټرولرونو پر ځای باید په service classes کې ولیکئ.
 
 بد کوډ:
 
@@ -318,7 +318,8 @@ class ArticleService
 
 ### **د DRY اصل یا خپل ځان مه تکراروه**
 
-Reuse code when you can. SRP is helping you to avoid duplication. Also, reuse Blade templates, use Eloquent scopes etc.
+کوډ یو وار ولیکئ او ډېر ځایه یې استعمال کړی د کوډ د تکرار څخه ډډه وکړئ.
+همچنان Blade templates کوډ‌ هم مه تکراروئ، د Eloquent scope څخه استفاده وکړئ.
 
 بد کوډ:
 
@@ -363,7 +364,10 @@ public function getArticles(): Collection
 
 ### **د Query Builder او raw SQL queries پر ځای باید د Eloquent ORM څخه کار واخیستل شي. او همچنان د Arrays پر ځای د Collections څخه کار واخیستل شي**
 
-Eloquent allows you to write readable and maintainable code. Also, Eloquent has great built-in tools like soft deletes, events, scopes etc. You may want to check out [Eloquent to SQL reference](https://github.com/alexeymezenin/eloquent-sql-reference)
+
+د Eloquent په واسېه تاسې کولی شئ چې کوډ ویونکي او -هغه چا ته چې وروسته په کوډ کې تغییرات راولی- ته آسانه کوډ ولیکئ.
+همچنان Eloquent مخکې جوړ شوي شیان لري لکه soft deletes, events, scopes وغیره
+[Eloquent SQL ته مرجع](https://github.com/alexeymezenin/eloquent-sql-reference).
 
 بد کوډ:
 
@@ -418,7 +422,7 @@ $category->article()->create($request->validated());
 ### **د دې پر ځای چې query په blade کې ولیکئ د eager loading څخه کار واخلئ. (N+1 مسئله)**
 
 
-بد کوډ (for 100 users, 101 DB queries will be executed):
+بد کوډ (د ۱۰۰ کارنو لپاره ۱۰۱ کیوریانې رن کوي):
 
 ```blade
 @foreach (User::all() as $user)
@@ -427,6 +431,7 @@ $category->article()->create($request->validated());
 ```
 
 ښه کوډ (for 100 users, 2 DB queries will be executed):
+ښه کوډ (د ۱۰۰ کارنو لپاره ۲ کیوریانې رن کوي):
 
 ```php
 $users = User::with('profile')->get();
@@ -492,23 +497,23 @@ if ($this->hasJoins())
 let article = `{{ json_encode($article) }}`;
 ```
 
-Better:
+بهتر کوډ:
 
 ```php
 <input id="article" type="hidden" value='@json($article)'>
 
-Or
+یا
 
 <button class="js-fav-article" data-article='@json($article)'>{{ $article->name }}<button>
 ```
 
-In a Javascript file:
+په یو جاواسکریپت فایل کې
 
 ```javascript
 let article = $('#article').val();
 ```
 
-The best way is to use specialized PHP to JS package to transfer the data.
+بهتره داده چې د PHP to JS .پکیج څخه د ډیټا د لېږلو په خاطر استفاده وشي
 
 [🔝 بېرته تګ منځپانګو ته](#د-منځپانګو-یا-مطالبو-نوملړ
 )
@@ -542,9 +547,11 @@ return back()->with('message', __('app.article_added'));
 
 ### **د لاراول د معیاري وسایلو څخه چې د لاراول ټولنې یا کمیونیټي لخوا تایید شوي دي کار واخلئ**
 
-Prefer to use built-in Laravel functionality and community packages instead of using 3rd party packages and tools. Any developer who will work with your app in the future will need to learn new tools. Also, chances to get help from the Laravel community are significantly lower when you're using a 3rd party package or tool. Do not make your client pay for that.
+د دې پر ځای چې دریمګړي پکیجونو او ټولس نه استفاده وکړئ دا به ښه وي چې د لاراول او د لاراول ټولنې له خوا  چې کوم پکیجونه او ټولس جوړ شوي، نه استفاده وشي.
+هر هغه ډېوېلوپر چې په راتلونکي کې ستاسو له اپلکیشن څخه استفاده کوی، باید نوي ټولس زده کړي.
+او که چېرې تاسې دا پکیجونه او ټولس چې رسمي د لاراول ټولنې څخه نه وي، استفاده کوئ. که چېرې کومې ستونزې سره مخامخ کېږئ نه حلول به یې ګران کار وي.  
 
-Task | Standard tools | 3rd party tools
+وظیفه | معیاري وسایل | (غیر معیاری) 3 ګړي وسایل
 ------------ | ------------- | -------------
 Authorization | Policies | Entrust, Sentinel and other packages
 Compiling assets | Laravel Mix, Vite | Grunt, Gulp, 3rd party packages
@@ -571,11 +578,11 @@ DB | MySQL, PostgreSQL, SQLite, SQL Server | MongoDB
 
 ### **د لاراول د نومونو له اصولو څخه کار واخلئ**
 
-Follow [PSR standards](https://www.php-fig.org/psr/psr-12/).
+دا تعقیب کړئ [PSR standards](https://www.php-fig.org/psr/psr-12/).
 
-Also, follow naming conventions accepted by Laravel community:
+همچنان هغه اصول چې د لاراول د ټولنې لخوا منل شوي دي، تعقیب کړئ
 
-What | How | ښه کوډ | بد کوډ
+څه | څنګه | ښه کوډ | بد کوډ
 ------------ | ------------- | ------------- | -------------
 Controller | singular | ArticleController | ~~ArticlesController~~
 Route | plural | articles/1 | ~~article/1~~
@@ -612,7 +619,7 @@ Seeder | singular | UserSeeder | ~~UsersSeeder~~
 ### **کنوانسیون د تنظیماتو په پرتله غوره دی**
 
 
-As long as you follow certain conventions, you do not need to add additional configuration.
+که تاسو دې اصولو ته پاملرنه وکړئ نو اضافي کانفیګ او کوډونو ته به اړتیا و نه لرئ
 
 بد کوډ:
 
@@ -667,9 +674,9 @@ session('cart');
 $request->name;
 ```
 
-More examples:
+نور مثالونه:
 
-Common syntax | Shorter and more readable syntax
+عام Syntax | لنډ او کوډ لوستونکي ته آسانه کوډ
 ------------ | -------------
 `Session::get('cart')` | `session('cart')`
 `$request->session()->get('cart')` | `session('cart')`
@@ -694,7 +701,7 @@ Common syntax | Shorter and more readable syntax
 ### **د object د جوړولو په وخت کې د new کیورد پر ځای IoC container او facades څخه کار واخلئ**
 
 
-new Class syntax creates tight coupling between classes and complicates testing. Use IoC container or facades instead.
+د کلسونو نوی syntax کوډ پېچلی کوي د هغه پر ځای د  IoC container  او  Facades نه استفاده وکړئ.
 
 بد کوډ:
 
@@ -722,7 +729,7 @@ $this->user->create($request->validated());
 ### **له .env فایل څخه هېڅ وخت مستقیم ډېټا مه ترلاسه کوئ**
 
 
-Pass the data to config files instead and then use the `config()` helper function to use the data in an application.
+د .env فایل څخه مستقیما ډېټا مه را اخلئ دهغه پر ځای د config() helper function  نه استفاده وکړئ.
 
 بد کوډ:
 
@@ -745,7 +752,11 @@ $apiKey = config('api.key');
 
 ### **تاریخ او وخت په معیاري بڼه کې ذخیره کړئ. د تاریخ او وخت د ښودلو لپاره له Accessors & Mutators څخه کار واخلئ**
 
-A date as a string is less reliable than an object instance, e.g. a Carbon-instance. It's recommended to pass Carbon objects between classes instead of date strings. Rendering should be done in the display layer (templates):
+
+یو نېټه د string په بڼه د یو object  لږ باوري ده، لکه د کاربون (Carbon) بیلګه. 
+سپارښتنه کیږي چې د نیټې د strings پر ځای د کاربون بیلګې د ټولګیو ترمنځ ولېږدوئ. ښودنه باید په  view  برخه د اپلکېشن  (templates) کې وشي.
+
+
 
 بد کوډ:
 
@@ -772,7 +783,7 @@ protected $casts = [
 
 ### **ډاټ بلاک مه استفاده کوئ**
 
-DocBlocks reduce readability. Use a descriptive method name and modern PHP features like return type hints instead.
+DotBlocks  د کوډ ویل سختوي، نو باید د descriptive method  او د php  د نوي خصوصیاتو (features) څخه استفاده وشي لکه return type hints.
 
 بد کوډ:
 
@@ -808,19 +819,20 @@ public function isValidAsciiString(string $string): bool
 
 ### **نورې ښې طریقې**
 
-Avoid using patterns and tools that are alien to Laravel and similar frameworks (i.e. RoR, Django). If you like Symfony (or Spring) approach for building apps, it's a ښه کوډ idea to use these frameworks instead.
+ هغه patterns  له هغو وسایلو نه چې له لاراول ته له مشابهو فریمورکونو څخه دي لکه جانګو یا روبي، نه ډډه وکړئ.
+ که ستاسو Symfony یا  Sprint فریمورکونه خوښیږي، دا به ښه وي چې د لاراول پر ځای له هغو نه استفاده وکړئ.  
 
-Never put any logic in routes files.
+په Route فایلونو کې هیڅکله خپل د اپلکیشن کډ مه لیکئ.
 
-Minimize usage of vanilla PHP in Blade templates.
+له خالص پي اچ پي یا vanilla php څخه به blade templates کې کوشش وکړئ چې تر آخری خده ډډه وکړئ. 
 
-Use in-memory DB for testing.
+د ټسټنګ لپاره د in-memory DB نه استفاده وکړئ
 
-Do not override standard framework features to avoid problems related to updating the framework version and many other issues.
+د فریمورک په کود او features کې تغییر مه راولئ.
 
-Use modern PHP syntax where possible, but don't forget about readability.
+د عصري پی اچ پي‌ څخه استفاده وکړئ، داسې کوډ ولیکئ‌ چې په راتلونکي کې، ویل یې آسانه وي.
 
-Avoid using View Composers and similar tools unless you really know what you're doing. In most cases, there is a better way to solve the problem.
+د View Composers د استعمال څخه ډډه وکړئ تر هغه پورې چې سل سلنه پرې پوه نشئ. پهر ډېرو حالاتو کې ډېرې نورې آسانې لارې هم شته چې هغه کار تر سره کړئ.
 
 [🔝 بېرته تګ منځپانګو ته](#د-منځپانګو-یا-مطالبو-نوملړ
 )
