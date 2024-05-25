@@ -1,4 +1,4 @@
-![د لاراول د ښه کوډ لیکلو نمونې او مثالونه](/images/logo-english.png?raw=true)
+![د لاراول د ښه کوډ لیکلو نمونې او مثالونه](/images/logo-pashto.png?raw=true)
 
 You might also want to check out the [real-world Laravel example application](https://github.com/alexeymezenin/laravel-realworld-example-app) and [Eloquent SQL reference](https://github.com/alexeymezenin/eloquent-sql-reference)
 
