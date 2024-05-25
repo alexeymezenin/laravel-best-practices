@@ -1,8 +1,8 @@
-![Laravel best practices](/images/logo-english.png?raw=true)
+![د لاراول د ښه کوډ لیکلو نمونې او مثالونه](/images/logo-english.png?raw=true)
 
 You might also want to check out the [real-world Laravel example application](https://github.com/alexeymezenin/laravel-realworld-example-app) and [Eloquent SQL reference](https://github.com/alexeymezenin/eloquent-sql-reference)
 
-Translations:
+ژباړې:
 
 [Nederlands](https://github.com/Protoqol/Beste-Laravel-Praktijken) (by [Protoqol](https://github.com/Protoqol))
 
@@ -52,51 +52,52 @@ Translations:
 
 [![Laravel example app](/images/laravel-real-world-banner.png?raw=true)](https://github.com/alexeymezenin/laravel-realworld-example-app)
 
-## Contents
+## د منځپانګو یا مطالبو نوملړ
 
-[Single responsibility principle](#single-responsibility-principle)
+[د یوه مسؤلیت اصل](#single-responsibility-principle)
 
-[Methods should do just one thing](#methods-should-do-just-one-thing)
+[میتودونه باید یوازې یو کار ترسره کړي](#)
 
-[Fat models, skinny controllers](#fat-models-skinny-controllers)
 
-[Validation](#validation)
+[لوی ماډلونه، کوچني کنټرولرونه!](#fat-models-skinny-controllers)
 
-[Business logic should be in service class](#business-logic-should-be-in-service-class)
+[ (Validation) ډېټا تصدیق یا اعتبار](#validation)
 
-[Don't repeat yourself (DRY)](#dont-repeat-yourself-dry)
+[د پروګرام منطق باید په service class کې وي.](#business-logic-should-be-in-service-class)
 
-[Prefer to use Eloquent over using Query Builder and raw SQL queries. Prefer collections over arrays](#prefer-to-use-eloquent-over-using-query-builder-and-raw-sql-queries-prefer-collections-over-arrays)
+[د DRY اصل یا خپل ځان مه تکراروه!](#dont-repeat-yourself-dry)
 
-[Mass assignment](#mass-assignment)
+[د Query Builder او raw SQL queries پر ځای باید د Eloquent ORM څخه کار واخیستل شي.او همچنان د Arrays پر ځای د Collections څخه کار واخیستل شي.](#prefer-to-use-eloquent-over-using-query-builder-and-raw-sql-queries-prefer-collections-over-arrays)
 
-[Do not execute queries in Blade templates and use eager loading (N + 1 problem)](#do-not-execute-queries-in-blade-templates-and-use-eager-loading-n--1-problem)
+[(Mass assignment) ډله ایزه دنده](#mass-assignment)
 
-[Chunk data for data-heavy tasks](#chunk-data-for-data-heavy-tasks)
+[ د دې پر ځای چې query په blade کې ولیکئ د eager loading څخه کار واخلئ. (N+1 مسئله)](#do-not-execute-queries-in-blade-templates-and-use-eager-loading-n--1-problem)
 
-[Comment your code, but prefer descriptive method and variable names over comments](#comment-your-code-but-prefer-descriptive-method-and-variable-names-over-comments)
+[د ډېرې ډېټا لپاره د ډېټا چنک (data chunk)نه استفاده وکړ](#chunk-data-for-data-heavy-tasks)
 
-[Do not put JS and CSS in Blade templates and do not put any HTML in PHP classes](#do-not-put-js-and-css-in-blade-templates-and-do-not-put-any-html-in-php-classes)
+[تبصرې وکړئ (Comments)، مګر د متودونو یا متغیرونو نومونه توضیحي او معنی لرونکي په پام کې ونیسئ.](#comment-your-code-but-prefer-descriptive-method-and-variable-names-over-comments)
 
-[Use config and language files, constants instead of text in the code](#use-config-and-language-files-constants-instead-of-text-in-the-code)
+[په Blade ټیمپلیټونو کې له js او css څخه کار مه اخلئ او هېڅ HTML کوډ په PHP class کې مه کاروئ.](#do-not-put-js-and-css-in-blade-templates-and-do-not-put-any-html-in-php-classes)
 
-[Use standard Laravel tools accepted by community](#use-standard-laravel-tools-accepted-by-community)
+[پر ځای د مستقیم متنونو څخه په کوډ کې، د config او languages فایلونو څخه کار واخلئ!](#use-config-and-language-files-constants-instead-of-text-in-the-code)
 
-[Follow Laravel naming conventions](#follow-laravel-naming-conventions)
+[د لاراول د معیاري وسایلو څخه چې د لاراول ټولنې  یا کمیونیټي لخوا تایید شوي دي کار واخلئ](#use-standard-laravel-tools-accepted-by-community)
 
-[Convention over configuration](#convention-over-configuration)
+[د لاراول د نومونو له اصولو څخه کار واخلئ.](#follow-laravel-naming-conventions)
 
-[Use shorter and more readable syntax where possible](#use-shorter-and-more-readable-syntax-where-possible)
+[کانونشن ته نظر د کانفګریشن ته ترجیح ورکول ](#convention-over-configuration)
 
-[Use IoC container or facades instead of new Class](#use-ioc-container-or-facades-instead-of-new-class)
+[تر حده پورې په خپل کوډ کې، د معنی لرونکي او لنډ Syntax څخه کار واخلئ.](#use-shorter-and-more-readable-syntax-where-possible)
 
-[Do not get data from the `.env` file directly](#do-not-get-data-from-the-env-file-directly)
+[ د object د جوړولو په وخت کې د new ،کیورد پر ځایی IoC container او facades څخه کار واخلئ](#use-ioc-container-or-facades-instead-of-new-class)
 
-[Store dates in the standard format. Use accessors and mutators to modify date format](#store-dates-in-the-standard-format-use-accessors-and-mutators-to-modify-date-format)
+[له .env فایل څخه هېڅ وخت مستقیم ډېټا مه ترلاسه کوئ.](#do-not-get-data-from-the-env-file-directly)
 
-[Do not use DocBlocks](#do-not-use-docblocks)
+[تاریخ او وخت په معیاري بڼه کې ذخیره کړئ. د تاریخ او وخت د ښودلو لپاره له Accessors & Mutators څخه کار واخلئ.](#store-dates-in-the-standard-format-use-accessors-and-mutators-to-modify-date-format)
 
-[Other good practices](#other-good-practices)
+[ډاټ بلاک مه استفاده کوئ](#do-not-use-docblocks)
+
+[نورې ښې طریقې](#other-good-practices)
 
 ### **Single responsibility principle**
 
