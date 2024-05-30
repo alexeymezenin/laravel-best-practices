@@ -1,4 +1,4 @@
-![Laravel best practices](/images/logo-english.png?raw=true)
+![Laravel best practices](/images/logo-burmese.png?raw=true)
 
 You might also want to check out the [real-world Laravel example application](https://github.com/alexeymezenin/laravel-realworld-example-app) and [Eloquent SQL reference](https://github.com/alexeymezenin/eloquent-sql-reference)
 
@@ -56,53 +56,53 @@ Translations:
 
 ## Contents
 
-[Single responsibility principle](#single-responsibility-principle)
+[အလုပ်တစ်ခုပဲ တာဝန်ယူနိယာမ](#အလုပ်တစ်ခုပဲ-တာဝန်ယူနိယာမ)
 
-[Methods should do just one thing](#methods-should-do-just-one-thing)
+[Method တစ်ခုက အလုပ်တစ်ခုပဲလုပ်သင့်ပါတယ်](#Method-တစ်ခုက-အလုပ်တစ်ခုပဲလုပ်သင့်ပါတယ်)
 
 [Fat models, skinny controllers](#fat-models-skinny-controllers)
 
 [Validation](#validation)
 
-[Business logic should be in service class](#business-logic-should-be-in-service-class)
+[Business logic တွေက Service class ထဲမှာပဲ ရှိသင့်တယ်](#business-logic-တွေက-Service-class-ထဲမှာပဲ-ရှိသင့်တယ်)
 
-[Don't repeat yourself (DRY)](#dont-repeat-yourself-dry)
+[ထပ်တစ်လဲလဲပြန်မရေးနဲ့ (DRY)](#ထပ်တစ်လဲလဲပြန်မရေးနဲ့-DRY)
 
-[Prefer to use Eloquent over using Query Builder and raw SQL queries. Prefer collections over arrays](#prefer-to-use-eloquent-over-using-query-builder-and-raw-sql-queries-prefer-collections-over-arrays)
+[Query Builder နဲ့ raw SQL queries အစား Eloquent၊ arrays အစား collection ကိုပိုသုံးပါ](#query-builder-နဲ့-raw-sql-queries-အစား-eloquent-arrays-အစား-collection-ကိုပိုသုံးပါ)
 
 [Mass assignment](#mass-assignment)
 
-[Do not execute queries in Blade templates and use eager loading (N + 1 problem)](#do-not-execute-queries-in-blade-templates-and-use-eager-loading-n--1-problem)
+[Queries တွေကို Blade Templates တွေထဲမှာ Execute မလုပ်ပဲနဲ့ အဲတာအစား eager loading ကိုအသုံးပြုပါ။ (N + 1 problem)](#queries-တွေကို-blade-templates-တွေထဲမှာ-execute-မလုပ်ပဲနဲ့-အဲတာအစား-eager-loading-ကိုအသုံးပြုပါ-n--1-problem)
 
-[Chunk data for data-heavy tasks](#chunk-data-for-data-heavy-tasks)
+[Data-heavy tasks တွေအတွက် Chunk data ကိုသုံးပါ](#data-heavy-tasks-တွေအတွက်-chunk-data-ကိုသုံးပါ)
 
-[Comment your code, but prefer descriptive method and variable names over comments](#comment-your-code-but-prefer-descriptive-method-and-variable-names-over-comments)
+[Comment ရေးမဲ့ အစား method နဲ့ variable name တွေကို သေချာပေးခဲ့ပါ](#comment-ရေးမဲ့-အစား-method-နဲ့-variable-name-တွေကို-သေချာပေးခဲ့ပါ)
 
-[Do not put JS and CSS in Blade templates and do not put any HTML in PHP classes](#do-not-put-js-and-css-in-blade-templates-and-do-not-put-any-html-in-php-classes)
+[JS နဲ့ CSS ကို blade templates ထဲကို မထည့်ပါနဲ့၊ PHP class တွေထဲမှာ HTML code တွေမထည့်ပါနဲ့](#js-နဲ့-css-ကို-blade-templates-ထဲကို-မထည့်ပါနဲ့-php-class-တွေထဲမှာ-html-code-တွေမထည့်ပါနဲ့)
 
-[Use config and language files, constants instead of text in the code](#use-config-and-language-files-constants-instead-of-text-in-the-code)
+[Code ထဲမှာ hard coded စာသားတွေ ထည့်မဲ့အစား config နဲ့ language files တွေကိုသုံးပါ](#code-ထဲမှာ-hard-coded-စာသားတွေ-ထည့်မဲ့အစား-config-နဲ့-language-files-တွေကိုသုံးပါ)
 
-[Use standard Laravel tools accepted by community](#use-standard-laravel-tools-accepted-by-community)
+[Community က လက်ခံပြီး အသုံးပြုနေကျ standard laravel tools တွေကိုပဲသုံးပါ](#community-က-လက်ခံပြီး-အသုံးပြုနေကျ-standard-laravel-tools-တွေကိုပဲသုံးပါ)
 
-[Follow Laravel naming conventions](#follow-laravel-naming-conventions)
+[Laravel ရဲ့ အမည်ပေးပုံတွေကိုလိုက်နာပါ](#laravel-ရဲ့-အမည်ပေးပုံတွေကိုလိုက်နာပါ)
 
 [Convention over configuration](#convention-over-configuration)
 
-[Use shorter and more readable syntax where possible](#use-shorter-and-more-readable-syntax-where-possible)
+[တိုတိုနဲ့ ဖတ်ရလွယ်တဲ့ syntax ကိုတက်နိုင်သမျှသုံးပါ](#တိုတိုနဲ့-ဖတ်ရလွယ်တဲ့-syntax-ကိုတက်နိုင်သမျှသုံးပါ)
 
-[Use IoC container or facades instead of new Class](#use-ioc-container-or-facades-instead-of-new-class)
+[new Class အစား loC / Service container တွေကိုသုံးပါ](#new-class-အစား-loC--Service-container-တွေကိုသုံးပါ)
 
-[Do not get data from the `.env` file directly](#do-not-get-data-from-the-env-file-directly)
+[`.env` file ကနေ data ကိုတိုက်ရိုက်မယူပါနဲ့](#env-file-ကနေ-data-ကိုတိုက်ရိုက်မယူပါနဲ့)
 
-[Store dates in the standard format. Use accessors and mutators to modify date format](#store-dates-in-the-standard-format-use-accessors-and-mutators-to-modify-date-format)
+[ရက်စွဲတွေကို standard format အတိုင်းသိမ်းပါ။ Date format တွေကို modify လုပ်ချင်ရင် accessors နဲ့ mutators ကိုသုံးပါ](#ရက်စွဲတွေကို-standard-format-အတိုင်းသိမ်းပါ-date-format-တွေကို-modify-လုပ်ချင်ရင်-accessors-နဲ့-mutators-ကိုသုံးပါ)
 
-[Do not use DocBlocks](#do-not-use-docblocks)
+[DocBlocks တွေကိုမသုံးပါနဲ့](#docblocks-တွေကိုမသုံးပါနဲ့)
 
-[Other good practices](#other-good-practices)
+[တစ်ခြားအလေ့အကျင့်ကောင်းများ](#တစ်ခြားအလေ့အကျင့်ကောင်းများ)
 
-### **Single responsibility principle**
+### **အလုပ်တစ်ခုပဲ တာဝန်ယူနိယာမ**
 
-A class should have only one responsibility.
+Class တစ်ခုမှာ တာဝန်တစ်ခုပဲရှိသင့်ပါတယ်။
 
 Bad:
 
@@ -139,11 +139,11 @@ public function update(UpdateRequest $request): string
 }
 ```
 
-[🔝 Back to contents](#contents)
+[🔝Contents တွေဆီပြန်သွားမယ်](#contents)
 
-### **Methods should do just one thing**
+### **Method တစ်ခုက အလုပ်တစ်ခုပဲလုပ်သင့်ပါတယ်**
 
-A function should do just one thing and do it well.
+Function တစ်ခုက အလုပ်တစ်ခုကိုပဲ သေချာလုပ်သင့်ပါတယ်။
 
 Bad:
 
@@ -182,11 +182,11 @@ public function getFullNameShort(): string
 }
 ```
 
-[🔝 Back to contents](#contents)
+[🔝Contents တွေဆီပြန်သွားမယ်](#contents)
 
 ### **Fat models, skinny controllers**
 
-Put all DB related logic into Eloquent models.
+DB logic တွေ အကုန်လုံးကို Eloquent Model ထဲကို ထည့်ပါ။
 
 Bad:
 
@@ -224,11 +224,11 @@ class Client extends Model
 }
 ```
 
-[🔝 Back to contents](#contents)
+[🔝Contents တွေဆီပြန်သွားမယ်](#contents)
 
 ### **Validation**
 
-Move validation from controllers to Request classes.
+Validation စစ်တာကို controller ထဲမှာ မစစ်ပဲ request class ထဲမှာစစ်ပါ။
 
 Bad:
 
@@ -266,11 +266,11 @@ class PostRequest extends Request
 }
 ```
 
-[🔝 Back to contents](#contents)
+[🔝Contents တွေဆီပြန်သွားမယ်](#contents)
 
-### **Business logic should be in service class**
+### **Business logic တွေက Service class ထဲမှာပဲ ရှိသင့်တယ်**
 
-A controller must have only one responsibility, so move business logic from controllers to service classes.
+Controller တစ်ခုက အလုပ်တစ်ခုပဲ လုပ်သင့်တယ်။ Business‌ logic တွေကို သပ်သပ် service class ထဲကိုရွှေ့ပါ။
 
 Bad:
 
@@ -306,11 +306,11 @@ class ArticleService
 }
 ```
 
-[🔝 Back to contents](#contents)
+[🔝Contents တွေဆီပြန်သွားမယ်](#contents)
 
-### **Don't repeat yourself (DRY)**
+### **ထပ်တစ်လဲလဲပြန်မရေးနဲ့ (DRY)**
 
-Reuse code when you can. SRP is helping you to avoid duplication. Also, reuse Blade templates, use Eloquent scopes etc.
+Code ကိုတက်နိုင်သမျှ ထပ်တစ်လဲလဲပြန်မရေးပဲနဲ့ ပြန်သုံးပါ။ Blade templates၊ Eloquent scopes တွေကိုပြန်သုံးပါ။
 
 Bad:
 
@@ -349,11 +349,11 @@ public function getArticles(): Collection
 }
 ```
 
-[🔝 Back to contents](#contents)
+[🔝Contents တွေဆီပြန်သွားမယ်](#contents)
 
-### **Prefer to use Eloquent over using Query Builder and raw SQL queries. Prefer collections over arrays**
+### **Query Builder နဲ့ raw SQL queries အစား Eloquent၊ arrays အစား collection ကိုပိုသုံးပါ**
 
-Eloquent allows you to write readable and maintainable code. Also, Eloquent has great built-in tools like soft deletes, events, scopes etc. You may want to check out [Eloquent to SQL reference](https://github.com/alexeymezenin/eloquent-sql-reference)
+Eloquent က code ကို ဖတ်လို့လွယ် ပြုပြင်ဖို့လွယ်စေတယ်။ နောက်ပြီး eloquent မှာ သုံးလို့‌ကောင်းတဲ့ soft deletes, events, scopes စတဲ့ build-in tools တွေ ပါပါတယ်။ ဒီမှာဝင်ဖတ်ကြည့်လို့ရပါတယ် [Eloquent to SQL reference](https://github.com/alexeymezenin/eloquent-sql-reference)
 
 Bad:
 
@@ -378,7 +378,7 @@ Good:
 Article::has('user.profile')->verified()->latest()->get();
 ```
 
-[🔝 Back to contents](#contents)
+[🔝Contents တွေဆီပြန်သွားမယ်](#contents)
 
 ### **Mass assignment**
 
@@ -401,11 +401,11 @@ Good:
 $category->article()->create($request->validated());
 ```
 
-[🔝 Back to contents](#contents)
+[🔝Contents တွေဆီပြန်သွားမယ်](#contents)
 
-### **Do not execute queries in Blade templates and use eager loading (N + 1 problem)**
+### **Queries တွေကို Blade Templates တွေထဲမှာ Execute မလုပ်ပဲနဲ့ အဲတာအစား eager loading ကိုအသုံးပြုပါ။ (N + 1 problem)**
 
-Bad (for 100 users, 101 DB queries will be executed):
+Bad (user အယောက် ၁၀၀ အတွက် Query ၁၀၁ ခု execute လုပ်ရမယ် ):
 
 ```blade
 @foreach (User::all() as $user)
@@ -413,7 +413,7 @@ Bad (for 100 users, 101 DB queries will be executed):
 @endforeach
 ```
 
-Good (for 100 users, 2 DB queries will be executed):
+Good (user အယောက် ၁၀၀ အတွက် Query ၂ ခု ပဲ execute ရမယ်):
 
 ```php
 $users = User::with('profile')->get();
@@ -423,9 +423,9 @@ $users = User::with('profile')->get();
 @endforeach
 ```
 
-[🔝 Back to contents](#contents)
+[🔝Contents တွေဆီပြန်သွားမယ်](#contents)
 
-### **Chunk data for data-heavy tasks**
+### **Data-heavy tasks တွေအတွက် Chunk data ကိုသုံးပါ**
 
 Bad:
 
@@ -449,7 +449,7 @@ $this->chunk(500, function ($users) {
 
 [🔝 Back to contents](#contents)
 
-### **Prefer descriptive method and variable names over comments**
+### **Comment ရေးမဲ့ အစား method နဲ့ variable name တွေကို သေချာပေးခဲ့ပါ**
 
 Bad:
 
@@ -464,9 +464,9 @@ Good:
 if ($this->hasJoins())
 ```
 
-[🔝 Back to contents](#contents)
+[🔝Contents တွေဆီပြန်သွားမယ်](#contents)
 
-### **Do not put JS and CSS in Blade templates and do not put any HTML in PHP classes**
+### **JS နဲ့ CSS ကို blade templates ထဲကို မထည့်ပါနဲ့၊ PHP class တွေထဲမှာ HTML code တွေမထည့်ပါနဲ့**
 
 Bad:
 
@@ -490,11 +490,11 @@ In a Javascript file:
 let article = $('#article').val();
 ```
 
-The best way is to use specialized PHP to JS package to transfer the data.
+အကောင်းဆုံးကတော့ data transfer ဖို့အတွက် specialized PHP to JS Package တွေကိုသုံးပါ။
 
-[🔝 Back to contents](#contents)
+[🔝Contents တွေဆီပြန်သွားမယ်](#contents)
 
-### **Use config and language files, constants instead of text in the code**
+### **Code ထဲမှာ hard coded စာသားတွေ ထည့်မဲ့အစား config နဲ့ language files တွေကိုသုံးပါ**
 
 Bad:
 
@@ -518,11 +518,11 @@ public function isNormal()
 return back()->with('message', __('app.article_added'));
 ```
 
-[🔝 Back to contents](#contents)
+[🔝Contents တွေဆီပြန်သွားမယ်](#contents)
 
-### **Use standard Laravel tools accepted by community**
+### **Community က လက်ခံပြီး အသုံးပြုနေကျ standard laravel tools တွေကိုပဲသုံးပါ**
 
-Prefer to use built-in Laravel functionality and community packages instead of using 3rd party packages and tools. Any developer who will work with your app in the future will need to learn new tools. Also, chances to get help from the Laravel community are significantly lower when you're using a 3rd party package or tool. Do not make your client pay for that.
+3rd party packages နဲ့ tools တွေ သုံးမဲ့အစား build-in laravel functionality တွေနဲ့ community packages တွေကိုသာ ပိုသုံးသင့်ပါတယ်။ မဟုတ်ရင် နောက်ပိုင်းမှာ ကိုယ့် project ကို တစ်ခြား developer တွေ ဆက်ပြီး လုပ်တဲ့အခါမှာ tools အသစ်တွေကိုထပ်ပြီး လေ့လာနေရပါလိမ့်မယ်။ ဒါ့အပြင် တစ်ခြား third party package နဲ့ tool သုံးခဲ့ရင် အဲဒီ tools တွေနဲ့ ပက်သတ်ပြီး community ဆီကနေ အကူအညီရနိုင်ခြေလဲ သိသိသာသာလျော့သွားပါလိမ့်မယ်။ ကိုယ့် client ကို အဲတာအတွက် အပိုမကုန်ပါစေနဲ့။
 
 Task | Standard tools | 3rd party tools
 ------------ | ------------- | -------------
@@ -546,13 +546,13 @@ Generating testing data | Seeder classes, Model Factories, Faker | Creating test
 Task scheduling | Laravel Task Scheduler | Scripts and 3rd party packages
 DB | MySQL, PostgreSQL, SQLite, SQL Server | MongoDB
 
-[🔝 Back to contents](#contents)
+[🔝Contents တွေဆီပြန်သွားမယ်](#contents)
 
-### **Follow Laravel naming conventions**
+### **Laravel ရဲ့ အမည်ပေးပုံတွေကိုလိုက်နာပါ**
 
 Follow [PSR standards](https://www.php-fig.org/psr/psr-12/).
 
-Also, follow naming conventions accepted by Laravel community:
+နောက်ပြီး laravel community က လက်ခံထားတဲ့ အမည်ပေးပုံတွေကိုလိုက်နာပါ။
 
 What | How | Good | Bad
 ------------ | ------------- | ------------- | -------------
@@ -585,11 +585,11 @@ Enum | singular | UserType | ~~UserTypes~~, ~~UserTypeEnum~~
 FormRequest | singular | UpdateUserRequest | ~~UpdateUserFormRequest~~, ~~UserFormRequest~~, ~~UserRequest~~
 Seeder | singular | UserSeeder | ~~UsersSeeder~~
 
-[🔝 Back to contents](#contents)
+[🔝Contents တွေဆီပြန်သွားမယ်](#contents)
 
 ### **Convention over configuration**
 
-As long as you follow certain conventions, you do not need to add additional configuration.
+တစ်ချို့ naming conventions တွေကိုလိုက်နာနေရင် တစ်ခြား configuration တွေလုပ်စရာမလိုတော့ဘူး။
 
 Bad:
 
@@ -625,9 +625,9 @@ class Customer extends Model
 }
 ```
 
-[🔝 Back to contents](#contents)
+[🔝Contents တွေဆီပြန်သွားမယ်](#contents)
 
-### **Use shorter and more readable syntax where possible**
+### **တိုတိုနဲ့ ဖတ်ရလွယ်တဲ့ syntax ကိုတက်နိုင်သမျှသုံးပါ**
 
 Bad:
 
@@ -643,9 +643,9 @@ session('cart');
 $request->name;
 ```
 
-More examples:
+နောက်ထပ် ဥပမာများ:
 
-Common syntax | Shorter and more readable syntax
+တွေ့မြင်နေကျ syntax | တိုတိုနဲ့ ဖတ်ရလွယ် syntax
 ------------ | -------------
 `Session::get('cart')` | `session('cart')`
 `$request->session()->get('cart')` | `session('cart')`
@@ -664,11 +664,10 @@ Common syntax | Shorter and more readable syntax
 `->select('id', 'name')->get()` | `->get(['id', 'name'])`
 `->first()->name` | `->value('name')`
 
-[🔝 Back to contents](#contents)
+[🔝Contents တွေဆီပြန်သွားမယ်](#contents)
 
-### **Use IoC / Service container instead of new Class**
-
-new Class syntax creates tight coupling between classes and complicates testing. Use IoC container or facades instead.
+### **new Class အစား loC / Service container တွေကိုသုံးပါ**
+new Class syntax က class တွေအတွင်းမှာ tight coupling ဖြစ်စေတဲ့အပြင် testing လုပ်တဲ့အခါမှာ ပိုပြီး ရှုတ်ထွေးစေတယ်။ အဲ့အစား LoC container နဲ့ facades ကိုသုံးပါ။
 
 Bad:
 
@@ -690,11 +689,11 @@ public function __construct(User $user)
 $this->user->create($request->validated());
 ```
 
-[🔝 Back to contents](#contents)
+[🔝Contents တွေဆီပြန်သွားမယ်](#contents)
 
-### **Do not get data from the `.env` file directly**
+### **`.env` file ကနေ data ကိုတိုက်ရိုက်မယူပါနဲ့**
 
-Pass the data to config files instead and then use the `config()` helper function to use the data in an application.
+အဲလိုလုပ်မဲ့အစား application မှာသုံးရမဲ့ data ကို config files တွေဆီပို့ပြီးတော့ `config()` helper function ကိုသုံးပါ။
 
 Bad:
 
@@ -712,11 +711,11 @@ Good:
 $apiKey = config('api.key');
 ```
 
-[🔝 Back to contents](#contents)
+[🔝Contents တွေဆီပြန်သွားမယ်](#contents)
 
-### **Store dates in the standard format. Use accessors and mutators to modify date format**
+### **ရက်စွဲတွေကို standard format အတိုင်းသိမ်းပါ။ Date format တွေကို modify လုပ်ချင်ရင် accessors နဲ့ mutators ကိုသုံးပါ**
 
-A date as a string is less reliable than an object instance, e.g. a Carbon-instance. It's recommended to pass Carbon objects between classes instead of date strings. Rendering should be done in the display layer (templates):
+ရက်စွဲတစ်ခုကို စာသား(string) အနေနဲ့သိမ်းတာက object instance အနေနဲ့သိမ်းတာလောက် စိတ်မချရဘူး ၊ ဥပမာ Carbon-instance။ Class အချင်းချင်းကြား date string အနေနဲ့ ပေးတာထက် carbon objects အနေနဲ့‌ပေးတာကို ပိုအားပေးပါတယ်။ ဒေတာပြန်ပြတာကိုတော့ display layer(templates) မှာပဲ လုပ်သင့်ပါတယ်။
 
 Bad:
 
@@ -738,11 +737,11 @@ protected $casts = [
 {{ $object->ordered_at->format('m-d') }}
 ```
 
-[🔝 Back to contents](#contents)
+[🔝Contents တွေဆီပြန်သွားမယ်](#contents)
 
-### **Do not use DocBlocks**
+### **DocBlocks တွေကိုမသုံးပါနဲ့**
 
-DocBlocks reduce readability. Use a descriptive method name and modern PHP features like return type hints instead.
+DocBlocks တွေက ဖတ်ရတာ ပိုခက်စေတယ်။ အဲ့အစား method name ကိုသေချာပေးတာ နဲ့ အသစ်ထွက် PHP feautre တွေဖြစ်တဲ့ return type hints တွေကိုသုံးပါ။
 
 Bad:
 
@@ -773,22 +772,22 @@ public function isValidAsciiString(string $string): bool
 }
 ```
 
-[🔝 Back to contents](#contents)
+[🔝Contents တွေဆီပြန်သွားမယ်](#contents)
 
-### **Other good practices**
+### **တစ်ခြားအလေ့အကျင့်ကောင်းများ**
 
-Avoid using patterns and tools that are alien to Laravel and similar frameworks (i.e. RoR, Django). If you like Symfony (or Spring) approach for building apps, it's a good idea to use these frameworks instead.
+Laravel၊ တစ်ခြား ဆင်တူတဲ့(RoR၊ Django)အစရှိတဲ့ frameworks တွေနဲ့စိမ်းတဲ့ patterns တွေ tools တွေကိုမသုံးပါနဲ့။ App တစ်ခုဆောက်ဖို့ကို Symfony (ဒါမှမဟုတ် Spring) ရဲ့ approach ကို သုံးရတာကြိုက်ရင် အဲဒီ framework ကိုပဲသုံးလိုက်သင့်ပါတယ်။ 
 
-Never put any logic in routes files.
+Route file တွေမှာ ဘာlogic မှမထည့်ပါနဲ့။
 
-Minimize usage of vanilla PHP in Blade templates.
+Vanilla PHP ကို Blade templates တွေမှာ နည်းနိုင်သမျှ နည်းသုံးပါ။
 
-Use in-memory DB for testing.
+Testing အတွက် in-memory DB ကိုသုံးပါ။
 
-Do not override standard framework features to avoid problems related to updating the framework version and many other issues.
+Framework version update လုပ်တာ နဲ့ တစ်ခြား issues တွေမတက်‌အောင် framework ရဲ့ standard features တွေကိုပြင်မရေးပါနဲ့။
 
-Use modern PHP syntax where possible, but don't forget about readability.
+နောက်ထွက် PHP syntax တွေကိုတက်နိုင်သမျှ အသုံးပြုပါ ဒါပေမယ့် ဖတ်ရလွယ်အောင်ရေးဖို့လဲ မမေ့ပါနဲ့။
 
-Avoid using View Composers and similar tools unless you really know what you're doing. In most cases, there is a better way to solve the problem.
+တကယ်သေချာမသိရင် View Composers နဲ့ တစ်ခြားဆင်တူတဲ့ tools တွေကိုမသုံးပါနဲ့။ များသောအားဖြင့် ပြဿနာကို ဖြေရှင်းဖို့ ပိုကောင်းတဲ့ နည်းတွေရှိပါတယ်။
 
-[🔝 Back to contents](#contents)
+[🔝Contents တွေဆီပြန်သွားမယ်](#contents)
