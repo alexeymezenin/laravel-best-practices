@@ -50,6 +50,8 @@ Translations:
 
 [اردو](urdu.md) (by [RizwanAshraf1](https://github.com/RizwanAshraf1))
 
+[မြန်မာဘာသာ](burmese.md) (by[Kaung Zay Yan](https://github.com/KaungZayY))
+
 [![Laravel example app](/images/laravel-real-world-banner.png?raw=true)](https://github.com/alexeymezenin/laravel-realworld-example-app)
 
 ## Contents
