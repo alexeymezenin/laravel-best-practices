@@ -657,6 +657,7 @@ Common syntax | Shorter and more readable syntax
 `$request->has('value') ? $request->value : 'default';` | `$request->get('value', 'default')`
 `Carbon::now(), Carbon::today()` | `now(), today()`
 `App::make('Class')` | `app('Class')`
+`auth()->user()->id` | `auth()->id`
 `->where('column', '=', 1)` | `->where('column', 1)`
 `->orderBy('created_at', 'desc')` | `->latest()`
 `->orderBy('age', 'desc')` | `->latest('age')`
