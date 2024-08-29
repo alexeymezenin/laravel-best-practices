@@ -50,7 +50,7 @@ Translations:
 
 [اردو](urdu.md) (by [RizwanAshraf1](https://github.com/RizwanAshraf1))
 
-[မြန်မာဘာသာ](burmese.md) (by[Kaung Zay Yan](https://github.com/KaungZayY))
+[မြန်မာဘာသာ](burmese.md) (by [Kaung Zay Yan](https://github.com/KaungZayY))
 
 [![Laravel example app](/images/laravel-real-world-banner.png?raw=true)](https://github.com/alexeymezenin/laravel-realworld-example-app)
 
@@ -667,6 +667,7 @@ $request->name;
 [🔝Contents တွေဆီပြန်သွားမယ်](#contents)
 
 ### **new Class အစား loC / Service container တွေကိုသုံးပါ**
+
 new Class syntax က class တွေအတွင်းမှာ tight coupling ဖြစ်စေတဲ့အပြင် testing လုပ်တဲ့အခါမှာ ပိုပြီး ရှုတ်ထွေးစေတယ်။ အဲ့အစား LoC container နဲ့ facades ကိုသုံးပါ။
 
 Bad:
@@ -679,10 +680,7 @@ $user->create($request->validated());
 Good:
 
 ```php
-public function __construct(User $user)
-{
-    $this->user = $user;
-}
+public function __construct(protected User $user) {}
 
 ...
 
