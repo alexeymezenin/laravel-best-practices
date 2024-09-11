@@ -76,7 +76,7 @@ Translations:
 
 [Chunk data for data-heavy tasks](#chunk-data-for-data-heavy-tasks)
 
-[Comment your code, but prefer descriptive method and variable names over comments](#comment-your-code-but-prefer-descriptive-method-and-variable-names-over-comments)
+[Comment your code, but prefer descriptive method and variable names over comments](#prefer-descriptive-method-and-variable-names-over-comments)
 
 [Do not put JS and CSS in Blade templates and do not put any HTML in PHP classes](#do-not-put-js-and-css-in-blade-templates-and-do-not-put-any-html-in-php-classes)
 
