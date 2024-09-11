@@ -479,7 +479,7 @@ Authorization | Policies | Entrust, Sentinel and other packages
 Compiling assets | Laravel Mix, Vite | Grunt, Gulp, 3rd party packages
 Development Environment | Laravel Sail, Homestead | Docker
 Deployment | Laravel Forge | Deployer and other solutions
-Unit testing | PHPUnit, Mockery | Phpspec, Pest
+Unit testing | PHPUnit, Pest, Mockery | Phpspec
 Browser testing | Laravel Dusk | Codeception
 DB | Eloquent | SQL, Doctrine
 Templates | Blade | Twig
@@ -520,7 +520,7 @@ Primary key | - | id | ~~custom_id~~
 Migration | - | 2017_01_01_000000_create_articles_table | ~~2017_01_01_000000_articles~~
 Method | camelCase | getAll | ~~get_all~~
 Method in resource controller | [table](https://laravel.com/docs/master/controllers#resource-controllers) | store | ~~saveArticle~~
-Method in test class | snake_case | test_guest_cannot_see_article | ~~testGuestCannotSeeArticle~~
+Method in PHPUnit test class | snake_case | test_guest_cannot_see_article | ~~testGuestCannotSeeArticle~~
 Variable | camelCase | $articlesWithAuthor | ~~$articles_with_author~~
 Collection | descriptive, plural | $activeUsers = User::active()->get() | ~~$active, $data~~
 Object | descriptive, singular | $activeUser = User::active()->first() | ~~$users, $obj~~
