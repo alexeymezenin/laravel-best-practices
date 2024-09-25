@@ -711,6 +711,30 @@ $apiKey = config('api.key');
 
 [🔝 Back to contents](#contents)
 
+### **Use helper functions provided in Illuminate/Support**
+
+There are numerous helper functions provided in Illuminate/Support, this can be used anywhere in the application, instead of trying to invent the wheel by writing your own PHP helpers, which is unsafe and can be challenging.
+
+Bad:
+```php
+public function uniqueId()
+{
+    $str_result = '23456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjklmnpqrstuvwxyz';
+
+    $id = substr(str_shuffle($str_result), 0, 24); 
+}
+
+Good
+public function uniqueId()
+{
+    ....
+    $id = Str::random(24);
+    ....
+}
+```
+
+[🔝 Back to contents](#contents)
+
 ### **Store dates in the standard format. Use accessors and mutators to modify date format**
 
 A date as a string is less reliable than an object instance, e.g. a Carbon-instance. It's recommended to pass Carbon objects between classes instead of date strings. Rendering should be done in the display layer (templates):
@@ -787,5 +811,7 @@ Do not override standard framework features to avoid problems related to updatin
 Use modern PHP syntax where possible, but don't forget about readability.
 
 Avoid using View Composers and similar tools unless you really know what you're doing. In most cases, there is a better way to solve the problem.
+
+After you have done all you can to secure the application. One final reminder is to make sure you don't forget to set APP_DEBUG=TRUE in the .env file. If you leave the debug mode enabled, hackers will be able to access some private parts of your code as well as configuration information and third-party login credentials.
 
 [🔝 Back to contents](#contents)
