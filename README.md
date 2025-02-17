@@ -541,7 +541,7 @@ API authentication | Laravel Passport, Laravel Sanctum | 3rd party JWT and OAuth
 Creating API | Built-in | Dingo API and similar packages
 Working with DB structure | Migrations | Working with DB structure directly
 Localization | Built-in | 3rd party packages
-Realtime user interfaces | Laravel Echo, Pusher | 3rd party packages and working with WebSockets directly
+Realtime user interfaces | Laravel Echo, Pusher, Reverb | 3rd party packages and working with WebSockets directly
 Generating testing data | Seeder classes, Model Factories, Faker | Creating testing data manually
 Task scheduling | Laravel Task Scheduler | Scripts and 3rd party packages
 DB | MySQL, PostgreSQL, SQLite, SQL Server | MongoDB
