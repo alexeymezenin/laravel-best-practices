@@ -573,6 +573,7 @@ Method | camelCase | getAll | ~~get_all~~
 Method in resource controller | [table](https://laravel.com/docs/master/controllers#resource-controllers) | store | ~~saveArticle~~
 Method in test class | camelCase | testGuestCannotSeeArticle | ~~test_guest_cannot_see_article~~
 Variable | camelCase | $articlesWithAuthor | ~~$articles_with_author~~
+Blade Variable | camelCase | articlesWithTitle | ~~$articles_with_title~~
 Collection | descriptive, plural | $activeUsers = User::active()->get() | ~~$active, $data~~
 Object | descriptive, singular | $activeUser = User::active()->first() | ~~$users, $obj~~
 Config and language files index | snake_case | articles_enabled | ~~ArticlesEnabled; articles-enabled~~
