@@ -40,6 +40,8 @@ Translations:
 
 [Türkçe](turkish.md) (by [Burak](https://github.com/ikidnapmyself))
 
+[Türkçe](turkmen.md) (by [Artyom Osepyan](https://github.com/artengin))
+
 [Deutsch](german.md) (by [Sujal Patel](https://github.com/sujalpatel2209))
 
 [Italiana](italian.md) (by [Sujal Patel](https://github.com/sujalpatel2209))
