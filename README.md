@@ -92,7 +92,7 @@ Translations:
 
 [Use shorter and more readable syntax where possible](#use-shorter-and-more-readable-syntax-where-possible)
 
-[Use IoC container or facades instead of new Class](#use-ioc-container-or-facades-instead-of-new-class)
+[Use IoC / Service container instead of new Class](#use-ioc--service-container-instead-of-new-class)
 
 [Do not get data from the `.env` file directly](#do-not-get-data-from-the-env-file-directly)
 
