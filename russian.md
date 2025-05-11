@@ -378,7 +378,7 @@ $users = User::with('profile')->get();
 
 ### **Используйте метод chunk при работе с большим количеством данных**
 
-Bad:
+Плохо:
 
 ```php
 $users = $this->get();
@@ -388,7 +388,7 @@ foreach ($users as $user) {
 }
 ```
 
-Good:
+Хорошо:
 
 ```php
 $this->chunk(500, function ($users) {
