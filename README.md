@@ -791,3 +791,44 @@ Use modern PHP syntax where possible, but don't forget about readability.
 Avoid using View Composers and similar tools unless you really know what you're doing. In most cases, there is a better way to solve the problem.
 
 [🔝 Back to contents](#contents)
+
+### **Protect Against SQL Injection**
+
+SQL injection is a common attack vector that can compromise your database. Here are some best practices to protect your Laravel application:
+
+1. **Use Eloquent ORM**: Eloquent ORM is Laravel's built-in object-relational mapper that automatically protects against SQL injection by using parameterized queries. Always prefer Eloquent for database interactions.
+
+   ```php
+   // Safe example using Eloquent
+   $users = User::where('status', 1)->get();
+   ```
+
+2. **Use Query Builder**: If you need to use Laravel's query builder, it also uses parameterized queries by default, which helps prevent SQL injection.
+
+   ```php
+   // Safe example using Query Builder
+   $users = DB::table('users')->where('status', 1)->get();
+   ```
+
+3. **Avoid Raw Queries**: Avoid using raw SQL queries unless absolutely necessary. If you must use them, ensure they are properly parameterized to prevent injection attacks. Use the `DB::raw()` method with caution.
+
+   ```php
+   // Safe example using parameter binding
+   $users = DB::select('SELECT * FROM users WHERE status = ?', [1]);
+   ```
+
+4. **Validate and Sanitize Input**: Always validate and sanitize user inputs before using them in queries. Use Laravel's validation features to enforce rules on incoming data.
+
+   ```php
+   // Example of input validation in a controller
+   $request->validate([
+       'status' => 'required|integer',
+   ]);
+
+   // Use validated input in a query
+   $users = User::where('status', $request->status)->get();
+   ```
+
+By following these practices, you can significantly reduce the risk of SQL injection attacks in your Laravel application.
+
+[🔝 Back to contents](#contents)
